@@ -1,0 +1,626 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF302C1974D100D160A5 /* CourtiqApp.swift */; };
+		C060AF332C1974D100D160A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF322C1974D100D160A5 /* ContentView.swift */; };
+		C060AF352C1974D100D160A5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF342C1974D100D160A5 /* Item.swift */; };
+		C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C060AF362C1974D200D160A5 /* Assets.xcassets */; };
+		C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C060AF3A2C1974D200D160A5 /* Preview Assets.xcassets */; };
+		C060AF452C1974D200D160A5 /* CourtiqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF442C1974D200D160A5 /* CourtiqTests.swift */; };
+		C060AF4F2C1974D200D160A5 /* CourtiqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */; };
+		C060AF512C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C060AF412C1974D200D160A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C060AF252C1974D100D160A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C060AF2C2C1974D100D160A5;
+			remoteInfo = Courtiq;
+		};
+		C060AF4B2C1974D200D160A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C060AF252C1974D100D160A5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C060AF2C2C1974D100D160A5;
+			remoteInfo = Courtiq;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C060AF2D2C1974D100D160A5 /* Courtiq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Courtiq.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C060AF302C1974D100D160A5 /* CourtiqApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqApp.swift; sourceTree = "<group>"; };
+		C060AF322C1974D100D160A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		C060AF342C1974D100D160A5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C060AF362C1974D200D160A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C060AF382C1974D200D160A5 /* Courtiq.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Courtiq.entitlements; sourceTree = "<group>"; };
+		C060AF3A2C1974D200D160A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C060AF402C1974D200D160A5 /* CourtiqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CourtiqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C060AF442C1974D200D160A5 /* CourtiqTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqTests.swift; sourceTree = "<group>"; };
+		C060AF4A2C1974D200D160A5 /* CourtiqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CourtiqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITests.swift; sourceTree = "<group>"; };
+		C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C060AF2A2C1974D100D160A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C060AF3D2C1974D200D160A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C060AF472C1974D200D160A5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C060AF242C1974D100D160A5 = {
+			isa = PBXGroup;
+			children = (
+				C060AF2F2C1974D100D160A5 /* Courtiq */,
+				C060AF432C1974D200D160A5 /* CourtiqTests */,
+				C060AF4D2C1974D200D160A5 /* CourtiqUITests */,
+				C060AF2E2C1974D100D160A5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C060AF2E2C1974D100D160A5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C060AF2D2C1974D100D160A5 /* Courtiq.app */,
+				C060AF402C1974D200D160A5 /* CourtiqTests.xctest */,
+				C060AF4A2C1974D200D160A5 /* CourtiqUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C060AF2F2C1974D100D160A5 /* Courtiq */ = {
+			isa = PBXGroup;
+			children = (
+				C060AF302C1974D100D160A5 /* CourtiqApp.swift */,
+				C060AF322C1974D100D160A5 /* ContentView.swift */,
+				C060AF342C1974D100D160A5 /* Item.swift */,
+				C060AF362C1974D200D160A5 /* Assets.xcassets */,
+				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
+				C060AF392C1974D200D160A5 /* Preview Content */,
+			);
+			path = Courtiq;
+			sourceTree = "<group>";
+		};
+		C060AF392C1974D200D160A5 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				C060AF3A2C1974D200D160A5 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C060AF432C1974D200D160A5 /* CourtiqTests */ = {
+			isa = PBXGroup;
+			children = (
+				C060AF442C1974D200D160A5 /* CourtiqTests.swift */,
+			);
+			path = CourtiqTests;
+			sourceTree = "<group>";
+		};
+		C060AF4D2C1974D200D160A5 /* CourtiqUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */,
+				C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */,
+			);
+			path = CourtiqUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C060AF2C2C1974D100D160A5 /* Courtiq */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C060AF542C1974D200D160A5 /* Build configuration list for PBXNativeTarget "Courtiq" */;
+			buildPhases = (
+				C060AF292C1974D100D160A5 /* Sources */,
+				C060AF2A2C1974D100D160A5 /* Frameworks */,
+				C060AF2B2C1974D100D160A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Courtiq;
+			productName = Courtiq;
+			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C060AF3F2C1974D200D160A5 /* CourtiqTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C060AF572C1974D200D160A5 /* Build configuration list for PBXNativeTarget "CourtiqTests" */;
+			buildPhases = (
+				C060AF3C2C1974D200D160A5 /* Sources */,
+				C060AF3D2C1974D200D160A5 /* Frameworks */,
+				C060AF3E2C1974D200D160A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C060AF422C1974D200D160A5 /* PBXTargetDependency */,
+			);
+			name = CourtiqTests;
+			productName = CourtiqTests;
+			productReference = C060AF402C1974D200D160A5 /* CourtiqTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C060AF492C1974D200D160A5 /* CourtiqUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C060AF5A2C1974D200D160A5 /* Build configuration list for PBXNativeTarget "CourtiqUITests" */;
+			buildPhases = (
+				C060AF462C1974D200D160A5 /* Sources */,
+				C060AF472C1974D200D160A5 /* Frameworks */,
+				C060AF482C1974D200D160A5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C060AF4C2C1974D200D160A5 /* PBXTargetDependency */,
+			);
+			name = CourtiqUITests;
+			productName = CourtiqUITests;
+			productReference = C060AF4A2C1974D200D160A5 /* CourtiqUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C060AF252C1974D100D160A5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					C060AF2C2C1974D100D160A5 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					C060AF3F2C1974D200D160A5 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = C060AF2C2C1974D100D160A5;
+					};
+					C060AF492C1974D200D160A5 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = C060AF2C2C1974D100D160A5;
+					};
+				};
+			};
+			buildConfigurationList = C060AF282C1974D100D160A5 /* Build configuration list for PBXProject "Courtiq" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C060AF242C1974D100D160A5;
+			productRefGroup = C060AF2E2C1974D100D160A5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C060AF2C2C1974D100D160A5 /* Courtiq */,
+				C060AF3F2C1974D200D160A5 /* CourtiqTests */,
+				C060AF492C1974D200D160A5 /* CourtiqUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C060AF2B2C1974D100D160A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */,
+				C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C060AF3E2C1974D200D160A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C060AF482C1974D200D160A5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C060AF292C1974D100D160A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
+				C060AF352C1974D100D160A5 /* Item.swift in Sources */,
+				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C060AF3C2C1974D200D160A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C060AF452C1974D200D160A5 /* CourtiqTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C060AF462C1974D200D160A5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C060AF512C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift in Sources */,
+				C060AF4F2C1974D200D160A5 /* CourtiqUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C060AF422C1974D200D160A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C060AF2C2C1974D100D160A5 /* Courtiq */;
+			targetProxy = C060AF412C1974D200D160A5 /* PBXContainerItemProxy */;
+		};
+		C060AF4C2C1974D200D160A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C060AF2C2C1974D100D160A5 /* Courtiq */;
+			targetProxy = C060AF4B2C1974D200D160A5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		C060AF522C1974D200D160A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C060AF532C1974D200D160A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		C060AF552C1974D200D160A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Courtiq/Courtiq.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Courtiq/Preview Content\"";
+				DEVELOPMENT_TEAM = Q8KFRAGT9K;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rocketdestroyer.com.Courtiq;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C060AF562C1974D200D160A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Courtiq/Courtiq.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Courtiq/Preview Content\"";
+				DEVELOPMENT_TEAM = Q8KFRAGT9K;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rocketdestroyer.com.Courtiq;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C060AF582C1974D200D160A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q8KFRAGT9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rocketdestroyer.com.CourtiqTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Courtiq.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Courtiq";
+			};
+			name = Debug;
+		};
+		C060AF592C1974D200D160A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q8KFRAGT9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rocketdestroyer.com.CourtiqTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Courtiq.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Courtiq";
+			};
+			name = Release;
+		};
+		C060AF5B2C1974D200D160A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q8KFRAGT9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rocketdestroyer.com.CourtiqUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Courtiq;
+			};
+			name = Debug;
+		};
+		C060AF5C2C1974D200D160A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q8KFRAGT9K;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = rocketdestroyer.com.CourtiqUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Courtiq;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C060AF282C1974D100D160A5 /* Build configuration list for PBXProject "Courtiq" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C060AF522C1974D200D160A5 /* Debug */,
+				C060AF532C1974D200D160A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C060AF542C1974D200D160A5 /* Build configuration list for PBXNativeTarget "Courtiq" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C060AF552C1974D200D160A5 /* Debug */,
+				C060AF562C1974D200D160A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C060AF572C1974D200D160A5 /* Build configuration list for PBXNativeTarget "CourtiqTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C060AF582C1974D200D160A5 /* Debug */,
+				C060AF592C1974D200D160A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C060AF5A2C1974D200D160A5 /* Build configuration list for PBXNativeTarget "CourtiqUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C060AF5B2C1974D200D160A5 /* Debug */,
+				C060AF5C2C1974D200D160A5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C060AF252C1974D100D160A5 /* Project object */;
+}
