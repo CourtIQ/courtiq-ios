@@ -1,5 +1,5 @@
 //
-//  CKPageIndicator.swift
+//  RDPageIndicator.swift
 //  
 //
 //  Created by DynamicLayers on 10/11/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-public struct CKPageIndicator: View {
+public struct RDPageIndicator: View {
     
     var pageCount: Int
     @Binding var selectedIndex: Int

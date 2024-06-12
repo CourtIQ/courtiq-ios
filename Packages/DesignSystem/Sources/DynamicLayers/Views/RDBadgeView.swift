@@ -1,5 +1,5 @@
 //
-//  CKBadgeView.swift
+//  RDBadgeView.swift
 //  
 //
 //  Created by DynamicLayers on 05/11/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0.0, *)
-public enum CKBadgeType {
+public enum RDBadgeType {
     case defalt
     case success
     case error
@@ -29,13 +29,13 @@ public enum CKBadgeType {
 }
 
 @available(iOS 13.0.0, *)
-public struct CKBadgeView: View {
+public struct RDBadgeView: View {
     let value: String
-    let ckBadgeType: CKBadgeType
+    let ckBadgeType: RDBadgeType
     
     public init(
         value: String,
-        ckBadgeType: CKBadgeType
+        ckBadgeType: RDBadgeType
     ) {
         self.value = value
         self.ckBadgeType = ckBadgeType

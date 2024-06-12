@@ -1,5 +1,5 @@
 //
-//  CKTextField.swift
+//  RDTextField.swift
 //  
 //
 //  Created by DynamicLayers on 15/11/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-public enum CKTextFieldType {
+public enum RDTextFieldType {
     case primary
     case search
     
@@ -31,7 +31,7 @@ public enum CKTextFieldType {
     }
 }
 
-public enum CKTextFieldStatus {
+public enum RDTextFieldStatus {
     case info
     case warning
     case success
@@ -55,14 +55,14 @@ public enum CKTextFieldStatus {
 }
 
 @available(iOS 13.0, *)
-public struct CKTextFieldParams {
-    var type: CKTextFieldType
+public struct RDTextFieldParams {
+    var type: RDTextFieldType
     var placehlder: String
     var height: CGFloat
     var isBorderExists: Bool
     
     public init(
-        type: CKTextFieldType = .primary,
+        type: RDTextFieldType = .primary,
         placehlder: String,
         height: CGFloat = 56,
         isBorderExists: Bool = true
@@ -75,20 +75,20 @@ public struct CKTextFieldParams {
 }
 
 @available(iOS 15.0, *)
-public struct CKTextField: View {
+public struct RDTextField: View {
     
-    var params: CKTextFieldParams
+    var params: RDTextFieldParams
     @Binding var text: String
-    @Binding var status: CKTextFieldStatus
+    @Binding var status: RDTextFieldStatus
     @Binding var errorString: String
     var onTrailingIconPressed: (() -> ())?
     
     @FocusState var focused: Bool
     
     public init(
-        params: CKTextFieldParams,
+        params: RDTextFieldParams,
         text: Binding<String>,
-        status: Binding<CKTextFieldStatus>,
+        status: Binding<RDTextFieldStatus>,
         errorString: Binding<String>,
         onTrailingIconPressed: (()->())? = nil
     ) {

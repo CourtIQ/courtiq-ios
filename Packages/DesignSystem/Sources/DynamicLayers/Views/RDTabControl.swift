@@ -1,5 +1,5 @@
 //
-//  CKTabControl.swift
+//  RDTabControl.swift
 //  
 //
 //  Created by DynamicLayers on 11/11/2023.
@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-public struct CKTabControlItem {
+public struct RDTabControlItem {
     let id = UUID().uuidString
     let title: String
     let icon: String
-    var badgeType: CKNotificationBadgeType?
+    var badgeType: RDNotificationBadgeType?
     var notiCount: Int?
     
     public init(
         title: String,
         icon: String,
-        badgeType: CKNotificationBadgeType? = nil,
+        badgeType: RDNotificationBadgeType? = nil,
         notiCount: Int? = nil
     ) {
         self.title = title
@@ -43,12 +43,12 @@ public struct CKTabControlItem {
 }
 
 @available(iOS 15.0, *)
-public struct CKTabControl: View {
+public struct RDTabControl: View {
     
-    let items: [CKTabControlItem]
+    let items: [RDTabControlItem]
     @Binding var selectedIndex: Int
     
-    public init(items: [CKTabControlItem], selectedIndex: Binding<Int>) {
+    public init(items: [RDTabControlItem], selectedIndex: Binding<Int>) {
         self.items = items
         self._selectedIndex = selectedIndex
     }
@@ -64,7 +64,7 @@ public struct CKTabControl: View {
         .padding(.top, 6)
     }
     
-    func TabItem(item: CKTabControlItem, isSelected: Bool, action: @escaping (()->())) -> some View {
+    func TabItem(item: RDTabControlItem, isSelected: Bool, action: @escaping (()->())) -> some View {
         HStack(spacing: 8) {
             Image(item.icon)
                 .resizable()
@@ -77,7 +77,7 @@ public struct CKTabControl: View {
                     .opacity(isSelected ? 1 : 0.3)
                 
                 if let badgeType = item.badgeType {
-                    CKNotificationBadgeView(type: badgeType, notiCount: item.notiCount)
+                    RDNotificationBadgeView(type: badgeType, notiCount: item.notiCount)
                         .offset(x: item.getOffset().x, y: item.getOffset().y)
                 }
             }

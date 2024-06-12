@@ -1,5 +1,5 @@
 //
-//  CKTooltipView.swift
+//  RDTooltipView.swift
 //
 //
 //  Created by DynamicLayers on 29/11/2023.
@@ -8,15 +8,15 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-public struct CKTooltipView: View {
+public struct RDTooltipView: View {
     
-    var type: CKCoachMarkType
+    var type: RDCoachMarkType
     var title: String
     var size: (width: CGFloat, height: CGFloat)
     var padding: EdgeInsets
     
     public init(
-        type: CKCoachMarkType = .bottom,
+        type: RDCoachMarkType = .bottom,
         title: String,
         size: (width: CGFloat, height: CGFloat) = (130, 52),
         padding: EdgeInsets = EdgeInsets(top: 0, leading: 0, bottom: 12, trailing: 0)

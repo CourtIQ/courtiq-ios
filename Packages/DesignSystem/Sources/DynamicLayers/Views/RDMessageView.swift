@@ -1,5 +1,5 @@
 //
-//  CKMessageView.swift
+//  RDMessageView.swift
 //  
 //
 //  Created by DynamicLayerson 11/11/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0.0, *)
-public enum CKMessageType {
+public enum RDMessageType {
     case sender
     case receiver
     
@@ -32,7 +32,7 @@ public enum CKMessageType {
 }
 
 @available(iOS 13.0.0, *)
-public struct CKMessage {
+public struct RDMessage {
     let message: String
     let date: String
     let image: String
@@ -45,12 +45,12 @@ public struct CKMessage {
 }
 
 @available(iOS 15.0.0, *)
-public struct CKMessageView: View {
+public struct RDMessageView: View {
     
-    var type: CKMessageType
-    var message: CKMessage
+    var type: RDMessageType
+    var message: RDMessage
     
-    public init(type: CKMessageType = .sender, message: CKMessage) {
+    public init(type: RDMessageType = .sender, message: RDMessage) {
         self.type = type
         self.message = message
     }
@@ -59,7 +59,7 @@ public struct CKMessageView: View {
         HStack(alignment: .bottom, spacing: 8) {
             
             if type == .receiver {
-                CKAvatarView(ckAvatarSizing: .extraSmall, ckAvatarBadgeType: .none)
+                RDAvatarView(rdAvatarSizing: .extraSmall, rdAvatarBadgeType: .none)
             }
             
             VStack(alignment: .leading, spacing: 2) {
@@ -75,7 +75,7 @@ public struct CKMessageView: View {
             .cornerRadius(12)
             
             if type == .sender {
-                CKAvatarView(ckAvatarSizing: .extraSmall, ckAvatarBadgeType: .none)
+                RDAvatarView(rdAvatarSizing: .extraSmall, rdAvatarBadgeType: .none)
             }
             
         }

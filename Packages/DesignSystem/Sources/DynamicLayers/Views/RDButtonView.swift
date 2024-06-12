@@ -1,5 +1,5 @@
 //
-//  CKButtonView.swift
+//  RDButtonView.swift
 //  
 //
 //  Created by DynamicLayers on 06/11/2023.
@@ -140,7 +140,7 @@ public enum ButtonType {
 }
 
 @available(iOS 13.0, *)
-struct CKButtonPressEffect: ButtonStyle {
+struct RDButtonPressEffect: ButtonStyle {
     var buttonSize: ButtonSize
     var buttonType: ButtonType
     var disable: Bool
@@ -154,7 +154,7 @@ struct CKButtonPressEffect: ButtonStyle {
 }
 
 @available(iOS 15.0.0, *)
-public struct CKButtonView: View {
+public struct RDButtonView: View {
     
     var buttonSize: ButtonSize
     var buttonType: ButtonType
@@ -208,7 +208,7 @@ public struct CKButtonView: View {
         }
         .disabled(disable)
         .buttonStyle(
-            CKButtonPressEffect(
+            RDButtonPressEffect(
                 buttonSize: buttonSize,
                 buttonType: buttonType,
                 disable: disable

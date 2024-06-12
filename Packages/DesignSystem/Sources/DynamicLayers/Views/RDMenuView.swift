@@ -1,5 +1,5 @@
 //
-//  CKMenuView.swift
+//  RDMenuView.swift
 //  
 //
 //  Created by DynamicLayers on 11/11/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 14.0, *)
-public struct CKMenuView: View {
+public struct RDMenuView: View {
     
     var items: [AnyView]
     var label: AnyView

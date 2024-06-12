@@ -1,5 +1,5 @@
 //
-//  CKNotificationBadgeView.swift
+//  RDNotificationBadgeView.swift
 //  
 //
 //  Created by DynamicLayers on 11/11/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum CKNotificationBadgeType {
+public enum RDNotificationBadgeType {
     case small
     case medium
     case large
@@ -26,13 +26,13 @@ public enum CKNotificationBadgeType {
 }
 
 @available(iOS 15.0.0, *)
-public struct CKNotificationBadgeView: View {
+public struct RDNotificationBadgeView: View {
     
-    var type: CKNotificationBadgeType
+    var type: RDNotificationBadgeType
     var notiCount: Int?
     
     public init(
-        type: CKNotificationBadgeType = .large,
+        type: RDNotificationBadgeType = .large,
         notiCount: Int?
     ) {
         self.type = type

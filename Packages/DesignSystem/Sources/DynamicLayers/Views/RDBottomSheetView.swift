@@ -1,5 +1,5 @@
 //
-//  CKBottomSheetView.swift
+//  RDBottomSheetView.swift
 //  
 //
 //  Created by DynamicLayers on 09/11/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum CKBottomSheetType {
+public enum RDBottomSheetType {
     case primary
     case secondary
     case tertiary
@@ -15,9 +15,9 @@ public enum CKBottomSheetType {
 }
 
 @available(iOS 15.0.0, *)
-public struct CKBottomSheetView: View {
+public struct RDBottomSheetView: View {
     
-    var type: CKBottomSheetType
+    var type: RDBottomSheetType
     var image: String
     var title: String
     var headline: String
@@ -27,7 +27,7 @@ public struct CKBottomSheetView: View {
     var onCancel: (()->())?
     
     public init(
-        type: CKBottomSheetType,
+        type: RDBottomSheetType,
         image: String,
         title: String,
         headline: String,
@@ -77,7 +77,7 @@ public struct CKBottomSheetView: View {
                 .frame(height: 72)
             
             if type == .secondary || type == .quaternary {
-                CKButtonView(
+                RDButtonView(
                     .extraLarge,
                     .primary,
                     buttonTitles.trailing
@@ -86,7 +86,7 @@ public struct CKBottomSheetView: View {
             }
             
             if type == .secondary {
-                CKButtonView(
+                RDButtonView(
                     .extraLarge,
                     .tertiary,
                     buttonTitles.leading
@@ -96,13 +96,13 @@ public struct CKBottomSheetView: View {
             
             if type == .tertiary {
                 HStack(spacing: 16) {
-                    CKButtonView(
+                    RDButtonView(
                         .extraLarge,
                         .ghost,
                         buttonTitles.leading
                     )
                     
-                    CKButtonView(
+                    RDButtonView(
                         .extraLarge,
                         .primary,
                         buttonTitles.trailing

@@ -1,5 +1,5 @@
 //
-//  CKSegmentControl.swift
+//  RDSegmentControl.swift
 //  
 //
 //  Created by DynamicLayers on 11/11/2023.
@@ -8,14 +8,14 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-public struct CKSegmentControl<Data, Content> : View where Data: Hashable, Content: View {
+public struct RDSegmentControl<Data, Content> : View where Data: Hashable, Content: View {
     public let sources: [Data]
     public let selection: Data?
     private let itemBuilder: (Data) -> Content
     
     @State private var backgroundColor: Color = Color.chipBorderColor
     
-    func pickerBackgroundColor(_ color: Color) -> CKSegmentControl {
+    func pickerBackgroundColor(_ color: Color) -> RDSegmentControl {
         var view = self
         view._backgroundColor = State(initialValue: color)
         return view
@@ -23,7 +23,7 @@ public struct CKSegmentControl<Data, Content> : View where Data: Hashable, Conte
     
     @State private var cornerRadius: CGFloat?
     
-    func cornerRadius(_ cornerRadius: CGFloat) -> CKSegmentControl {
+    func cornerRadius(_ cornerRadius: CGFloat) -> RDSegmentControl {
         var view = self
         view._cornerRadius = State(initialValue: cornerRadius)
         return view
@@ -31,7 +31,7 @@ public struct CKSegmentControl<Data, Content> : View where Data: Hashable, Conte
     
     @State private var borderColor: Color?
     
-    func borderColor(_ borderColor: Color) -> CKSegmentControl {
+    func borderColor(_ borderColor: Color) -> RDSegmentControl {
         var view = self
         view._borderColor = State(initialValue: borderColor)
         return view
@@ -39,7 +39,7 @@ public struct CKSegmentControl<Data, Content> : View where Data: Hashable, Conte
     
     @State private var borderWidth: CGFloat?
     
-    func borderWidth(_ borderWidth: CGFloat) -> CKSegmentControl {
+    func borderWidth(_ borderWidth: CGFloat) -> RDSegmentControl {
         var view = self
         view._borderWidth = State(initialValue: borderWidth)
         return view

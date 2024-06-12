@@ -1,5 +1,5 @@
 //
-//  CKIconButton.swift
+//  RDIconButton.swift
 //  
 //
 //  Created by DynamicLayers on 05/11/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-public enum CKIconButtonSize {
+public enum RDIconButtonSize {
     case extraLarge
     case large
     case medium
@@ -38,7 +38,7 @@ public enum CKIconButtonSize {
 }
 
 @available(iOS 13.0, *)
-public enum CKIconButtonType {
+public enum RDIconButtonType {
     case primary
     case secondary
     case tertiary
@@ -114,9 +114,9 @@ public enum CKIconButtonType {
 }
 
 @available(iOS 13.0, *)
-struct CKIconButtonPressedStyle: ButtonStyle {
-    var buttonSize: CKIconButtonSize
-    var buttonType: CKIconButtonType
+struct RDIconButtonPressedStyle: ButtonStyle {
+    var buttonSize: RDIconButtonSize
+    var buttonType: RDIconButtonType
     var disable: Bool
     
     func makeBody(configuration: Configuration) -> some View {
@@ -128,16 +128,16 @@ struct CKIconButtonPressedStyle: ButtonStyle {
 }
 
 @available(iOS 15.0.0, *)
-public struct CKIconButton: View {
-    var type: CKIconButtonType
-    var size: CKIconButtonSize
+public struct RDIconButton: View {
+    var type: RDIconButtonType
+    var size: RDIconButtonSize
     let icon: String
     var disable: Bool
     var action: (()->())?
     
     public init(
-        _ type: CKIconButtonType = .primary,
-        _ size: CKIconButtonSize = .extraLarge,
+        _ type: RDIconButtonType = .primary,
+        _ size: RDIconButtonSize = .extraLarge,
         _ icon: String,
         _ disable: Bool = false,
         action: (() -> ())? = nil
@@ -160,7 +160,7 @@ public struct CKIconButton: View {
                 .frame(width: size.size, height: size.size)
         }
         .buttonStyle(
-            CKIconButtonPressedStyle(
+            RDIconButtonPressedStyle(
                 buttonSize: size,
                 buttonType: type,
                 disable: disable

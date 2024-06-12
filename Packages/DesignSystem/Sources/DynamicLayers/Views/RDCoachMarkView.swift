@@ -1,5 +1,5 @@
 //
-//  CKCoachMarkView.swift
+//  RDCoachMarkView.swift
 //  
 //
 //  Created by DynamicLayers on 10/11/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct CKCoachMarkItem {
+public struct RDCoachMarkItem {
     let title: String
     let description: String
     
@@ -18,7 +18,7 @@ public struct CKCoachMarkItem {
 }
 
 @available(iOS 13.0, *)
-public enum CKCoachMarkType {
+public enum RDCoachMarkType {
     case top
     case leading
     case trailing
@@ -52,15 +52,15 @@ public enum CKCoachMarkType {
 }
 
 @available(iOS 15.0, *)
-public struct CKCoachMarkView: View {
+public struct RDCoachMarkView: View {
     
     @State var selectedIndex = 0
     
-    let items: [CKCoachMarkItem]
-    var type: CKCoachMarkType
+    let items: [RDCoachMarkItem]
+    var type: RDCoachMarkType
     let onClose: (()->())
     
-    public init(items: [CKCoachMarkItem], type: CKCoachMarkType = .bottom, onClose: @escaping (() -> ())) {
+    public init(items: [RDCoachMarkItem], type: RDCoachMarkType = .bottom, onClose: @escaping (() -> ())) {
         self.items = items
         self.type = type
         self.onClose = onClose
@@ -93,10 +93,10 @@ public struct CKCoachMarkView: View {
                     .padding(.bottom, 8)
                 
                 HStack(spacing: 0) {
-                    CKPageIndicator(pageCount: items.count, selectedIndex: $selectedIndex, bgColor: .white)
+                    RDPageIndicator(pageCount: items.count, selectedIndex: $selectedIndex, bgColor: .white)
                     Spacer()
                     
-                    CKButtonView(
+                    RDButtonView(
                         .small,
                         .tertiary,
                         "Back",
@@ -110,7 +110,7 @@ public struct CKCoachMarkView: View {
                     }
                     .padding(.trailing, 8)
                     
-                    CKButtonView(
+                    RDButtonView(
                         .small,
                         .primary,
                         "Next step",

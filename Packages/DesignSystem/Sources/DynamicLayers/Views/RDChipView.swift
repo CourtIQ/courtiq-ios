@@ -1,5 +1,5 @@
 //
-//  CKChipView.swift
+//  RDChipView.swift
 //  
 //
 //  Created by DynamicLayers on 06/11/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum CKChipType {
+public enum RDChipType {
     case small
     case medium
     case large
@@ -36,18 +36,18 @@ public enum CKChipType {
 }
 
 @available(iOS 15.0.0, *)
-public struct CKChipView: View {
+public struct RDChipView: View {
     
     var title: String
     @Binding var isActive: Bool
-    var ckChipType: CKChipType
+    var ckChipType: RDChipType
     var leadingIcon: String
     var chipValue: Int
     
     public init(
         title: String,
         isActive: Binding<Bool>,
-        ckChipType: CKChipType = .large,
+        ckChipType: RDChipType = .large,
         leadingIcon: String,
         chipValue: Int = 0
     ) {

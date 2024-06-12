@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C01E71EA2C197EB900FD31E1 /* DynamicLayers in Frameworks */ = {isa = PBXBuildFile; productRef = C01E71E92C197EB900FD31E1 /* DynamicLayers */; };
 		C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF302C1974D100D160A5 /* CourtiqApp.swift */; };
 		C060AF332C1974D100D160A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF322C1974D100D160A5 /* ContentView.swift */; };
 		C060AF352C1974D100D160A5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF342C1974D100D160A5 /* Item.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C01E71EB2C197ED200FD31E1 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
 		C060AF2D2C1974D100D160A5 /* Courtiq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Courtiq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C060AF302C1974D100D160A5 /* CourtiqApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqApp.swift; sourceTree = "<group>"; };
 		C060AF322C1974D100D160A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C01E71EA2C197EB900FD31E1 /* DynamicLayers in Frameworks */,
 				C07B6AF02C197D6100AADF91 /* DynamicLayers in Frameworks */,
 				C07B6A652C1979A800AADF91 /* DynamicLayers in Frameworks */,
 			);
@@ -140,6 +143,7 @@
 		C060AF5D2C19752F00D160A5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				C01E71EB2C197ED200FD31E1 /* DesignSystem */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -163,6 +167,7 @@
 			packageProductDependencies = (
 				C07B6A642C1979A800AADF91 /* DynamicLayers */,
 				C07B6AEF2C197D6100AADF91 /* DynamicLayers */,
+				C01E71E92C197EB900FD31E1 /* DynamicLayers */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -237,7 +242,7 @@
 			);
 			mainGroup = C060AF242C1974D100D160A5;
 			packageReferences = (
-				C07B6AEE2C197D6100AADF91 /* XCLocalSwiftPackageReference "Packages/DynamicLayers" */,
+				C01E71E82C197EB900FD31E1 /* XCLocalSwiftPackageReference "Packages/DesignSystem" */,
 			);
 			productRefGroup = C060AF2E2C1974D100D160A5 /* Products */;
 			projectDirPath = "";
@@ -642,13 +647,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		C07B6AEE2C197D6100AADF91 /* XCLocalSwiftPackageReference "Packages/DynamicLayers" */ = {
+		C01E71E82C197EB900FD31E1 /* XCLocalSwiftPackageReference "Packages/DesignSystem" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/DynamicLayers;
+			relativePath = Packages/DesignSystem;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C01E71E92C197EB900FD31E1 /* DynamicLayers */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DynamicLayers;
+		};
 		C07B6A642C1979A800AADF91 /* DynamicLayers */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DynamicLayers;

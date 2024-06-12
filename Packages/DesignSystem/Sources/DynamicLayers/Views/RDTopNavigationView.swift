@@ -1,5 +1,5 @@
 //
-//  CKTopNavigationView.swift
+//  RDTopNavigationView.swift
 //  
 //
 //  Created by DynamicLayers on 15/11/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum CKTopNavigationType {
+public enum RDTopNavigationType {
     case primary
     case primaryWithSearch
     case primaryWithProfileAvatar
@@ -26,15 +26,15 @@ public enum CKTopNavigationType {
 }
 
 @available(iOS 13.0, *)
-public struct CKTopNavigationParams {
-    var type: CKTopNavigationType
+public struct RDTopNavigationParams {
+    var type: RDTopNavigationType
     let title: String
     var leadingItem: AnyView?
     var trailingItem: AnyView?
     var bgColor: Color
     
     public init(
-        type: CKTopNavigationType = .primaryWithSearch,
+        type: RDTopNavigationType = .primaryWithSearch,
         title: String,
         leadingItem: AnyView? = nil,
         trailingItem: AnyView? = nil,
@@ -49,15 +49,15 @@ public struct CKTopNavigationParams {
 }
 
 @available(iOS 15.0, *)
-public struct CKTopNavigationView: View {
+public struct RDTopNavigationView: View {
     
-    var params: CKTopNavigationParams
+    var params: RDTopNavigationParams
     @Binding var searchText: String
     var onMicPressed: (()->())?
     
     
     public init(
-        params: CKTopNavigationParams,
+        params: RDTopNavigationParams,
         searchText: Binding<String>,
         onMicPressed: (()->())? = nil
     ) {
@@ -72,9 +72,9 @@ public struct CKTopNavigationView: View {
                 HStack(spacing: 0) {
                     
                     if params.type == .primaryWithProfileAvatar {
-                        CKAvatarView(
-                            ckAvatarSizing: .small,
-                            ckAvatarBadgeType: .none
+                        RDAvatarView(
+                            rdAvatarSizing: .small,
+                            rdAvatarBadgeType: .none
                         )
                         .padding(.horizontal, 16)
                         
@@ -129,8 +129,8 @@ public struct CKTopNavigationView: View {
     }
     
     func SearchField() -> some View{
-        CKTextField(
-            params: CKTextFieldParams(
+        RDTextField(
+            params: RDTextFieldParams(
                 type: .search,
                 placehlder: "Search",
                 height: 40,

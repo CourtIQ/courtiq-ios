@@ -1,5 +1,5 @@
 //
-//  CKBottomNavigationBar.swift
+//  RDBottomNavigationBar.swift
 //  
 //
 //  Created by DynamicLayers on 09/11/2023.
@@ -8,17 +8,17 @@
 
 import SwiftUI
 
-public struct CKBottomItem {
+public struct RDBottomItem {
     let id = UUID().uuidString
     let title: String
     let icon: String
-    var badgeType: CKNotificationBadgeType?
+    var badgeType: RDNotificationBadgeType?
     var notiCount: Int?
     
     public init(
         title: String,
         icon: String,
-        badgeType: CKNotificationBadgeType? = nil,
+        badgeType: RDNotificationBadgeType? = nil,
         notiCount: Int? = nil
     ) {
         self.title = title
@@ -45,12 +45,12 @@ public struct CKBottomItem {
 }
 
 @available(iOS 15.0, *)
-public struct CKBottomNavigationBar: View {
+public struct RDBottomNavigationBar: View {
     
-    let items: [CKBottomItem]
+    let items: [RDBottomItem]
     @Binding var selectedIndex: Int
     
-    public init(items: [CKBottomItem], selectedIndex: Binding<Int>) {
+    public init(items: [RDBottomItem], selectedIndex: Binding<Int>) {
         self.items = items
         self._selectedIndex = selectedIndex
     }
@@ -68,7 +68,7 @@ public struct CKBottomNavigationBar: View {
         .frame(height: 64)
     }
     
-    func TabItem(item: CKBottomItem, isSelected: Bool, action: @escaping (()->())) -> some View {
+    func TabItem(item: RDBottomItem, isSelected: Bool, action: @escaping (()->())) -> some View {
         VStack(spacing: 8) {
             ZStack {
                 Image(item.icon)
@@ -77,7 +77,7 @@ public struct CKBottomNavigationBar: View {
                     .frame(width: 24, height: 24)
                 
                 if let badgeType = item.badgeType {
-                    CKNotificationBadgeView(type: badgeType, notiCount: item.notiCount)
+                    RDNotificationBadgeView(type: badgeType, notiCount: item.notiCount)
                         .offset(x: item.getXOffset(), y: -6)
                 }
                 

@@ -1,5 +1,5 @@
 //
-//  CKNotificationView.swift
+//  RDNotificationView.swift
 //  
 //
 //  Created by DynamicLayers on 05/11/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum CKNotificationType {
+public enum RDNotificationType {
     case error
     case warning
     case info
@@ -42,11 +42,11 @@ public enum CKNotificationType {
 }
 
 @available(iOS 13.0.0, *)
-public struct CKNotificationView: View {
+public struct RDNotificationView: View {
     
     let title: String
     let description: String
-    var notificationType: CKNotificationType
+    var notificationType: RDNotificationType
     var isHideCloseBtn: Bool
     var titleFont: Font
     var descriptionFont: Font
@@ -55,7 +55,7 @@ public struct CKNotificationView: View {
     public init(
         title: String,
         description: String,
-        notificationType: CKNotificationType = .error,
+        notificationType: RDNotificationType = .error,
         isHideCloseBtn: Bool = false,
         titleFont: Font = .system(size: 16, weight: .bold),
         descriptionFont: Font = .system(size: 14, weight: .regular),

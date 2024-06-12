@@ -1,5 +1,5 @@
 //
-//  CKCardView.swift
+//  RDCardView.swift
 //  
 //
 //  Created by DynamicLayers on 09/11/2023.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 13.0.0, *)
-public enum CKCardType {
+public enum RDCardType {
     case small
     case medium
     case large
@@ -44,14 +44,14 @@ public enum CKCardType {
 }
 
 @available(iOS 15.0.0, *)
-public struct CKCardView: View {
+public struct RDCardView: View {
     
-    var type: CKCardType = .large
+    var type: RDCardType = .large
     var image: String
     var title: String
     var description: String
     
-    public init(type: CKCardType, image: String, title: String, description: String) {
+    public init(type: RDCardType, image: String, title: String, description: String) {
         self.type = type
         self.image = image
         self.title = title

@@ -1,5 +1,5 @@
 //
-//  CKLineItemView.swift
+//  RDLineItemView.swift
 //  
 //
 //  Created by DynamicLayers on 10/11/2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public enum CKLineItemType {
+public enum RDLineItemType {
     case primary
     case secondary
     case tertiary
@@ -16,9 +16,9 @@ public enum CKLineItemType {
 }
 
 @available(iOS 15.0, *)
-public struct CKLineItemView: View {
+public struct RDLineItemView: View {
     
-    var type: CKLineItemType = .primary
+    var type: RDLineItemType = .primary
     var leadingTitleDescription: (title: String, desc: String)
     var trailingTitleDescription: (title: String, desc: String?)?
     @Binding var isOn: Bool
@@ -28,7 +28,7 @@ public struct CKLineItemView: View {
     var onAddPressed: (()->())?
     
     public init(
-        type: CKLineItemType,
+        type: RDLineItemType,
         leadingTitleDescription: (title: String, desc: String),
         trailingTitleDescription: (title: String, desc: String?)? = nil,
         isOn: Binding<Bool>,
@@ -80,7 +80,7 @@ public struct CKLineItemView: View {
                         .foregroundColor(.platinum500)
                 }
             case .trailingAddButton:
-                CKButtonView(
+                RDButtonView(
                     .small,
                     .tertiary,
                     "Add",
@@ -89,7 +89,7 @@ public struct CKLineItemView: View {
                     onAddPressed?()
                 }
             case .trailingToggle:
-                CKToggleView(isOn: $isOn)
+                RDToggleView(isOn: $isOn)
             default:
                 EmptyView()
             }
