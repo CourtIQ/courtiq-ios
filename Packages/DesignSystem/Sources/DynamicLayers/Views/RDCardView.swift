@@ -1,12 +1,13 @@
 //
 //  RDCardView.swift
-//  
 //
-//  Created by DynamicLayers on 09/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - RDCardType
 @available(iOS 13.0.0, *)
 public enum RDCardType {
     case small
@@ -43,6 +44,7 @@ public enum RDCardType {
     }
 }
 
+// MARK: - RDCardView
 @available(iOS 15.0.0, *)
 public struct RDCardView: View {
     

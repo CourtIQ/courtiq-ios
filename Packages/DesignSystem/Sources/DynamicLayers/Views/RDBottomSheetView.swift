@@ -1,12 +1,13 @@
 //
 //  RDBottomSheetView.swift
-//  
 //
-//  Created by DynamicLayers on 09/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - RDBottomSheetType
 public enum RDBottomSheetType {
     case primary
     case secondary
@@ -14,6 +15,7 @@ public enum RDBottomSheetType {
     case quaternary
 }
 
+// MARK: - RDBottomSheetView
 @available(iOS 15.0.0, *)
 public struct RDBottomSheetView: View {
     
@@ -23,8 +25,8 @@ public struct RDBottomSheetView: View {
     var headline: String
     var description: String
     var buttonTitles: (leading: String, trailing: String)
-    var onSave: (()->())?
-    var onCancel: (()->())?
+    var onSave: (() -> ())?
+    var onCancel: (() -> ())?
     
     public init(
         type: RDBottomSheetType,
@@ -48,15 +50,17 @@ public struct RDBottomSheetView: View {
     
     public var body: some View {
         VStack(spacing: 0) {
-            
+            // MARK: - Handle
             RoundedRectangle(cornerRadius: 3)
                 .fill(Color.grey200)
                 .frame(width: 40, height: 5)
                 .padding(.vertical, 16)
             
+            // MARK: - Title
             Text(title)
                 .font(.system(size: 16, weight: .bold))
             
+            // MARK: - Image
             Image(image)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
@@ -65,10 +69,12 @@ public struct RDBottomSheetView: View {
                 .padding(.top, 16)
                 .padding(.bottom, 32)
             
+            // MARK: - Headline
             Text(headline)
                 .font(.system(size: 20, weight: .bold))
                 .padding(.bottom, 8)
             
+            // MARK: - Description
             Text(description)
                 .foregroundColor(.grey500)
                 .font(.system(size: 16, weight: .regular))
@@ -76,6 +82,7 @@ public struct RDBottomSheetView: View {
                 .lineLimit(3)
                 .frame(height: 72)
             
+            // MARK: - Buttons
             if type == .secondary || type == .quaternary {
                 RDButtonView(
                     .extraLarge,
@@ -112,7 +119,6 @@ public struct RDBottomSheetView: View {
             }
             
             Spacer()
-            
         }
         .padding(.horizontal, 16)
     }

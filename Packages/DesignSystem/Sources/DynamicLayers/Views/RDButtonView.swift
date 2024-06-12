@@ -1,12 +1,13 @@
 //
 //  RDButtonView.swift
-//  
 //
-//  Created by DynamicLayers on 06/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - ButtonSize
 public enum ButtonSize {
     case extraLarge
     case large
@@ -45,6 +46,7 @@ public enum ButtonSize {
     }
 }
 
+// MARK: - ButtonType
 @available(iOS 13.0, *)
 public enum ButtonType {
     case primary
@@ -121,7 +123,7 @@ public enum ButtonType {
     }
     
     var borderColor: Color {
-        switch self{
+        switch self {
         case .tertiary:
             return .platinum200
         default:
@@ -130,7 +132,7 @@ public enum ButtonType {
     }
     
     var underline: Bool {
-        switch self{
+        switch self {
         case .ghost:
             return true
         default:
@@ -139,6 +141,7 @@ public enum ButtonType {
     }
 }
 
+// MARK: - RDButtonPressEffect
 @available(iOS 13.0, *)
 struct RDButtonPressEffect: ButtonStyle {
     var buttonSize: ButtonSize
@@ -148,11 +151,12 @@ struct RDButtonPressEffect: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .foregroundColor(disable ? buttonType.disabledTextColor : (configuration.isPressed ? buttonType.pressedTextColor : buttonType.textColor))
-            .background(disable ? buttonType.disabledBgColor :  (configuration.isPressed ? buttonType.pressedBgColor : buttonType.bgColor))
+            .background(disable ? buttonType.disabledBgColor : (configuration.isPressed ? buttonType.pressedBgColor : buttonType.bgColor))
             .animation(.easeInOut, value: configuration.isPressed)
     }
 }
 
+// MARK: - RDButtonView
 @available(iOS 15.0.0, *)
 public struct RDButtonView: View {
     
@@ -163,7 +167,7 @@ public struct RDButtonView: View {
     var icon: (leadingIcon: String, trailingIcon: String)?
     var trailingButton: String?
     var disable: Bool
-    var action: (()->())?
+    var action: (() -> ())?
     
     public init(
         _ buttonSize: ButtonSize = .extraLarge,

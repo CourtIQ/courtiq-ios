@@ -1,12 +1,13 @@
 //
 //  RDChipView.swift
-//  
 //
-//  Created by DynamicLayers on 06/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - RDChipType
 public enum RDChipType {
     case small
     case medium
@@ -35,51 +36,52 @@ public enum RDChipType {
     }
 }
 
+// MARK: - RDChipView
 @available(iOS 15.0.0, *)
 public struct RDChipView: View {
     
     var title: String
     @Binding var isActive: Bool
-    var ckChipType: RDChipType
+    var rdChipType: RDChipType
     var leadingIcon: String
     var chipValue: Int
     
     public init(
         title: String,
         isActive: Binding<Bool>,
-        ckChipType: RDChipType = .large,
+        rdChipType: RDChipType = .large,
         leadingIcon: String,
         chipValue: Int = 0
     ) {
         self.title = title
         self._isActive = isActive
-        self.ckChipType = ckChipType
+        self.rdChipType = rdChipType
         self.leadingIcon = leadingIcon
         self.chipValue = chipValue
     }
     
     public var body: some View {
-        HStack(spacing: ckChipType.spaceArounded.between) {
+        HStack(spacing: rdChipType.spaceArounded.between) {
             Image(leadingIcon)
                 .resizable()
                 .renderingMode(.template)
                 .foregroundColor(.platinum700)
                 .aspectRatio(contentMode: .fit)
-                .frame(width: ckChipType.textSize)
+                .frame(width: rdChipType.textSize)
             
             Text(title)
                 .foregroundColor(.platinum950)
-                .font(.system(size: ckChipType.textSize, weight: .regular))
+                .font(.system(size: rdChipType.textSize, weight: .regular))
             
             Text("\(chipValue)")
                 .foregroundColor(.platinum950)
-                .font(.system(size: ckChipType.spaceArounded.badgeTextSize, weight: .regular))
-                .padding(.horizontal, ckChipType.spaceArounded.badgeTextHorizontalSpacing)
+                .font(.system(size: rdChipType.spaceArounded.badgeTextSize, weight: .regular))
+                .padding(.horizontal, rdChipType.spaceArounded.badgeTextHorizontalSpacing)
                 .background(Color.chipBorderColor)
                 .cornerRadius(20)
         }
-        .padding(.vertical, ckChipType.spaceArounded.vertical)
-        .padding(.horizontal, ckChipType.spaceArounded.horizontal)
+        .padding(.vertical, rdChipType.spaceArounded.vertical)
+        .padding(.horizontal, rdChipType.spaceArounded.horizontal)
         .background(Color.chipBgColor.opacity(isActive ? 1 : 0))
         .cornerRadius(25)
         .overlay {

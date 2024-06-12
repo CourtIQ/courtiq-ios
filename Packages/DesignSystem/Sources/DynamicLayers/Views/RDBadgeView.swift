@@ -1,12 +1,13 @@
 //
 //  RDBadgeView.swift
-//  
 //
-//  Created by DynamicLayers on 05/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - RDBadgeType
 @available(iOS 13.0.0, *)
 public enum RDBadgeType {
     case defalt
@@ -28,17 +29,18 @@ public enum RDBadgeType {
     }
 }
 
+// MARK: - RDBadgeView
 @available(iOS 13.0.0, *)
 public struct RDBadgeView: View {
     let value: String
-    let ckBadgeType: RDBadgeType
+    let rdBadgeType: RDBadgeType
     
     public init(
         value: String,
-        ckBadgeType: RDBadgeType
+        rdBadgeType: RDBadgeType
     ) {
         self.value = value
-        self.ckBadgeType = ckBadgeType
+        self.rdBadgeType = rdBadgeType
     }
     
     public var body: some View {
@@ -48,7 +50,7 @@ public struct RDBadgeView: View {
             .padding(.vertical, 4)
             .padding(.horizontal, 8)
             .font(.system(size: 12, weight: .bold))
-            .background(ckBadgeType.bgColor)
+            .background(rdBadgeType.bgColor)
             .cornerRadius(20)
     }
 }

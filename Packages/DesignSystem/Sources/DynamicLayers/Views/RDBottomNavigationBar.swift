@@ -1,13 +1,13 @@
 //
 //  RDBottomNavigationBar.swift
-//  
 //
-//  Created by DynamicLayers on 09/11/2023.
 //
-
+//  Created by Pranav Suri on 06/12/2024.
+//
 
 import SwiftUI
 
+// MARK: - RDBottomItem
 public struct RDBottomItem {
     let id = UUID().uuidString
     let title: String
@@ -31,19 +31,21 @@ public struct RDBottomItem {
         if badgeType == .small {
             return 6
         } else {
-            if notiCount ?? 0 < 10 {
+            switch notiCount ?? 0 {
+            case ..<10:
                 return 10
-            } else if notiCount ?? 0 > 10{
+            case 10...99:
                 return 12
-            }else if notiCount ?? 0 > 99{
+            case 100...:
                 return 24
-            } else {
+            default:
                 return 6
             }
         }
     }
 }
 
+// MARK: - RDBottomNavigationBar
 @available(iOS 15.0, *)
 public struct RDBottomNavigationBar: View {
     
@@ -57,8 +59,8 @@ public struct RDBottomNavigationBar: View {
     
     public var body: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: items.count)) {
-            ForEach((0..<items.count), id: \.self){ index in
-                TabItem(item: items[index], isSelected: selectedIndex == index){
+            ForEach((0..<items.count), id: \.self) { index in
+                TabItem(item: items[index], isSelected: selectedIndex == index) {
                     selectedIndex = index
                 }
             }
@@ -68,7 +70,8 @@ public struct RDBottomNavigationBar: View {
         .frame(height: 64)
     }
     
-    func TabItem(item: RDBottomItem, isSelected: Bool, action: @escaping (()->())) -> some View {
+    // MARK: - TabItem
+    func TabItem(item: RDBottomItem, isSelected: Bool, action: @escaping (() -> ())) -> some View {
         VStack(spacing: 8) {
             ZStack {
                 Image(item.icon)
@@ -80,7 +83,6 @@ public struct RDBottomNavigationBar: View {
                     RDNotificationBadgeView(type: badgeType, notiCount: item.notiCount)
                         .offset(x: item.getXOffset(), y: -6)
                 }
-                
             }
             Text(item.title)
                 .font(.system(size: 12, weight: .bold))
