@@ -1,8 +1,8 @@
 //
 //  RDToggleView.swift
-//  
 //
-//  Created by DynamicLayers on 10/11/2023.
+//
+//  Created by Pranav Suri on 13/06/2024.
 //
 
 import SwiftUI

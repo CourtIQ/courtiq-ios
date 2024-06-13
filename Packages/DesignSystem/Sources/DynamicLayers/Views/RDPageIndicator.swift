@@ -1,11 +1,13 @@
 //
 //  RDPageIndicator.swift
-//  
 //
-//  Created by DynamicLayers on 10/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
+
+// MARK: - RDPageIndicator
 
 @available(iOS 13.0, *)
 public struct RDPageIndicator: View {
@@ -22,8 +24,8 @@ public struct RDPageIndicator: View {
     
     public var body: some View {
         HStack(spacing: 8) {
-            ForEach((0..<pageCount), id:\.self) { index in
-                Button{
+            ForEach((0..<pageCount), id: \.self) { index in
+                Button {
                     withAnimation {
                         selectedIndex = index
                     }

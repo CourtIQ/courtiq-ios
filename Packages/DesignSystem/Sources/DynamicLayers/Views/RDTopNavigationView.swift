@@ -1,8 +1,8 @@
 //
 //  RDTopNavigationView.swift
-//  
 //
-//  Created by DynamicLayers on 15/11/2023.
+//
+//  Created by Pranav Suri on 13/06/2024.
 //
 
 import SwiftUI
@@ -54,7 +54,6 @@ public struct RDTopNavigationView: View {
     var params: RDTopNavigationParams
     @Binding var searchText: String
     var onMicPressed: (()->())?
-    
     
     public init(
         params: RDTopNavigationParams,

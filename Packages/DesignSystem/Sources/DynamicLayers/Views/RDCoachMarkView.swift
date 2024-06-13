@@ -1,12 +1,13 @@
 //
 //  RDCoachMarkView.swift
-//  
 //
-//  Created by DynamicLayers on 10/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - RDCoachMarkItem
 public struct RDCoachMarkItem {
     let title: String
     let description: String
@@ -17,6 +18,7 @@ public struct RDCoachMarkItem {
     }
 }
 
+// MARK: - RDCoachMarkType
 @available(iOS 13.0, *)
 public enum RDCoachMarkType {
     case top
@@ -51,6 +53,7 @@ public enum RDCoachMarkType {
     }
 }
 
+// MARK: - RDCoachMarkView
 @available(iOS 15.0, *)
 public struct RDCoachMarkView: View {
     
@@ -58,7 +61,7 @@ public struct RDCoachMarkView: View {
     
     let items: [RDCoachMarkItem]
     var type: RDCoachMarkType
-    let onClose: (()->())
+    let onClose: (() -> ())
     
     public init(items: [RDCoachMarkItem], type: RDCoachMarkType = .bottom, onClose: @escaping (() -> ())) {
         self.items = items
@@ -100,8 +103,8 @@ public struct RDCoachMarkView: View {
                         .small,
                         .tertiary,
                         "Back",
-                        width: 59
-                    ){
+                        width: 59)
+                    {
                         if selectedIndex > 0 {
                             withAnimation {
                                 selectedIndex -= 1

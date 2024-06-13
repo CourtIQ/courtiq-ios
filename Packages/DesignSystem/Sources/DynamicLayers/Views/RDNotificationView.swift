@@ -1,12 +1,13 @@
 //
 //  RDNotificationView.swift
-//  
 //
-//  Created by DynamicLayers on 05/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - RDNotificationType
 public enum RDNotificationType {
     case error
     case warning
@@ -41,6 +42,7 @@ public enum RDNotificationType {
     }
 }
 
+// MARK: - RDNotificationView
 @available(iOS 13.0.0, *)
 public struct RDNotificationView: View {
     
@@ -50,7 +52,7 @@ public struct RDNotificationView: View {
     var isHideCloseBtn: Bool
     var titleFont: Font
     var descriptionFont: Font
-    var onHideAction: (()->())?
+    var onHideAction: (() -> ())?
     
     public init(
         title: String,
@@ -59,7 +61,7 @@ public struct RDNotificationView: View {
         isHideCloseBtn: Bool = false,
         titleFont: Font = .system(size: 16, weight: .bold),
         descriptionFont: Font = .system(size: 14, weight: .regular),
-        onHideAction: (()->())? = nil
+        onHideAction: (() -> ())? = nil
     ) {
         self.title = title
         self.description = description

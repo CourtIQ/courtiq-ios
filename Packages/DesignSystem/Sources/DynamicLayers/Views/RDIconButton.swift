@@ -1,12 +1,13 @@
 //
 //  RDIconButton.swift
-//  
 //
-//  Created by DynamicLayers on 05/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - RDIconButtonSize
 @available(iOS 13.0, *)
 public enum RDIconButtonSize {
     case extraLarge
@@ -37,6 +38,7 @@ public enum RDIconButtonSize {
     }
 }
 
+// MARK: - RDIconButtonType
 @available(iOS 13.0, *)
 public enum RDIconButtonType {
     case primary
@@ -113,6 +115,7 @@ public enum RDIconButtonType {
     }
 }
 
+// MARK: - RDIconButtonPressedStyle
 @available(iOS 13.0, *)
 struct RDIconButtonPressedStyle: ButtonStyle {
     var buttonSize: RDIconButtonSize
@@ -127,13 +130,14 @@ struct RDIconButtonPressedStyle: ButtonStyle {
     }
 }
 
+// MARK: - RDIconButton
 @available(iOS 15.0.0, *)
 public struct RDIconButton: View {
     var type: RDIconButtonType
     var size: RDIconButtonSize
     let icon: String
     var disable: Bool
-    var action: (()->())?
+    var action: (() -> ())?
     
     public init(
         _ type: RDIconButtonType = .primary,
@@ -150,7 +154,7 @@ public struct RDIconButton: View {
     }
     
     public var body: some View {
-        Button{
+        Button {
             action?()
         } label: {
             Image(icon)

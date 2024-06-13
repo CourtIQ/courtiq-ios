@@ -1,12 +1,13 @@
 //
 //  RDNotificationBadgeView.swift
-//  
 //
-//  Created by DynamicLayers on 11/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - RDNotificationBadgeType
 public enum RDNotificationBadgeType {
     case small
     case medium
@@ -25,6 +26,7 @@ public enum RDNotificationBadgeType {
     }
 }
 
+// MARK: - RDNotificationBadgeView
 @available(iOS 15.0.0, *)
 public struct RDNotificationBadgeView: View {
     
@@ -41,7 +43,7 @@ public struct RDNotificationBadgeView: View {
     
     public var body: some View {
         if type == .medium || type == .large {
-            if let notiCount{
+            if let notiCount {
                 Text("\(notiCount)")
                     .foregroundColor(.white)
                     .font(.system(size: 12, weight: .bold))

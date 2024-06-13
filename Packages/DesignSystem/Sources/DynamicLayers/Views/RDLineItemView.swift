@@ -1,12 +1,13 @@
 //
 //  RDLineItemView.swift
-//  
 //
-//  Created by DynamicLayers on 10/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - RDLineItemType
 public enum RDLineItemType {
     case primary
     case secondary
@@ -15,6 +16,7 @@ public enum RDLineItemType {
     case trailingToggle
 }
 
+// MARK: - RDLineItemView
 @available(iOS 15.0, *)
 public struct RDLineItemView: View {
     
@@ -24,8 +26,8 @@ public struct RDLineItemView: View {
     @Binding var isOn: Bool
     var leadingImage: String
     
-    let action: (()->())
-    var onAddPressed: (()->())?
+    let action: (() -> ())
+    var onAddPressed: (() -> ())?
     
     public init(
         type: RDLineItemType,
@@ -85,7 +87,7 @@ public struct RDLineItemView: View {
                     .tertiary,
                     "Add",
                     width: 53
-                ){
+                ) {
                     onAddPressed?()
                 }
             case .trailingToggle:
@@ -96,7 +98,7 @@ public struct RDLineItemView: View {
             
             switch type {
             case .trailingAddButton,
-                    .trailingToggle:
+                 .trailingToggle:
                 EmptyView()
             default:
                 Image(uiImage: UIImage(named: "ic_ChevronRight", in: .module, with: nil)!)

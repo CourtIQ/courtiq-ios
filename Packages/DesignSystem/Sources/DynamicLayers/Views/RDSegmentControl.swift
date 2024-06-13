@@ -1,14 +1,16 @@
 //
 //  RDSegmentControl.swift
-//  
 //
-//  Created by DynamicLayers on 11/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
 
+// MARK: - RDSegmentControl
+
 @available(iOS 13.0, *)
-public struct RDSegmentControl<Data, Content> : View where Data: Hashable, Content: View {
+public struct RDSegmentControl<Data, Content>: View where Data: Hashable, Content: View {
     public let sources: [Data]
     public let selection: Data?
     private let itemBuilder: (Data) -> Content

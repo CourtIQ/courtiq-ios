@@ -1,8 +1,8 @@
 //
 //  RDTextField.swift
-//  
 //
-//  Created by DynamicLayers on 15/11/2023.
+//
+//  Created by Pranav Suri on 13/06/2024.
 //
 
 import SwiftUI
@@ -210,7 +210,7 @@ extension View {
         alignment: Alignment = .leading
     ) -> some View {
         
-        placeholder(when: shouldShow, alignment: alignment) { 
+        placeholder(when: shouldShow, alignment: alignment) {
             Text(text)
                 .foregroundColor(.platinum500)
         }

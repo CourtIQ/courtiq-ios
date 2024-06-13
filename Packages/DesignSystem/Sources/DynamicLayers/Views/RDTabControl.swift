@@ -1,11 +1,13 @@
 //
 //  RDTabControl.swift
-//  
 //
-//  Created by DynamicLayers on 11/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
+
+// MARK: - RDTabControlItem
 
 public struct RDTabControlItem {
     let id = UUID().uuidString
@@ -29,7 +31,7 @@ public struct RDTabControlItem {
     public func getOffset() -> (x: CGFloat, y: CGFloat) {
         if badgeType == .small {
             return (6, -4)
-        }else {
+        } else {
             if notiCount ?? 0 < 10 {
                 return (12, -8)
             } else if notiCount ?? 0 > 9 {
@@ -41,6 +43,8 @@ public struct RDTabControlItem {
         return (8, -8)
     }
 }
+
+// MARK: - RDTabControl
 
 @available(iOS 15.0, *)
 public struct RDTabControl: View {
@@ -55,8 +59,8 @@ public struct RDTabControl: View {
     
     public var body: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 0), count: items.count)) {
-            ForEach((0..<items.count), id: \.self){ index in
-                TabItem(item: items[index], isSelected: selectedIndex == index){
+            ForEach((0..<items.count), id: \.self) { index in
+                TabItem(item: items[index], isSelected: selectedIndex == index) {
                     selectedIndex = index
                 }
             }
@@ -64,7 +68,7 @@ public struct RDTabControl: View {
         .padding(.top, 6)
     }
     
-    func TabItem(item: RDTabControlItem, isSelected: Bool, action: @escaping (()->())) -> some View {
+    func TabItem(item: RDTabControlItem, isSelected: Bool, action: @escaping (() -> ())) -> some View {
         HStack(spacing: 8) {
             Image(item.icon)
                 .resizable()

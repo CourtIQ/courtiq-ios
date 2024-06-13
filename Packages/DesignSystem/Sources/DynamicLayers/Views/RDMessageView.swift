@@ -1,11 +1,13 @@
 //
 //  RDMessageView.swift
-//  
 //
-//  Created by DynamicLayerson 11/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
+
+// MARK: - RDMessageType
 
 @available(iOS 13.0.0, *)
 public enum RDMessageType {
@@ -31,6 +33,8 @@ public enum RDMessageType {
     }
 }
 
+// MARK: - RDMessage
+
 @available(iOS 13.0.0, *)
 public struct RDMessage {
     let message: String
@@ -43,6 +47,8 @@ public struct RDMessage {
         self.image = image
     }
 }
+
+// MARK: - RDMessageView
 
 @available(iOS 15.0.0, *)
 public struct RDMessageView: View {

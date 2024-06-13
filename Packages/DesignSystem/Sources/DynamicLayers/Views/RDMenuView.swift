@@ -1,8 +1,8 @@
 //
 //  RDMenuView.swift
-//  
 //
-//  Created by DynamicLayers on 11/11/2023.
+//
+//  Created by Pranav Suri on 06/12/2024.
 //
 
 import SwiftUI
@@ -28,6 +28,5 @@ public struct RDMenuView: View {
         } label: {
             label
         }
-
     }
 }
