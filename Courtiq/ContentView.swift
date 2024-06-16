@@ -26,15 +26,8 @@ struct ContentView: View {
                         }
                     }
                 } else {
-                    RDButtonView(.extraLarge, .secondary, "Login") {
-                        Task {
-                            do {
-                                try await authService.signIn(email: "pranavsuri@icloud.com", password: "Puru4303")
-                            } catch {
-                                print("Logout failed: \(error)")
-                            }
-                        }
-                    }
+                    SignInView()
+                        .environmentObject(authService)
                 }
             }
         }
@@ -43,5 +36,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }

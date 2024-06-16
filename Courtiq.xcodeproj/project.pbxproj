@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C01E71EA2C197EB900FD31E1 /* DynamicLayers in Frameworks */ = {isa = PBXBuildFile; productRef = C01E71E92C197EB900FD31E1 /* DynamicLayers */; };
 		C0495D802C1E45A100E6D023 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C0495D7F2C1E45A100E6D023 /* AuthenticationService */; };
 		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
 		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
@@ -16,8 +15,6 @@
 		C0495D952C1E54E800E6D023 /* NewUserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */; };
 		C0495D972C1E550C00E6D023 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D962C1E550C00E6D023 /* AuthenticationCoordinator.swift */; };
 		C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */; };
-		C0495D9D2C1E5F7F00E6D023 /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0495D9C2C1E5F7F00E6D023 /* RDDesignSystem */; };
-		C0495DA02C1E605900E6D023 /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0495D9F2C1E605900E6D023 /* RDDesignSystem */; };
 		C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF302C1974D100D160A5 /* CourtiqApp.swift */; };
 		C060AF332C1974D100D160A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF322C1974D100D160A5 /* ContentView.swift */; };
 		C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C060AF362C1974D200D160A5 /* Assets.xcassets */; };
@@ -25,8 +22,7 @@
 		C060AF452C1974D200D160A5 /* CourtiqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF442C1974D200D160A5 /* CourtiqTests.swift */; };
 		C060AF4F2C1974D200D160A5 /* CourtiqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */; };
 		C060AF512C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */; };
-		C07B6A652C1979A800AADF91 /* DynamicLayers in Frameworks */ = {isa = PBXBuildFile; productRef = C07B6A642C1979A800AADF91 /* DynamicLayers */; };
-		C07B6AF02C197D6100AADF91 /* DynamicLayers in Frameworks */ = {isa = PBXBuildFile; productRef = C07B6AEF2C197D6100AADF91 /* DynamicLayers */; };
+		C0F4A4FF2C1E8119006B204C /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0F4A4FE2C1E8119006B204C /* RDDesignSystem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +63,7 @@
 		C060AF4A2C1974D200D160A5 /* CourtiqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CourtiqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITests.swift; sourceTree = "<group>"; };
 		C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,12 +71,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C01E71EA2C197EB900FD31E1 /* DynamicLayers in Frameworks */,
-				C0495DA02C1E605900E6D023 /* RDDesignSystem in Frameworks */,
-				C07B6AF02C197D6100AADF91 /* DynamicLayers in Frameworks */,
-				C0495D9D2C1E5F7F00E6D023 /* RDDesignSystem in Frameworks */,
 				C0495D802C1E45A100E6D023 /* AuthenticationService in Frameworks */,
-				C07B6A652C1979A800AADF91 /* DynamicLayers in Frameworks */,
+				C0F4A4FF2C1E8119006B204C /* RDDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +129,7 @@
 				C060AF432C1974D200D160A5 /* CourtiqTests */,
 				C060AF4D2C1974D200D160A5 /* CourtiqUITests */,
 				C060AF2E2C1974D100D160A5 /* Products */,
+				C0F4A4FD2C1E8119006B204C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +146,7 @@
 		C060AF2F2C1974D100D160A5 /* Courtiq */ = {
 			isa = PBXGroup;
 			children = (
+				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
 				C0495D892C1E544E00E6D023 /* Authentication */,
 				C0495D8A2C1E545700E6D023 /* Home */,
 				C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */,
@@ -198,6 +193,13 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
+		C0F4A4FD2C1E8119006B204C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -215,12 +217,8 @@
 			);
 			name = Courtiq;
 			packageProductDependencies = (
-				C07B6A642C1979A800AADF91 /* DynamicLayers */,
-				C07B6AEF2C197D6100AADF91 /* DynamicLayers */,
-				C01E71E92C197EB900FD31E1 /* DynamicLayers */,
 				C0495D7F2C1E45A100E6D023 /* AuthenticationService */,
-				C0495D9C2C1E5F7F00E6D023 /* RDDesignSystem */,
-				C0495D9F2C1E605900E6D023 /* RDDesignSystem */,
+				C0F4A4FE2C1E8119006B204C /* RDDesignSystem */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -512,6 +510,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Courtiq/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -550,6 +549,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Courtiq/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -718,29 +718,13 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C01E71E92C197EB900FD31E1 /* DynamicLayers */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DynamicLayers;
-		};
 		C0495D7F2C1E45A100E6D023 /* AuthenticationService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AuthenticationService;
 		};
-		C0495D9C2C1E5F7F00E6D023 /* RDDesignSystem */ = {
+		C0F4A4FE2C1E8119006B204C /* RDDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RDDesignSystem;
-		};
-		C0495D9F2C1E605900E6D023 /* RDDesignSystem */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RDDesignSystem;
-		};
-		C07B6A642C1979A800AADF91 /* DynamicLayers */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DynamicLayers;
-		};
-		C07B6AEF2C197D6100AADF91 /* DynamicLayers */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DynamicLayers;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -87,6 +87,7 @@ public struct RDTopNavigationView: View {
                     
                     if let leadingIItem = params.leadingItem {
                         leadingIItem
+                            .padding(.leading, 16) // Add padding to the leading item
                     }
                     
                     if params.type != .primaryWithProfileAvatar {
@@ -95,6 +96,7 @@ public struct RDTopNavigationView: View {
                     
                     if let trailingItem = params.trailingItem {
                         trailingItem
+                            .padding(.trailing, 16) // Add padding to the trailing item
                     }
                 }
                 
@@ -127,11 +129,11 @@ public struct RDTopNavigationView: View {
         .background(params.bgColor)
     }
     
-    func SearchField() -> some View{
+    func SearchField() -> some View {
         RDTextField(
             params: RDTextFieldParams(
                 type: .search,
-                placehlder: "Search",
+                placeholder: "Search",
                 height: 40,
                 isBorderExists: false
             ),

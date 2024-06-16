@@ -1,10 +1,3 @@
-//
-//  RDTextField.swift
-//
-//
-//  Created by Pranav Suri on 13/06/2024.
-//
-
 import SwiftUI
 
 @available(iOS 13.0, *)
@@ -57,18 +50,18 @@ public enum RDTextFieldStatus {
 @available(iOS 13.0, *)
 public struct RDTextFieldParams {
     var type: RDTextFieldType
-    var placehlder: String
+    var placeholder: String
     var height: CGFloat
     var isBorderExists: Bool
     
     public init(
         type: RDTextFieldType = .primary,
-        placehlder: String,
+        placeholder: String,
         height: CGFloat = 56,
         isBorderExists: Bool = true
     ) {
         self.type = type
-        self.placehlder = placehlder
+        self.placeholder = placeholder
         self.height = height
         self.isBorderExists = isBorderExists
     }
@@ -79,31 +72,44 @@ public struct RDTextField: View {
     
     var params: RDTextFieldParams
     @Binding var text: String
-    @Binding var status: RDTextFieldStatus
-    @Binding var errorString: String
+    @State private var internalStatus: RDTextFieldStatus = .none
+    @State private var internalErrorString: String? = nil
+    var status: Binding<RDTextFieldStatus>?
+    var errorString: Binding<String?>?
     var onTrailingIconPressed: (() -> ())?
+    var validationType: ValidationType?
     
-    @FocusState var focused: Bool
+    @FocusState private var focused: Bool
     
     public init(
         params: RDTextFieldParams,
         text: Binding<String>,
-        status: Binding<RDTextFieldStatus>,
-        errorString: Binding<String>,
-        onTrailingIconPressed: (()->())? = nil
+        status: Binding<RDTextFieldStatus>? = nil,
+        errorString: Binding<String?>? = nil,
+        onTrailingIconPressed: (()->())? = nil,
+        validationType: ValidationType? = nil
     ) {
         self.params = params
         self._text = text
-        self._status = status
-        self._errorString = errorString
+        self.status = status
+        self.errorString = errorString
         self.onTrailingIconPressed = onTrailingIconPressed
+        self.validationType = validationType
+    }
+    
+    private var currentStatus: Binding<RDTextFieldStatus> {
+        status ?? $internalStatus
+    }
+    
+    private var currentErrorString: Binding<String?> {
+        errorString ?? $internalErrorString
     }
     
     public var body: some View {
-        let isError = (params.type == .primary && status == .error)
+        let isError = (params.type == .primary && currentStatus.wrappedValue == .error)
         let isActive = focused || text.count > 0
         
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 4) { // Adjusted spacing
             HStack(spacing: 8) {
                 if params.type == .search {
                     Image(uiImage: UIImage(named: "ic_Search", in: .module, with: nil)!)
@@ -111,37 +117,45 @@ public struct RDTextField: View {
                         .frame(width: 24, height: 24)
                 }
                 
-                ZStack(alignment: isActive ? .topLeading : .center) {
-                    
+                ZStack(alignment: .leading) {
                     if params.type == .search {
+                        if text.isEmpty {
+                            Text(params.placeholder)
+                                .foregroundColor(.gray)
+                                .font(.system(size: 16, weight: .regular))
+                                .padding(.leading, 8)
+                        }
+                        
                         TextField("", text: $text)
                             .foregroundColor(.platinum950)
                             .frame(height: 24)
                             .font(.system(size: 16, weight: .regular))
-                            .placeholder(when: text.isEmpty) {
-                                Text(params.placehlder)
-                                    .foregroundColor(.gray)
-                            }
                             .focused($focused)
+                            .onChange(of: text, perform: { newValue in
+                                validate()
+                            })
                     } else {
                         TextField("", text: $text)
                             .foregroundColor(.platinum950)
                             .frame(height: 24)
                             .font(.system(size: 16, weight: .regular))
                             .placeholder(when: text.isEmpty) {
-                                Text(params.placehlder)
+                                Text(params.placeholder)
                                     .foregroundColor(.gray)
                             }
                             .opacity(isActive ? 1 : 0)
                             .offset(y: 7)
                             .focused($focused)
+                            .onChange(of: text, perform: { newValue in
+                                validate()
+                            })
                         
                         HStack {
-                            Text(params.placehlder)
+                            Text(params.placeholder)
                                 .foregroundColor(isError ? .red : .platinum500)
                                 .frame(height: 16)
                                 .font(.system(size: isActive ? 12 : 16, weight: .regular))
-                                .offset(y: isActive ? -7 : 0)
+                                .offset(y: isActive ? -12 : 0) // Adjusted offset to move placeholder higher
                             Spacer()
                         }
                     }
@@ -154,8 +168,8 @@ public struct RDTextField: View {
                     onTrailingIconPressed?()
                 } label: {
                     if params.type == .primary {
-                        if !status.icon.isEmpty {
-                            Image(uiImage: UIImage(named: status.icon, in: .module, with: nil)!)
+                        if !currentStatus.wrappedValue.icon.isEmpty {
+                            Image(uiImage: UIImage(named: currentStatus.wrappedValue.icon, in: .module, with: nil)!)
                                 .resizable()
                                 .frame(width: 24, height: 24)
                         }
@@ -180,13 +194,20 @@ public struct RDTextField: View {
                 focused = true
             }
             
-            if !errorString.isEmpty {
+            if let errorString = currentErrorString.wrappedValue, !errorString.isEmpty {
                 Text(errorString)
                     .foregroundColor(.red)
-                    .frame(height: 24)
-                    .font(.system(size: 16, weight: .regular))
+                    .font(.system(size: 12, weight: .regular)) // Adjusted font size
+                    .padding(.top, 2) // Adjusted position to be closer to the text field
             }
         }
+    }
+    
+    private func validate() {
+        guard let validationType = validationType else { return }
+        let result = validationType.validator.validate(input: text)
+        currentStatus.wrappedValue = result.0
+        currentErrorString.wrappedValue = result.1
     }
 }
 

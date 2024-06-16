@@ -35,6 +35,8 @@ struct AuthenticationPage<Header: View, Footer: View, Content: View>: View {
             .padding(.vertical, verticalPadding)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 
+            Spacer()
+
             footer
                 .padding(.horizontal, horizontalPadding)
                 .padding(.vertical, verticalPadding)
