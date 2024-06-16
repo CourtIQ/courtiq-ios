@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C0495D802C1E45A100E6D023 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C0495D7F2C1E45A100E6D023 /* AuthenticationService */; };
 		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
 		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
 		C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D902C1E54C700E6D023 /* SignUpView.swift */; };
@@ -22,6 +21,8 @@
 		C060AF452C1974D200D160A5 /* CourtiqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF442C1974D200D160A5 /* CourtiqTests.swift */; };
 		C060AF4F2C1974D200D160A5 /* CourtiqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */; };
 		C060AF512C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */; };
+		C083F0962C1EB8EE00A07919 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C083F0952C1EB8EE00A07919 /* AuthenticationService */; };
+		C08A70862C1EB447006867DE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08A70852C1EB447006867DE /* Coordinator.swift */; };
 		C0F4A4FF2C1E8119006B204C /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0F4A4FE2C1E8119006B204C /* RDDesignSystem */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		C060AF4A2C1974D200D160A5 /* CourtiqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CourtiqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITests.swift; sourceTree = "<group>"; };
 		C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C08A70852C1EB447006867DE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0495D802C1E45A100E6D023 /* AuthenticationService in Frameworks */,
+				C083F0962C1EB8EE00A07919 /* AuthenticationService in Frameworks */,
 				C0F4A4FF2C1E8119006B204C /* RDDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +157,7 @@
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
 				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
 				C060AF392C1974D200D160A5 /* Preview Content */,
+				C08A70852C1EB447006867DE /* Coordinator.swift */,
 			);
 			path = Courtiq;
 			sourceTree = "<group>";
@@ -217,8 +220,8 @@
 			);
 			name = Courtiq;
 			packageProductDependencies = (
-				C0495D7F2C1E45A100E6D023 /* AuthenticationService */,
 				C0F4A4FE2C1E8119006B204C /* RDDesignSystem */,
+				C083F0952C1EB8EE00A07919 /* AuthenticationService */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -347,6 +350,7 @@
 				C0495D972C1E550C00E6D023 /* AuthenticationCoordinator.swift in Sources */,
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
 				C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */,
+				C08A70862C1EB447006867DE /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +521,8 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -556,6 +562,8 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -718,7 +726,7 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C0495D7F2C1E45A100E6D023 /* AuthenticationService */ = {
+		C083F0952C1EB8EE00A07919 /* AuthenticationService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AuthenticationService;
 		};

@@ -4,6 +4,7 @@ import SwiftUI
 public enum RDTextFieldType {
     case primary
     case search
+    case password
     
     var bgColor: Color {
         switch self {
@@ -11,6 +12,8 @@ public enum RDTextFieldType {
             return .white
         case .search:
             return .platinum50
+        case .password:
+            return .white
         }
     }
     
@@ -20,6 +23,8 @@ public enum RDTextFieldType {
             return .white
         case .search:
             return .platinum100
+        case .password:
+            return .white
         }
     }
 }
@@ -74,6 +79,7 @@ public struct RDTextField: View {
     @Binding var text: String
     @State private var internalStatus: RDTextFieldStatus = .none
     @State private var internalErrorString: String? = nil
+    @State private var isPasswordVisible: Bool = false
     var status: Binding<RDTextFieldStatus>?
     var errorString: Binding<String?>?
     var onTrailingIconPressed: (() -> ())?
@@ -98,11 +104,11 @@ public struct RDTextField: View {
     }
     
     private var currentStatus: Binding<RDTextFieldStatus> {
-        status ?? $internalStatus
+        status ?? Binding(get: { internalStatus }, set: { internalStatus = $0 })
     }
     
     private var currentErrorString: Binding<String?> {
-        errorString ?? $internalErrorString
+        errorString ?? Binding(get: { internalErrorString }, set: { internalErrorString = $0 })
     }
     
     public var body: some View {
@@ -134,6 +140,47 @@ public struct RDTextField: View {
                             .onChange(of: text, perform: { newValue in
                                 validate()
                             })
+                    } else if params.type == .password {
+                        if isPasswordVisible {
+                            TextField("", text: $text)
+                                .foregroundColor(.platinum950)
+                                .frame(height: 24)
+                                .font(.system(size: 16, weight: .regular))
+                                .placeholder(when: text.isEmpty) {
+                                    Text(params.placeholder)
+                                        .foregroundColor(.gray)
+                                }
+                                .opacity(isActive ? 1 : 0)
+                                .offset(y: 7)
+                                .focused($focused)
+                                .onChange(of: text, perform: { newValue in
+                                    validate()
+                                })
+                        } else {
+                            SecureField("", text: $text)
+                                .foregroundColor(.platinum950)
+                                .frame(height: 24)
+                                .font(.system(size: 16, weight: .regular))
+                                .placeholder(when: text.isEmpty) {
+                                    Text(params.placeholder)
+                                        .foregroundColor(.gray)
+                                }
+                                .opacity(isActive ? 1 : 0)
+                                .offset(y: 7)
+                                .focused($focused)
+                                .onChange(of: text, perform: { newValue in
+                                    validate()
+                                })
+                        }
+                        
+                        HStack {
+                            Text(params.placeholder)
+                                .foregroundColor(isError ? .red : .platinum500)
+                                .frame(height: 16)
+                                .font(.system(size: isActive ? 12 : 16, weight: .regular))
+                                .offset(y: isActive ? -12 : 0) // Adjusted offset to move placeholder higher
+                            Spacer()
+                        }
                     } else {
                         TextField("", text: $text)
                             .foregroundColor(.platinum950)
@@ -165,18 +212,28 @@ public struct RDTextField: View {
                 Spacer()
                 
                 Button {
-                    onTrailingIconPressed?()
+                    if params.type == .password {
+                        isPasswordVisible.toggle()
+                    } else {
+                        onTrailingIconPressed?()
+                    }
                 } label: {
-                    if params.type == .primary {
+                    if params.type == .password {
+                        Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
+                            .foregroundColor(.platinum950) // Match the color of the text
+                            .frame(width: 20, height: 20) // Adjust the size to fit well within the frame
+                    } else if params.type == .primary {
                         if !currentStatus.wrappedValue.icon.isEmpty {
                             Image(uiImage: UIImage(named: currentStatus.wrappedValue.icon, in: .module, with: nil)!)
                                 .resizable()
-                                .frame(width: 24, height: 24)
+                                .foregroundColor(.platinum950) // Match the color of the text
+                                .frame(width: 20, height: 20) // Adjust the size to fit well within the frame
                         }
                     } else {
                         Image(uiImage: UIImage(named: "ic_Microphone", in: .module, with: nil)!)
                             .resizable()
-                            .frame(width: 24, height: 24)
+                            .foregroundColor(.platinum950) // Match the color of the text
+                            .frame(width: 20, height: 20) // Adjust the size to fit well within the frame
                     }
                 }
             }

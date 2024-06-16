@@ -31,15 +31,21 @@ struct SignInView: View {
             )
         } footer: {
             RDButtonView(.extraLarge, .primary, "Sign in",
-                         disable: email == "" && password == "") {
-                // TODO: Add login implementation
+                         disable: email.isEmpty || password.isEmpty) {
             }
         } content: {
-            RDTextField(
-                params: RDTextFieldParams(type: .primary, placeholder: "Enter email"),
-                text: $email,
-                validationType: .email
-            )
+            VStack(spacing: 16) {
+                RDTextField(
+                    params: RDTextFieldParams(type: .primary, placeholder: "Enter email"),
+                    text: $email,
+                    validationType: .email
+                )
+                RDTextField(
+                    params: RDTextFieldParams(type: .password, placeholder: "Enter password"),
+                    text: $password,
+                    validationType: .password
+                )
+            }
         }
     }
 }
@@ -47,3 +53,6 @@ struct SignInView: View {
 #Preview {
     SignInView()
 }
+
+#warning("TODO: Add Forgot Password button")
+#warning("TODO: Add Dont have an account? Create an account. Button")
