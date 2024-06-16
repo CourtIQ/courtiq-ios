@@ -8,9 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		C01E71EA2C197EB900FD31E1 /* DynamicLayers in Frameworks */ = {isa = PBXBuildFile; productRef = C01E71E92C197EB900FD31E1 /* DynamicLayers */; };
+		C0495D802C1E45A100E6D023 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C0495D7F2C1E45A100E6D023 /* AuthenticationService */; };
+		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
+		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
+		C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D902C1E54C700E6D023 /* SignUpView.swift */; };
+		C0495D932C1E54D100E6D023 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D922C1E54D100E6D023 /* ResetPasswordView.swift */; };
+		C0495D952C1E54E800E6D023 /* NewUserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */; };
+		C0495D972C1E550C00E6D023 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D962C1E550C00E6D023 /* AuthenticationCoordinator.swift */; };
+		C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */; };
+		C0495D9D2C1E5F7F00E6D023 /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0495D9C2C1E5F7F00E6D023 /* RDDesignSystem */; };
+		C0495DA02C1E605900E6D023 /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0495D9F2C1E605900E6D023 /* RDDesignSystem */; };
 		C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF302C1974D100D160A5 /* CourtiqApp.swift */; };
 		C060AF332C1974D100D160A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF322C1974D100D160A5 /* ContentView.swift */; };
-		C060AF352C1974D100D160A5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF342C1974D100D160A5 /* Item.swift */; };
 		C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C060AF362C1974D200D160A5 /* Assets.xcassets */; };
 		C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C060AF3A2C1974D200D160A5 /* Preview Assets.xcassets */; };
 		C060AF452C1974D200D160A5 /* CourtiqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF442C1974D200D160A5 /* CourtiqTests.swift */; };
@@ -38,11 +47,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C01E71EB2C197ED200FD31E1 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
+		C0495D7D2C1E430400E6D023 /* AuthenticationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthenticationService; sourceTree = "<group>"; };
+		C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C0495D8B2C1E546800E6D023 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		C0495D902C1E54C700E6D023 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		C0495D922C1E54D100E6D023 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserInformationView.swift; sourceTree = "<group>"; };
+		C0495D962C1E550C00E6D023 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationPage.swift; sourceTree = "<group>"; };
+		C0495DA12C1E606700E6D023 /* RDDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RDDesignSystem; sourceTree = "<group>"; };
 		C060AF2D2C1974D100D160A5 /* Courtiq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Courtiq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C060AF302C1974D100D160A5 /* CourtiqApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqApp.swift; sourceTree = "<group>"; };
 		C060AF322C1974D100D160A5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C060AF342C1974D100D160A5 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		C060AF362C1974D200D160A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C060AF382C1974D200D160A5 /* Courtiq.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Courtiq.entitlements; sourceTree = "<group>"; };
 		C060AF3A2C1974D200D160A5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -59,7 +75,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C01E71EA2C197EB900FD31E1 /* DynamicLayers in Frameworks */,
+				C0495DA02C1E605900E6D023 /* RDDesignSystem in Frameworks */,
 				C07B6AF02C197D6100AADF91 /* DynamicLayers in Frameworks */,
+				C0495D9D2C1E5F7F00E6D023 /* RDDesignSystem in Frameworks */,
+				C0495D802C1E45A100E6D023 /* AuthenticationService in Frameworks */,
 				C07B6A652C1979A800AADF91 /* DynamicLayers in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -81,6 +100,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0495D892C1E544E00E6D023 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				C0495D982C1E551A00E6D023 /* Views */,
+				C0495D962C1E550C00E6D023 /* AuthenticationCoordinator.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		C0495D8A2C1E545700E6D023 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C0495D982C1E551A00E6D023 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C0495D8B2C1E546800E6D023 /* SignInView.swift */,
+				C0495D902C1E54C700E6D023 /* SignUpView.swift */,
+				C0495D922C1E54D100E6D023 /* ResetPasswordView.swift */,
+				C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */,
+				C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C060AF242C1974D100D160A5 = {
 			isa = PBXGroup;
 			children = (
@@ -105,9 +152,11 @@
 		C060AF2F2C1974D100D160A5 /* Courtiq */ = {
 			isa = PBXGroup;
 			children = (
+				C0495D892C1E544E00E6D023 /* Authentication */,
+				C0495D8A2C1E545700E6D023 /* Home */,
+				C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */,
 				C060AF302C1974D100D160A5 /* CourtiqApp.swift */,
 				C060AF322C1974D100D160A5 /* ContentView.swift */,
-				C060AF342C1974D100D160A5 /* Item.swift */,
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
 				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
 				C060AF392C1974D200D160A5 /* Preview Content */,
@@ -143,7 +192,8 @@
 		C060AF5D2C19752F00D160A5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				C01E71EB2C197ED200FD31E1 /* DesignSystem */,
+				C0495DA12C1E606700E6D023 /* RDDesignSystem */,
+				C0495D7D2C1E430400E6D023 /* AuthenticationService */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -168,6 +218,9 @@
 				C07B6A642C1979A800AADF91 /* DynamicLayers */,
 				C07B6AEF2C197D6100AADF91 /* DynamicLayers */,
 				C01E71E92C197EB900FD31E1 /* DynamicLayers */,
+				C0495D7F2C1E45A100E6D023 /* AuthenticationService */,
+				C0495D9C2C1E5F7F00E6D023 /* RDDesignSystem */,
+				C0495D9F2C1E605900E6D023 /* RDDesignSystem */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -242,7 +295,8 @@
 			);
 			mainGroup = C060AF242C1974D100D160A5;
 			packageReferences = (
-				C01E71E82C197EB900FD31E1 /* XCLocalSwiftPackageReference "Packages/DesignSystem" */,
+				C0495D7E2C1E45A100E6D023 /* XCLocalSwiftPackageReference "Packages/AuthenticationService" */,
+				C0495D9B2C1E5F7F00E6D023 /* XCLocalSwiftPackageReference "Packages/RDDesignSystem" */,
 			);
 			productRefGroup = C060AF2E2C1974D100D160A5 /* Products */;
 			projectDirPath = "";
@@ -261,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */,
+				C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */,
 				C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,9 +341,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0495D932C1E54D100E6D023 /* ResetPasswordView.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
-				C060AF352C1974D100D160A5 /* Item.swift in Sources */,
+				C0495D952C1E54E800E6D023 /* NewUserInformationView.swift in Sources */,
+				C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */,
+				C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */,
+				C0495D972C1E550C00E6D023 /* AuthenticationCoordinator.swift in Sources */,
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
+				C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,7 +526,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rocketdestroyer.com.Courtiq;
+				PRODUCT_BUNDLE_IDENTIFIER = "pranav-suri.com.Courtiq";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -504,7 +564,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = rocketdestroyer.com.Courtiq;
+				PRODUCT_BUNDLE_IDENTIFIER = "pranav-suri.com.Courtiq";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -647,9 +707,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		C01E71E82C197EB900FD31E1 /* XCLocalSwiftPackageReference "Packages/DesignSystem" */ = {
+		C0495D7E2C1E45A100E6D023 /* XCLocalSwiftPackageReference "Packages/AuthenticationService" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/DesignSystem;
+			relativePath = Packages/AuthenticationService;
+		};
+		C0495D9B2C1E5F7F00E6D023 /* XCLocalSwiftPackageReference "Packages/RDDesignSystem" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/RDDesignSystem;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -657,6 +721,18 @@
 		C01E71E92C197EB900FD31E1 /* DynamicLayers */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DynamicLayers;
+		};
+		C0495D7F2C1E45A100E6D023 /* AuthenticationService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthenticationService;
+		};
+		C0495D9C2C1E5F7F00E6D023 /* RDDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RDDesignSystem;
+		};
+		C0495D9F2C1E605900E6D023 /* RDDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RDDesignSystem;
 		};
 		C07B6A642C1979A800AADF91 /* DynamicLayers */ = {
 			isa = XCSwiftPackageProductDependency;

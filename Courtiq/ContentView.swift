@@ -7,19 +7,34 @@
 
 import SwiftUI
 import SwiftData
-import DynamicLayers
+import RDDesignSystem
+import AuthenticationService
 
 struct ContentView: View {
+    @StateObject var authService = AuthManager(authService: FirebaseAuthService())
     var body: some View {
         VStack {
-            Text("Set Score")
-            Text("Game Score")
             HStack {
-                RDButtonView(.large, .primary, "Player 1") {
-                    print("Player 1 wins")
-                }
-                RDButtonView(.large, .primary, "Player 1") {
-                    print("Player 2 wins")
+                if authService.isUserLoggedIn {
+                    RDButtonView(.extraLarge, .secondary, "Logout") {
+                        Task {
+                            do {
+                                try await authService.signOut()
+                            } catch {
+                                print("Logout failed: \(error.localizedDescription)")
+                            }
+                        }
+                    }
+                } else {
+                    RDButtonView(.extraLarge, .secondary, "Login") {
+                        Task {
+                            do {
+                                try await authService.signIn(email: "pranavsuri@icloud.com", password: "Puru4303")
+                            } catch {
+                                print("Logout failed: \(error)")
+                            }
+                        }
+                    }
                 }
             }
         }
