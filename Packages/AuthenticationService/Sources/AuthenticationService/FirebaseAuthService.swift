@@ -7,7 +7,7 @@
 
 import FirebaseAuth
 
-public class FirebaseAuthService: AuthServiceProtocol {
+public class FirebaseAuthService: AuthProviderProtocol {
     private let userDefaults: UserDefaults
     private let currentUserKey = "currentUser"
     private let isLoggedInKey = "isLoggedIn"

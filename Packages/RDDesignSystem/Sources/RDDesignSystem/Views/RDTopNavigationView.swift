@@ -15,9 +15,7 @@ public enum RDTopNavigationType {
     
     var titleSize: CGFloat {
         switch self {
-        case .primary,
-                .primaryWithSearch,
-                .onlySearchWithIcons:
+        case .primary, .primaryWithSearch, .onlySearchWithIcons:
             return 16
         case .primaryWithProfileAvatar:
             return 20
@@ -50,15 +48,14 @@ public struct RDTopNavigationParams {
 
 @available(iOS 15.0, *)
 public struct RDTopNavigationView: View {
-    
     var params: RDTopNavigationParams
-    @Binding var searchText: String
-    var onMicPressed: (()->())?
+    @Binding var searchText: String?
+    var onMicPressed: (() -> Void)?
     
     public init(
         params: RDTopNavigationParams,
-        searchText: Binding<String>,
-        onMicPressed: (()->())? = nil
+        searchText: Binding<String?> = .constant(nil),
+        onMicPressed: (() -> Void)? = nil
     ) {
         self.params = params
         self._searchText = searchText
@@ -69,7 +66,6 @@ public struct RDTopNavigationView: View {
         VStack(spacing: 0) {
             ZStack {
                 HStack(spacing: 0) {
-                    
                     if params.type == .primaryWithProfileAvatar {
                         RDAvatarView(
                             rdAvatarSizing: .small,
@@ -80,13 +76,13 @@ public struct RDTopNavigationView: View {
                         Text(params.title)
                             .lineLimit(1)
                             .font(.system(size: params.type.titleSize, weight: .bold))
-                            .foregroundColor(.platinum950)
+                            .foregroundColor(.primary)
                         
                         Spacer()
                     }
                     
-                    if let leadingIItem = params.leadingItem {
-                        leadingIItem
+                    if let leadingItem = params.leadingItem {
+                        leadingItem
                             .padding(.leading, 16) // Add padding to the leading item
                     }
                     
@@ -111,13 +107,12 @@ public struct RDTopNavigationView: View {
                             Text(params.title)
                                 .lineLimit(1)
                                 .font(.system(size: params.type.titleSize, weight: .bold))
-                                .foregroundColor(.platinum950)
+                                .foregroundColor(.primary)
                         }
                         
                         Spacer()
                     }
                 }
-                
             }
             .frame(height: 56)
             
@@ -129,6 +124,13 @@ public struct RDTopNavigationView: View {
         .background(params.bgColor)
     }
     
+    private var nonOptionalSearchText: Binding<String> {
+        Binding(
+            get: { searchText ?? "" },
+            set: { searchText = $0 }
+        )
+    }
+    
     func SearchField() -> some View {
         RDTextField(
             params: RDTextFieldParams(
@@ -137,7 +139,7 @@ public struct RDTopNavigationView: View {
                 height: 40,
                 isBorderExists: false
             ),
-            text: $searchText,
+            text: nonOptionalSearchText,
             status: .constant(.none),
             errorString: .constant(""),
             onTrailingIconPressed: onMicPressed

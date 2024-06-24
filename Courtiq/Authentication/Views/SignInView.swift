@@ -5,16 +5,22 @@
 //  Created by Pranav Suri on 2024-06-15.
 //
 
+import AuthenticationService
 import RDDesignSystem
 import SwiftUI
-import AuthenticationService
+
+// MARK: SignInView
 
 struct SignInView: View {
-    @State private var searchText = ""
-    @State private var email = ""
-    @State private var password = ""
-    @EnvironmentObject private var authService: AuthManager
-
+    
+    // MARK: Internal
+    
+    init(vm: AuthenticationVM) {
+        self.vm = vm
+    }
+    
+    // MARK: - Body
+    
     var body: some View {
         AuthenticationPage {
             RDTopNavigationView(
@@ -22,37 +28,44 @@ struct SignInView: View {
                     type: .primary,
                     title: "Sign In",
                     leadingItem: AnyView(
-                        Image(systemName: "chevron.left")
-                            .padding(.trailing, 16)
+                        Button(action: {
+                            print("Hello")
+                        }, label: {
+                            Image(systemName: "chevron.left")
+                                .padding(.trailing, 16)
+                        })
                     ),
                     bgColor: .white
-                ),
-                searchText: $searchText
+                )
             )
         } footer: {
             RDButtonView(.extraLarge, .primary, "Sign in",
-                         disable: email.isEmpty || password.isEmpty) {
+                         disable: vm.email.isEmpty || vm.password.isEmpty) {
+                vm.handle(action: .signIn)
             }
         } content: {
             VStack(spacing: 16) {
                 RDTextField(
                     params: RDTextFieldParams(type: .primary, placeholder: "Enter email"),
-                    text: $email,
+                    text: $vm.email,
                     validationType: .email
                 )
                 RDTextField(
                     params: RDTextFieldParams(type: .password, placeholder: "Enter password"),
-                    text: $password,
+                    text: $vm.password,
                     validationType: .password
                 )
             }
         }
     }
+    
+    // MARK: - Private
+    
+    @ObservedObject private var vm: AuthenticationVM
 }
+
+// MARK: - Preview
 
 #Preview {
-    SignInView()
+    SignInView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), flow: FlowProvider(rootView: EmptyView())))
 }
-
-#warning("TODO: Add Forgot Password button")
-#warning("TODO: Add Dont have an account? Create an account. Button")

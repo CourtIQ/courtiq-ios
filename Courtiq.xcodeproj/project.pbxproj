@@ -12,7 +12,6 @@
 		C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D902C1E54C700E6D023 /* SignUpView.swift */; };
 		C0495D932C1E54D100E6D023 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D922C1E54D100E6D023 /* ResetPasswordView.swift */; };
 		C0495D952C1E54E800E6D023 /* NewUserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */; };
-		C0495D972C1E550C00E6D023 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D962C1E550C00E6D023 /* AuthenticationCoordinator.swift */; };
 		C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */; };
 		C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF302C1974D100D160A5 /* CourtiqApp.swift */; };
 		C060AF332C1974D100D160A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF322C1974D100D160A5 /* ContentView.swift */; };
@@ -22,8 +21,14 @@
 		C060AF4F2C1974D200D160A5 /* CourtiqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */; };
 		C060AF512C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */; };
 		C083F0962C1EB8EE00A07919 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C083F0952C1EB8EE00A07919 /* AuthenticationService */; };
-		C08A70862C1EB447006867DE /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08A70852C1EB447006867DE /* Coordinator.swift */; };
 		C0F4A4FF2C1E8119006B204C /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0F4A4FE2C1E8119006B204C /* RDDesignSystem */; };
+		C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */; };
+		C0F58BCE2C294C4A00930364 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BC92C294C4A00930364 /* Flow.swift */; };
+		C0F58BCF2C294C4A00930364 /* FlowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BCA2C294C4A00930364 /* FlowProvider.swift */; };
+		C0F58BD02C294C4A00930364 /* FlowProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BCB2C294C4A00930364 /* FlowProviderImpl.swift */; };
+		C0F58BD12C294C4A00930364 /* FlowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BCC2C294C4A00930364 /* FlowPresenter.swift */; };
+		C0F58BD22C294C4A00930364 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BCD2C294C4A00930364 /* Alert.swift */; };
+		C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BD32C29525200930364 /* AuthenticationVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +55,6 @@
 		C0495D902C1E54C700E6D023 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		C0495D922C1E54D100E6D023 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserInformationView.swift; sourceTree = "<group>"; };
-		C0495D962C1E550C00E6D023 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationPage.swift; sourceTree = "<group>"; };
 		C0495DA12C1E606700E6D023 /* RDDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RDDesignSystem; sourceTree = "<group>"; };
 		C060AF2D2C1974D100D160A5 /* Courtiq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Courtiq.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,8 +68,14 @@
 		C060AF4A2C1974D200D160A5 /* CourtiqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CourtiqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITests.swift; sourceTree = "<group>"; };
 		C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C08A70852C1EB447006867DE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWelcomeView.swift; sourceTree = "<group>"; };
+		C0F58BC92C294C4A00930364 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
+		C0F58BCA2C294C4A00930364 /* FlowProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowProvider.swift; sourceTree = "<group>"; };
+		C0F58BCB2C294C4A00930364 /* FlowProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowProviderImpl.swift; sourceTree = "<group>"; };
+		C0F58BCC2C294C4A00930364 /* FlowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowPresenter.swift; sourceTree = "<group>"; };
+		C0F58BCD2C294C4A00930364 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		C0F58BD32C29525200930364 /* AuthenticationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +108,9 @@
 		C0495D892C1E544E00E6D023 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				C0F58BC02C29022200930364 /* ReusableViews */,
 				C0495D982C1E551A00E6D023 /* Views */,
-				C0495D962C1E550C00E6D023 /* AuthenticationCoordinator.swift */,
+				C0F58BD32C29525200930364 /* AuthenticationVM.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -114,11 +125,11 @@
 		C0495D982C1E551A00E6D023 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */,
+				C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */,
+				C0495D922C1E54D100E6D023 /* ResetPasswordView.swift */,
 				C0495D8B2C1E546800E6D023 /* SignInView.swift */,
 				C0495D902C1E54C700E6D023 /* SignUpView.swift */,
-				C0495D922C1E54D100E6D023 /* ResetPasswordView.swift */,
-				C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */,
-				C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -157,7 +168,7 @@
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
 				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
 				C060AF392C1974D200D160A5 /* Preview Content */,
-				C08A70852C1EB447006867DE /* Coordinator.swift */,
+				C0E27D142C1EBCFD003A790A /* Coordinator */,
 			);
 			path = Courtiq;
 			sourceTree = "<group>";
@@ -196,11 +207,31 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
+		C0E27D142C1EBCFD003A790A /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				C0F58BCD2C294C4A00930364 /* Alert.swift */,
+				C0F58BC92C294C4A00930364 /* Flow.swift */,
+				C0F58BCC2C294C4A00930364 /* FlowPresenter.swift */,
+				C0F58BCA2C294C4A00930364 /* FlowProvider.swift */,
+				C0F58BCB2C294C4A00930364 /* FlowProviderImpl.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		C0F4A4FD2C1E8119006B204C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0F58BC02C29022200930364 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */,
+			);
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,15 +373,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0F58BD02C294C4A00930364 /* FlowProviderImpl.swift in Sources */,
 				C0495D932C1E54D100E6D023 /* ResetPasswordView.swift in Sources */,
+				C0F58BD12C294C4A00930364 /* FlowPresenter.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
+				C0F58BCF2C294C4A00930364 /* FlowProvider.swift in Sources */,
+				C0F58BD22C294C4A00930364 /* Alert.swift in Sources */,
 				C0495D952C1E54E800E6D023 /* NewUserInformationView.swift in Sources */,
 				C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */,
 				C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */,
-				C0495D972C1E550C00E6D023 /* AuthenticationCoordinator.swift in Sources */,
+				C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */,
+				C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */,
+				C0F58BCE2C294C4A00930364 /* Flow.swift in Sources */,
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
 				C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */,
-				C08A70862C1EB447006867DE /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

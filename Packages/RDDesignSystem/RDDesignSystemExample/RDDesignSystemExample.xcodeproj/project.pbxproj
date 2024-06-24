@@ -33,11 +33,11 @@
 		C0F4A4F52C1E614E006B204C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C0F4A4DA2C1E614E006B204C /* Assets.xcassets */; };
 		C0F4A4F62C1E614E006B204C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F4A4DB2C1E614E006B204C /* ContentView.swift */; };
 		C0F4A4F72C1E614E006B204C /* DynamicLayersExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F4A4DC2C1E614E006B204C /* DynamicLayersExampleApp.swift */; };
-		C0F4A4FB2C1E7FE5006B204C /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0F4A4FA2C1E7FE5006B204C /* RDDesignSystem */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1812FF8E2B06775A00AD2E2B /* DynamicLayersExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DynamicLayersExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0E27D152C1EC1DA003A790A /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Package.swift; path = ../Package.swift; sourceTree = "<group>"; };
 		C0F4A4C02C1E614E006B204C /* AvatarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarComponent.swift; sourceTree = "<group>"; };
 		C0F4A4C12C1E614E006B204C /* BadgeComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeComponent.swift; sourceTree = "<group>"; };
 		C0F4A4C22C1E614E006B204C /* BottomNavigationBarComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomNavigationBarComponent.swift; sourceTree = "<group>"; };
@@ -72,7 +72,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0F4A4FB2C1E7FE5006B204C /* RDDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +155,7 @@
 		C0F4A4F82C1E7FD8006B204C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C0E27D152C1EC1DA003A790A /* Package.swift */,
 				C0F4A4F92C1E7FD8006B204C /* RDDesignSystem */,
 			);
 			name = Frameworks;
@@ -178,7 +178,6 @@
 			);
 			name = DynamicLayersExample;
 			packageProductDependencies = (
-				C0F4A4FA2C1E7FE5006B204C /* RDDesignSystem */,
 			);
 			productName = DynamicLayersExample;
 			productReference = 1812FF8E2B06775A00AD2E2B /* DynamicLayersExample.app */;
@@ -460,13 +459,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C0F4A4FA2C1E7FE5006B204C /* RDDesignSystem */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RDDesignSystem;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1812FF862B06775A00AD2E2B /* Project object */;
 }

@@ -13,7 +13,7 @@ struct AuthenticationPage<Header: View, Footer: View, Content: View>: View {
     let footer: Footer
     let content: Content
 
-    private let verticalPadding: CGFloat = 20
+    private let verticalPadding: CGFloat = 8
     private let horizontalPadding: CGFloat = 16
 
     init(@ViewBuilder header: () -> Header,
