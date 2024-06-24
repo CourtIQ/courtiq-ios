@@ -20,14 +20,14 @@
 		C060AF452C1974D200D160A5 /* CourtiqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF442C1974D200D160A5 /* CourtiqTests.swift */; };
 		C060AF4F2C1974D200D160A5 /* CourtiqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */; };
 		C060AF512C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */; };
+		C07635A42C29645400DA13C2 /* FlowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C076359F2C29645400DA13C2 /* FlowProvider.swift */; };
+		C07635A52C29645400DA13C2 /* FlowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07635A02C29645400DA13C2 /* FlowPresenter.swift */; };
+		C07635A62C29645400DA13C2 /* FlowProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07635A12C29645400DA13C2 /* FlowProviderImpl.swift */; };
+		C07635A72C29645400DA13C2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07635A22C29645400DA13C2 /* Alert.swift */; };
+		C07635A82C29645400DA13C2 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07635A32C29645400DA13C2 /* Flow.swift */; };
 		C083F0962C1EB8EE00A07919 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C083F0952C1EB8EE00A07919 /* AuthenticationService */; };
 		C0F4A4FF2C1E8119006B204C /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0F4A4FE2C1E8119006B204C /* RDDesignSystem */; };
 		C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */; };
-		C0F58BCE2C294C4A00930364 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BC92C294C4A00930364 /* Flow.swift */; };
-		C0F58BCF2C294C4A00930364 /* FlowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BCA2C294C4A00930364 /* FlowProvider.swift */; };
-		C0F58BD02C294C4A00930364 /* FlowProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BCB2C294C4A00930364 /* FlowProviderImpl.swift */; };
-		C0F58BD12C294C4A00930364 /* FlowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BCC2C294C4A00930364 /* FlowPresenter.swift */; };
-		C0F58BD22C294C4A00930364 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BCD2C294C4A00930364 /* Alert.swift */; };
 		C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BD32C29525200930364 /* AuthenticationVM.swift */; };
 /* End PBXBuildFile section */
 
@@ -68,13 +68,13 @@
 		C060AF4A2C1974D200D160A5 /* CourtiqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CourtiqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITests.swift; sourceTree = "<group>"; };
 		C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C076359F2C29645400DA13C2 /* FlowProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowProvider.swift; path = Courtiq/Flow/FlowProvider.swift; sourceTree = SOURCE_ROOT; };
+		C07635A02C29645400DA13C2 /* FlowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowPresenter.swift; path = Courtiq/Flow/FlowPresenter.swift; sourceTree = SOURCE_ROOT; };
+		C07635A12C29645400DA13C2 /* FlowProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowProviderImpl.swift; path = Courtiq/Flow/FlowProviderImpl.swift; sourceTree = SOURCE_ROOT; };
+		C07635A22C29645400DA13C2 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Courtiq/Flow/Alert.swift; sourceTree = SOURCE_ROOT; };
+		C07635A32C29645400DA13C2 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Flow.swift; path = Courtiq/Flow/Flow.swift; sourceTree = SOURCE_ROOT; };
 		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWelcomeView.swift; sourceTree = "<group>"; };
-		C0F58BC92C294C4A00930364 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flow.swift; sourceTree = "<group>"; };
-		C0F58BCA2C294C4A00930364 /* FlowProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowProvider.swift; sourceTree = "<group>"; };
-		C0F58BCB2C294C4A00930364 /* FlowProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowProviderImpl.swift; sourceTree = "<group>"; };
-		C0F58BCC2C294C4A00930364 /* FlowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowPresenter.swift; sourceTree = "<group>"; };
-		C0F58BCD2C294C4A00930364 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		C0F58BD32C29525200930364 /* AuthenticationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,7 +168,7 @@
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
 				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
 				C060AF392C1974D200D160A5 /* Preview Content */,
-				C0E27D142C1EBCFD003A790A /* Coordinator */,
+				C0E27D142C1EBCFD003A790A /* Flow */,
 			);
 			path = Courtiq;
 			sourceTree = "<group>";
@@ -207,16 +207,16 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
-		C0E27D142C1EBCFD003A790A /* Coordinator */ = {
+		C0E27D142C1EBCFD003A790A /* Flow */ = {
 			isa = PBXGroup;
 			children = (
-				C0F58BCD2C294C4A00930364 /* Alert.swift */,
-				C0F58BC92C294C4A00930364 /* Flow.swift */,
-				C0F58BCC2C294C4A00930364 /* FlowPresenter.swift */,
-				C0F58BCA2C294C4A00930364 /* FlowProvider.swift */,
-				C0F58BCB2C294C4A00930364 /* FlowProviderImpl.swift */,
+				C07635A22C29645400DA13C2 /* Alert.swift */,
+				C07635A32C29645400DA13C2 /* Flow.swift */,
+				C07635A02C29645400DA13C2 /* FlowPresenter.swift */,
+				C076359F2C29645400DA13C2 /* FlowProvider.swift */,
+				C07635A12C29645400DA13C2 /* FlowProviderImpl.swift */,
 			);
-			path = Coordinator;
+			path = Flow;
 			sourceTree = "<group>";
 		};
 		C0F4A4FD2C1E8119006B204C /* Frameworks */ = {
@@ -373,19 +373,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C0F58BD02C294C4A00930364 /* FlowProviderImpl.swift in Sources */,
+				C07635A72C29645400DA13C2 /* Alert.swift in Sources */,
+				C07635A82C29645400DA13C2 /* Flow.swift in Sources */,
 				C0495D932C1E54D100E6D023 /* ResetPasswordView.swift in Sources */,
-				C0F58BD12C294C4A00930364 /* FlowPresenter.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
-				C0F58BCF2C294C4A00930364 /* FlowProvider.swift in Sources */,
-				C0F58BD22C294C4A00930364 /* Alert.swift in Sources */,
 				C0495D952C1E54E800E6D023 /* NewUserInformationView.swift in Sources */,
+				C07635A42C29645400DA13C2 /* FlowProvider.swift in Sources */,
 				C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */,
 				C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */,
 				C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */,
+				C07635A62C29645400DA13C2 /* FlowProviderImpl.swift in Sources */,
 				C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */,
-				C0F58BCE2C294C4A00930364 /* Flow.swift in Sources */,
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
+				C07635A52C29645400DA13C2 /* FlowPresenter.swift in Sources */,
 				C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
