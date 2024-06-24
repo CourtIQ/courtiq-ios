@@ -28,11 +28,8 @@ struct SignInView: View {
                     type: .primary,
                     title: "Sign In",
                     leadingItem: AnyView(
-                        Button(action: {
-                            print("Hello")
-                        }, label: {
-                            Image(systemName: "chevron.left")
-                                .padding(.trailing, 16)
+                        RDIconButton(.tertiary, .medium, "chevron.left", action: {
+                            vm.flow.popToRoot()
                         })
                     ),
                     bgColor: .white

@@ -157,8 +157,7 @@ public struct RDIconButton: View {
         Button {
             action?()
         } label: {
-            Image(icon)
-                .resizable()
+            Image(systemName: icon)
                 .renderingMode(.template)
                 .frame(width: 24, height: 24)
                 .frame(width: size.size, height: size.size)

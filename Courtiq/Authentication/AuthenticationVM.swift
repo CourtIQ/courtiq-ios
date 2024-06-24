@@ -29,11 +29,11 @@ final class AuthenticationVM: ObservableObject {
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
     @Published var isUserLoggedIn: Bool = false
-    
+    var flow: FlowProvider
+
     // MARK: - Private Properties
     
     private var authService: any AuthServiceProtocol
-    private var flow: FlowProvider
     
     // MARK: - Initialization
     
@@ -79,7 +79,7 @@ final class AuthenticationVM: ObservableObject {
                 try await authService.signIn(email: email, password: password)
                 DispatchQueue.main.async {
                     self.isUserLoggedIn = self.authService.isUserLoggedIn
-                    self.flow.replace([HomeView(authService: self.authService as! AuthService).environmentObject(self.flow)])
+                    self.flow.replace([HomeView().environmentObject(self.flow)])
                 }
             } catch {
                 DispatchQueue.main.async {
@@ -95,7 +95,7 @@ final class AuthenticationVM: ObservableObject {
                 try await authService.signUp(email: email, password: password)
                 DispatchQueue.main.async {
                     self.isUserLoggedIn = self.authService.isUserLoggedIn
-                    self.flow.replace([HomeView(authService: self.authService as! AuthService).environmentObject(self.flow)])
+                    self.flow.replace([HomeView().environmentObject(self.flow)])
                 }
             } catch {
                 DispatchQueue.main.async {

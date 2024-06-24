@@ -26,6 +26,8 @@
 		C07635A72C29645400DA13C2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07635A22C29645400DA13C2 /* Alert.swift */; };
 		C07635A82C29645400DA13C2 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07635A32C29645400DA13C2 /* Flow.swift */; };
 		C083F0962C1EB8EE00A07919 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C083F0952C1EB8EE00A07919 /* AuthenticationService */; };
+		C0904D6F2C297352008B7B2E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0904D6E2C297352008B7B2E /* HomeView.swift */; };
+		C0904D712C297489008B7B2E /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0904D702C297489008B7B2E /* HomeVM.swift */; };
 		C0F4A4FF2C1E8119006B204C /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0F4A4FE2C1E8119006B204C /* RDDesignSystem */; };
 		C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */; };
 		C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BD32C29525200930364 /* AuthenticationVM.swift */; };
@@ -73,6 +75,8 @@
 		C07635A12C29645400DA13C2 /* FlowProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowProviderImpl.swift; path = Courtiq/Flow/FlowProviderImpl.swift; sourceTree = SOURCE_ROOT; };
 		C07635A22C29645400DA13C2 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Courtiq/Flow/Alert.swift; sourceTree = SOURCE_ROOT; };
 		C07635A32C29645400DA13C2 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Flow.swift; path = Courtiq/Flow/Flow.swift; sourceTree = SOURCE_ROOT; };
+		C0904D6E2C297352008B7B2E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C0904D702C297489008B7B2E /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
 		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWelcomeView.swift; sourceTree = "<group>"; };
 		C0F58BD32C29525200930364 /* AuthenticationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVM.swift; sourceTree = "<group>"; };
@@ -118,6 +122,9 @@
 		C0495D8A2C1E545700E6D023 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C07635AB2C2971B500DA13C2 /* ReusableViews */,
+				C0904D6E2C297352008B7B2E /* HomeView.swift */,
+				C0904D702C297489008B7B2E /* HomeVM.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -160,9 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
+				C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */,
 				C0495D892C1E544E00E6D023 /* Authentication */,
 				C0495D8A2C1E545700E6D023 /* Home */,
-				C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */,
 				C060AF302C1974D100D160A5 /* CourtiqApp.swift */,
 				C060AF322C1974D100D160A5 /* ContentView.swift */,
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
@@ -205,6 +212,13 @@
 				C0495D7D2C1E430400E6D023 /* AuthenticationService */,
 			);
 			path = Packages;
+			sourceTree = "<group>";
+		};
+		C07635AB2C2971B500DA13C2 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 		C0E27D142C1EBCFD003A790A /* Flow */ = {
@@ -376,6 +390,8 @@
 				C07635A72C29645400DA13C2 /* Alert.swift in Sources */,
 				C07635A82C29645400DA13C2 /* Flow.swift in Sources */,
 				C0495D932C1E54D100E6D023 /* ResetPasswordView.swift in Sources */,
+				C0904D712C297489008B7B2E /* HomeVM.swift in Sources */,
+				C0904D6F2C297352008B7B2E /* HomeView.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
 				C0495D952C1E54E800E6D023 /* NewUserInformationView.swift in Sources */,
 				C07635A42C29645400DA13C2 /* FlowProvider.swift in Sources */,
