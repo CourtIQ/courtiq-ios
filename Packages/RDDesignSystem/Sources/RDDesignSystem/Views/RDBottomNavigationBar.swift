@@ -8,16 +8,17 @@
 import SwiftUI
 
 // MARK: - RDBottomItem
+@available(iOS 13.0, *)
 public struct RDBottomItem {
     let id = UUID().uuidString
     let title: String
-    let icon: String
+    let icon: Image
     var badgeType: RDNotificationBadgeType?
     var notiCount: Int?
     
     public init(
         title: String,
-        icon: String,
+        icon: Image,
         badgeType: RDNotificationBadgeType? = nil,
         notiCount: Int? = nil
     ) {
@@ -74,7 +75,7 @@ public struct RDBottomNavigationBar: View {
     func TabItem(item: RDBottomItem, isSelected: Bool, action: @escaping (() -> ())) -> some View {
         VStack(spacing: 8) {
             ZStack {
-                Image(item.icon)
+                item.icon
                     .resizable()
                     .renderingMode(.template)
                     .frame(width: 24, height: 24)

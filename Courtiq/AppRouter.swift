@@ -34,38 +34,40 @@ class AppRouter: ObservableObject {
     @Published var currentToast: ViewWrapper? = nil
 
     func handle(action: RouterAction) {
-        switch action {
-        case .showScreen(let view):
-            navigationPath = NavigationPath([ViewWrapper(view: view)])
-        case .showSheet(let view):
-            currentSheet = ViewWrapper(view: view)
-        case .showHalfSheet(let view, let detents):
-            currentHalfSheet = ViewWrapper(view: view)
-            halfSheetDetents = detents.map { $0.value }
-        case .showAlert(let alert):
-            currentAlert = alert
-        case .showToast(let type):
-            currentToast = ViewWrapper(view: AnyView(ToastView(type: type)))
-        case .push(let view):
-            navigationPath.append(ViewWrapper(view: view))
-        case .pop:
-            if !navigationPath.isEmpty {
-                navigationPath.removeLast()
+        DispatchQueue.main.async {
+            switch action {
+            case .showScreen(let view):
+                self.navigationPath = NavigationPath([ViewWrapper(view: view)])
+            case .showSheet(let view):
+                self.currentSheet = ViewWrapper(view: view)
+            case .showHalfSheet(let view, let detents):
+                self.currentHalfSheet = ViewWrapper(view: view)
+                self.halfSheetDetents = detents.map { $0.value }
+            case .showAlert(let alert):
+                self.currentAlert = alert
+            case .showToast(let type):
+                self.currentToast = ViewWrapper(view: AnyView(ToastView(type: type)))
+            case .push(let view):
+                self.navigationPath.append(ViewWrapper(view: view))
+            case .pop:
+                if !self.navigationPath.isEmpty {
+                    self.navigationPath.removeLast()
+                }
+            case .popToRoot:
+                self.navigationPath = NavigationPath()
+            case .setRootView(let view):
+                self.navigationPath = NavigationPath([ViewWrapper(view: view)])
+            case .dismiss:
+                self.dismiss()
             }
-        case .popToRoot:
-            navigationPath = NavigationPath()
-        case .setRootView(let view):
-            navigationPath = NavigationPath([ViewWrapper(view: view)])
-        case .dismiss:
-            dismiss()
         }
     }
 
     private func dismiss() {
-        currentSheet = nil
-        currentHalfSheet = nil
-        currentAlert = nil
-        currentToast = nil
+        self.currentSheet = nil
+        self.currentHalfSheet = nil
+        self.currentAlert = nil
+        self.currentToast = nil
     }
 }
 

@@ -27,13 +27,7 @@ struct HomeView: View {
                             .tertiary, .small, Image(systemName: "line.horizontal.3"),
                             action:
                                 {
-                                    Task {
-                                        do {
-                                            try await vm.authService.signOut()
-                                        } catch {
-                                            print("Error signing out: \(error)")
-                                        }
-                                    }
+                                    // Show Side Menu not sure how...
                                 }
                         )
                     ),
@@ -45,6 +39,14 @@ struct HomeView: View {
                 )
             )
         } content: {
+            RDButtonView(.large, .primary, "Log out") {
+                Task {
+                    do {
+                        try await vm.authService.signOut()
+                        vm.router.handle(action: .popToRoot)
+                    }
+                }
+            }
             Text("Home")
         }
 

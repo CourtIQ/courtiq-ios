@@ -28,10 +28,15 @@ struct ForgotPasswordView: View {
                 )
             )
         } footer: {
-            RDButtonView(.large, .tertiary, "Reset password") {
+            RDButtonView(.large, .primary, "Reset password") {
                 vm.handle(action: .frgtPswdBtn)
             }
         } content: {
+            Image("forgotPassword")
+                .resizable()
+                .padding(.horizontal, 60)
+                .padding(.vertical, 10)
+                .scaledToFit()
             RDTextField(params: RDTextFieldParams(placeholder: "Reset password email..."), text: $email, validationType: .email)
         }
     }

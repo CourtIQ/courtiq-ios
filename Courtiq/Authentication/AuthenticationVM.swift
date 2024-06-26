@@ -76,7 +76,9 @@ final class AuthenticationVM: ViewModel {
         Task {
             do {
                 try await authService.signIn(email: email, password: password)
+                router.handle(action: .popToRoot)
             } catch {
+                
                 print(error.localizedDescription)
             }
         }
@@ -86,7 +88,7 @@ final class AuthenticationVM: ViewModel {
         Task {
             do {
                 try await authService.signUp(email: email, password: password)
-                
+                await router.handle(action: .popToRoot)
             } catch {
                 print(error.localizedDescription)
             }

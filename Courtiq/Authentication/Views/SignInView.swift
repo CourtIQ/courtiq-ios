@@ -62,7 +62,6 @@ struct SignInView: View {
                     validationType: .password
                 )
                 HStack {
-                    Spacer()
                     RDButtonView(.small, .ghost, "Forgot password?") {
                         vm.handle(action: .goToFrgtPswd)
                     }

@@ -16,10 +16,10 @@ class HomeVM: ObservableObject {
     @Published var selectedSideMenuDestination: Destination?
     
     var authService: any AuthServiceProtocol
-//    private var flow: FlowProvider
-    
-    init(authService: any AuthServiceProtocol) {
+    var router: AppRouter
+    init(authService: any AuthServiceProtocol, router: AppRouter) {
         self.authService = authService
+        self.router = router
     }
 
     func handleAction(_ action: Action) {

@@ -43,7 +43,7 @@ struct SignUpView: View {
             RDButtonView(.extraLarge, .primary, "Sign up",
                          disable: !isFormValid) {
                 Task {
-                    print("hello")
+                    vm.handle(action: .signUpBtn)
                 }
             }
         } content: {
