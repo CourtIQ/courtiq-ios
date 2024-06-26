@@ -10,7 +10,7 @@
 		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
 		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
 		C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D902C1E54C700E6D023 /* SignUpView.swift */; };
-		C0495D932C1E54D100E6D023 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D922C1E54D100E6D023 /* ResetPasswordView.swift */; };
+		C0495D932C1E54D100E6D023 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D922C1E54D100E6D023 /* ForgotPasswordView.swift */; };
 		C0495D952C1E54E800E6D023 /* NewUserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */; };
 		C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */; };
 		C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF302C1974D100D160A5 /* CourtiqApp.swift */; };
@@ -20,14 +20,18 @@
 		C060AF452C1974D200D160A5 /* CourtiqTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF442C1974D200D160A5 /* CourtiqTests.swift */; };
 		C060AF4F2C1974D200D160A5 /* CourtiqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */; };
 		C060AF512C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */; };
-		C07635A42C29645400DA13C2 /* FlowProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C076359F2C29645400DA13C2 /* FlowProvider.swift */; };
-		C07635A52C29645400DA13C2 /* FlowPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07635A02C29645400DA13C2 /* FlowPresenter.swift */; };
-		C07635A62C29645400DA13C2 /* FlowProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07635A12C29645400DA13C2 /* FlowProviderImpl.swift */; };
-		C07635A72C29645400DA13C2 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07635A22C29645400DA13C2 /* Alert.swift */; };
-		C07635A82C29645400DA13C2 /* Flow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07635A32C29645400DA13C2 /* Flow.swift */; };
+		C07A2DBB2C297FE0006DDF6F /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2DB62C297FE0006DDF6F /* HomeTabView.swift */; };
+		C07A2DBC2C297FE0006DDF6F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2DB72C297FE0006DDF6F /* HomeView.swift */; };
+		C07A2DBD2C297FE0006DDF6F /* SearchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2DB82C297FE0006DDF6F /* SearchTabView.swift */; };
 		C083F0962C1EB8EE00A07919 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C083F0952C1EB8EE00A07919 /* AuthenticationService */; };
-		C0904D6F2C297352008B7B2E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0904D6E2C297352008B7B2E /* HomeView.swift */; };
+		C0888FE22C29F03900242EE0 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0888FE12C29F03900242EE0 /* SideMenuView.swift */; };
+		C0889DDD2C2BA5700081BF59 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DDC2C2BA5700081BF59 /* AppRouter.swift */; };
+		C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DDF2C2BEC9E0081BF59 /* ViewModel.swift */; };
+		C0889DE22C2BFA4D0081BF59 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DE12C2BFA4D0081BF59 /* Extensions.swift */; };
+		C0889DE42C2C01C90081BF59 /* AuthenticationDestinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DE32C2C01C90081BF59 /* AuthenticationDestinations.swift */; };
+		C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DE92C2C0A770081BF59 /* AdditionalInfoView.swift */; };
 		C0904D712C297489008B7B2E /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0904D702C297489008B7B2E /* HomeVM.swift */; };
+		C0904D732C297E99008B7B2E /* HomeTabPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0904D722C297E99008B7B2E /* HomeTabPage.swift */; };
 		C0F4A4FF2C1E8119006B204C /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0F4A4FE2C1E8119006B204C /* RDDesignSystem */; };
 		C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */; };
 		C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BD32C29525200930364 /* AuthenticationVM.swift */; };
@@ -55,7 +59,7 @@
 		C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0495D8B2C1E546800E6D023 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		C0495D902C1E54C700E6D023 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		C0495D922C1E54D100E6D023 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		C0495D922C1E54D100E6D023 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
 		C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewUserInformationView.swift; sourceTree = "<group>"; };
 		C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationPage.swift; sourceTree = "<group>"; };
 		C0495DA12C1E606700E6D023 /* RDDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RDDesignSystem; sourceTree = "<group>"; };
@@ -70,14 +74,18 @@
 		C060AF4A2C1974D200D160A5 /* CourtiqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CourtiqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITests.swift; sourceTree = "<group>"; };
 		C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		C076359F2C29645400DA13C2 /* FlowProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowProvider.swift; path = Courtiq/Flow/FlowProvider.swift; sourceTree = SOURCE_ROOT; };
-		C07635A02C29645400DA13C2 /* FlowPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowPresenter.swift; path = Courtiq/Flow/FlowPresenter.swift; sourceTree = SOURCE_ROOT; };
-		C07635A12C29645400DA13C2 /* FlowProviderImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowProviderImpl.swift; path = Courtiq/Flow/FlowProviderImpl.swift; sourceTree = SOURCE_ROOT; };
-		C07635A22C29645400DA13C2 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Alert.swift; path = Courtiq/Flow/Alert.swift; sourceTree = SOURCE_ROOT; };
-		C07635A32C29645400DA13C2 /* Flow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Flow.swift; path = Courtiq/Flow/Flow.swift; sourceTree = SOURCE_ROOT; };
-		C0904D6E2C297352008B7B2E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C07A2DB62C297FE0006DDF6F /* HomeTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		C07A2DB72C297FE0006DDF6F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C07A2DB82C297FE0006DDF6F /* SearchTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabView.swift; sourceTree = "<group>"; };
+		C0888FE12C29F03900242EE0 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		C0889DDC2C2BA5700081BF59 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		C0889DDF2C2BEC9E0081BF59 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		C0889DE12C2BFA4D0081BF59 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C0889DE32C2C01C90081BF59 /* AuthenticationDestinations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationDestinations.swift; sourceTree = "<group>"; };
+		C0889DE92C2C0A770081BF59 /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
 		C0904D702C297489008B7B2E /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
-		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		C0904D722C297E99008B7B2E /* HomeTabPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabPage.swift; sourceTree = "<group>"; };
+		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWelcomeView.swift; sourceTree = "<group>"; };
 		C0F58BD32C29525200930364 /* AuthenticationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,6 +123,7 @@
 				C0F58BC02C29022200930364 /* ReusableViews */,
 				C0495D982C1E551A00E6D023 /* Views */,
 				C0F58BD32C29525200930364 /* AuthenticationVM.swift */,
+				C0889DE32C2C01C90081BF59 /* AuthenticationDestinations.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -123,7 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				C07635AB2C2971B500DA13C2 /* ReusableViews */,
-				C0904D6E2C297352008B7B2E /* HomeView.swift */,
+				C07A2DB92C297FE0006DDF6F /* View */,
 				C0904D702C297489008B7B2E /* HomeVM.swift */,
 			);
 			path = Home;
@@ -134,9 +143,10 @@
 			children = (
 				C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */,
 				C0495D942C1E54E800E6D023 /* NewUserInformationView.swift */,
-				C0495D922C1E54D100E6D023 /* ResetPasswordView.swift */,
+				C0495D922C1E54D100E6D023 /* ForgotPasswordView.swift */,
 				C0495D8B2C1E546800E6D023 /* SignInView.swift */,
 				C0495D902C1E54C700E6D023 /* SignUpView.swift */,
+				C0889DE92C2C0A770081BF59 /* AdditionalInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,16 +176,17 @@
 		C060AF2F2C1974D100D160A5 /* Courtiq */ = {
 			isa = PBXGroup;
 			children = (
-				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
-				C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */,
+				C0889DDE2C2BEC930081BF59 /* Utils */,
+				C0889DDC2C2BA5700081BF59 /* AppRouter.swift */,
+				C060AF322C1974D100D160A5 /* ContentView.swift */,
+				C060AF302C1974D100D160A5 /* CourtiqApp.swift */,
 				C0495D892C1E544E00E6D023 /* Authentication */,
 				C0495D8A2C1E545700E6D023 /* Home */,
-				C060AF302C1974D100D160A5 /* CourtiqApp.swift */,
-				C060AF322C1974D100D160A5 /* ContentView.swift */,
+				C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */,
+				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
 				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
 				C060AF392C1974D200D160A5 /* Preview Content */,
-				C0E27D142C1EBCFD003A790A /* Flow */,
 			);
 			path = Courtiq;
 			sourceTree = "<group>";
@@ -217,20 +228,29 @@
 		C07635AB2C2971B500DA13C2 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
+				C0904D722C297E99008B7B2E /* HomeTabPage.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
 		};
-		C0E27D142C1EBCFD003A790A /* Flow */ = {
+		C07A2DB92C297FE0006DDF6F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C07635A22C29645400DA13C2 /* Alert.swift */,
-				C07635A32C29645400DA13C2 /* Flow.swift */,
-				C07635A02C29645400DA13C2 /* FlowPresenter.swift */,
-				C076359F2C29645400DA13C2 /* FlowProvider.swift */,
-				C07635A12C29645400DA13C2 /* FlowProviderImpl.swift */,
+				C07A2DB62C297FE0006DDF6F /* HomeTabView.swift */,
+				C07A2DB72C297FE0006DDF6F /* HomeView.swift */,
+				C07A2DB82C297FE0006DDF6F /* SearchTabView.swift */,
+				C0888FE12C29F03900242EE0 /* SideMenuView.swift */,
 			);
-			path = Flow;
+			path = View;
+			sourceTree = "<group>";
+		};
+		C0889DDE2C2BEC930081BF59 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C0889DDF2C2BEC9E0081BF59 /* ViewModel.swift */,
+				C0889DE12C2BFA4D0081BF59 /* Extensions.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		C0F4A4FD2C1E8119006B204C /* Frameworks */ = {
@@ -387,21 +407,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C07635A72C29645400DA13C2 /* Alert.swift in Sources */,
-				C07635A82C29645400DA13C2 /* Flow.swift in Sources */,
-				C0495D932C1E54D100E6D023 /* ResetPasswordView.swift in Sources */,
+				C0888FE22C29F03900242EE0 /* SideMenuView.swift in Sources */,
+				C0889DE22C2BFA4D0081BF59 /* Extensions.swift in Sources */,
+				C0495D932C1E54D100E6D023 /* ForgotPasswordView.swift in Sources */,
+				C07A2DBC2C297FE0006DDF6F /* HomeView.swift in Sources */,
 				C0904D712C297489008B7B2E /* HomeVM.swift in Sources */,
-				C0904D6F2C297352008B7B2E /* HomeView.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
+				C0889DE42C2C01C90081BF59 /* AuthenticationDestinations.swift in Sources */,
+				C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */,
 				C0495D952C1E54E800E6D023 /* NewUserInformationView.swift in Sources */,
-				C07635A42C29645400DA13C2 /* FlowProvider.swift in Sources */,
+				C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */,
+				C07A2DBD2C297FE0006DDF6F /* SearchTabView.swift in Sources */,
+				C0889DDD2C2BA5700081BF59 /* AppRouter.swift in Sources */,
 				C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */,
 				C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */,
 				C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */,
-				C07635A62C29645400DA13C2 /* FlowProviderImpl.swift in Sources */,
+				C0904D732C297E99008B7B2E /* HomeTabPage.swift in Sources */,
 				C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */,
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
-				C07635A52C29645400DA13C2 /* FlowPresenter.swift in Sources */,
+				C07A2DBB2C297FE0006DDF6F /* HomeTabView.swift in Sources */,
 				C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,7 +585,7 @@
 				CODE_SIGN_ENTITLEMENTS = Courtiq/Courtiq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Courtiq/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Courtiq/Preview\\ Content";
 				DEVELOPMENT_TEAM = Q8KFRAGT9K;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -579,7 +603,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
@@ -602,7 +626,7 @@
 				CODE_SIGN_ENTITLEMENTS = Courtiq/Courtiq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Courtiq/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "Courtiq/Preview\\ Content";
 				DEVELOPMENT_TEAM = Q8KFRAGT9K;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -620,7 +644,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;

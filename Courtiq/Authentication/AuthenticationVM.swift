@@ -7,84 +7,77 @@
 
 import AuthenticationService
 import Foundation
-
-enum AuthenticationAction {
-    case signIn
-    case showSignIn
-    case showSignUp
-    case signUp
-    case forgotPassword
-    case showForgotPassword
-    case showAddInfo
-    case updateAddInfo
-}
+import SwiftUI
 
 // MARK: AuthenticationVM
 
-final class AuthenticationVM: ObservableObject {
+final class AuthenticationVM: ViewModel {
     
-    // MARK: - Published Properties
-    
+    // MARK: Internal
+
+    init(authService: any AuthServiceProtocol, router: AppRouter) {
+        self.authService = authService
+        self.router = router
+    }
+
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
-    @Published var isUserLoggedIn: Bool = false
-    var flow: FlowProvider
 
+    func onAppear() {
+        print("Hello")
+
+    }
+    
+    func onDisappear() {
+        print("Hello")
+
+    }
+    
+    func handle(action: AuthenticationVM.Actions) {
+        switch action {
+        case .goToSignIn:
+            let view = SignInView(vm: self)
+            router.handle(action: .push(AnyView(view)))
+        case .goToSignUp:
+            let view = SignUpView(vm: self)
+            router.handle(action: .push(AnyView(view)))
+        case .goToFrgtPswd:
+            let view = AnyView(ForgotPasswordView(vm: self))
+            router.handle(action: .showHalfSheet(view, detents: [.medium]))
+        case .goToAddInfo:
+            let view = AnyView(AdditionalInfoView())
+            router.handle(action: .push(view))
+        case .signInBtn:
+            signIn(email: self.email, password: self.password)
+        case .signUpBtn:
+            signUp(email: self.email, password: self.password)
+        case .updateAddInfoBtn:
+            print("Update info pressed")
+        case .frgtPswdBtn:
+            print("Forgot Button")
+        case .signInFromSignUp:
+            router.handle(action: .popToRoot)
+            let view = AnyView(SignInView(vm: self))
+            router.handle(action: .push(view))
+        case .signUpFromSignIn:
+            router.handle(action: .popToRoot)
+            let view = AnyView(SignUpView(vm: self))
+            router.handle(action: .push(view))
+        }
+    }
+    
     // MARK: - Private Properties
     
     private var authService: any AuthServiceProtocol
-    
-    // MARK: - Initialization
-    
-    init(authService: any AuthServiceProtocol, flow: FlowProvider) {
-        self.authService = authService
-        self.flow = flow
-        Task {
-            let loggedInStatus = await authService.isUserLoggedIn
-            DispatchQueue.main.async {
-                self.isUserLoggedIn = loggedInStatus
-            }
-        }
-    }
-    
-    // MARK: - Public Methods
-    
-    func handle(action: AuthenticationAction) {
-        switch action {
-        case .signIn:
-            signIn(email: email, password: password)
-        case .signUp:
-            signUp(email: email, password: password)
-        case .forgotPassword:
-            print("Hello")
-        case .updateAddInfo:
-            print("Hello")
-        case .showSignIn:
-            flow.push(SignInView(vm: self))
-        case .showSignUp:
-            flow.push(SignUpView(vm: self))
-        case .showForgotPassword:
-            showForgotPassword()
-        case .showAddInfo:
-            showAddInfo()
-        }
-    }
-    
-    // MARK: - Private Methods
-    
+    var router: AppRouter
+
     private func signIn(email: String, password: String) {
         Task {
             do {
                 try await authService.signIn(email: email, password: password)
-                DispatchQueue.main.async {
-                    self.isUserLoggedIn = self.authService.isUserLoggedIn
-                    self.flow.replace([HomeView().environmentObject(self.flow)])
-                }
             } catch {
-                DispatchQueue.main.async {
-                    self.flow.alert(Alert(title: "\(error.localizedDescription)"), animated: true)
-                }
+                print(error.localizedDescription)
             }
         }
     }
@@ -93,16 +86,15 @@ final class AuthenticationVM: ObservableObject {
         Task {
             do {
                 try await authService.signUp(email: email, password: password)
-                DispatchQueue.main.async {
-                    self.isUserLoggedIn = self.authService.isUserLoggedIn
-                    self.flow.replace([HomeView().environmentObject(self.flow)])
-                }
+                
             } catch {
-                DispatchQueue.main.async {
-                    self.flow.alert(Alert(title: "\(error.localizedDescription)"), animated: true)
-                }
+                print(error.localizedDescription)
             }
         }
+    }
+    
+    private func resetPassword(email: String) {
+        print(#function)
     }
     
     private func showForgotPassword() {
@@ -111,5 +103,59 @@ final class AuthenticationVM: ObservableObject {
     
     private func showAddInfo() {
         print(#function)
+    }
+}
+
+// MARK: AuthenticationVM Actions
+
+extension AuthenticationVM {
+    
+    // MARK: Actions
+    enum Actions {
+        case goToSignIn
+        case goToSignUp
+        case goToFrgtPswd
+        case goToAddInfo
+        case signInBtn
+        case signUpBtn
+        case updateAddInfoBtn
+        case frgtPswdBtn
+        case signInFromSignUp
+        case signUpFromSignIn
+    }
+}
+
+// MARK: AuthenticationVM Steps
+
+extension AuthenticationVM {
+    
+    // MARK: Steps
+    enum Steps {
+        case signInPage
+        case signUpPage
+        case additionalInformation
+        case verifyEmail
+        case start
+    }
+}
+
+// MARK: Steos Views
+
+extension AuthenticationVM.Steps {
+    
+    @ViewBuilder
+    func view(with viewModel: AuthenticationVM) -> some View {
+        switch self {
+        case .signInPage:
+            SignInView(vm: viewModel)
+        case .signUpPage:
+            SignUpView(vm: viewModel)
+        case .additionalInformation:
+            Text("Additional Information")
+        case .verifyEmail:
+            Text("Verify Email")
+        case .start:
+            AuthenticationWelcomeView(vm: viewModel)
+        }
     }
 }

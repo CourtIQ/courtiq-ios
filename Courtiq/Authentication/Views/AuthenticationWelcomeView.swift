@@ -24,19 +24,21 @@ struct AuthenticationWelcomeView: View {
             RDTopNavigationView(
                 params: RDTopNavigationParams(
                     type: .primary,
-                    title: "Welcome to CourtIQ",
-                    bgColor: .white
+                    title: "Welcome to CourtIQ"
                 )
             )
         } footer: {
             RDButtonView(.extraLarge, .primary, "Create an account.") {
-                vm.handle(action: .showSignUp)
+                vm.handle(action: .goToSignUp)
             }
             RDButtonView(.extraLarge, .secondary, "Log in") {
-                vm.handle(action: .showSignIn)
+                vm.handle(action: .goToSignIn)
             }
         } content: {
-            Text("Hello")
+            Image("welcomeImage")
+                .resizable()
+                .padding()
+                .scaledToFit()
         }
     }
     
@@ -48,5 +50,5 @@ struct AuthenticationWelcomeView: View {
 // MARK: - Preview
 
 #Preview {
-    AuthenticationWelcomeView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), flow: FlowProvider(rootView: EmptyView())))
+    AuthenticationWelcomeView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), router: AppRouter()))
 }

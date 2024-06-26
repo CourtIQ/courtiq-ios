@@ -28,25 +28,29 @@ struct SignUpView: View {
                     type: .primary,
                     title: "Sign Up",
                     leadingItem: AnyView(
-                        Button(action: {
-                            flow.pop(animated: true)
-                        }, label: {
-                            Image(systemName: "chevron.left")
-                                .padding(.trailing, 16)
+                        RDIconButton(.tertiary, .small, Image(systemName: "chevron.left"), action: {
+                            vm.router.handle(action: .pop)
                         })
                     ),
                     bgColor: .white
                 )
             )
         } footer: {
+            RDButtonView(.small, .ghost, "Login to existing account.") {
+                vm.handle(action: .signInFromSignUp)
+            }
+            
             RDButtonView(.extraLarge, .primary, "Sign up",
                          disable: !isFormValid) {
                 Task {
-                    vm.handle(action: .signUp)
+                    print("hello")
                 }
             }
         } content: {
             VStack(spacing: 16) {
+                Image("signUpImage")
+                    .scaledToFit()
+                    .padding(.vertical, 20)
                 RDTextField(
                     params: RDTextFieldParams(type: .primary, placeholder: "Enter email"),
                     text: $vm.email,
@@ -74,7 +78,6 @@ struct SignUpView: View {
     @State private var emailStatus: RDTextFieldStatus = .none
     @State private var passwordStatus: RDTextFieldStatus = .none
     @State private var confirmPasswordStatus: RDTextFieldStatus = .none
-    @EnvironmentObject private var flow: FlowProvider
     @ObservedObject private var vm: AuthenticationVM
     
     private var isFormValid: Bool {
@@ -88,5 +91,5 @@ struct SignUpView: View {
 // MARK: - Preview
 
 #Preview {
-    SignUpView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), flow: FlowProvider(rootView: EmptyView())))
+    SignUpView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), router: AppRouter()))
 }

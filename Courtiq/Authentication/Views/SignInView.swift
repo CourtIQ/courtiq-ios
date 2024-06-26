@@ -28,20 +28,29 @@ struct SignInView: View {
                     type: .primary,
                     title: "Sign In",
                     leadingItem: AnyView(
-                        RDIconButton(.tertiary, .medium, "chevron.left", action: {
-                            vm.flow.popToRoot()
+                        RDIconButton(.tertiary, .small, Image(systemName: "chevron.left"), action: {
+                            router.handle(action: .pop)
                         })
                     ),
                     bgColor: .white
                 )
             )
         } footer: {
+            RDButtonView(.small, .ghost, "Create an account.") {
+                vm.handle(action: .signUpFromSignIn)
+            }
+
             RDButtonView(.extraLarge, .primary, "Sign in",
                          disable: vm.email.isEmpty || vm.password.isEmpty) {
-                vm.handle(action: .signIn)
+                vm.handle(action: .signInBtn)
             }
+            
+                        
         } content: {
             VStack(spacing: 16) {
+                Image("loginImage")
+                    .scaledToFit()
+                    .padding(.vertical, 20)
                 RDTextField(
                     params: RDTextFieldParams(type: .primary, placeholder: "Enter email"),
                     text: $vm.email,
@@ -52,6 +61,13 @@ struct SignInView: View {
                     text: $vm.password,
                     validationType: .password
                 )
+                HStack {
+                    Spacer()
+                    RDButtonView(.small, .ghost, "Forgot password?") {
+                        vm.handle(action: .goToFrgtPswd)
+                    }
+                }
+
             }
         }
     }
@@ -59,10 +75,11 @@ struct SignInView: View {
     // MARK: - Private
     
     @ObservedObject private var vm: AuthenticationVM
+    @EnvironmentObject private var router: AppRouter
 }
 
 // MARK: - Preview
 
 #Preview {
-    SignInView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), flow: FlowProvider(rootView: EmptyView())))
+    SignInView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), router: AppRouter()))
 }

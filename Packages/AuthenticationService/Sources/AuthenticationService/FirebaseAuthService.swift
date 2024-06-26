@@ -6,11 +6,13 @@
 //
 
 import FirebaseAuth
+import SwiftUI
 
 public class FirebaseAuthService: AuthProviderProtocol {
     private let userDefaults: UserDefaults
     private let currentUserKey = "currentUser"
-    private let isLoggedInKey = "isLoggedIn"
+    
+    @AppStorage("isUserLoggedIn") private var isUserLoggedInStorage: Bool = false
     
     public init(userDefaults: UserDefaults = .standard) {
         self.userDefaults = userDefaults
@@ -24,13 +26,16 @@ public class FirebaseAuthService: AuthProviderProtocol {
     }
     
     public var isUserLoggedIn: Bool {
-        return currentUser != nil
+        return isUserLoggedInStorage
     }
     
     private func loadState() {
         if let userData = userDefaults.data(forKey: currentUserKey),
            let user = try? JSONDecoder().decode(FirebaseUser.self, from: userData) {
             self.currentUser = user
+            self.isUserLoggedInStorage = true
+        } else {
+            self.isUserLoggedInStorage = false
         }
     }
     
@@ -38,21 +43,22 @@ public class FirebaseAuthService: AuthProviderProtocol {
         if let user = currentUser as? FirebaseUser,
            let userData = try? JSONEncoder().encode(user) {
             userDefaults.set(userData, forKey: currentUserKey)
-            userDefaults.set(isUserLoggedIn, forKey: isLoggedInKey)
+            isUserLoggedInStorage = true
         } else {
             userDefaults.removeObject(forKey: currentUserKey)
-            userDefaults.set(false, forKey: isLoggedInKey)
+            isUserLoggedInStorage = false
         }
     }
     
     public func signUp(email: String, password: String) async throws -> User {
-        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<User, Error>) in
+        return try await withCheckedThrowingContinuation { continuation in
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let error = error {
                     continuation.resume(throwing: error)
                 } else if let user = authResult?.user {
                     let firebaseUser = FirebaseUser(uid: user.uid)
                     self.currentUser = firebaseUser
+                    self.isUserLoggedInStorage = true
                     continuation.resume(returning: firebaseUser)
                 } else {
                     continuation.resume(throwing: NSError(domain: "Unknown error", code: -1, userInfo: nil))
@@ -62,13 +68,14 @@ public class FirebaseAuthService: AuthProviderProtocol {
     }
     
     public func signIn(email: String, password: String) async throws -> User {
-        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<User, Error>) in
+        return try await withCheckedThrowingContinuation { continuation in
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let error = error {
                     continuation.resume(throwing: error)
                 } else if let user = authResult?.user {
                     let firebaseUser = FirebaseUser(uid: user.uid)
                     self.currentUser = firebaseUser
+                    self.isUserLoggedInStorage = true
                     continuation.resume(returning: firebaseUser)
                 } else {
                     continuation.resume(throwing: NSError(domain: "Unknown error", code: -1, userInfo: nil))
@@ -83,10 +90,11 @@ public class FirebaseAuthService: AuthProviderProtocol {
     }
     
     public func signOut() async throws {
-        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+        return try await withCheckedThrowingContinuation { continuation in
             do {
                 try Auth.auth().signOut()
                 self.currentUser = nil
+                self.isUserLoggedInStorage = false
                 continuation.resume(returning: ())
             } catch let signOutError as NSError {
                 continuation.resume(throwing: signOutError)
@@ -99,20 +107,19 @@ public class FirebaseAuthService: AuthProviderProtocol {
             throw NSError(domain: "No current user", code: 0, userInfo: nil)
         }
         
-        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+        return try await withCheckedThrowingContinuation { continuation in
             user.delete { error in
                 if let error = error {
                     continuation.resume(throwing: error)
                 } else {
                     self.currentUser = nil
+                    self.isUserLoggedInStorage = false
                     continuation.resume(returning: ())
                 }
             }
         }
     }
 }
-
-
 
 public struct FirebaseUser: Codable, User {
     public var uid: String

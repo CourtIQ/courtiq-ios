@@ -10,9 +10,17 @@ import AuthenticationService
 import SwiftUI
 import RDDesignSystem
 
-class MainViewModel: ObservableObject {
+class HomeVM: ObservableObject {
     @Published var selectedTab: Tab = .home
     @Published var isSideMenuOpen: Bool = false
+    @Published var selectedSideMenuDestination: Destination?
+    
+    var authService: any AuthServiceProtocol
+//    private var flow: FlowProvider
+    
+    init(authService: any AuthServiceProtocol) {
+        self.authService = authService
+    }
 
     func handleAction(_ action: Action) {
         switch action {
@@ -20,12 +28,17 @@ class MainViewModel: ObservableObject {
             selectedTab = tab
         case .toggleSideMenu:
             isSideMenuOpen.toggle()
+        case .selectSideMenuTab(let destination):
+            selectedSideMenuDestination = destination
+            isSideMenuOpen = false
         }
     }
+
 
     enum Action {
         case selectTab(Tab)
         case toggleSideMenu
+        case selectSideMenuTab(Destination)
     }
 
     enum Tab: Int, CaseIterable {
@@ -47,16 +60,16 @@ class MainViewModel: ObservableObject {
             }
         }
 
-        var destination: Destination {
+        var view: some View {
             switch self {
             case .home:
-                return .home
+                return Text("home")
             case .search:
-                return .search
+                return Text("search")
             case .notifications:
-                return .notifications
+                return Text("notifications")
             case .profile:
-                return .profile
+                return Text("profile")
             }
         }
     }
@@ -66,29 +79,40 @@ class MainViewModel: ObservableObject {
         case search
         case home
         case notifications
-
+        case dashboard
+        case settings
         @ViewBuilder
         var view: some View {
             switch self {
             case .profile:
                 VStack {
                     Spacer()
-                    Text("Profile")
+                    Text("profile")
                 }
             case .search:
                 VStack {
                     Spacer()
-                    Text("Profile")
+                    Text("search")
                 }
             case .home:
                 VStack {
                     Spacer()
-                    Text("Profile")
+                    Text("home")
                 }
             case .notifications:
                 VStack {
                     Spacer()
-                    Text("Profile")
+                    Text("notifications")
+                }
+            case .dashboard:
+                VStack {
+                    Spacer()
+                    Text("dashboard")
+                }
+            case .settings:
+                VStack {
+                    Spacer()
+                    Text("settings")
                 }
             }
         }

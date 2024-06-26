@@ -108,6 +108,15 @@
           "revision": "9f0c76544701845ad98716f3f6a774a892152bcb",
           "version": "1.26.0"
         }
+      },
+      {
+        "package": "SwiftGenPlugin",
+        "repositoryURL": "https://github.com/SwiftGen/SwiftGenPlugin",
+        "state": {
+          "branch": null,
+          "revision": "879b85a470cacd70c19e22eb7e11a3aed66f4068",
+          "version": "6.6.2"
+        }
       }
     ]
   },

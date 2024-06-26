@@ -18,13 +18,13 @@ public enum RDIconButtonSize {
     var size: CGFloat {
         switch self {
         case .extraLarge:
-            return 56
-        case .large:
             return 48
+        case .large:
+            return 36
         case .medium:
-            return 40
-        case .small:
             return 32
+        case .small:
+            return 28
         }
     }
     
@@ -135,14 +135,14 @@ struct RDIconButtonPressedStyle: ButtonStyle {
 public struct RDIconButton: View {
     var type: RDIconButtonType
     var size: RDIconButtonSize
-    let icon: String
+    let icon: Image
     var disable: Bool
     var action: (() -> ())?
     
     public init(
         _ type: RDIconButtonType = .primary,
         _ size: RDIconButtonSize = .extraLarge,
-        _ icon: String,
+        _ icon: Image,
         _ disable: Bool = false,
         action: (() -> ())? = nil
     ) {
@@ -157,10 +157,12 @@ public struct RDIconButton: View {
         Button {
             action?()
         } label: {
-            Image(systemName: icon)
+            icon
                 .renderingMode(.template)
-                .frame(width: 24, height: 24)
-                .frame(width: size.size, height: size.size)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 20, height: 20)
+                .padding(8)
         }
         .buttonStyle(
             RDIconButtonPressedStyle(
@@ -175,5 +177,22 @@ public struct RDIconButton: View {
                 .stroke(type.borderColor)
         }
         .disabled(disable)
+    }
+}
+
+// Usage Example
+
+@available(iOS 15.0.0, *)
+struct ContentView: View {
+    var body: some View {
+        RDIconButton(
+            .primary,
+            .extraLarge,
+            Image(systemName: "bell.fill"),
+            false,
+            action: {
+                print("Button pressed")
+            }
+        )
     }
 }

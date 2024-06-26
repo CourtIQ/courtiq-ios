@@ -5,16 +5,16 @@
 //  Created by Pranav Suri on 2024-06-12.
 //
 
-import AuthenticationService
+import SwiftUI
 import FirebaseCore
 import SwiftData
-import SwiftUI
+import AuthenticationService
 
 // MARK: - AppDelegate
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         FirebaseApp.configure()
         return true
     }
@@ -25,14 +25,24 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct CourtiqApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject private var authService = AuthService(provider: FirebaseAuthService())
+    @StateObject var authService = AuthService(provider: FirebaseAuthService())
+    @StateObject var router = AppRouter()
 
     var body: some Scene {
         WindowGroup {
-            FlowPresenter(
-                rootView: ContentView()
-                    .environmentObject(authService)
-            )
+            ContentView()
+                .environmentObject(authService)
+                .environmentObject(router)
+                .sheet(item: $router.currentSheet) { sheet in
+                    sheet.view
+                }
+                .sheet(item: $router.currentHalfSheet) { sheet in
+                    sheet.view
+                        .presentationDetents(Set(arrayLiteral: .medium))
+                }
+                .fullScreenCover(item: $router.currentScreenCover) { screen in
+                    screen.view
+                }
         }
     }
 }
