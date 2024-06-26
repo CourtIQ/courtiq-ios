@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C02E71F42C2CA92700830E2B /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F32C2CA92700830E2B /* SideMenuView.swift */; };
-		C02E71F62C2CA95300830E2B /* HomeBaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F52C2CA95300830E2B /* HomeBaseView.swift */; };
+		C02E71F42C2CA92700830E2B /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F32C2CA92700830E2B /* SideMenu.swift */; };
+		C02E71F62C2CA95300830E2B /* HomeRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F52C2CA95300830E2B /* HomeRootView.swift */; };
 		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
 		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
 		C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D902C1E54C700E6D023 /* SignUpView.swift */; };
@@ -23,7 +23,7 @@
 		C060AF4F2C1974D200D160A5 /* CourtiqUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */; };
 		C060AF512C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */; };
 		C07A2DBB2C297FE0006DDF6F /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2DB62C297FE0006DDF6F /* HomeTabView.swift */; };
-		C07A2DBC2C297FE0006DDF6F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2DB72C297FE0006DDF6F /* HomeView.swift */; };
+		C07A2DBC2C297FE0006DDF6F /* TestHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2DB72C297FE0006DDF6F /* TestHomeView.swift */; };
 		C07A2DBD2C297FE0006DDF6F /* SearchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2DB82C297FE0006DDF6F /* SearchTabView.swift */; };
 		C083F0962C1EB8EE00A07919 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C083F0952C1EB8EE00A07919 /* AuthenticationService */; };
 		C0889DDD2C2BA5700081BF59 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DDC2C2BA5700081BF59 /* AppRouter.swift */; };
@@ -56,8 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C02E71F32C2CA92700830E2B /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
-		C02E71F52C2CA95300830E2B /* HomeBaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseView.swift; sourceTree = "<group>"; };
+		C02E71F32C2CA92700830E2B /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
+		C02E71F52C2CA95300830E2B /* HomeRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRootView.swift; sourceTree = "<group>"; };
 		C0495D7D2C1E430400E6D023 /* AuthenticationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthenticationService; sourceTree = "<group>"; };
 		C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0495D8B2C1E546800E6D023 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		C060AF4E2C1974D200D160A5 /* CourtiqUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITests.swift; sourceTree = "<group>"; };
 		C060AF502C1974D200D160A5 /* CourtiqUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C07A2DB62C297FE0006DDF6F /* HomeTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
-		C07A2DB72C297FE0006DDF6F /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C07A2DB72C297FE0006DDF6F /* TestHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestHomeView.swift; sourceTree = "<group>"; };
 		C07A2DB82C297FE0006DDF6F /* SearchTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTabView.swift; sourceTree = "<group>"; };
 		C0889DDC2C2BA5700081BF59 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		C0889DDF2C2BEC9E0081BF59 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -137,8 +137,9 @@
 				C07A2DB92C297FE0006DDF6F /* View */,
 				C0904D702C297489008B7B2E /* HomeVM.swift */,
 				C07A2DB62C297FE0006DDF6F /* HomeTabView.swift */,
-				C02E71F32C2CA92700830E2B /* SideMenuView.swift */,
-				C02E71F52C2CA95300830E2B /* HomeBaseView.swift */,
+				C02E71F32C2CA92700830E2B /* SideMenu.swift */,
+				C07A2DB72C297FE0006DDF6F /* TestHomeView.swift */,
+				C02E71F52C2CA95300830E2B /* HomeRootView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -241,7 +242,6 @@
 		C07A2DB92C297FE0006DDF6F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C07A2DB72C297FE0006DDF6F /* HomeView.swift */,
 				C07A2DB82C297FE0006DDF6F /* SearchTabView.swift */,
 			);
 			path = View;
@@ -412,12 +412,12 @@
 			files = (
 				C0889DE22C2BFA4D0081BF59 /* Extensions.swift in Sources */,
 				C0495D932C1E54D100E6D023 /* ForgotPasswordView.swift in Sources */,
-				C02E71F42C2CA92700830E2B /* SideMenuView.swift in Sources */,
-				C07A2DBC2C297FE0006DDF6F /* HomeView.swift in Sources */,
+				C02E71F42C2CA92700830E2B /* SideMenu.swift in Sources */,
+				C07A2DBC2C297FE0006DDF6F /* TestHomeView.swift in Sources */,
 				C0904D712C297489008B7B2E /* HomeVM.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
 				C0889DE42C2C01C90081BF59 /* AuthenticationDestinations.swift in Sources */,
-				C02E71F62C2CA95300830E2B /* HomeBaseView.swift in Sources */,
+				C02E71F62C2CA95300830E2B /* HomeRootView.swift in Sources */,
 				C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */,
 				C0495D952C1E54E800E6D023 /* NewUserInformationView.swift in Sources */,
 				C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */,
@@ -519,6 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -574,6 +575,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -586,6 +588,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Courtiq/Courtiq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -595,6 +598,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Courtiq/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CourtIQ;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -602,7 +606,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -618,7 +622,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -627,6 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Courtiq/Courtiq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -636,6 +641,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Courtiq/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CourtIQ;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -643,7 +649,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
-				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -659,7 +665,7 @@
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -47,16 +47,16 @@ class HomeVM: ObservableObject {
         case notifications
         case profile
 
-        var item: RDBottomItem {
+        var item: RDTabBarItem {
             switch self {
             case .home:
-                return RDBottomItem(title: "Home", icon: "house")
+                return RDTabBarItem(title: "Home", icon: Image("user"))
             case .search:
-                return RDBottomItem(title: "Search", icon: "magnifyingglass")
+                return RDTabBarItem(title: "Search", icon: Image("user"))
             case .notifications:
-                return RDBottomItem(title: "Notifications", icon: "bell")
+                return RDTabBarItem(title: "Notifications", icon: Image("user"))
             case .profile:
-                return RDBottomItem(title: "Profile", icon: "person")
+                return RDTabBarItem(title: "Profile", icon: Image("user"))
             }
         }
 
@@ -118,3 +118,29 @@ class HomeVM: ObservableObject {
         }
     }
 }
+
+extension HomeVM {
+    enum HomeTabItems: CaseIterable {
+        case home
+        case search
+        case notifications
+        case profile
+        
+        // Create a computed property to return the corresponding RDTabBarItem
+        var tabItem: RDTabBarItem {
+            switch self {
+            case .home:
+                return RDTabBarItem(title: "Home", icon: Image(systemName: "house.fill"), badgeType: nil, notiCount: nil)
+            case .search:
+                return RDTabBarItem(title: "Search", icon: Image(systemName: "magnifyingglass"), badgeType: nil, notiCount: nil)
+            case .notifications:
+                return RDTabBarItem(title: "Notifications", icon: Image(systemName: "bell.fill"), badgeType: .small, notiCount: 5)
+            case .profile:
+                return RDTabBarItem(title: "Profile", icon: Image(systemName: "person.fill"), badgeType: nil, notiCount: nil)
+            }
+        }
+    }
+
+}
+
+

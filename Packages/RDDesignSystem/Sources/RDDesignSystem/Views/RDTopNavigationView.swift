@@ -32,7 +32,7 @@ public struct RDTopNavigationParams {
     var bgColor: Color
     
     public init(
-        type: RDTopNavigationType = .primaryWithSearch,
+        type: RDTopNavigationType = .primary,
         title: String,
         leadingItem: AnyView? = nil,
         trailingItem: AnyView? = nil,

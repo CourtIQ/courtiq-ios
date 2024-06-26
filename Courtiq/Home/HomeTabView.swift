@@ -8,14 +8,13 @@
 import SwiftUI
 import RDDesignSystem
 
-struct HomeTabView: View {
-    var body: some View {
-        
-        
-        Text("Hello")
-    }
-}
+//struct HomeTabView: View {
+//    var body: some View {
+//        RDTopNavigationView(params: <#T##RDTopNavigationParams#>, searchText: <#T##Binding<String?>#>, onMicPressed: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+//        Text("Hello")
+//    }
+//}
 
-#Preview {
-    HomeTabView()
-}
+//#Preview {
+//    HomeTabView()
+//}

@@ -1,69 +1,51 @@
+//import SwiftUI
+//import RDDesignSystem
 //
-//  HomeTabPage.swift
-//  Courtiq
+//struct HomeTabPage<Content: View>: View {
+//    @Binding var showMenu: Bool
+//    let content: Content
+//    var navigationBarType: RDTopNavigationType = .primary
+//    var leadingView: AnyView?
+//    var trailingView: AnyView?
+//    var navigationBarTitle: String? = ""
 //
-//  Created by Pranav Suri on 2024-06-15.
+//    init(showMenu: Binding<Bool>, navigationParam: RDTopNavigationParams? = nil, @ViewBuilder content: () -> Content) {
+//        self._showMenu = showMenu
+//        self.content = content()
+//        self.navigationParam = navigationParam ?? RDTopNavigationParams(
+//            type: .primary,
+//            title: "",
+//            leadingItem: AnyView(
+//                RDIconButton(
+//                    .tertiary,
+//                    .small,
+//                    Image(systemName: "line.horizontal.3")
+//                ) {
+//                    showMenu.wrappedValue.toggle()
+//                }
+//            )
+//        )
+//    }
 //
-
-import SwiftUI
-import RDDesignSystem
-
-struct HomeTabPage<Header: View, Content: View>: View {
-    let header: Header
-    let content: Content
-
-    private let verticalPadding: CGFloat = 8
-    private let horizontalPadding: CGFloat = 16
-
-    init(@ViewBuilder header: () -> Header,
-         @ViewBuilder content: () -> Content) {
-        self.header = header()
-        self.content = content()
-    }
-
-    var body: some View {
-        VStack(spacing: 0) {
-            header
-
-            VStack(spacing: verticalPadding) {
-                content
-            }
-            .padding(.horizontal, horizontalPadding)
-            .padding(.vertical, verticalPadding)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-        }
-        .background(Color(.systemBackground))
-    }
-}
-
-struct HomeTabPage_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeTabPage {
-            // Header
-            HStack {
-                Text("Home Tab")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                Spacer()
-            }
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-        } content: {
-            // Custom content
-            VStack(spacing: 20) {
-                Text("Welcome to the Home Tab")
-                    .font(.title)
-                Text("Here is some sample content.")
-                    .font(.body)
-                Button("Click Me") {
-                    // Action
-                }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(8)
-            }
-        }
-    }
-}
+//    var body: some View {
+//        VStack(spacing: 0) {
+//            RDTopNavigationView(
+//                params: navigationParam
+//            )
+//            .padding(12)
+//            content
+//            Spacer()
+//        }
+//        .background(Color(.systemBackground))
+//    }
+//}
+//
+//struct HomeTabPage_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeTabPage(showMenu: .constant(false)) {
+//            VStack {
+//                Text("Content goes here")
+//            }
+//        }
+//    }
+//}
