@@ -11,6 +11,7 @@ import AuthenticationService
 
 struct TestHomeView: View {
     @Binding var showSideMenu: Bool
+    @EnvironmentObject var authService: AuthService
 
     var body: some View {
         Group {
@@ -28,6 +29,11 @@ struct TestHomeView: View {
                                 }
                             )
                         )))
+                RDButtonView(.extraLarge, .tertiary, "Log out") {
+                    Task {
+                        try await authService.signOut()
+                    }
+                }
                 Spacer()
                 Text("hello")
             }

@@ -88,7 +88,8 @@ final class AuthenticationVM: ViewModel {
         Task {
             do {
                 try await authService.signUp(email: email, password: password)
-                await router.handle(action: .popToRoot)
+                let view = NewUserInformationView(vm: self)
+                router.handle(action: .push(AnyView(view)))
             } catch {
                 print(error.localizedDescription)
             }
@@ -141,7 +142,7 @@ extension AuthenticationVM {
     }
 }
 
-// MARK: Steos Views
+// MARK: Steps Views
 
 extension AuthenticationVM.Steps {
     

@@ -15,23 +15,19 @@ public enum RDTextFieldType {
     
     var bgColor: Color {
         switch self {
-        case .primary:
+        case .primary, .password:
             return .white
         case .search:
             return .platinum50
-        case .password:
-            return .white
         }
     }
     
     var focusedBgColor: Color {
         switch self {
-        case .primary:
+        case .primary, .password:
             return .white
         case .search:
             return .platinum100
-        case .password:
-            return .white
         }
     }
 }
