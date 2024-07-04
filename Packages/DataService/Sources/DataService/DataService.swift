@@ -23,11 +23,11 @@ public class DataService: DataServiceProtocol {
 
     // MARK: - Methods
     
-    public func fetchDocument<T: Decodable>(documentID: String, completion: @escaping (Result<T, Error>) -> Void) {
+    public func fetchDocument<T: Codable>(documentID: String, completion: @escaping (Result<T, Error>) -> Void) {
         provider.fetchDocument(documentID: documentID, completion: completion)
     }
 
-    public func updateDocument<T: Encodable>(documentID: String, document: T, completion: @escaping (Result<Void, Error>) -> Void) {
+    public func updateDocument<T: Codable>(documentID: String, document: T, completion: @escaping (Result<Void, Error>) -> Void) {
         provider.updateDocument(documentID: documentID, document: document, completion: completion)
     }
 
@@ -35,11 +35,11 @@ public class DataService: DataServiceProtocol {
         provider.deleteDocument(documentID: documentID, completion: completion)
     }
 
-    public func addDocument<T: Encodable>(document: T, completion: @escaping (Result<String, Error>) -> Void) {
+    public func addDocument<T: Codable>(document: T, completion: @escaping (Result<String, Error>) -> Void) {
         provider.addDocument(document: document, completion: completion)
     }
 
-    public func fetchDocuments<T: Decodable>(query: [String: Any], completion: @escaping (Result<[T], Error>) -> Void) {
+    public func fetchDocuments<T: Codable>(query: [String: Any], completion: @escaping (Result<[T], Error>) -> Void) {
         provider.fetchDocuments(query: query, completion: completion)
     }
 }

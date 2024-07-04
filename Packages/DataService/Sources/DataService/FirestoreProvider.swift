@@ -24,7 +24,7 @@ public class FirestoreProvider: DataServiceProviderProtocol {
 
     // MARK: - Methods
     
-    public func fetchDocument<T: Decodable>(documentID: String, completion: @escaping (Result<T, Error>) -> Void) {
+    public func fetchDocument<T: Codable>(documentID: String, completion: @escaping (Result<T, Error>) -> Void) {
         db.collection(collection).document(documentID).getDocument { document, error in
             if let error = error {
                 completion(.failure(error))
@@ -43,7 +43,7 @@ public class FirestoreProvider: DataServiceProviderProtocol {
         }
     }
 
-    public func updateDocument<T: Encodable>(documentID: String, document: T, completion: @escaping (Result<Void, Error>) -> Void) {
+    public func updateDocument<T: Codable>(documentID: String, document: T, completion: @escaping (Result<Void, Error>) -> Void) {
         do {
             let _ = try db.collection(collection).document(documentID).setData(from: document) { error in
                 if let error = error {
@@ -67,21 +67,16 @@ public class FirestoreProvider: DataServiceProviderProtocol {
         }
     }
 
-    public func addDocument<T: Encodable>(document: T, completion: @escaping (Result<String, Error>) -> Void) {
+    public func addDocument<T: Codable>(document: T, completion: @escaping (Result<String, Error>) -> Void) {
         do {
-            let ref = try db.collection(collection).addDocument(from: document) { error in
-                if let error = error {
-                    completion(.failure(error))
-                } else {
-                    completion(.success(ref.documentID))
-                }
-            }
+            let ref = try db.collection(collection).addDocument(from: document)
+            completion(.success(ref.documentID))
         } catch {
             completion(.failure(error))
         }
     }
 
-    public func fetchDocuments<T: Decodable>(query: [String: Any], completion: @escaping (Result<[T], Error>) -> Void) {
+    public func fetchDocuments<T: Codable>(query: [String: Any], completion: @escaping (Result<[T], Error>) -> Void) {
         var firestoreQuery: Query = db.collection(collection)
         
         query.forEach { key, value in
