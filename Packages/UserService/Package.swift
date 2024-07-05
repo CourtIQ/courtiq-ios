@@ -6,16 +6,18 @@ import PackageDescription
 let package = Package(
     name: "UserService",
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "UserService",
             targets: ["UserService"]),
     ],
+    dependencies: [
+        .package(path: "../DataService"),
+        .package(path: "../AuthenticationService"),
+    ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "UserService"),
+            name: "UserService",
+            dependencies: ["DataService", "AuthenticationService"]),
         .testTarget(
             name: "UserServiceTests",
             dependencies: ["UserService"]),

@@ -6,7 +6,6 @@
 //
 
 import FirebaseFirestore
-import FirebaseFirestoreSwift
 
 /// Firestore provider that conforms to DataServiceProviderProtocol.
 public class FirestoreProvider: DataServiceProviderProtocol {
