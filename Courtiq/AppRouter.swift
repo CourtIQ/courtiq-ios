@@ -24,6 +24,7 @@ enum RouterAction {
 
 // MARK: - AppRouter
 
+@available(iOS 16.0, *)
 class AppRouter: ObservableObject {
     @Published var navigationPath: NavigationPath = NavigationPath()
     @Published var currentSheet: ViewWrapper? = nil

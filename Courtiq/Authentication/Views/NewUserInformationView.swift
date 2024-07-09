@@ -8,6 +8,7 @@
 import AuthenticationService
 import RDDesignSystem
 import SwiftUI
+import UserService
 
 struct NewUserInformationView: View {
     var body: some View {
@@ -16,10 +17,28 @@ struct NewUserInformationView: View {
                                                               title: "Additional Information"))
         } footer: {
             RDButtonView(.large, .primary, "Next") {
+                vm.handle(action: .updateAddInfoBtn)
                 print("hello")
             }
         } content: {
-            Text("Hello")
+            RDTextField(
+                params: RDTextFieldParams(
+                    type: .primary,
+                    placeholder: "First name"),
+                text: Binding(
+                    get: { vm.user.firstName ?? "" },
+                    set: { vm.user.firstName = $0 }
+                )
+            )
+            RDTextField(
+                params: RDTextFieldParams(
+                    type: .primary,
+                    placeholder: "Last name"),
+                text: Binding(
+                    get: { vm.user.lastName ?? "" },
+                    set: { vm.user.lastName = $0 }
+                )
+            )
         }
     }
     
@@ -27,5 +46,5 @@ struct NewUserInformationView: View {
 }
 
 #Preview {
-    NewUserInformationView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), router: AppRouter()))
+    NewUserInformationView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter()))
 }

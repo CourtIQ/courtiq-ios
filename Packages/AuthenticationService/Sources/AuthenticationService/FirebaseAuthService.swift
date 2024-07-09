@@ -8,6 +8,7 @@
 import FirebaseAuth
 import SwiftUI
 
+@available(iOS 14.0, *)
 public class FirebaseAuthService: AuthProviderProtocol {
     private let userDefaults: UserDefaults
     private let currentUserKey = "currentUser"
@@ -19,7 +20,7 @@ public class FirebaseAuthService: AuthProviderProtocol {
         loadState()
     }
     
-    public private(set) var currentUser: User? {
+    public private(set) var currentUser: AuthUser? {
         didSet {
             saveState()
         }
@@ -50,7 +51,7 @@ public class FirebaseAuthService: AuthProviderProtocol {
         }
     }
     
-    public func signUp(email: String, password: String) async throws -> User {
+    public func signUp(email: String, password: String) async throws -> AuthUser {
         return try await withCheckedThrowingContinuation { continuation in
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let error = error {
@@ -67,7 +68,7 @@ public class FirebaseAuthService: AuthProviderProtocol {
         }
     }
     
-    public func signIn(email: String, password: String) async throws -> User {
+    public func signIn(email: String, password: String) async throws -> AuthUser {
         return try await withCheckedThrowingContinuation { continuation in
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let error = error {
@@ -84,7 +85,7 @@ public class FirebaseAuthService: AuthProviderProtocol {
         }
     }
     
-    public func signInWithGoogle() async throws -> User {
+    public func signInWithGoogle() async throws -> AuthUser {
         // Implement Google Sign-In logic here using async/await
         throw NSError(domain: "NotImplemented", code: -1, userInfo: nil)
     }
@@ -121,10 +122,10 @@ public class FirebaseAuthService: AuthProviderProtocol {
     }
 }
 
-public struct FirebaseUser: Codable, User {
+public struct FirebaseUser: Codable, AuthUser {
     public var uid: String
 }
 
-public protocol User {
+public protocol AuthUser {
     var uid: String { get }
 }

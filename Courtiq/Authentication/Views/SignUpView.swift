@@ -8,6 +8,7 @@
 import AuthenticationService
 import RDDesignSystem
 import SwiftUI
+import UserService
 
 // MARK: SignUpView
 
@@ -91,5 +92,5 @@ struct SignUpView: View {
 // MARK: - Preview
 
 #Preview {
-    SignUpView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), router: AppRouter()))
+    SignUpView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter()))
 }

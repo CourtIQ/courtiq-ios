@@ -16,9 +16,8 @@ public class DataService: DataServiceProtocol {
 
     // MARK: - Initializer
     
-    public init(provider: DataServiceProviderProtocol, collection: String) {
+    public init(provider: DataServiceProviderProtocol) {
         self.provider = provider
-        self.provider.collection = collection
     }
 
     // MARK: - Methods

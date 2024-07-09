@@ -8,34 +8,34 @@
 import Foundation
 import FirebaseFirestore
 
-struct User: Identifiable, Codable {
-    @DocumentID var id: String?
-    var uid: String
-    var displayName: String?
-    var firstName: String?
-    var lastName: String?
-    var email: String?
-    var gender: String?
-    var nationality: String?
-    var dob: Date?
-    var phoneNumber: String?
-    var photoURL: String?
-    var createdAt: Date?
-    var lastUpdated: Date?
+public struct User: Identifiable, Codable {
+    @DocumentID public var id: String?
+    public var uid: String
+    public var displayName: String?
+    public var firstName: String?
+    public var lastName: String?
+    public var email: String?
+    public var gender: String?
+    public var nationality: String?
+    public var dob: Date?
+    public var phoneNumber: String?
+    public var photoURL: String?
+    public var createdAt: Date
+    public var lastUpdated: Date?
     
-    init(id: String? = nil,
-         uid: String,
-         displayName: String? = nil,
-         firstName: String? = nil,
-         lastName: String? = nil,
-         email: String? = nil,
-         gender: String? = nil,
-         nationality: String? = nil,
-         dob: Date? = nil,
-         phoneNumber: String? = nil,
-         photoURL: String? = nil,
-         createdAt: Date = Date(),
-         lastUpdated: Date? = nil) {
+    public init(id: String? = nil,
+                uid: String,
+                displayName: String? = nil,
+                firstName: String? = nil,
+                lastName: String? = nil,
+                email: String? = nil,
+                gender: String? = nil,
+                nationality: String? = nil,
+                dob: Date? = nil,
+                phoneNumber: String? = nil,
+                photoURL: String? = nil,
+                createdAt: Date = Date(),
+                lastUpdated: Date? = nil) {
         self.id = id
         self.uid = uid
         self.displayName = displayName

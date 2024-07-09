@@ -8,6 +8,7 @@
 import RDDesignSystem
 import SwiftUI
 import AuthenticationService
+import UserService
 
 struct ForgotPasswordView: View {
     var body: some View {
@@ -45,5 +46,5 @@ struct ForgotPasswordView: View {
 }
 
 #Preview {
-    ForgotPasswordView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), router: AppRouter()))
+    ForgotPasswordView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter()))
 }

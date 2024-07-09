@@ -44,7 +44,7 @@ public class FirestoreProvider: DataServiceProviderProtocol {
 
     public func updateDocument<T: Codable>(documentID: String, document: T, completion: @escaping (Result<Void, Error>) -> Void) {
         do {
-            let _ = try db.collection(collection).document(documentID).setData(from: document) { error in
+            let _ = try db.collection(collection).document(documentID).setData(from: document, merge: true) { error in
                 if let error = error {
                     completion(.failure(error))
                 } else {

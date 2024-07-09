@@ -8,6 +8,7 @@
 import AuthenticationService
 import RDDesignSystem
 import SwiftUI
+import UserService
 
 // MARK: - ContentView
 
@@ -18,12 +19,12 @@ struct ContentView: View {
         Group {
             NavigationStack(path: $router.navigationPath) {
                 if authService.isUserLoggedIn {
-                    HomeRootView()
+                    HomeBaseRootView(authService: authService, router: router)
                         .navigationDestination(for: ViewWrapper.self) { view in
                             view.view
                         }
                 } else {
-                    AuthenticationWelcomeView(vm: AuthenticationVM(authService: authService, router: router))
+                    AuthenticationWelcomeView(vm: AuthenticationVM(authService: authService, userService: userService, router: router))
                         .navigationDestination(for: ViewWrapper.self) { view in
                             view.view
                         }
@@ -35,6 +36,7 @@ struct ContentView: View {
     
     // MARK: Private
     
+    @EnvironmentObject private var userService: UserService
     @EnvironmentObject private var authService: AuthService
     @EnvironmentObject private var router: AppRouter
     

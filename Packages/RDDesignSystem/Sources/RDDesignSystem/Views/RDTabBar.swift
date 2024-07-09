@@ -1,13 +1,6 @@
-//
-//  RDBottomNavigationBar.swift
-//
-//
-//  Created by Pranav Suri on 06/12/2024.
-//
-
 import SwiftUI
 
-// MARK: - RDBottomItem
+// MARK: - RDTabBarItem
 @available(iOS 13.0, *)
 public struct RDTabBarItem {
     let id = UUID().uuidString
@@ -46,7 +39,7 @@ public struct RDTabBarItem {
     }
 }
 
-// MARK: - RDBottomNavigationBar
+// MARK: - RDTabBar
 @available(iOS 15.0, *)
 public struct RDTabBar: View {
     
@@ -60,7 +53,7 @@ public struct RDTabBar: View {
     
     public var body: some View {
         LazyVGrid(columns: Array(repeating: GridItem(.flexible()), count: items.count)) {
-            ForEach((0..<items.count), id: \.self) { index in
+            ForEach(items.indices, id: \.self) { index in
                 TabItem(item: items[index], isSelected: selectedIndex == index) {
                     selectedIndex = index
                 }
@@ -72,7 +65,7 @@ public struct RDTabBar: View {
     }
     
     // MARK: - TabItem
-    func TabItem(item: RDTabBarItem, isSelected: Bool, action: @escaping (() -> ())) -> some View {
+    func TabItem(item: RDTabBarItem, isSelected: Bool, action: @escaping () -> ()) -> some View {
         VStack(spacing: 8) {
             ZStack {
                 item.icon

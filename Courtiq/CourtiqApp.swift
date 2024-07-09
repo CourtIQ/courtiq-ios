@@ -5,10 +5,11 @@
 //  Created by Pranav Suri on 2024-06-12.
 //
 
-import SwiftUI
-import FirebaseCore
-import SwiftData
 import AuthenticationService
+import FirebaseCore
+import SwiftUI
+import SwiftData
+import UserService
 
 // MARK: - AppDelegate
 
@@ -27,12 +28,14 @@ struct CourtiqApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var authService = AuthService(provider: FirebaseAuthService())
     @StateObject var router = AppRouter()
+    @StateObject var userService = UserService()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(authService)
                 .environmentObject(router)
+                .environmentObject(userService)
                 .sheet(item: $router.currentSheet) { sheet in
                     sheet.view
                 }

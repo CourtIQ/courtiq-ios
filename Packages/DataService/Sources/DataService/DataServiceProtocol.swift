@@ -1,3 +1,10 @@
+//
+//  DataServiceProtocol.swift
+//  DataService
+//
+//  Created by Pranav Suri on 2024-07-04.
+//
+
 import Foundation
 
 /// Protocol that defines the operations for a data service.

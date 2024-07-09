@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SideMenu: View {
+struct SideMenuView: View {
     var body: some View {
         let sideMenuWidth = getRect().width * 0.75
         VStack{
@@ -23,5 +23,5 @@ struct SideMenu: View {
 }
 
 #Preview {
-    SideMenu()
+    SideMenuView()
 }

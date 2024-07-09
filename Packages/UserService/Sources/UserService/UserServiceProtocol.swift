@@ -7,7 +7,8 @@
 
 import Foundation
 
-protocol UserServiceProtocol {
+@available(iOS 13.0, *)
+public protocol UserServiceProtocol: ObservableObject {
     var currentUser: User? { get }
     
     func fetchCurrentUser(userID: String, completion: @escaping (Result<User, Error>) -> Void)

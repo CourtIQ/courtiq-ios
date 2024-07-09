@@ -16,7 +16,7 @@ public enum RDTopNavigationType {
     var titleSize: CGFloat {
         switch self {
         case .primary, .primaryWithSearch, .onlySearchWithIcons:
-            return 16
+            return 18
         case .primaryWithProfileAvatar:
             return 20
         }

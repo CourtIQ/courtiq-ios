@@ -8,20 +8,20 @@
 import DataService
 import SwiftUI
 
-@available(iOS 13.0, *)
-class UserService: UserServiceProtocol, ObservableObject {
-    @Published private(set) var currentUser: User?
-    private let dataService: DataServiceProtocol
+@available(iOS 14.0, *)
+public class UserService: UserServiceProtocol {
+    @Published private(set) public var currentUser: User?
+    var dataService: DataServiceProtocol
 
     // MARK: - Initializer
     
-    init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(), collection: "users")) {
+    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "users"))) {
         self.dataService = dataService
     }
 
     // MARK: - Fetch Current User
     
-    func fetchCurrentUser(userID: String, completion: @escaping (Result<User, Error>) -> Void) {
+    public func fetchCurrentUser(userID: String, completion: @escaping (Result<User, Error>) -> Void) {
         dataService.fetchDocument(documentID: userID) { [weak self] (result: Result<User, Error>) in
             switch result {
             case .success(let user):
@@ -37,7 +37,7 @@ class UserService: UserServiceProtocol, ObservableObject {
 
     // MARK: - Update Current User
     
-    func updateCurrentUser(userID: String, data: User, completion: @escaping (Result<Void, Error>) -> Void) {
+    public func updateCurrentUser(userID: String, data: User, completion: @escaping (Result<Void, Error>) -> Void) {
         dataService.updateDocument(documentID: userID, document: data) { [weak self] result in
             switch result {
             case .success:
@@ -60,7 +60,7 @@ class UserService: UserServiceProtocol, ObservableObject {
 
     // MARK: - Delete Current User
     
-    func deleteCurrentUser(userID: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    public func deleteCurrentUser(userID: String, completion: @escaping (Result<Void, Error>) -> Void) {
         dataService.deleteDocument(documentID: userID) { [weak self] result in
             switch result {
             case .success:
@@ -76,7 +76,7 @@ class UserService: UserServiceProtocol, ObservableObject {
 
     // MARK: - Fetch User by ID
     
-    func fetchUser(byID userID: String, completion: @escaping (Result<User, Error>) -> Void) {
+    public func fetchUser(byID userID: String, completion: @escaping (Result<User, Error>) -> Void) {
         dataService.fetchDocument(documentID: userID) { (result: Result<User, Error>) in
             switch result {
             case .success(let user):
@@ -89,13 +89,13 @@ class UserService: UserServiceProtocol, ObservableObject {
 
     // MARK: - Start Listening for Current User
     
-    func startListeningForCurrentUser(userID: String, onChange: @escaping (Result<User, Error>) -> Void) {
+    public func startListeningForCurrentUser(userID: String, onChange: @escaping (Result<User, Error>) -> Void) {
         print(#function)
     }
 
     // MARK: - Stop Listening
     
-    func stopListening() {
+    public func stopListening() {
         print(#function)
     }
 }
