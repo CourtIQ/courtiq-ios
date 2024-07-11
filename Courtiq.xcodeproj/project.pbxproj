@@ -92,6 +92,7 @@
 		C0904D702C297489008B7B2E /* HomeBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseVM.swift; sourceTree = "<group>"; };
 		C0AD6C412C373D990088E2B0 /* UserService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UserService; sourceTree = "<group>"; };
 		C0AD6C422C373E080088E2B0 /* DataService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataService; sourceTree = "<group>"; };
+		C0CECA542C3F8625000F2032 /* MatchUpService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MatchUpService; sourceTree = "<group>"; };
 		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWelcomeView.swift; sourceTree = "<group>"; };
 		C0F58BD32C29525200930364 /* AuthenticationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVM.swift; sourceTree = "<group>"; };
@@ -232,6 +233,7 @@
 		C060AF5D2C19752F00D160A5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				C0CECA542C3F8625000F2032 /* MatchUpService */,
 				C0FB31CF2C3CE64C0004D153 /* StorageService */,
 				C0495D7D2C1E430400E6D023 /* AuthenticationService */,
 				C0AD6C422C373E080088E2B0 /* DataService */,

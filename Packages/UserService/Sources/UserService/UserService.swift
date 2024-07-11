@@ -86,30 +86,6 @@ public class UserService: UserServiceProtocol {
         }
     }
 
-    // MARK: - Delete Current User
-    
-    public func deleteCurrentUser(userID: String) async throws {
-        try await withCheckedThrowingContinuation { [weak self] (continuation: CheckedContinuation<Void, Error>) in
-            guard let self = self else {
-                continuation.resume(throwing: NSError(domain: "UserService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Self is nil"]))
-                return
-            }
-
-            self.dataService.deleteDocument(documentID: userID) { result in
-                switch result {
-                case .success:
-                    DispatchQueue.main.async {
-                        self.currentUser = nil
-                        self.userDefaults.removeObject(forKey: self.currentUserKey)
-                    }
-                    continuation.resume(returning: ())
-                case .failure(let error):
-                    continuation.resume(throwing: error)
-                }
-            }
-        }
-    }
-
     // MARK: - Fetch User by ID
     
     public func fetchUser(byID userID: String) async throws -> User {

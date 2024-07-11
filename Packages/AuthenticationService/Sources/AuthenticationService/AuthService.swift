@@ -27,7 +27,7 @@ public class AuthService: AuthServiceProtocol {
         return user
     }
     
-    public func signIn(email: String, password: String) async throws -> AuthUser{
+    public func signIn(email: String, password: String) async throws -> AuthUser {
         let user = try await authProvider.signIn(email: email, password: password)
         self.currentUser = user
         self.isUserLoggedIn = true

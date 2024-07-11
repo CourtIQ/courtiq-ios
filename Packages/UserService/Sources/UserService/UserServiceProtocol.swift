@@ -13,7 +13,6 @@ public protocol UserServiceProtocol: ObservableObject {
     
     func fetchCurrentUser(userID: String) async throws -> User
     func updateCurrentUser(userID: String, data: User) async throws
-    func deleteCurrentUser(userID: String) async throws
     func fetchUser(byID userID: String) async throws -> User
     func startListeningForCurrentUser(userID: String, onChange: @escaping (Result<User, Error>) -> Void)
     func stopListening()
