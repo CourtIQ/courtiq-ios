@@ -155,7 +155,7 @@ final class AuthenticationVM: ViewModel {
                     if let imageData = data {
                         let path = "users/\(userID)/profile.jpg"
                         do {
-                            let url = try await storageService.uploadData(imageData, to: path)
+                            _ = try await storageService.uploadData(imageData, to: path)
                         } catch {
                             print("Error uploading image: \(error.localizedDescription)")
                         }
