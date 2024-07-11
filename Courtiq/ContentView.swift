@@ -9,7 +9,7 @@ import AuthenticationService
 import RDDesignSystem
 import SwiftUI
 import UserService
-
+import StorageService
 // MARK: - ContentView
 
 struct ContentView: View {
@@ -23,8 +23,9 @@ struct ContentView: View {
                         .navigationDestination(for: ViewWrapper.self) { view in
                             view.view
                         }
+                    
                 } else {
-                    AuthenticationWelcomeView(vm: AuthenticationVM(authService: authService, userService: userService, router: router))
+                    AuthenticationWelcomeView(vm: AuthenticationVM(authService: authService, userService: userService, router: router, storageService: StorageService()))
                         .navigationDestination(for: ViewWrapper.self) { view in
                             view.view
                         }

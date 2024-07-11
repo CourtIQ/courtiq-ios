@@ -10,6 +10,7 @@ import UserService
 import Foundation
 import SwiftUI
 import PhotosUI
+import StorageService
 
 // MARK: AuthenticationVM
 
@@ -19,31 +20,20 @@ final class AuthenticationVM: ViewModel {
     
     init(authService: any AuthServiceProtocol,
          userService: any UserServiceProtocol,
-         router: AppRouter)
+         router: AppRouter,
+         storageService: any StorageServiceProtocol)
     {
         self.authService = authService
         self.userService = userService
         self.router = router
+        self.storageService = storageService
     }
     
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
-    @Published var firstName: String = ""
     @Published var user: User = User(uid: "")
 
-    var router: AppRouter
-    
-    func onAppear() {
-        print("Hello")
-        
-    }
-    
-    func onDisappear() {
-        print("Hello")
-        
-    }
-    
     @Published var selectedItem: PhotosPickerItem? = nil {
         didSet {
             if let selectedItem = selectedItem {
@@ -53,14 +43,22 @@ final class AuthenticationVM: ViewModel {
             }
         }
     }
-    @Published var selectedImage: UIImage? = nil
+    @Published var selectedImage: Image? = nil
+
+    var router: AppRouter
+    
+    func onAppear() {
+    }
+    
+    func onDisappear() {
+    }
 
     func loadTransferable(from imageSelection: PhotosPickerItem?) async {
         do {
             if let data = try await imageSelection?.loadTransferable(type: Data.self),
-               let image = UIImage(data: data) {
+               let uiImage = UIImage(data: data) {
                 await MainActor.run {
-                    self.selectedImage = image
+                    self.selectedImage = Image(uiImage: uiImage)
                 }
             }
         } catch {
@@ -83,11 +81,17 @@ final class AuthenticationVM: ViewModel {
             let view = AnyView(AdditionalInfoView(vm: self))
             router.handle(action: .push(view))
         case .signInBtn:
-            signIn(email: self.email, password: self.password)
+            Task {
+                await signIn(email: self.email, password: self.password)
+            }
         case .signUpBtn:
-            signUp(email: self.email, password: self.password)
+            Task {
+                await signUp(email: self.email, password: self.password)
+            }
         case .updateAddInfoBtn:
-            updateAdditionalInfo()
+            Task {
+                await updateAdditionalInfo()
+            }
         case .frgtPswdBtn:
             print("Forgot Button")
         case .signInFromSignUp:
@@ -105,68 +109,79 @@ final class AuthenticationVM: ViewModel {
     
     private var authService: any AuthServiceProtocol
     private var userService: any UserServiceProtocol
+    private var storageService: any StorageServiceProtocol
     
-    private func signIn(email: String, password: String) {
-        Task {
-            do {
-                try await authService.signIn(email: email, password: password)
-                router.handle(action: .popToRoot)
-            } catch {
-                
-                print(error.localizedDescription)
-            }
+    private func signIn(email: String, password: String) async {
+        do {
+            try await authService.signIn(email: email, password: password)
+            router.handle(action: .popToRoot)
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
-    private func signUp(email: String, password: String) {
-        Task {
-            do {
-                let user = try await authService.signUp(email: email, password: password)
-                userService.fetchCurrentUser(userID: user.uid) { result in
-                    switch result {
-                    case .success(let user):
-                        self.user = user
-                        let view = NewUserInformationView(vm: self)
-                        self.router.handle(action: .push(AnyView(view)))
-                    case .failure(let failure):
-                        print(failure)
-                    }
-                }
-            } catch {
-                print(error.localizedDescription)
-            }
+    private func signUp(email: String, password: String) async {
+        do {
+            let user = try await authService.signUp(email: email, password: password)
+            await fetchCurrentUserAndUpdate(userID: user.uid)
+        } catch {
+            print(error.localizedDescription)
         }
     }
     
-    private func updateAdditionalInfo() {
-        Task {
-            if let userID = await authService.currentUser?.uid {
-                userService.updateCurrentUser(userID: userID, data: user) { result in
-                    switch result {
-                    case .success(_):
-                        self.router.handle(action: .popToRoot)
-                        Task { @MainActor in
-                            self.authService.toggleLoggedInState()
-                        }
-                    case .failure(let failure):
-                        print(failure)
-                    }
-                }
+    private func fetchCurrentUserAndUpdate(userID: String) async {
+        do {
+            let currentUser = try await userService.fetchCurrentUser(userID: userID)
+            await MainActor.run {
+                self.user = currentUser
             }
+            let view = AnyView(AdditionalInfoView(vm: self))
+            self.router.handle(action: .push(view))
+        } catch {
+            print(error.localizedDescription)
         }
     }
+    
+    private func updateAdditionalInfo() async {
+        guard let userID = await authService.currentUser?.uid else {
+            print("No user")
+            return
+        }
 
+        do {
+            if let selectedItem = selectedItem {
+                do {
+                    let data = try await selectedItem.loadTransferable(type: Data.self)
+                    if let imageData = data {
+                        let path = "users/\(userID)/profile.jpg"
+                        do {
+                            let url = try await storageService.uploadData(imageData, to: path)
+                        } catch {
+                            print("Error uploading image: \(error.localizedDescription)")
+                        }
+                    }
+                } catch {
+                    print("Error loading image: \(error.localizedDescription)")
+                }
+            }
+
+            try await userService.updateCurrentUser(userID: userID, data: user)
+            router.handle(action: .popToRoot)
+            await MainActor.run {
+                authService.toggleLoggedInState()
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
     
     private func resetPassword(email: String) {
-        print(#function)
     }
     
     private func showForgotPassword() {
-        print(#function)
     }
     
     private func showAddInfo() {
-        print(#function)
     }
 }
 

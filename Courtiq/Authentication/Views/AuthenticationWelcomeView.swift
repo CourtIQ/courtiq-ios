@@ -50,11 +50,11 @@ struct AuthenticationWelcomeView: View {
 
 // MARK: - Preview
 
-#Preview {
-    AuthenticationWelcomeView(
-        vm: AuthenticationVM(
-            authService: AuthService(
-                provider: FirebaseAuthService()),
-            userService: UserService(),
-            router: AppRouter()))
-}
+//#Preview {
+//    AuthenticationWelcomeView(
+//        vm: AuthenticationVM(
+//            authService: AuthService(
+//                provider: FirebaseAuthService()),
+//            userService: UserService(),
+//            router: AppRouter()))
+//}

@@ -12,77 +12,115 @@ import SwiftUI
 public class UserService: UserServiceProtocol {
     @Published private(set) public var currentUser: User?
     var dataService: DataServiceProtocol
+    private let userDefaults: UserDefaults
+    private let currentUserKey = "currentUser"  // Consistent with FirebaseAuthService
 
     // MARK: - Initializer
     
-    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "users"))) {
+    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "users")), userDefaults: UserDefaults = .standard) {
         self.dataService = dataService
+        self.userDefaults = userDefaults
+        loadCurrentUser()
+    }
+    
+    // MARK: - Load Current User
+    
+    private func loadCurrentUser() {
+        if let userID = userDefaults.string(forKey: currentUserKey) {
+            Task {
+                do {
+                    let user: User = try await fetchCurrentUser(userID: userID)
+                    DispatchQueue.main.async { [weak self] in
+                        self?.currentUser = user
+                    }
+                } catch {
+                    print("Failed to fetch current user: \(error)")
+                }
+            }
+        }
     }
 
     // MARK: - Fetch Current User
     
-    public func fetchCurrentUser(userID: String, completion: @escaping (Result<User, Error>) -> Void) {
-        dataService.fetchDocument(documentID: userID) { [weak self] (result: Result<User, Error>) in
-            switch result {
-            case .success(let user):
-                DispatchQueue.main.async {
-                    self?.currentUser = user
+    public func fetchCurrentUser(userID: String) async throws -> User {
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<User, Error>) in
+            dataService.fetchDocument(documentID: userID) { (result: Result<User, Error>) in
+                switch result {
+                case .success(let user):
+                    continuation.resume(returning: user)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
                 }
-                completion(.success(user))
-            case .failure(let error):
-                completion(.failure(error))
             }
         }
     }
 
     // MARK: - Update Current User
     
-    public func updateCurrentUser(userID: String, data: User, completion: @escaping (Result<Void, Error>) -> Void) {
-        dataService.updateDocument(documentID: userID, document: data) { [weak self] result in
-            switch result {
-            case .success:
-                self?.fetchCurrentUser(userID: userID, completion: { result in
-                    switch result {
-                    case .success(let user):
-                        DispatchQueue.main.async {
-                            self?.currentUser = user
+    public func updateCurrentUser(userID: String, data: User) async throws {
+        try await withCheckedThrowingContinuation { [weak self] (continuation: CheckedContinuation<Void, Error>) in
+            guard let self = self else {
+                continuation.resume(throwing: NSError(domain: "UserService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Self is nil"]))
+                return
+            }
+
+            self.dataService.updateDocument(documentID: userID, document: data) { result in
+                switch result {
+                case .success:
+                    Task {
+                        do {
+                            let user: User = try await self.fetchCurrentUser(userID: userID)
+                            DispatchQueue.main.async {
+                                self.currentUser = user
+                                self.userDefaults.set(userID, forKey: self.currentUserKey)  // Save the userID to UserDefaults
+                            }
+                            continuation.resume(returning: ())
+                        } catch {
+                            continuation.resume(throwing: error)
                         }
-                        completion(.success(()))
-                    case .failure(let error):
-                        completion(.failure(error))
                     }
-                })
-            case .failure(let error):
-                completion(.failure(error))
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
             }
         }
     }
 
     // MARK: - Delete Current User
     
-    public func deleteCurrentUser(userID: String, completion: @escaping (Result<Void, Error>) -> Void) {
-        dataService.deleteDocument(documentID: userID) { [weak self] result in
-            switch result {
-            case .success:
-                DispatchQueue.main.async {
-                    self?.currentUser = nil
+    public func deleteCurrentUser(userID: String) async throws {
+        try await withCheckedThrowingContinuation { [weak self] (continuation: CheckedContinuation<Void, Error>) in
+            guard let self = self else {
+                continuation.resume(throwing: NSError(domain: "UserService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Self is nil"]))
+                return
+            }
+
+            self.dataService.deleteDocument(documentID: userID) { result in
+                switch result {
+                case .success:
+                    DispatchQueue.main.async {
+                        self.currentUser = nil
+                        self.userDefaults.removeObject(forKey: self.currentUserKey)
+                    }
+                    continuation.resume(returning: ())
+                case .failure(let error):
+                    continuation.resume(throwing: error)
                 }
-                completion(.success(()))
-            case .failure(let error):
-                completion(.failure(error))
             }
         }
     }
 
     // MARK: - Fetch User by ID
     
-    public func fetchUser(byID userID: String, completion: @escaping (Result<User, Error>) -> Void) {
-        dataService.fetchDocument(documentID: userID) { (result: Result<User, Error>) in
-            switch result {
-            case .success(let user):
-                completion(.success(user))
-            case .failure(let error):
-                completion(.failure(error))
+    public func fetchUser(byID userID: String) async throws -> User {
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<User, Error>) in
+            dataService.fetchDocument(documentID: userID) { (result: Result<User, Error>) in
+                switch result {
+                case .success(let user):
+                    continuation.resume(returning: user)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
             }
         }
     }

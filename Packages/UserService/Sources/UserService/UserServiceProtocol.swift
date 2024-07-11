@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  UserServiceProtocol.swift
+//
 //
 //  Created by Pranav Suri on 2024-07-04.
 //
@@ -11,10 +11,10 @@ import Foundation
 public protocol UserServiceProtocol: ObservableObject {
     var currentUser: User? { get }
     
-    func fetchCurrentUser(userID: String, completion: @escaping (Result<User, Error>) -> Void)
-    func updateCurrentUser(userID: String, data: User, completion: @escaping (Result<Void, Error>) -> Void)
-    func deleteCurrentUser(userID: String, completion: @escaping (Result<Void, Error>) -> Void)
-    func fetchUser(byID userID: String, completion: @escaping (Result<User, Error>) -> Void)
+    func fetchCurrentUser(userID: String) async throws -> User
+    func updateCurrentUser(userID: String, data: User) async throws
+    func deleteCurrentUser(userID: String) async throws
+    func fetchUser(byID userID: String) async throws -> User
     func startListeningForCurrentUser(userID: String, onChange: @escaping (Result<User, Error>) -> Void)
     func stopListening()
 }

@@ -91,6 +91,6 @@ struct SignUpView: View {
 
 // MARK: - Preview
 
-#Preview {
-    SignUpView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter()))
-}
+//#Preview {
+//    SignUpView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter()))
+//}

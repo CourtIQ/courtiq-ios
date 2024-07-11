@@ -80,6 +80,6 @@ struct SignInView: View {
 
 // MARK: - Preview
 
-#Preview {
-    SignInView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter()))
-}
+//#Preview {
+//    SignInView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter()))
+//}

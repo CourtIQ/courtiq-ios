@@ -14,6 +14,7 @@ import UserService
 // MARK: - AppDelegate
 
 class AppDelegate: NSObject, UIApplicationDelegate {
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         FirebaseApp.configure()
@@ -29,7 +30,7 @@ struct CourtiqApp: App {
     @StateObject var authService = AuthService(provider: FirebaseAuthService())
     @StateObject var router = AppRouter()
     @StateObject var userService = UserService()
-
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

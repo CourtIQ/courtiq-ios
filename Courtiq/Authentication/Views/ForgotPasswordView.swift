@@ -45,6 +45,6 @@ struct ForgotPasswordView: View {
     @ObservedObject var vm: AuthenticationVM
 }
 
-#Preview {
-    ForgotPasswordView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter()))
-}
+//#Preview {
+//    ForgotPasswordView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter(), storageService: <#any StorageServiceProtocol#>))
+//}

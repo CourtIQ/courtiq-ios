@@ -7,9 +7,13 @@
 
 import SwiftUI
 import RDDesignSystem
+import AuthenticationService
+import UserService
 
 struct ProfileView: View {
     @Binding var showSideMenu: Bool
+    @EnvironmentObject var authService: AuthService
+    @EnvironmentObject var userService: UserService
     var body: some View {
         BaseTabPageView {
             RDTopNavigationView(
@@ -33,7 +37,16 @@ struct ProfileView: View {
                 )
             )
         } content: {
+            RDButtonView(.extraLarge, .primary, "Logout") {
+                Task {
+                    try await authService.signOut()
+                }
+            }
             Text("ProfileView")
+            Text("\(authService.currentUser?.uid)")
+            Text("\(authService.currentUser?.uid)")
+            Text("\(String(describing: userService.currentUser?.firstName))")
+            Text("\(String(describing: userService.currentUser?.lastName))")
         }
     }
 }
