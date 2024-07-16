@@ -7,12 +7,16 @@
 
 import Foundation
 
+// MARK: - GameFormat Struct
+
 /// Represents the format of a game in a tennis match.
 ///
 /// The format includes the number of games required to win a set, the type of deuce rule applied,
 /// and whether a player must win by a margin of two games.
 public struct GameFormat: Codable {
     
+    // MARK: - Properties
+
     /// The number of games required to win a set.
     ///
     /// This determines how many games a player needs to win in order to win a set. The value
@@ -28,6 +32,8 @@ public struct GameFormat: Codable {
     ///
     /// This rule applies to ensure that a player must win by at least two games to secure the set.
     public var mustWinByTwo: Bool
+    
+    // MARK: - Initializer
     
     /// Initializes a new `GameFormat` with the specified parameters.
     ///

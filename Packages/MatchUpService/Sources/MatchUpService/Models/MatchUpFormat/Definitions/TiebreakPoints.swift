@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - TiebreakPoints Enum
+
 /// Represents the number of points in a tiebreak.
 ///
 /// The number of points in a tiebreak determines how many points a player needs to win
@@ -63,6 +65,8 @@ public enum TiebreakPoints: Int, CustomStringConvertible, Codable, CaseIterable 
     ///
     /// The player who wins ten points wins the tiebreak.
     case ten = 10
+    
+    // MARK: - Description
     
     /// A textual description of the number of points in a tiebreak.
     ///

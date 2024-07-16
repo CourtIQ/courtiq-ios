@@ -1,17 +1,21 @@
 //
 //  MatchUpFormat.swift
-//  
+//
 //
 //  Created by Pranav Suri on 2024-07-11.
 //
 
 import Foundation
 
+// MARK: - MatchUpFormat Struct
+
 /// Represents the overall format of a tennis match.
 ///
 /// The format includes the number of sets in the match, the format for each game,
 /// and an optional tiebreak format.
 public struct MatchUpFormat: Codable {
+    
+    // MARK: - Properties
     
     /// The number of sets in the match.
     ///
@@ -30,6 +34,8 @@ public struct MatchUpFormat: Codable {
     /// at which the tiebreak is triggered, and whether a player must win by a margin of two points.
     /// This value is optional because not all formats use tiebreaks.
     public var tiebreakFormat: TiebreakFormat?
+    
+    // MARK: - Initializer
     
     /// Initializes a new `MatchUpFormat` with the specified parameters.
     ///

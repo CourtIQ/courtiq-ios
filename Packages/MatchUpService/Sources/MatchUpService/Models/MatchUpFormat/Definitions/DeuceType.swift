@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - DeuceType Enum
+
 /// Represents the type of deuce used in a tennis match.
 ///
 /// A deuce occurs when both players have the same score, typically at 40-40.

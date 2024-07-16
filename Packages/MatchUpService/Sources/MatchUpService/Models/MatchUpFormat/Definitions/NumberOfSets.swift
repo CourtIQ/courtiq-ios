@@ -1,11 +1,13 @@
 //
 //  NumberOfSets.swift
-//  
+//
 //
 //  Created by Pranav Suri on 2024-07-10.
 //
 
 import Foundation
+
+// MARK: - NumberOfSets Enum
 
 /// Represents the number of sets in a tennis match.
 ///
@@ -28,6 +30,8 @@ public enum NumberOfSets: Int, CustomStringConvertible, Codable, CaseIterable {
     ///
     /// The player who wins three out of five sets wins the match.
     case five = 5
+    
+    // MARK: - Description
     
     /// A textual description of the number of sets.
     ///

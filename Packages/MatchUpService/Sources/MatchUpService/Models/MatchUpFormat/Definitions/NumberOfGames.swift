@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - NumberOfGames Enum
+
 /// Represents the number of games in a set.
 ///
 /// The number of games in a set determines how many games a player needs to win
