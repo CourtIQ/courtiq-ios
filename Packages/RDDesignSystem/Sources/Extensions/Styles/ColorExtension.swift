@@ -137,5 +137,250 @@ public extension Color {
         public let greyGrey800 = Color(.sRGB, red: 31/255, green: 31/255, blue: 31/255, opacity: 1) 
         public let greyGrey900 = Color(.sRGB, red: 20/255, green: 20/255, blue: 20/255, opacity: 1) 
         public let greyBlack = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+
+        // background
+        public let backgroundSurfacePrimary = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let backgroundSurfaceSecondary = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+
+        // button
+
+        // Primary
+        public let buttonPrimaryButtonPrimaryStandardBackgroundColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
+        public let buttonPrimaryButtonPrimaryHoverBackgroundColor = Color(.sRGB, red: 118/255, green: 48/255, blue: 247/255, opacity: 1) 
+        public let buttonPrimaryButtonPrimaryPressedBackgroundColor = Color(.sRGB, red: 104/255, green: 30/255, blue: 227/255, opacity: 1) 
+        public let buttonPrimaryButtonPrimaryDisabledBackgroundColor = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
+        public let buttonPrimaryButtonPrimaryDisabledTextColor = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
+        public let buttonPrimaryButtonPrimaryTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // Secondary
+        public let buttonSecondaryButtonSecondaryStandardBackgroundColor = Color(.sRGB, red: 236/255, green: 232/255, blue: 255/255, opacity: 1) 
+        public let buttonSecondaryButtonSecondaryHoverBackgroundColor = Color(.sRGB, red: 218/255, green: 212/255, blue: 255/255, opacity: 1) 
+        public let buttonSecondaryButtonSecondaryPressedBackgroundColor = Color(.sRGB, red: 218/255, green: 212/255, blue: 255/255, opacity: 1) 
+        public let buttonSecondaryButtonSecondaryDisabledTextColor = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
+        public let buttonSecondaryButtonSecondaryDisabledBackgroundColor = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
+        public let buttonSecondaryButtonSecondaryTextColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
+
+        // Tertiary
+        public let buttonTertiaryButtonTertiaryStandardBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let buttonTertiaryButtonTertiaryStandardBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let buttonTertiaryButtonTertiaryTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let buttonTertiaryButtonTertiaryHoverBackgroundColor = Color(.sRGB, red: 248/255, green: 250/255, blue: 252/255, opacity: 1) 
+        public let buttonTertiaryButtonTertiaryPressedBackgroundColor = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
+        public let buttonTertiaryButtonTertiaryDisabledBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let buttonTertiaryButtonTertiaryDisabledTextColor = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
+
+        // Ghost
+        public let buttonGhostButtonGhostStandardTextColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
+        public let buttonGhostButtonGhostHoverTextColor = Color(.sRGB, red: 118/255, green: 48/255, blue: 247/255, opacity: 1) 
+        public let buttonGhostButtonGhostPressedTextColor = Color(.sRGB, red: 104/255, green: 30/255, blue: 227/255, opacity: 1) 
+        public let buttonGhostButtonGhostDisabledTextColor = Color(.sRGB, red: 218/255, green: 212/255, blue: 255/255, opacity: 1) 
+
+        // pagination
+        public let paginationPaginationBackgroudColor1 = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let paginationPaginationBackgroudColor2 = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // bottom navigation
+        public let bottomNavigationBottomNavigationBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let bottomNavigationBottomNavigationBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let bottomNavigationBottomNavigationSelectedColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let bottomNavigationBottomNavigationDeselectedColor = Color(.sRGB, red: 148/255, green: 163/255, blue: 184/255, opacity: 1) 
+        public let bottomNavigationBottomNavigationIndicatorColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+
+        // coach mark
+        public let coachMarkCoachMarkBackgroundColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let coachMarkCoachMarkTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // notification badge
+        public let notificationBadgeBadgeBackgroundColor = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
+        public let notificationBadgeBadgeTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let notificationBadgeBadgeBorderColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // ios home indicator
+        public let iosHomeIndicatorIndicatorColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let iosHomeIndicatorBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // android home indicator
+        public let androidHomeIndicatorIndicatorColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let androidHomeIndicatorBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // alert
+        public let alertAlertBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let alertAlertTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let alertAlertBorderColor = Color(.sRGB, red: 226/255, green: 226/255, blue: 226/255, opacity: 1) 
+
+        // ios alert
+        public let iosAlertAlertBackgroundColor = Color(.sRGB, red: 242/255, green: 242/255, blue: 242/255, opacity: 0.82) 
+        public let iosAlertAlertBorderColor = Color(.sRGB, red: 60/255, green: 60/255, blue: 67/255, opacity: 0.36) 
+        public let iosAlertAlertTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let iosAlertAlertHighlightColor = Color(.sRGB, red: 0/255, green: 122/255, blue: 255/255, opacity: 1) 
+        public let iosAlertAlertInputColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // android alert
+        public let androidAlertAlertBackgroundColor = Color(.sRGB, red: 238/255, green: 238/255, blue: 238/255, opacity: 1) 
+        public let androidAlertAlertPrimaryTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let androidAlertAlertSecondaryTextColor = Color(.sRGB, red: 97/255, green: 97/255, blue: 97/255, opacity: 1) 
+
+        // menu
+        public let menuMenuBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let menuMenuBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let menuMenuTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let menuMenuIconColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+
+        // input field
+        public let inputFieldTextFieldBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let inputFieldTextFieldBorderStandardColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let inputFieldTextFieldBorderHoverColor = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
+        public let inputFieldTextFieldBorderPressedColor = Color(.sRGB, red: 148/255, green: 163/255, blue: 184/255, opacity: 1) 
+        public let inputFieldTextFieldTextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
+        public let inputFieldTextFieldTextInputColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let inputFieldSearchFieldBackgroundColor = Color(.sRGB, red: 248/255, green: 250/255, blue: 252/255, opacity: 1) 
+        public let inputFieldSearchFieldBackgroundHoverColor = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
+        public let inputFieldSearchFieldBackgroundPressedColor = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
+        public let inputFieldSearchFieldTextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
+        public let inputFieldErrorFieldBorderColor = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
+        public let inputFieldErrorFieldTextColor = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
+        public let inputFieldErrorFieldInputColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let inputFieldSuccessFieldBorderColor = Color(.sRGB, red: 0/255, green: 181/255, blue: 5/255, opacity: 1) 
+        public let inputFieldSuccessFieldTextColor = Color(.sRGB, red: 0/255, green: 181/255, blue: 5/255, opacity: 1) 
+        public let inputFieldSuccessFieldInputColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let inputFieldDisabledFieldTextColor = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
+        public let inputFieldDisabledFieldIconColor = Color(.sRGB, red: 255/255, green: 214/255, blue: 0/255, opacity: 1) 
+
+        // bottom sheet
+        public let bottomSheetBottomSheetBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let bottomSheetBottomSheetIndicatorColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let bottomSheetBottomSheetTitleColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let bottomSheetBottomSheetTextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
+        public let bottomSheetBottomSheetIconColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+
+        // ios bottom sheet
+        public let iosBottomSheetBottomSheetBackgroundColor = Color(.sRGB, red: 242/255, green: 242/255, blue: 242/255, opacity: 0.82) 
+        public let iosBottomSheetBottomSheetTextColor = Color(.sRGB, red: 123/255, green: 123/255, blue: 128/255, opacity: 1) 
+        public let iosBottomSheetBottomSheetBorderColor = Color(.sRGB, red: 60/255, green: 60/255, blue: 67/255, opacity: 0.36) 
+        public let iosBottomSheetBottomSheetOptionColor = Color(.sRGB, red: 0/255, green: 122/255, blue: 255/255, opacity: 1) 
+        public let iosBottomSheetBottomSheetErrorColor = Color(.sRGB, red: 255/255, green: 59/255, blue: 48/255, opacity: 1) 
+
+        // ios share sheet
+        public let iosShareSheetShareSheetBackgroundColor = Color(.sRGB, red: 242/255, green: 242/255, blue: 242/255, opacity: 0.82) 
+        public let iosShareSheetShareSheetBorderColor = Color(.sRGB, red: 60/255, green: 60/255, blue: 67/255, opacity: 0.36) 
+        public let iosShareSheetShareSheetTitleColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let iosShareSheetShareSheetTextColor = Color(.sRGB, red: 60/255, green: 60/255, blue: 67/255, opacity: 0.6) 
+        public let iosShareSheetShareSheetIconColor = Color(.sRGB, red: 118/255, green: 118/255, blue: 128/255, opacity: 0.12) 
+        public let iosShareSheetShareSheetBoxColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // android bottom sheet
+        public let androidBottomSheetBottomSheetBackgroundColor = Color(.sRGB, red: 243/255, green: 237/255, blue: 247/255, opacity: 1) 
+        public let androidBottomSheetBottomSheetTextColor = Color(.sRGB, red: 29/255, green: 27/255, blue: 32/255, opacity: 1) 
+        public let androidBottomSheetBottomSheetIconColor = Color(.sRGB, red: 73/255, green: 69/255, blue: 79/255, opacity: 1) 
+
+        // badge
+        public let badgeBadgeDefaultBackgroundColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let badgeBadgeSuccessBackgroundColor = Color(.sRGB, red: 0/255, green: 221/255, blue: 0/255, opacity: 1) 
+        public let badgeBadgeErrorBackgroundColor = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
+        public let badgeBadgeNewBackgroundColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
+        public let badgeBadgeTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // ios status bar
+        public let iosStatusBarStatusBarTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let iosStatusBarStatusBarBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // android status bar
+        public let androidStatusBarStatusBarTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let androidStatusBarStatusBarBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // ios keyboard
+        public let iosKeyboardKeyboardBackgroundColor = Color(.sRGB, red: 206/255, green: 208/255, blue: 212/255, opacity: 1) 
+        public let iosKeyboardKeyboardTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let iosKeyboardKeyboardLetterColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let iosKeyboardKeyboardIconColor = Color(.sRGB, red: 80/255, green: 85/255, blue: 92/255, opacity: 1) 
+        public let iosKeyboardKeyboardBigLetterColor = Color(.sRGB, red: 171/255, green: 176/255, blue: 186/255, opacity: 1) 
+        public let iosKeyboardKeyboardShadowColor = Color(.sRGB, red: 137/255, green: 138/255, blue: 141/255, opacity: 1) 
+
+        // android keyboard
+        public let androidKeyboardKeyboardBackgroundColor = Color(.sRGB, red: 254/255, green: 247/255, blue: 255/255, opacity: 1) 
+        public let androidKeyboardKeyboardLetterColor = Color(.sRGB, red: 247/255, green: 242/255, blue: 250/255, opacity: 1) 
+        public let androidKeyboardKeyboardTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let androidKeyboardKeyboardBackColor = Color(.sRGB, red: 208/255, green: 188/255, blue: 255/255, opacity: 1) 
+        public let androidKeyboardKeyboardBigLetterColor = Color(.sRGB, red: 230/255, green: 224/255, blue: 233/255, opacity: 1) 
+        public let androidKeyboardKeyboardBorderColor = Color(.sRGB, red: 158/255, green: 158/255, blue: 158/255, opacity: 1) 
+
+        // toggle
+        public let toggleToggleBackgroundColor = Color(.sRGB, red: 226/255, green: 226/255, blue: 226/255, opacity: 1) 
+        public let toggleToggleDotColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let toggleToggleActiveBackgroundColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
+
+        // chip
+        public let chipChipBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let chipChipTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let chipChipBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let chipChipAmountColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let chipChipActiveBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let chipChipActiveBackgroundColor = Color(.sRGB, red: 248/255, green: 250/255, blue: 252/255, opacity: 1) 
+        public let chipChipActiveAmountColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let chipChipIconColor = Color(.sRGB, red: 51/255, green: 65/255, blue: 85/255, opacity: 1) 
+
+        // tab control
+        public let tabControlTabControlBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let tabControlTabControlSelectColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let tabControlTabControlBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let tabControlTabControlNotSelectColor = Color(.sRGB, red: 148/255, green: 163/255, blue: 184/255, opacity: 1) 
+
+        // segmented control
+        public let segmentedControlSegmentedControlBackgroundColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let segmentedControlSegmentedControlTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let segmentedControlSegmentedControlActiveColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // avatar
+        public let avatarAvatarBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let avatarAvatarBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let avatarAvatarActiveColor = Color(.sRGB, red: 0/255, green: 221/255, blue: 0/255, opacity: 1) 
+        public let avatarAvatarIconColor = Color(.sRGB, red: 51/255, green: 65/255, blue: 85/255, opacity: 1) 
+
+        // top navigation
+        public let topNavigationNavigationBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let topNavigationNavigationTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let topNavigationNavigationIconColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let topNavigationNavigationModalColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+        public let topNavigationNavigationModal2Color = Color(.sRGB, red: 217/255, green: 217/255, blue: 217/255, opacity: 1) 
+
+        // loading
+        public let loadingColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let loadingColor2 = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // message
+        public let messageMessageOwnBackgroundColor = Color(.sRGB, red: 248/255, green: 250/255, blue: 252/255, opacity: 1) 
+        public let messageMessageOwnTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let messageMessageOwnSubtextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
+        public let messageMessageForeignBackgroundColor = Color(.sRGB, red: 30/255, green: 41/255, blue: 59/255, opacity: 1) 
+        public let messageMessageForeignSubtextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
+        public let messageMessageForeignTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // line item
+        public let lineItemLineItemIconColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let lineItemLineItemTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let lineItemLineItemSubtextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
+        public let lineItemLineItemBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // notification
+        public let notificationNotificationErrorBackgroundColor = Color(.sRGB, red: 255/255, green: 242/255, blue: 241/255, opacity: 1) 
+        public let notificationNotificationErrorIconColor = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
+        public let notificationNotificationSuccessBackgroundColor = Color(.sRGB, red: 232/255, green: 255/255, blue: 228/255, opacity: 1) 
+        public let notificationNotificationSuccessIconColor = Color(.sRGB, red: 0/255, green: 221/255, blue: 0/255, opacity: 1) 
+        public let notificationNotificationWarningBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 231/255, opacity: 1) 
+        public let notificationNotificationWarningIconColor = Color(.sRGB, red: 255/255, green: 214/255, blue: 0/255, opacity: 1) 
+        public let notificationNotificationInfoBackgroundColor = Color(.sRGB, red: 245/255, green: 242/255, blue: 255/255, opacity: 1) 
+        public let notificationNotificationInfoIconColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
+        public let notificationNotificationTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let notificationNotificationIconColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+
+        // tooltip
+        public let tooltipTooltipBackgroundColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let tooltipTooltipTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // card
+        public let cardCardTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let cardCardSubtitleColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
+        public let cardCardBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let cardCardBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
     }
 }
