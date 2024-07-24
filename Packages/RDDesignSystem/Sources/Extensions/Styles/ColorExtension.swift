@@ -8,379 +8,134 @@ public extension Color {
     struct TokenColor {
 
         // magenta
-        public let magentaMagenta50 = Color(.sRGB, red: 254/255, green: 241/255, blue: 249/255, opacity: 1) 
-        public let magentaMagenta100 = Color(.sRGB, red: 254/255, green: 229/255, blue: 245/255, opacity: 1) 
-        public let magentaMagenta200 = Color(.sRGB, red: 255/255, green: 202/255, blue: 237/255, opacity: 1) 
-        public let magentaMagenta300 = Color(.sRGB, red: 255/255, green: 159/255, blue: 219/255, opacity: 1) 
-        public let magentaMagenta400 = Color(.sRGB, red: 255/255, green: 99/255, blue: 193/255, opacity: 1) 
-        public let magentaMagenta500 = Color(.sRGB, red: 255/255, green: 39/255, blue: 160/255, opacity: 1) 
-        public let magentaMagenta600 = Color(.sRGB, red: 240/255, green: 18/255, blue: 132/255, opacity: 1) 
-        public let magentaMagenta700 = Color(.sRGB, red: 209/255, green: 5/255, blue: 104/255, opacity: 1) 
-        public let magentaMagenta800 = Color(.sRGB, red: 173/255, green: 7/255, blue: 85/255, opacity: 1) 
-        public let magentaMagenta900 = Color(.sRGB, red: 143/255, green: 12/255, blue: 74/255, opacity: 1) 
-        public let magentaMagenta950 = Color(.sRGB, red: 88/255, green: 0/255, blue: 40/255, opacity: 1) 
+        public let magenta50 = Color(.sRGB, red: 254/255, green: 241/255, blue: 249/255, opacity: 1) 
+        public let magenta100 = Color(.sRGB, red: 254/255, green: 229/255, blue: 245/255, opacity: 1) 
+        public let magenta200 = Color(.sRGB, red: 255/255, green: 202/255, blue: 237/255, opacity: 1) 
+        public let magenta300 = Color(.sRGB, red: 255/255, green: 159/255, blue: 219/255, opacity: 1) 
+        public let magenta400 = Color(.sRGB, red: 255/255, green: 99/255, blue: 193/255, opacity: 1) 
+        public let magenta500 = Color(.sRGB, red: 255/255, green: 39/255, blue: 160/255, opacity: 1) 
+        public let magenta600 = Color(.sRGB, red: 240/255, green: 18/255, blue: 132/255, opacity: 1) 
+        public let magenta700 = Color(.sRGB, red: 209/255, green: 5/255, blue: 104/255, opacity: 1) 
+        public let magenta800 = Color(.sRGB, red: 173/255, green: 7/255, blue: 85/255, opacity: 1) 
+        public let magenta900 = Color(.sRGB, red: 143/255, green: 12/255, blue: 74/255, opacity: 1) 
+        public let magenta950 = Color(.sRGB, red: 88/255, green: 0/255, blue: 40/255, opacity: 1) 
 
         // purple
-        public let purplePurple50 = Color(.sRGB, red: 245/255, green: 242/255, blue: 255/255, opacity: 1) 
-        public let purplePurple100 = Color(.sRGB, red: 236/255, green: 232/255, blue: 255/255, opacity: 1) 
-        public let purplePurple200 = Color(.sRGB, red: 218/255, green: 212/255, blue: 255/255, opacity: 1) 
-        public let purplePurple300 = Color(.sRGB, red: 193/255, green: 177/255, blue: 255/255, opacity: 1) 
-        public let purplePurple400 = Color(.sRGB, red: 162/255, green: 133/255, blue: 255/255, opacity: 1) 
-        public let purplePurple500 = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
-        public let purplePurple600 = Color(.sRGB, red: 118/255, green: 48/255, blue: 247/255, opacity: 1) 
-        public let purplePurple700 = Color(.sRGB, red: 104/255, green: 30/255, blue: 227/255, opacity: 1) 
-        public let purplePurple800 = Color(.sRGB, red: 87/255, green: 24/255, blue: 191/255, opacity: 1) 
-        public let purplePurple900 = Color(.sRGB, red: 72/255, green: 22/255, blue: 156/255, opacity: 1) 
+        public let purple50 = Color(.sRGB, red: 245/255, green: 242/255, blue: 255/255, opacity: 1) 
+        public let purple100 = Color(.sRGB, red: 236/255, green: 232/255, blue: 255/255, opacity: 1) 
+        public let purple200 = Color(.sRGB, red: 218/255, green: 212/255, blue: 255/255, opacity: 1) 
+        public let purple300 = Color(.sRGB, red: 193/255, green: 177/255, blue: 255/255, opacity: 1) 
+        public let purple400 = Color(.sRGB, red: 162/255, green: 133/255, blue: 255/255, opacity: 1) 
+        public let purple500 = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
+        public let purple600 = Color(.sRGB, red: 118/255, green: 48/255, blue: 247/255, opacity: 1) 
+        public let purple700 = Color(.sRGB, red: 104/255, green: 30/255, blue: 227/255, opacity: 1) 
+        public let purple800 = Color(.sRGB, red: 87/255, green: 24/255, blue: 191/255, opacity: 1) 
+        public let purple900 = Color(.sRGB, red: 72/255, green: 22/255, blue: 156/255, opacity: 1) 
         public let purplePurple950 = Color(.sRGB, red: 44/255, green: 11/255, blue: 106/255, opacity: 1) 
 
         // blue
-        public let blueBlue50 = Color(.sRGB, red: 237/255, green: 250/255, blue: 255/255, opacity: 1) 
-        public let blueBlue100 = Color(.sRGB, red: 214/255, green: 241/255, blue: 255/255, opacity: 1) 
-        public let blueBlue200 = Color(.sRGB, red: 181/255, green: 233/255, blue: 255/255, opacity: 1) 
-        public let blueBlue300 = Color(.sRGB, red: 131/255, green: 220/255, blue: 255/255, opacity: 1) 
-        public let blueBlue400 = Color(.sRGB, red: 72/255, green: 199/255, blue: 255/255, opacity: 1) 
-        public let blueBlue500 = Color(.sRGB, red: 30/255, green: 167/255, blue: 255/255, opacity: 1) 
-        public let blueBlue600 = Color(.sRGB, red: 6/255, green: 137/255, blue: 255/255, opacity: 1) 
-        public let blueBlue700 = Color(.sRGB, red: 0/255, green: 117/255, blue: 255/255, opacity: 1) 
-        public let blueBlue800 = Color(.sRGB, red: 8/255, green: 89/255, blue: 197/255, opacity: 1) 
-        public let blueBlue900 = Color(.sRGB, red: 13/255, green: 78/255, blue: 155/255, opacity: 1) 
-        public let blueBlue950 = Color(.sRGB, red: 14/255, green: 48/255, blue: 93/255, opacity: 1) 
+        public let blue50 = Color(.sRGB, red: 237/255, green: 250/255, blue: 255/255, opacity: 1) 
+        public let blue100 = Color(.sRGB, red: 214/255, green: 241/255, blue: 255/255, opacity: 1) 
+        public let blue200 = Color(.sRGB, red: 181/255, green: 233/255, blue: 255/255, opacity: 1) 
+        public let blue300 = Color(.sRGB, red: 131/255, green: 220/255, blue: 255/255, opacity: 1) 
+        public let blue400 = Color(.sRGB, red: 72/255, green: 199/255, blue: 255/255, opacity: 1) 
+        public let blue500 = Color(.sRGB, red: 30/255, green: 167/255, blue: 255/255, opacity: 1) 
+        public let blue600 = Color(.sRGB, red: 6/255, green: 137/255, blue: 255/255, opacity: 1) 
+        public let blue700 = Color(.sRGB, red: 0/255, green: 117/255, blue: 255/255, opacity: 1) 
+        public let blue800 = Color(.sRGB, red: 8/255, green: 89/255, blue: 197/255, opacity: 1) 
+        public let blue900 = Color(.sRGB, red: 13/255, green: 78/255, blue: 155/255, opacity: 1) 
+        public let blue950 = Color(.sRGB, red: 14/255, green: 48/255, blue: 93/255, opacity: 1) 
 
         // green
-        public let greenGreen50 = Color(.sRGB, red: 232/255, green: 255/255, blue: 228/255, opacity: 1) 
-        public let greenGreen100 = Color(.sRGB, red: 203/255, green: 255/255, blue: 197/255, opacity: 1) 
-        public let greenGreen200 = Color(.sRGB, red: 154/255, green: 255/255, blue: 146/255, opacity: 1) 
-        public let greenGreen300 = Color(.sRGB, red: 91/255, green: 255/255, blue: 83/255, opacity: 1) 
-        public let greenGreen400 = Color(.sRGB, red: 36/255, green: 251/255, blue: 32/255, opacity: 1) 
-        public let greenGreen500 = Color(.sRGB, red: 0/255, green: 221/255, blue: 0/255, opacity: 1) 
-        public let greenGreen600 = Color(.sRGB, red: 0/255, green: 181/255, blue: 5/255, opacity: 1) 
-        public let greenGreen700 = Color(.sRGB, red: 2/255, green: 137/255, blue: 7/255, opacity: 1) 
-        public let greenGreen800 = Color(.sRGB, red: 8/255, green: 108/255, blue: 12/255, opacity: 1) 
-        public let greenGreen900 = Color(.sRGB, red: 12/255, green: 91/255, blue: 17/255, opacity: 1) 
-        public let greenGreen950 = Color(.sRGB, red: 0/255, green: 51/255, blue: 5/255, opacity: 1) 
+        public let green50 = Color(.sRGB, red: 232/255, green: 255/255, blue: 228/255, opacity: 1) 
+        public let green100 = Color(.sRGB, red: 203/255, green: 255/255, blue: 197/255, opacity: 1) 
+        public let green200 = Color(.sRGB, red: 154/255, green: 255/255, blue: 146/255, opacity: 1) 
+        public let green300 = Color(.sRGB, red: 91/255, green: 255/255, blue: 83/255, opacity: 1) 
+        public let green400 = Color(.sRGB, red: 36/255, green: 251/255, blue: 32/255, opacity: 1) 
+        public let green500 = Color(.sRGB, red: 0/255, green: 221/255, blue: 0/255, opacity: 1) 
+        public let green600 = Color(.sRGB, red: 0/255, green: 181/255, blue: 5/255, opacity: 1) 
+        public let green700 = Color(.sRGB, red: 2/255, green: 137/255, blue: 7/255, opacity: 1) 
+        public let green800 = Color(.sRGB, red: 8/255, green: 108/255, blue: 12/255, opacity: 1) 
+        public let green900 = Color(.sRGB, red: 12/255, green: 91/255, blue: 17/255, opacity: 1) 
+        public let green950 = Color(.sRGB, red: 0/255, green: 51/255, blue: 5/255, opacity: 1) 
 
         // yellow
-        public let yellowYellow50 = Color(.sRGB, red: 255/255, green: 255/255, blue: 231/255, opacity: 1) 
-        public let yellowYellow100 = Color(.sRGB, red: 254/255, green: 255/255, blue: 193/255, opacity: 1) 
-        public let yellowYellow200 = Color(.sRGB, red: 255/255, green: 253/255, blue: 134/255, opacity: 1) 
-        public let yellowYellow300 = Color(.sRGB, red: 255/255, green: 244/255, blue: 65/255, opacity: 1) 
-        public let yellowYellow400 = Color(.sRGB, red: 255/255, green: 229/255, blue: 13/255, opacity: 1) 
-        public let yellowYellow500 = Color(.sRGB, red: 255/255, green: 214/255, blue: 0/255, opacity: 1) 
-        public let yellowYellow600 = Color(.sRGB, red: 209/255, green: 157/255, blue: 0/255, opacity: 1) 
-        public let yellowYellow700 = Color(.sRGB, red: 166/255, green: 113/255, blue: 2/255, opacity: 1) 
-        public let yellowYellow800 = Color(.sRGB, red: 137/255, green: 87/255, blue: 10/255, opacity: 1) 
-        public let yellowYellow900 = Color(.sRGB, red: 116/255, green: 71/255, blue: 15/255, opacity: 1) 
-        public let yellowYellow950 = Color(.sRGB, red: 68/255, green: 37/255, blue: 4/255, opacity: 1) 
+        public let yellow50 = Color(.sRGB, red: 255/255, green: 255/255, blue: 231/255, opacity: 1) 
+        public let yellow100 = Color(.sRGB, red: 254/255, green: 255/255, blue: 193/255, opacity: 1) 
+        public let yellow200 = Color(.sRGB, red: 255/255, green: 253/255, blue: 134/255, opacity: 1) 
+        public let yellow300 = Color(.sRGB, red: 255/255, green: 244/255, blue: 65/255, opacity: 1) 
+        public let yellow400 = Color(.sRGB, red: 255/255, green: 229/255, blue: 13/255, opacity: 1) 
+        public let yellow500 = Color(.sRGB, red: 255/255, green: 214/255, blue: 0/255, opacity: 1) 
+        public let yellow600 = Color(.sRGB, red: 209/255, green: 157/255, blue: 0/255, opacity: 1) 
+        public let yellow700 = Color(.sRGB, red: 166/255, green: 113/255, blue: 2/255, opacity: 1) 
+        public let yellow800 = Color(.sRGB, red: 137/255, green: 87/255, blue: 10/255, opacity: 1) 
+        public let yellow900 = Color(.sRGB, red: 116/255, green: 71/255, blue: 15/255, opacity: 1) 
+        public let yellow950 = Color(.sRGB, red: 68/255, green: 37/255, blue: 4/255, opacity: 1) 
 
         // orange
-        public let orangeOrange50 = Color(.sRGB, red: 255/255, green: 250/255, blue: 236/255, opacity: 1) 
-        public let orangeOrange100 = Color(.sRGB, red: 255/255, green: 243/255, blue: 211/255, opacity: 1) 
-        public let orangeOrange200 = Color(.sRGB, red: 255/255, green: 227/255, blue: 165/255, opacity: 1) 
-        public let orangeOrange300 = Color(.sRGB, red: 255/255, green: 206/255, blue: 109/255, opacity: 1) 
-        public let orangeOrange400 = Color(.sRGB, red: 255/255, green: 173/255, blue: 50/255, opacity: 1) 
-        public let orangeOrange500 = Color(.sRGB, red: 255/255, green: 146/255, blue: 10/255, opacity: 1) 
-        public let orangeOrange600 = Color(.sRGB, red: 255/255, green: 122/255, blue: 0/255, opacity: 1) 
-        public let orangeOrange700 = Color(.sRGB, red: 204/255, green: 88/255, blue: 2/255, opacity: 1) 
-        public let orangeOrange800 = Color(.sRGB, red: 161/255, green: 68/255, blue: 11/255, opacity: 1) 
-        public let orangeOrange900 = Color(.sRGB, red: 130/255, green: 58/255, blue: 12/255, opacity: 1) 
-        public let orangeOrange950 = Color(.sRGB, red: 70/255, green: 27/255, blue: 4/255, opacity: 1) 
+        public let orange50 = Color(.sRGB, red: 255/255, green: 250/255, blue: 236/255, opacity: 1) 
+        public let orange100 = Color(.sRGB, red: 255/255, green: 243/255, blue: 211/255, opacity: 1) 
+        public let orange200 = Color(.sRGB, red: 255/255, green: 227/255, blue: 165/255, opacity: 1) 
+        public let orange300 = Color(.sRGB, red: 255/255, green: 206/255, blue: 109/255, opacity: 1) 
+        public let orange400 = Color(.sRGB, red: 255/255, green: 173/255, blue: 50/255, opacity: 1) 
+        public let orange500 = Color(.sRGB, red: 255/255, green: 146/255, blue: 10/255, opacity: 1) 
+        public let orange600 = Color(.sRGB, red: 255/255, green: 122/255, blue: 0/255, opacity: 1) 
+        public let orange700 = Color(.sRGB, red: 204/255, green: 88/255, blue: 2/255, opacity: 1) 
+        public let orange800 = Color(.sRGB, red: 161/255, green: 68/255, blue: 11/255, opacity: 1) 
+        public let orange900 = Color(.sRGB, red: 130/255, green: 58/255, blue: 12/255, opacity: 1) 
+        public let orange950 = Color(.sRGB, red: 70/255, green: 27/255, blue: 4/255, opacity: 1) 
 
         // brown
-        public let brownBrown50 = Color(.sRGB, red: 251/255, green: 246/255, blue: 239/255, opacity: 1) 
-        public let brownBrown100 = Color(.sRGB, red: 243/255, green: 229/255, blue: 210/255, opacity: 1) 
-        public let brownBrown200 = Color(.sRGB, red: 229/255, green: 201/255, blue: 162/255, opacity: 1) 
-        public let brownBrown300 = Color(.sRGB, red: 216/255, green: 169/255, blue: 113/255, opacity: 1) 
-        public let brownBrown400 = Color(.sRGB, red: 207/255, green: 142/255, blue: 80/255, opacity: 1) 
-        public let brownBrown500 = Color(.sRGB, red: 197/255, green: 115/255, blue: 59/255, opacity: 1) 
-        public let brownBrown600 = Color(.sRGB, red: 185/255, green: 94/255, blue: 53/255, opacity: 1) 
-        public let brownBrown700 = Color(.sRGB, red: 145/255, green: 65/255, blue: 44/255, opacity: 1) 
-        public let brownBrown800 = Color(.sRGB, red: 119/255, green: 53/255, blue: 41/255, opacity: 1) 
-        public let brownBrown900 = Color(.sRGB, red: 98/255, green: 45/255, blue: 37/255, opacity: 1) 
-        public let brownBrown950 = Color(.sRGB, red: 55/255, green: 21/255, blue: 17/255, opacity: 1) 
+        public let brown50 = Color(.sRGB, red: 251/255, green: 246/255, blue: 239/255, opacity: 1) 
+        public let brown100 = Color(.sRGB, red: 243/255, green: 229/255, blue: 210/255, opacity: 1) 
+        public let brown200 = Color(.sRGB, red: 229/255, green: 201/255, blue: 162/255, opacity: 1) 
+        public let brown300 = Color(.sRGB, red: 216/255, green: 169/255, blue: 113/255, opacity: 1) 
+        public let brown400 = Color(.sRGB, red: 207/255, green: 142/255, blue: 80/255, opacity: 1) 
+        public let brown500 = Color(.sRGB, red: 197/255, green: 115/255, blue: 59/255, opacity: 1) 
+        public let brown600 = Color(.sRGB, red: 185/255, green: 94/255, blue: 53/255, opacity: 1) 
+        public let brown700 = Color(.sRGB, red: 145/255, green: 65/255, blue: 44/255, opacity: 1) 
+        public let brown800 = Color(.sRGB, red: 119/255, green: 53/255, blue: 41/255, opacity: 1) 
+        public let brown900 = Color(.sRGB, red: 98/255, green: 45/255, blue: 37/255, opacity: 1) 
+        public let brown950 = Color(.sRGB, red: 55/255, green: 21/255, blue: 17/255, opacity: 1) 
 
         // red
-        public let redRed50 = Color(.sRGB, red: 255/255, green: 242/255, blue: 241/255, opacity: 1) 
-        public let redRed100 = Color(.sRGB, red: 255/255, green: 225/255, blue: 223/255, opacity: 1) 
-        public let redRed200 = Color(.sRGB, red: 255/255, green: 200/255, blue: 197/255, opacity: 1) 
-        public let redRed300 = Color(.sRGB, red: 255/255, green: 162/255, blue: 157/255, opacity: 1) 
-        public let redRed400 = Color(.sRGB, red: 255/255, green: 108/255, blue: 100/255, opacity: 1) 
-        public let redRed500 = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
-        public let redRed600 = Color(.sRGB, red: 237/255, green: 33/255, blue: 21/255, opacity: 1) 
-        public let redRed700 = Color(.sRGB, red: 200/255, green: 23/255, blue: 13/255, opacity: 1) 
-        public let redRed800 = Color(.sRGB, red: 165/255, green: 23/255, blue: 15/255, opacity: 1) 
-        public let redRed900 = Color(.sRGB, red: 136/255, green: 26/255, blue: 20/255, opacity: 1) 
-        public let redRed950 = Color(.sRGB, red: 75/255, green: 8/255, blue: 4/255, opacity: 1) 
+        public let red50 = Color(.sRGB, red: 255/255, green: 242/255, blue: 241/255, opacity: 1) 
+        public let red100 = Color(.sRGB, red: 255/255, green: 225/255, blue: 223/255, opacity: 1) 
+        public let red200 = Color(.sRGB, red: 255/255, green: 200/255, blue: 197/255, opacity: 1) 
+        public let red300 = Color(.sRGB, red: 255/255, green: 162/255, blue: 157/255, opacity: 1) 
+        public let red400 = Color(.sRGB, red: 255/255, green: 108/255, blue: 100/255, opacity: 1) 
+        public let red500 = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
+        public let red600 = Color(.sRGB, red: 237/255, green: 33/255, blue: 21/255, opacity: 1) 
+        public let red700 = Color(.sRGB, red: 200/255, green: 23/255, blue: 13/255, opacity: 1) 
+        public let red800 = Color(.sRGB, red: 165/255, green: 23/255, blue: 15/255, opacity: 1) 
+        public let red900 = Color(.sRGB, red: 136/255, green: 26/255, blue: 20/255, opacity: 1) 
+        public let red950 = Color(.sRGB, red: 75/255, green: 8/255, blue: 4/255, opacity: 1) 
 
         // platinum
         public let platinumPlatinum50 = Color(.sRGB, red: 248/255, green: 250/255, blue: 252/255, opacity: 1) 
-        public let platinumPlatinum100 = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
-        public let platinumPlatinum200 = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let platinumPlatinum300 = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
-        public let platinumPlatinum400 = Color(.sRGB, red: 148/255, green: 163/255, blue: 184/255, opacity: 1) 
-        public let platinumPlatinum500 = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
-        public let platinumPlatinum600 = Color(.sRGB, red: 71/255, green: 85/255, blue: 105/255, opacity: 1) 
-        public let platinumPlatinum700 = Color(.sRGB, red: 51/255, green: 65/255, blue: 85/255, opacity: 1) 
-        public let platinumPlatinum800 = Color(.sRGB, red: 30/255, green: 41/255, blue: 59/255, opacity: 1) 
-        public let platinumPlatinum900 = Color(.sRGB, red: 15/255, green: 23/255, blue: 42/255, opacity: 1) 
-        public let platinumPlatinum950 = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
+        public let platinum100 = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
+        public let platinum200 = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
+        public let platinum300 = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
+        public let platinum400 = Color(.sRGB, red: 148/255, green: 163/255, blue: 184/255, opacity: 1) 
+        public let platinum500 = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
+        public let platinum600 = Color(.sRGB, red: 71/255, green: 85/255, blue: 105/255, opacity: 1) 
+        public let platinum700 = Color(.sRGB, red: 51/255, green: 65/255, blue: 85/255, opacity: 1) 
+        public let platinum800 = Color(.sRGB, red: 30/255, green: 41/255, blue: 59/255, opacity: 1) 
+        public let platinum900 = Color(.sRGB, red: 15/255, green: 23/255, blue: 42/255, opacity: 1) 
+        public let platinum950 = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
 
         // grey
         public let greyWhite = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let greyGrey50 = Color(.sRGB, red: 246/255, green: 246/255, blue: 246/255, opacity: 1) 
-        public let greyGrey100 = Color(.sRGB, red: 238/255, green: 238/255, blue: 238/255, opacity: 1) 
-        public let greyGrey200 = Color(.sRGB, red: 226/255, green: 226/255, blue: 226/255, opacity: 1) 
-        public let greyGrey300 = Color(.sRGB, red: 203/255, green: 203/255, blue: 203/255, opacity: 1) 
-        public let greyGrey400 = Color(.sRGB, red: 175/255, green: 175/255, blue: 175/255, opacity: 1) 
-        public let greyGrey500 = Color(.sRGB, red: 117/255, green: 117/255, blue: 117/255, opacity: 1) 
-        public let greyGrey600 = Color(.sRGB, red: 84/255, green: 84/255, blue: 84/255, opacity: 1) 
-        public let greyGrey700 = Color(.sRGB, red: 51/255, green: 51/255, blue: 51/255, opacity: 1) 
-        public let greyGrey800 = Color(.sRGB, red: 31/255, green: 31/255, blue: 31/255, opacity: 1) 
-        public let greyGrey900 = Color(.sRGB, red: 20/255, green: 20/255, blue: 20/255, opacity: 1) 
+        public let grey50 = Color(.sRGB, red: 246/255, green: 246/255, blue: 246/255, opacity: 1) 
+        public let grey100 = Color(.sRGB, red: 238/255, green: 238/255, blue: 238/255, opacity: 1) 
+        public let grey200 = Color(.sRGB, red: 226/255, green: 226/255, blue: 226/255, opacity: 1) 
+        public let grey300 = Color(.sRGB, red: 203/255, green: 203/255, blue: 203/255, opacity: 1) 
+        public let grey400 = Color(.sRGB, red: 175/255, green: 175/255, blue: 175/255, opacity: 1) 
+        public let grey500 = Color(.sRGB, red: 117/255, green: 117/255, blue: 117/255, opacity: 1) 
+        public let grey600 = Color(.sRGB, red: 84/255, green: 84/255, blue: 84/255, opacity: 1) 
+        public let grey700 = Color(.sRGB, red: 51/255, green: 51/255, blue: 51/255, opacity: 1) 
+        public let grey800 = Color(.sRGB, red: 31/255, green: 31/255, blue: 31/255, opacity: 1) 
+        public let grey900 = Color(.sRGB, red: 20/255, green: 20/255, blue: 20/255, opacity: 1) 
         public let greyBlack = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-
-        // background
-        public let backgroundSurfacePrimary = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let backgroundSurfaceSecondary = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-
-        // button
-
-        // Primary
-        public let buttonPrimaryButtonPrimaryStandardBackgroundColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
-        public let buttonPrimaryButtonPrimaryHoverBackgroundColor = Color(.sRGB, red: 118/255, green: 48/255, blue: 247/255, opacity: 1) 
-        public let buttonPrimaryButtonPrimaryPressedBackgroundColor = Color(.sRGB, red: 104/255, green: 30/255, blue: 227/255, opacity: 1) 
-        public let buttonPrimaryButtonPrimaryDisabledBackgroundColor = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
-        public let buttonPrimaryButtonPrimaryDisabledTextColor = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
-        public let buttonPrimaryButtonPrimaryTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // Secondary
-        public let buttonSecondaryButtonSecondaryStandardBackgroundColor = Color(.sRGB, red: 236/255, green: 232/255, blue: 255/255, opacity: 1) 
-        public let buttonSecondaryButtonSecondaryHoverBackgroundColor = Color(.sRGB, red: 218/255, green: 212/255, blue: 255/255, opacity: 1) 
-        public let buttonSecondaryButtonSecondaryPressedBackgroundColor = Color(.sRGB, red: 218/255, green: 212/255, blue: 255/255, opacity: 1) 
-        public let buttonSecondaryButtonSecondaryDisabledTextColor = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
-        public let buttonSecondaryButtonSecondaryDisabledBackgroundColor = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
-        public let buttonSecondaryButtonSecondaryTextColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
-
-        // Tertiary
-        public let buttonTertiaryButtonTertiaryStandardBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let buttonTertiaryButtonTertiaryStandardBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let buttonTertiaryButtonTertiaryTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let buttonTertiaryButtonTertiaryHoverBackgroundColor = Color(.sRGB, red: 248/255, green: 250/255, blue: 252/255, opacity: 1) 
-        public let buttonTertiaryButtonTertiaryPressedBackgroundColor = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
-        public let buttonTertiaryButtonTertiaryDisabledBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let buttonTertiaryButtonTertiaryDisabledTextColor = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
-
-        // Ghost
-        public let buttonGhostButtonGhostStandardTextColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
-        public let buttonGhostButtonGhostHoverTextColor = Color(.sRGB, red: 118/255, green: 48/255, blue: 247/255, opacity: 1) 
-        public let buttonGhostButtonGhostPressedTextColor = Color(.sRGB, red: 104/255, green: 30/255, blue: 227/255, opacity: 1) 
-        public let buttonGhostButtonGhostDisabledTextColor = Color(.sRGB, red: 218/255, green: 212/255, blue: 255/255, opacity: 1) 
-
-        // pagination
-        public let paginationPaginationBackgroudColor1 = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let paginationPaginationBackgroudColor2 = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // bottom navigation
-        public let bottomNavigationBottomNavigationBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let bottomNavigationBottomNavigationBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let bottomNavigationBottomNavigationSelectedColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let bottomNavigationBottomNavigationDeselectedColor = Color(.sRGB, red: 148/255, green: 163/255, blue: 184/255, opacity: 1) 
-        public let bottomNavigationBottomNavigationIndicatorColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-
-        // coach mark
-        public let coachMarkCoachMarkBackgroundColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let coachMarkCoachMarkTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // notification badge
-        public let notificationBadgeBadgeBackgroundColor = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
-        public let notificationBadgeBadgeTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let notificationBadgeBadgeBorderColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // ios home indicator
-        public let iosHomeIndicatorIndicatorColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let iosHomeIndicatorBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // android home indicator
-        public let androidHomeIndicatorIndicatorColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let androidHomeIndicatorBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // alert
-        public let alertAlertBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let alertAlertTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let alertAlertBorderColor = Color(.sRGB, red: 226/255, green: 226/255, blue: 226/255, opacity: 1) 
-
-        // ios alert
-        public let iosAlertAlertBackgroundColor = Color(.sRGB, red: 242/255, green: 242/255, blue: 242/255, opacity: 0.82) 
-        public let iosAlertAlertBorderColor = Color(.sRGB, red: 60/255, green: 60/255, blue: 67/255, opacity: 0.36) 
-        public let iosAlertAlertTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let iosAlertAlertHighlightColor = Color(.sRGB, red: 0/255, green: 122/255, blue: 255/255, opacity: 1) 
-        public let iosAlertAlertInputColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // android alert
-        public let androidAlertAlertBackgroundColor = Color(.sRGB, red: 238/255, green: 238/255, blue: 238/255, opacity: 1) 
-        public let androidAlertAlertPrimaryTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let androidAlertAlertSecondaryTextColor = Color(.sRGB, red: 97/255, green: 97/255, blue: 97/255, opacity: 1) 
-
-        // menu
-        public let menuMenuBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let menuMenuBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let menuMenuTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let menuMenuIconColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-
-        // input field
-        public let inputFieldTextFieldBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let inputFieldTextFieldBorderStandardColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let inputFieldTextFieldBorderHoverColor = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
-        public let inputFieldTextFieldBorderPressedColor = Color(.sRGB, red: 148/255, green: 163/255, blue: 184/255, opacity: 1) 
-        public let inputFieldTextFieldTextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
-        public let inputFieldTextFieldTextInputColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let inputFieldSearchFieldBackgroundColor = Color(.sRGB, red: 248/255, green: 250/255, blue: 252/255, opacity: 1) 
-        public let inputFieldSearchFieldBackgroundHoverColor = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
-        public let inputFieldSearchFieldBackgroundPressedColor = Color(.sRGB, red: 241/255, green: 245/255, blue: 249/255, opacity: 1) 
-        public let inputFieldSearchFieldTextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
-        public let inputFieldErrorFieldBorderColor = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
-        public let inputFieldErrorFieldTextColor = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
-        public let inputFieldErrorFieldInputColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let inputFieldSuccessFieldBorderColor = Color(.sRGB, red: 0/255, green: 181/255, blue: 5/255, opacity: 1) 
-        public let inputFieldSuccessFieldTextColor = Color(.sRGB, red: 0/255, green: 181/255, blue: 5/255, opacity: 1) 
-        public let inputFieldSuccessFieldInputColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let inputFieldDisabledFieldTextColor = Color(.sRGB, red: 203/255, green: 213/255, blue: 225/255, opacity: 1) 
-        public let inputFieldDisabledFieldIconColor = Color(.sRGB, red: 255/255, green: 214/255, blue: 0/255, opacity: 1) 
-
-        // bottom sheet
-        public let bottomSheetBottomSheetBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let bottomSheetBottomSheetIndicatorColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let bottomSheetBottomSheetTitleColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let bottomSheetBottomSheetTextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
-        public let bottomSheetBottomSheetIconColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-
-        // ios bottom sheet
-        public let iosBottomSheetBottomSheetBackgroundColor = Color(.sRGB, red: 242/255, green: 242/255, blue: 242/255, opacity: 0.82) 
-        public let iosBottomSheetBottomSheetTextColor = Color(.sRGB, red: 123/255, green: 123/255, blue: 128/255, opacity: 1) 
-        public let iosBottomSheetBottomSheetBorderColor = Color(.sRGB, red: 60/255, green: 60/255, blue: 67/255, opacity: 0.36) 
-        public let iosBottomSheetBottomSheetOptionColor = Color(.sRGB, red: 0/255, green: 122/255, blue: 255/255, opacity: 1) 
-        public let iosBottomSheetBottomSheetErrorColor = Color(.sRGB, red: 255/255, green: 59/255, blue: 48/255, opacity: 1) 
-
-        // ios share sheet
-        public let iosShareSheetShareSheetBackgroundColor = Color(.sRGB, red: 242/255, green: 242/255, blue: 242/255, opacity: 0.82) 
-        public let iosShareSheetShareSheetBorderColor = Color(.sRGB, red: 60/255, green: 60/255, blue: 67/255, opacity: 0.36) 
-        public let iosShareSheetShareSheetTitleColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let iosShareSheetShareSheetTextColor = Color(.sRGB, red: 60/255, green: 60/255, blue: 67/255, opacity: 0.6) 
-        public let iosShareSheetShareSheetIconColor = Color(.sRGB, red: 118/255, green: 118/255, blue: 128/255, opacity: 0.12) 
-        public let iosShareSheetShareSheetBoxColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // android bottom sheet
-        public let androidBottomSheetBottomSheetBackgroundColor = Color(.sRGB, red: 243/255, green: 237/255, blue: 247/255, opacity: 1) 
-        public let androidBottomSheetBottomSheetTextColor = Color(.sRGB, red: 29/255, green: 27/255, blue: 32/255, opacity: 1) 
-        public let androidBottomSheetBottomSheetIconColor = Color(.sRGB, red: 73/255, green: 69/255, blue: 79/255, opacity: 1) 
-
-        // badge
-        public let badgeBadgeDefaultBackgroundColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let badgeBadgeSuccessBackgroundColor = Color(.sRGB, red: 0/255, green: 221/255, blue: 0/255, opacity: 1) 
-        public let badgeBadgeErrorBackgroundColor = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
-        public let badgeBadgeNewBackgroundColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
-        public let badgeBadgeTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // ios status bar
-        public let iosStatusBarStatusBarTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let iosStatusBarStatusBarBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // android status bar
-        public let androidStatusBarStatusBarTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let androidStatusBarStatusBarBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // ios keyboard
-        public let iosKeyboardKeyboardBackgroundColor = Color(.sRGB, red: 206/255, green: 208/255, blue: 212/255, opacity: 1) 
-        public let iosKeyboardKeyboardTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let iosKeyboardKeyboardLetterColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let iosKeyboardKeyboardIconColor = Color(.sRGB, red: 80/255, green: 85/255, blue: 92/255, opacity: 1) 
-        public let iosKeyboardKeyboardBigLetterColor = Color(.sRGB, red: 171/255, green: 176/255, blue: 186/255, opacity: 1) 
-        public let iosKeyboardKeyboardShadowColor = Color(.sRGB, red: 137/255, green: 138/255, blue: 141/255, opacity: 1) 
-
-        // android keyboard
-        public let androidKeyboardKeyboardBackgroundColor = Color(.sRGB, red: 254/255, green: 247/255, blue: 255/255, opacity: 1) 
-        public let androidKeyboardKeyboardLetterColor = Color(.sRGB, red: 247/255, green: 242/255, blue: 250/255, opacity: 1) 
-        public let androidKeyboardKeyboardTextColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let androidKeyboardKeyboardBackColor = Color(.sRGB, red: 208/255, green: 188/255, blue: 255/255, opacity: 1) 
-        public let androidKeyboardKeyboardBigLetterColor = Color(.sRGB, red: 230/255, green: 224/255, blue: 233/255, opacity: 1) 
-        public let androidKeyboardKeyboardBorderColor = Color(.sRGB, red: 158/255, green: 158/255, blue: 158/255, opacity: 1) 
-
-        // toggle
-        public let toggleToggleBackgroundColor = Color(.sRGB, red: 226/255, green: 226/255, blue: 226/255, opacity: 1) 
-        public let toggleToggleDotColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let toggleToggleActiveBackgroundColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
-
-        // chip
-        public let chipChipBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let chipChipTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let chipChipBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let chipChipAmountColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let chipChipActiveBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let chipChipActiveBackgroundColor = Color(.sRGB, red: 248/255, green: 250/255, blue: 252/255, opacity: 1) 
-        public let chipChipActiveAmountColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let chipChipIconColor = Color(.sRGB, red: 51/255, green: 65/255, blue: 85/255, opacity: 1) 
-
-        // tab control
-        public let tabControlTabControlBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let tabControlTabControlSelectColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let tabControlTabControlBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let tabControlTabControlNotSelectColor = Color(.sRGB, red: 148/255, green: 163/255, blue: 184/255, opacity: 1) 
-
-        // segmented control
-        public let segmentedControlSegmentedControlBackgroundColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let segmentedControlSegmentedControlTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let segmentedControlSegmentedControlActiveColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // avatar
-        public let avatarAvatarBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let avatarAvatarBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let avatarAvatarActiveColor = Color(.sRGB, red: 0/255, green: 221/255, blue: 0/255, opacity: 1) 
-        public let avatarAvatarIconColor = Color(.sRGB, red: 51/255, green: 65/255, blue: 85/255, opacity: 1) 
-
-        // top navigation
-        public let topNavigationNavigationBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let topNavigationNavigationTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let topNavigationNavigationIconColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let topNavigationNavigationModalColor = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
-        public let topNavigationNavigationModal2Color = Color(.sRGB, red: 217/255, green: 217/255, blue: 217/255, opacity: 1) 
-
-        // loading
-        public let loadingColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-        public let loadingColor2 = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // message
-        public let messageMessageOwnBackgroundColor = Color(.sRGB, red: 248/255, green: 250/255, blue: 252/255, opacity: 1) 
-        public let messageMessageOwnTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let messageMessageOwnSubtextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
-        public let messageMessageForeignBackgroundColor = Color(.sRGB, red: 30/255, green: 41/255, blue: 59/255, opacity: 1) 
-        public let messageMessageForeignSubtextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
-        public let messageMessageForeignTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // line item
-        public let lineItemLineItemIconColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let lineItemLineItemTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let lineItemLineItemSubtextColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
-        public let lineItemLineItemBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // notification
-        public let notificationNotificationErrorBackgroundColor = Color(.sRGB, red: 255/255, green: 242/255, blue: 241/255, opacity: 1) 
-        public let notificationNotificationErrorIconColor = Color(.sRGB, red: 255/255, green: 44/255, blue: 32/255, opacity: 1) 
-        public let notificationNotificationSuccessBackgroundColor = Color(.sRGB, red: 232/255, green: 255/255, blue: 228/255, opacity: 1) 
-        public let notificationNotificationSuccessIconColor = Color(.sRGB, red: 0/255, green: 221/255, blue: 0/255, opacity: 1) 
-        public let notificationNotificationWarningBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 231/255, opacity: 1) 
-        public let notificationNotificationWarningIconColor = Color(.sRGB, red: 255/255, green: 214/255, blue: 0/255, opacity: 1) 
-        public let notificationNotificationInfoBackgroundColor = Color(.sRGB, red: 245/255, green: 242/255, blue: 255/255, opacity: 1) 
-        public let notificationNotificationInfoIconColor = Color(.sRGB, red: 126/255, green: 73/255, blue: 255/255, opacity: 1) 
-        public let notificationNotificationTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let notificationNotificationIconColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-
-        // tooltip
-        public let tooltipTooltipBackgroundColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let tooltipTooltipTextColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
-
-        // card
-        public let cardCardTextColor = Color(.sRGB, red: 2/255, green: 6/255, blue: 23/255, opacity: 1) 
-        public let cardCardSubtitleColor = Color(.sRGB, red: 100/255, green: 116/255, blue: 139/255, opacity: 1) 
-        public let cardCardBorderColor = Color(.sRGB, red: 226/255, green: 232/255, blue: 240/255, opacity: 1) 
-        public let cardCardBackgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
     }
 }
