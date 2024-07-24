@@ -29,7 +29,10 @@ struct ContentView: View {
                         .navigationDestination(for: ViewWrapper.self) { view in
                             view.view
                         }
+                        .background(Color.TokenColor.Semantic.Background.appBackground)
+
                 }
+                
             }
             .toolbar(.hidden, for: .navigationBar)
         }

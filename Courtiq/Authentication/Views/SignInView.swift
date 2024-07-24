@@ -9,6 +9,7 @@ import AuthenticationService
 import RDDesignSystem
 import SwiftUI
 import UserService
+import StorageService
 
 // MARK: SignInView
 
@@ -49,6 +50,13 @@ struct SignInView: View {
                         
         } content: {
             VStack(spacing: 16) {
+                HStack {
+                    Text("Hello tester")
+                        .font(Font.custom("NunitoSans-12ptExtraLight_Regular", size: 12))
+                    Text("Hello tester")
+                        .font(.largeTitle)
+                }
+
                 Image("loginImage")
                     .scaledToFit()
                     .padding(.vertical, 20)
@@ -80,6 +88,6 @@ struct SignInView: View {
 
 // MARK: - Preview
 
-//#Preview {
-//    SignInView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter()))
-//}
+#Preview {
+    SignInView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter(), storageService: StorageService()))
+}

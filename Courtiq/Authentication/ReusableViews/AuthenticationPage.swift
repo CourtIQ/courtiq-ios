@@ -41,8 +41,9 @@ struct AuthenticationPage<Header: View, Footer: View, Content: View>: View {
                 .padding(.horizontal, horizontalPadding)
                 .padding(.vertical, verticalPadding)
         }
-        .background(Color(.systemBackground))
         .toolbar(.hidden, for: .navigationBar)
+        .background(Color.TokenColor.Semantic.Background.appBackground)
+
     }
     
 }

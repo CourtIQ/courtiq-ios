@@ -28,7 +28,6 @@ struct TennisView: View {
                     trailingItem: AnyView(
                         RDIconButton(.tertiary, .small, Image("play"), action: {
                             print("Add Button pressed")
-
                         })
                     )
                 )

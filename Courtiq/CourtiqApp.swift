@@ -10,6 +10,7 @@ import FirebaseCore
 import SwiftUI
 import SwiftData
 import UserService
+import RDDesignSystem
 
 // MARK: - AppDelegate
 
@@ -18,6 +19,12 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         FirebaseApp.configure()
+        for family in UIFont.familyNames {
+             print(family)
+             for names in UIFont.fontNames(forFamilyName: family){
+             print("== \(names)")
+             }
+        }
         return true
     }
 }
@@ -30,7 +37,8 @@ struct CourtiqApp: App {
     @StateObject var authService = AuthService(provider: FirebaseAuthService())
     @StateObject var router = AppRouter()
     @StateObject var userService = UserService()
-    
+    @Environment(\.colorScheme) var colorScheme
+
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -47,6 +55,7 @@ struct CourtiqApp: App {
                 .fullScreenCover(item: $router.currentScreenCover) { screen in
                     screen.view
                 }
+                .background(Color.TokenColor.Semantic.Background.appBackground)
         }
     }
 }

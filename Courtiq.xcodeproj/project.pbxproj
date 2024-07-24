@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C02E71F42C2CA92700830E2B /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F32C2CA92700830E2B /* SideMenuView.swift */; };
 		C02E71F62C2CA95300830E2B /* HomeBaseRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */; };
+		C03DEDE02C48EF7500C3999E /* NunitoSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C03DEDDF2C48EF7500C3999E /* NunitoSans.ttf */; };
+		C03DEDE22C48F0B000C3999E /* NunitoSans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03DEDE12C48F0B000C3999E /* NunitoSans.swift */; };
 		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
 		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
 		C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D902C1E54C700E6D023 /* SignUpView.swift */; };
@@ -61,6 +63,8 @@
 /* Begin PBXFileReference section */
 		C02E71F32C2CA92700830E2B /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseRootView.swift; sourceTree = "<group>"; };
+		C03DEDDF2C48EF7500C3999E /* NunitoSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans.ttf; sourceTree = "<group>"; };
+		C03DEDE12C48F0B000C3999E /* NunitoSans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NunitoSans.swift; sourceTree = "<group>"; };
 		C0495D7D2C1E430400E6D023 /* AuthenticationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthenticationService; sourceTree = "<group>"; };
 		C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0495D8B2C1E546800E6D023 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -206,9 +210,11 @@
 				C0889DDE2C2BEC930081BF59 /* Utils */,
 				C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */,
 				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
+				C03DEDDF2C48EF7500C3999E /* NunitoSans.ttf */,
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
 				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
 				C060AF392C1974D200D160A5 /* Preview Content */,
+				C03DEDE12C48F0B000C3999E /* NunitoSans.swift */,
 			);
 			path = Courtiq;
 			sourceTree = "<group>";
@@ -432,6 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03DEDE02C48EF7500C3999E /* NunitoSans.ttf in Resources */,
 				C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */,
 				C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */,
 				C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */,
@@ -468,6 +475,7 @@
 				C0904D712C297489008B7B2E /* HomeBaseVM.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
 				C02E71F62C2CA95300830E2B /* HomeBaseRootView.swift in Sources */,
+				C03DEDE22C48F0B000C3999E /* NunitoSans.swift in Sources */,
 				C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */,
 				C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */,
 				C07A2DBD2C297FE0006DDF6F /* SearchView.swift in Sources */,

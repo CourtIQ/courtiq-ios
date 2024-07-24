@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 @available(iOS 13.0, *)
 public extension Color {
@@ -95,4 +96,26 @@ public extension Color {
     static let chipBorderColor = Color("ChipBorderColor", bundle: .module) //#E2E8F0
     static let chipBgColor = Color("ChipBgColor", bundle: .module) //#F8FAFC
 
+}
+
+extension UIColor {
+    convenience init(light: UIColor, dark: UIColor) {
+        self.init { traitCollection in
+            return traitCollection.userInterfaceStyle == .dark ? dark : light
+        }
+    }
+}
+
+public extension Color {
+    
+    // MARK: Public
+    
+    init(
+        light lightModeColor: @escaping @autoclosure () -> Color,
+        dark darkModeColor: @escaping @autoclosure () -> Color)
+    {
+        self.init(UIColor(
+            light: UIColor(lightModeColor()),
+            dark: UIColor(darkModeColor())))
+    }
 }

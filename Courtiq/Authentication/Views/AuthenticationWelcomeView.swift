@@ -41,6 +41,8 @@ struct AuthenticationWelcomeView: View {
                 .padding()
                 .scaledToFit()
         }
+        .background(Color.TokenColor.Semantic.Background.appBackground)
+
     }
     
     // MARK: - Private
