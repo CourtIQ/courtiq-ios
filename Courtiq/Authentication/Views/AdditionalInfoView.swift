@@ -17,7 +17,7 @@ struct AdditionalInfoView: View {
     @ObservedObject var vm: AuthenticationVM
     
     var body: some View {
-        AuthenticationPage {
+        MarqueeView {
             RDTopNavigationView(
                 params: RDTopNavigationParams(type: .primary, title: "Additional Information"))
         } footer: {

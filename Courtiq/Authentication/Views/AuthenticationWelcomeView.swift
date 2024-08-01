@@ -21,7 +21,7 @@ struct AuthenticationWelcomeView: View {
     }
 
     var body: some View {
-        AuthenticationPage {
+        MarqueeView {
             RDTopNavigationView(
                 params: RDTopNavigationParams(
                     type: .primary,
@@ -41,8 +41,7 @@ struct AuthenticationWelcomeView: View {
                 .padding()
                 .scaledToFit()
         }
-        .background(Color.TokenColor.Semantic.Background.appBackground)
-
+        .background(Color.TokenColor.Semantic.Background.primary)
     }
     
     // MARK: - Private

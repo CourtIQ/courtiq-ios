@@ -11,8 +11,8 @@ import Foundation
 
 /// Represents the overall format of a tennis match.
 ///
-/// The format includes the number of sets in the match, the format for each game,
-/// and an optional tiebreak format.
+/// The format includes the number of sets in the match, the format for each set,
+/// and an optional format for the final set.
 public struct MatchUpFormat: Codable {
     
     // MARK: - Properties
@@ -22,18 +22,18 @@ public struct MatchUpFormat: Codable {
     /// Determines how many sets a player needs to win to win the match.
     public var numberOfSets: NumberOfSets
     
-    /// The format of each game in the match.
+    /// The format of each set in the match.
     ///
     /// Includes the number of games required to win a set, the type of deuce rule applied,
     /// and whether a player must win by a margin of two games.
-    public var gameFormat: GameFormat
+    public var setFormat: SetFormat
     
-    /// The format of the tiebreak in the match.
+    /// The format of the final set in the match.
     ///
-    /// Includes the number of points required to win a tiebreak, the number of games
-    /// at which the tiebreak is triggered, and whether a player must win by a margin of two points.
-    /// This value is optional because not all formats use tiebreaks.
-    public var tiebreakFormat: TiebreakFormat?
+    /// Includes the number of games required to win the final set, the type of deuce rule applied,
+    /// and whether a player must win by a margin of two games.
+    /// This value is optional because not all match formats have a special final set format.
+    public var finalSetFormat: SetFormat?
     
     // MARK: - Initializer
     
@@ -41,11 +41,11 @@ public struct MatchUpFormat: Codable {
     ///
     /// - Parameters:
     ///   - numberOfSets: The number of sets in the match.
-    ///   - gameFormat: The format of each game in the match.
-    ///   - tiebreakFormat: The format of the tiebreak in the match.
-    public init(numberOfSets: NumberOfSets, gameFormat: GameFormat, tiebreakFormat: TiebreakFormat? = nil) {
+    ///   - setFormat: The format of each set in the match.
+    ///   - finalSetFormat: The format of the final set in the match.
+    public init(numberOfSets: NumberOfSets, setFormat: SetFormat, finalSetFormat: SetFormat? = nil) {
         self.numberOfSets = numberOfSets
-        self.gameFormat = gameFormat
-        self.tiebreakFormat = tiebreakFormat
+        self.setFormat = setFormat
+        self.finalSetFormat = finalSetFormat
     }
 }

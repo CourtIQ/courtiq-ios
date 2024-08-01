@@ -15,7 +15,7 @@ public struct RDSegmentControl<Data, Content>: View where Data: Hashable, Conten
     public let selection: Data?
     private let itemBuilder: (Data) -> Content
     
-    @State private var backgroundColor: Color = Color.chipBorderColor
+    @State private var backgroundColor: Color = Color.Token.platinum950
     
     func pickerBackgroundColor(_ color: Color) -> RDSegmentControl {
         var view = self

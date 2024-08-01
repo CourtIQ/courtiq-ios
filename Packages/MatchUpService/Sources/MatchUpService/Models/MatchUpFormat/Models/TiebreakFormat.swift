@@ -22,12 +22,6 @@ public struct TiebreakFormat: Codable {
     /// This determines how many points a player needs to win in order to win the tiebreak.
     public var tiebreakPoints: TiebreakPoints
     
-    /// The number of games required before a tiebreak is played.
-    ///
-    /// This determines when a tiebreak is triggered in a set. For example, a tiebreak
-    /// might be triggered at 6 games all.
-    public var tiebreakAt: Int
-    
     /// Indicates whether a player must win by a margin of two points.
     ///
     /// This rule applies to ensure that a player must win by at least two points to secure the tiebreak.
@@ -39,11 +33,9 @@ public struct TiebreakFormat: Codable {
     ///
     /// - Parameters:
     ///   - tiebreakPoints: The number of points required to win a tiebreak.
-    ///   - tiebreakAt: The number of games required before a tiebreak is played.
     ///   - mustWinByTwo: Indicates whether a player must win by a margin of two points.
-    public init(tiebreakPoints: TiebreakPoints, tiebreakAt: Int, mustWinByTwo: Bool) {
+    public init(tiebreakPoints: TiebreakPoints, mustWinByTwo: Bool) {
         self.tiebreakPoints = tiebreakPoints
-        self.tiebreakAt = tiebreakAt
         self.mustWinByTwo = mustWinByTwo
     }
 }

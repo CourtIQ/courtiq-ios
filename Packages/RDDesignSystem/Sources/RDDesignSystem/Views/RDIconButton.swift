@@ -85,7 +85,7 @@ public enum RDIconButtonType {
         case .secondary:
             return .purple200
         case .tertiary:
-            return .platinum100
+            return Color.TokenColor.Semantic.Background.primary
         }
     }
     

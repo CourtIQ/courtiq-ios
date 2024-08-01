@@ -12,7 +12,7 @@ import UserService
 
 struct ForgotPasswordView: View {
     var body: some View {
-        AuthenticationPage {
+        MarqueeView {
             RDTopNavigationView(
                 params: RDTopNavigationParams(
                     type: .primary,

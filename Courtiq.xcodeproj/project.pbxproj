@@ -9,13 +9,11 @@
 /* Begin PBXBuildFile section */
 		C02E71F42C2CA92700830E2B /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F32C2CA92700830E2B /* SideMenuView.swift */; };
 		C02E71F62C2CA95300830E2B /* HomeBaseRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */; };
-		C03DEDE02C48EF7500C3999E /* NunitoSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C03DEDDF2C48EF7500C3999E /* NunitoSans.ttf */; };
-		C03DEDE22C48F0B000C3999E /* NunitoSans.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03DEDE12C48F0B000C3999E /* NunitoSans.swift */; };
 		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
 		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
 		C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D902C1E54C700E6D023 /* SignUpView.swift */; };
 		C0495D932C1E54D100E6D023 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D922C1E54D100E6D023 /* ForgotPasswordView.swift */; };
-		C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */; };
+		C0495D9A2C1E5C3A00E6D023 /* MarqueeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D992C1E5C3A00E6D023 /* MarqueeView.swift */; };
 		C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF302C1974D100D160A5 /* CourtiqApp.swift */; };
 		C060AF332C1974D100D160A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF322C1974D100D160A5 /* ContentView.swift */; };
 		C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C060AF362C1974D200D160A5 /* Assets.xcassets */; };
@@ -27,20 +25,24 @@
 		C062D2C62C3BEB9B00ABF5A8 /* TennisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062D2C52C3BEB9B00ABF5A8 /* TennisView.swift */; };
 		C062D2C82C3BEEEC00ABF5A8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062D2C72C3BEEEC00ABF5A8 /* HomeView.swift */; };
 		C062D2CA2C3BEFBC00ABF5A8 /* BaseTabPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062D2C92C3BEFBC00ABF5A8 /* BaseTabPageView.swift */; };
+		C067FEAB2C5AEE3F0089C7E9 /* TennisVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067FEAA2C5AEE3F0089C7E9 /* TennisVM.swift */; };
+		C067FEAD2C5AF0E70089C7E9 /* AddStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067FEAC2C5AF0E70089C7E9 /* AddStringView.swift */; };
+		C067FEB12C5AF45A0089C7E9 /* NunitoSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C067FEB02C5AF37A0089C7E9 /* NunitoSans.ttf */; };
+		C067FEB32C5B001E0089C7E9 /* AddMatchFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067FEB22C5B001E0089C7E9 /* AddMatchFormView.swift */; };
+		C067FEBD2C5B10B80089C7E9 /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C067FEBC2C5B10B80089C7E9 /* RDDesignSystem */; };
+		C067FEBF2C5B10B80089C7E9 /* StringEntryService in Frameworks */ = {isa = PBXBuildFile; productRef = C067FEBE2C5B10B80089C7E9 /* StringEntryService */; };
+		C067FEC12C5B10B80089C7E9 /* UserService in Frameworks */ = {isa = PBXBuildFile; productRef = C067FEC02C5B10B80089C7E9 /* UserService */; };
+		C067FEC32C5B11210089C7E9 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C067FEC22C5B11210089C7E9 /* AuthenticationService */; };
 		C07A2DBC2C297FE0006DDF6F /* HomeBaseTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2DB72C297FE0006DDF6F /* HomeBaseTabsView.swift */; };
 		C07A2DBD2C297FE0006DDF6F /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2DB82C297FE0006DDF6F /* SearchView.swift */; };
-		C083F0962C1EB8EE00A07919 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C083F0952C1EB8EE00A07919 /* AuthenticationService */; };
 		C0889DDD2C2BA5700081BF59 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DDC2C2BA5700081BF59 /* AppRouter.swift */; };
 		C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DDF2C2BEC9E0081BF59 /* ViewModel.swift */; };
 		C0889DE22C2BFA4D0081BF59 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DE12C2BFA4D0081BF59 /* Extensions.swift */; };
 		C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DE92C2C0A770081BF59 /* AdditionalInfoView.swift */; };
 		C0904D712C297489008B7B2E /* HomeBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0904D702C297489008B7B2E /* HomeBaseVM.swift */; };
-		C09BE7BD2C37A2EF003B2A40 /* UserService in Frameworks */ = {isa = PBXBuildFile; productRef = C09BE7BC2C37A2EF003B2A40 /* UserService */; };
-		C09BE7BF2C37A5B6003B2A40 /* DataService in Frameworks */ = {isa = PBXBuildFile; productRef = C09BE7BE2C37A5B6003B2A40 /* DataService */; };
-		C0F4A4FF2C1E8119006B204C /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C0F4A4FE2C1E8119006B204C /* RDDesignSystem */; };
+		C0BA4ECE2C5B116D00C6F3F6 /* StorageService in Frameworks */ = {isa = PBXBuildFile; productRef = C0BA4ECD2C5B116D00C6F3F6 /* StorageService */; };
 		C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */; };
 		C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BD32C29525200930364 /* AuthenticationVM.swift */; };
-		C0FB31D12C3CE75E0004D153 /* StorageService in Frameworks */ = {isa = PBXBuildFile; productRef = C0FB31D02C3CE75E0004D153 /* StorageService */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,14 +65,12 @@
 /* Begin PBXFileReference section */
 		C02E71F32C2CA92700830E2B /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseRootView.swift; sourceTree = "<group>"; };
-		C03DEDDF2C48EF7500C3999E /* NunitoSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans.ttf; sourceTree = "<group>"; };
-		C03DEDE12C48F0B000C3999E /* NunitoSans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NunitoSans.swift; sourceTree = "<group>"; };
 		C0495D7D2C1E430400E6D023 /* AuthenticationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthenticationService; sourceTree = "<group>"; };
 		C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0495D8B2C1E546800E6D023 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		C0495D902C1E54C700E6D023 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		C0495D922C1E54D100E6D023 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
-		C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationPage.swift; sourceTree = "<group>"; };
+		C0495D992C1E5C3A00E6D023 /* MarqueeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarqueeView.swift; sourceTree = "<group>"; };
 		C0495DA12C1E606700E6D023 /* RDDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RDDesignSystem; sourceTree = "<group>"; };
 		C060AF2D2C1974D100D160A5 /* Courtiq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Courtiq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C060AF302C1974D100D160A5 /* CourtiqApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourtiqApp.swift; sourceTree = "<group>"; };
@@ -87,6 +87,11 @@
 		C062D2C52C3BEB9B00ABF5A8 /* TennisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisView.swift; sourceTree = "<group>"; };
 		C062D2C72C3BEEEC00ABF5A8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C062D2C92C3BEFBC00ABF5A8 /* BaseTabPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabPageView.swift; sourceTree = "<group>"; };
+		C067FEAA2C5AEE3F0089C7E9 /* TennisVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisVM.swift; sourceTree = "<group>"; };
+		C067FEAC2C5AF0E70089C7E9 /* AddStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStringView.swift; sourceTree = "<group>"; };
+		C067FEB02C5AF37A0089C7E9 /* NunitoSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans.ttf; sourceTree = "<group>"; };
+		C067FEB22C5B001E0089C7E9 /* AddMatchFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMatchFormView.swift; sourceTree = "<group>"; };
+		C067FEB52C5B071C0089C7E9 /* StringEntryService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StringEntryService; sourceTree = "<group>"; };
 		C07A2DB72C297FE0006DDF6F /* HomeBaseTabsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBaseTabsView.swift; sourceTree = "<group>"; };
 		C07A2DB82C297FE0006DDF6F /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C0889DDC2C2BA5700081BF59 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
@@ -108,11 +113,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C083F0962C1EB8EE00A07919 /* AuthenticationService in Frameworks */,
-				C0FB31D12C3CE75E0004D153 /* StorageService in Frameworks */,
-				C0F4A4FF2C1E8119006B204C /* RDDesignSystem in Frameworks */,
-				C09BE7BF2C37A5B6003B2A40 /* DataService in Frameworks */,
-				C09BE7BD2C37A2EF003B2A40 /* UserService in Frameworks */,
+				C0BA4ECE2C5B116D00C6F3F6 /* StorageService in Frameworks */,
+				C067FEC32C5B11210089C7E9 /* AuthenticationService in Frameworks */,
+				C067FEBD2C5B10B80089C7E9 /* RDDesignSystem in Frameworks */,
+				C067FEBF2C5B10B80089C7E9 /* StringEntryService in Frameworks */,
+				C067FEC12C5B10B80089C7E9 /* UserService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,11 +215,10 @@
 				C0889DDE2C2BEC930081BF59 /* Utils */,
 				C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */,
 				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
-				C03DEDDF2C48EF7500C3999E /* NunitoSans.ttf */,
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
+				C067FEB02C5AF37A0089C7E9 /* NunitoSans.ttf */,
 				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
 				C060AF392C1974D200D160A5 /* Preview Content */,
-				C03DEDE12C48F0B000C3999E /* NunitoSans.swift */,
 			);
 			path = Courtiq;
 			sourceTree = "<group>";
@@ -247,6 +251,7 @@
 		C060AF5D2C19752F00D160A5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				C067FEB52C5B071C0089C7E9 /* StringEntryService */,
 				C0CECA542C3F8625000F2032 /* MatchUpService */,
 				C0FB31CF2C3CE64C0004D153 /* StorageService */,
 				C0495D7D2C1E430400E6D023 /* AuthenticationService */,
@@ -284,9 +289,20 @@
 		C062D2C22C3BEB4200ABF5A8 /* Tennis */ = {
 			isa = PBXGroup;
 			children = (
-				C062D2C52C3BEB9B00ABF5A8 /* TennisView.swift */,
+				C067FEAA2C5AEE3F0089C7E9 /* TennisVM.swift */,
+				C067FEB42C5B02B70089C7E9 /* Views */,
 			);
 			path = Tennis;
+			sourceTree = "<group>";
+		};
+		C067FEB42C5B02B70089C7E9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C062D2C52C3BEB9B00ABF5A8 /* TennisView.swift */,
+				C067FEAC2C5AF0E70089C7E9 /* AddStringView.swift */,
+				C067FEB22C5B001E0089C7E9 /* AddMatchFormView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		C07A2DB92C297FE0006DDF6F /* View */ = {
@@ -318,7 +334,7 @@
 		C0F58BC02C29022200930364 /* ReusableViews */ = {
 			isa = PBXGroup;
 			children = (
-				C0495D992C1E5C3A00E6D023 /* AuthenticationPage.swift */,
+				C0495D992C1E5C3A00E6D023 /* MarqueeView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -340,11 +356,11 @@
 			);
 			name = Courtiq;
 			packageProductDependencies = (
-				C0F4A4FE2C1E8119006B204C /* RDDesignSystem */,
-				C083F0952C1EB8EE00A07919 /* AuthenticationService */,
-				C09BE7BC2C37A2EF003B2A40 /* UserService */,
-				C09BE7BE2C37A5B6003B2A40 /* DataService */,
-				C0FB31D02C3CE75E0004D153 /* StorageService */,
+				C067FEBC2C5B10B80089C7E9 /* RDDesignSystem */,
+				C067FEBE2C5B10B80089C7E9 /* StringEntryService */,
+				C067FEC02C5B10B80089C7E9 /* UserService */,
+				C067FEC22C5B11210089C7E9 /* AuthenticationService */,
+				C0BA4ECD2C5B116D00C6F3F6 /* StorageService */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -421,6 +437,7 @@
 			packageReferences = (
 				C0495D7E2C1E45A100E6D023 /* XCLocalSwiftPackageReference "Packages/AuthenticationService" */,
 				C0495D9B2C1E5F7F00E6D023 /* XCLocalSwiftPackageReference "Packages/RDDesignSystem" */,
+				C0BA4ECC2C5B116D00C6F3F6 /* XCLocalSwiftPackageReference "Packages/StorageService" */,
 			);
 			productRefGroup = C060AF2E2C1974D100D160A5 /* Products */;
 			projectDirPath = "";
@@ -438,7 +455,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C03DEDE02C48EF7500C3999E /* NunitoSans.ttf in Resources */,
+				C067FEB12C5AF45A0089C7E9 /* NunitoSans.ttf in Resources */,
 				C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */,
 				C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */,
 				C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */,
@@ -467,6 +484,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0889DE22C2BFA4D0081BF59 /* Extensions.swift in Sources */,
+				C067FEAB2C5AEE3F0089C7E9 /* TennisVM.swift in Sources */,
 				C062D2C62C3BEB9B00ABF5A8 /* TennisView.swift in Sources */,
 				C0495D932C1E54D100E6D023 /* ForgotPasswordView.swift in Sources */,
 				C02E71F42C2CA92700830E2B /* SideMenuView.swift in Sources */,
@@ -475,7 +493,6 @@
 				C0904D712C297489008B7B2E /* HomeBaseVM.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
 				C02E71F62C2CA95300830E2B /* HomeBaseRootView.swift in Sources */,
-				C03DEDE22C48F0B000C3999E /* NunitoSans.swift in Sources */,
 				C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */,
 				C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */,
 				C07A2DBD2C297FE0006DDF6F /* SearchView.swift in Sources */,
@@ -485,9 +502,11 @@
 				C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */,
 				C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */,
 				C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */,
+				C067FEAD2C5AF0E70089C7E9 /* AddStringView.swift in Sources */,
 				C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */,
+				C067FEB32C5B001E0089C7E9 /* AddMatchFormView.swift in Sources */,
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
-				C0495D9A2C1E5C3A00E6D023 /* AuthenticationPage.swift in Sources */,
+				C0495D9A2C1E5C3A00E6D023 /* MarqueeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -649,7 +668,7 @@
 				CODE_SIGN_ENTITLEMENTS = Courtiq/Courtiq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "Courtiq/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "Courtiq/Preview\\ Content Courtiq/NunitoSans.ttf";
 				DEVELOPMENT_TEAM = Q8KFRAGT9K;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -692,7 +711,7 @@
 				CODE_SIGN_ENTITLEMENTS = Courtiq/Courtiq.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "Courtiq/Preview\\ Content";
+				DEVELOPMENT_ASSET_PATHS = "Courtiq/Preview\\ Content Courtiq/NunitoSans.ttf";
 				DEVELOPMENT_TEAM = Q8KFRAGT9K;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -866,26 +885,30 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/RDDesignSystem;
 		};
+		C0BA4ECC2C5B116D00C6F3F6 /* XCLocalSwiftPackageReference "Packages/StorageService" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/StorageService;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C083F0952C1EB8EE00A07919 /* AuthenticationService */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = AuthenticationService;
-		};
-		C09BE7BC2C37A2EF003B2A40 /* UserService */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = UserService;
-		};
-		C09BE7BE2C37A5B6003B2A40 /* DataService */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DataService;
-		};
-		C0F4A4FE2C1E8119006B204C /* RDDesignSystem */ = {
+		C067FEBC2C5B10B80089C7E9 /* RDDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RDDesignSystem;
 		};
-		C0FB31D02C3CE75E0004D153 /* StorageService */ = {
+		C067FEBE2C5B10B80089C7E9 /* StringEntryService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = StringEntryService;
+		};
+		C067FEC02C5B10B80089C7E9 /* UserService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserService;
+		};
+		C067FEC22C5B11210089C7E9 /* AuthenticationService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AuthenticationService;
+		};
+		C0BA4ECD2C5B116D00C6F3F6 /* StorageService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StorageService;
 		};

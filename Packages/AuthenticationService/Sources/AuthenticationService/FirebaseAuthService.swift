@@ -14,6 +14,7 @@ public class FirebaseAuthService: AuthProviderProtocol {
     private let currentUserKey = "currentUser"
     
     @AppStorage("isUserLoggedIn") private var isUserLoggedInStorage: Bool = false
+    @AppStorage("additionalInfoNeeded") private var additionalInfoNeededStorage: Bool = false
     
     public init(userDefaults: UserDefaults = .standard) {
         self.userDefaults = userDefaults
@@ -60,6 +61,7 @@ public class FirebaseAuthService: AuthProviderProtocol {
                     let firebaseUser = FirebaseUser(uid: user.uid)
                     self.currentUser = firebaseUser
                     self.isUserLoggedInStorage = true
+                    self.additionalInfoNeededStorage = true
                     continuation.resume(returning: firebaseUser)
                 } else {
                     continuation.resume(throwing: NSError(domain: "Unknown error", code: -1, userInfo: nil))

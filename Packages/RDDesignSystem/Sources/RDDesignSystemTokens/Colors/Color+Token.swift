@@ -11,9 +11,9 @@ import SwiftUI
 public extension Color.TokenColor {
     // MARK: Semantic
     
-    public struct Semantic {}
+    struct Semantic {}
     
     // MARK: Component
     
-    public struct Component {}
+    struct Component {}
 }

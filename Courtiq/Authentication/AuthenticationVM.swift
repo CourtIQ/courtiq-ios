@@ -32,6 +32,7 @@ final class AuthenticationVM: ViewModel {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
+    @Published var yearOfBirth: String = ""
     @Published var user: User = User(uid: "")
 
     @Published var selectedItem: PhotosPickerItem? = nil {
@@ -201,40 +202,5 @@ extension AuthenticationVM {
         case frgtPswdBtn
         case signInFromSignUp
         case signUpFromSignIn
-    }
-}
-
-// MARK: AuthenticationVM Steps
-
-extension AuthenticationVM {
-    
-    // MARK: Steps
-    enum Steps {
-        case signInPage
-        case signUpPage
-        case additionalInformation
-        case verifyEmail
-        case start
-    }
-}
-
-// MARK: Steps Views
-
-extension AuthenticationVM.Steps {
-    
-    @ViewBuilder
-    func view(with viewModel: AuthenticationVM) -> some View {
-        switch self {
-        case .signInPage:
-            SignInView(vm: viewModel)
-        case .signUpPage:
-            SignUpView(vm: viewModel)
-        case .additionalInformation:
-            Text("Additional Information")
-        case .verifyEmail:
-            Text("Verify Email")
-        case .start:
-            AuthenticationWelcomeView(vm: viewModel)
-        }
     }
 }

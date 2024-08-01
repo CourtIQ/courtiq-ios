@@ -29,7 +29,7 @@ struct ContentView: View {
                         .navigationDestination(for: ViewWrapper.self) { view in
                             view.view
                         }
-                        .background(Color.TokenColor.Semantic.Background.appBackground)
+                        .background(Color.TokenColor.Semantic.Background.primary)
 
                 }
                 

@@ -24,7 +24,7 @@ struct SignInView: View {
     // MARK: - Body
     
     var body: some View {
-        AuthenticationPage {
+        MarqueeView {
             RDTopNavigationView(
                 params: RDTopNavigationParams(
                     type: .primary,
@@ -37,6 +37,7 @@ struct SignInView: View {
                     bgColor: .white
                 )
             )
+            .background(Color.TokenColor.Semantic.Background.primary)
         } footer: {
             RDButtonView(.small, .ghost, "Create an account.") {
                 vm.handle(action: .signUpFromSignIn)
@@ -54,7 +55,8 @@ struct SignInView: View {
                     Text("Hello tester")
                         .font(Font.custom("NunitoSans-12ptExtraLight_Regular", size: 12))
                     Text("Hello tester")
-                        .font(.largeTitle)
+                        .font(.system(size: 12))
+                        .rdTitle1()
                 }
 
                 Image("loginImage")

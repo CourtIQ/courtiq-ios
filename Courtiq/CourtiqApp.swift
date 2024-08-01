@@ -37,7 +37,6 @@ struct CourtiqApp: App {
     @StateObject var authService = AuthService(provider: FirebaseAuthService())
     @StateObject var router = AppRouter()
     @StateObject var userService = UserService()
-    @Environment(\.colorScheme) var colorScheme
 
     var body: some Scene {
         WindowGroup {
@@ -55,7 +54,9 @@ struct CourtiqApp: App {
                 .fullScreenCover(item: $router.currentScreenCover) { screen in
                     screen.view
                 }
-                .background(Color.TokenColor.Semantic.Background.appBackground)
+                .background(Color.TokenColor.Semantic.Background.primary)
         }
     }
 }
+
+

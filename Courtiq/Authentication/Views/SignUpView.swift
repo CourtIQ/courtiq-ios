@@ -23,7 +23,7 @@ struct SignUpView: View {
     // MARK: - Body
     
     var body: some View {
-        AuthenticationPage {
+        MarqueeView {
             RDTopNavigationView(
                 params: RDTopNavigationParams(
                     type: .primary,

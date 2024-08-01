@@ -14,6 +14,7 @@ public class AuthService: AuthServiceProtocol {
     
     @Published public private(set) var currentUser: AuthUser?
     @AppStorage("isUserLoggedIn") public var isUserLoggedIn: Bool = false
+    @AppStorage("additionalInfoNeeded") public var additionalInfoNeeded: Bool = false
     
     public init(provider: AuthProviderProtocol) {
         self.authProvider = provider
@@ -24,6 +25,7 @@ public class AuthService: AuthServiceProtocol {
     public func signUp(email: String, password: String) async throws -> AuthUser {
         let user = try await authProvider.signUp(email: email, password: password)
         self.currentUser = user
+        self.additionalInfoNeeded = true // Set additionalInfoNeeded to true
         return user
     }
     
@@ -45,16 +47,23 @@ public class AuthService: AuthServiceProtocol {
         try await authProvider.signOut()
         self.currentUser = nil
         self.isUserLoggedIn = false
+        self.additionalInfoNeeded = false // Reset additionalInfoNeeded to false
     }
     
     public func deleteAccount() async throws {
         try await authProvider.deleteAccount()
         self.currentUser = nil
         self.isUserLoggedIn = false
+        self.additionalInfoNeeded = false // Reset additionalInfoNeeded to false
     }
     
     @MainActor
     public func toggleLoggedInState() {
         self.isUserLoggedIn = true
+    }
+    
+    @MainActor
+    public func setAdditionalInfoProvided() {
+        self.additionalInfoNeeded = false
     }
 }

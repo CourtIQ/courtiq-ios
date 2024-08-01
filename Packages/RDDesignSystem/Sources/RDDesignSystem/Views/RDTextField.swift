@@ -18,7 +18,7 @@ public enum RDTextFieldType {
         case .primary, .password:
             return .white
         case .search:
-            return .platinum50
+            return Color.Token.platinum50
         }
     }
     
@@ -27,7 +27,7 @@ public enum RDTextFieldType {
         case .primary, .password:
             return .white
         case .search:
-            return .platinum100
+            return Color.Token.platinum100
         }
     }
 }
@@ -130,15 +130,15 @@ public struct RDTextField: View {
                     if params.type == .search {
                         if text.isEmpty {
                             Text(params.placeholder)
+                                .rdBody()
                                 .foregroundColor(.gray)
-                                .font(.system(size: 16, weight: .regular))
                                 .padding(.leading, 8)
                         }
                         
                         TextField("", text: $text)
-                            .foregroundColor(.platinum950)
+                            .rdBody()
+                            .foregroundColor(Color.Token.platinum950)
                             .frame(height: 24)
-                            .font(.system(size: 16, weight: .regular))
                             .focused($focused)
                             .onChange(of: text, perform: { newValue in
                                 validate()
@@ -146,13 +146,9 @@ public struct RDTextField: View {
                     } else if params.type == .password {
                         if isPasswordVisible {
                             TextField("", text: $text)
-                                .foregroundColor(.platinum950)
+                                .rdBody()
+                                .foregroundColor(Color.Token.platinum950)
                                 .frame(height: 24)
-                                .font(.system(size: 16, weight: .regular))
-                                .placeholder(when: text.isEmpty) {
-                                    Text(params.placeholder)
-                                        .foregroundColor(.gray)
-                                }
                                 .opacity(isActive ? 1 : 0)
                                 .offset(y: 7)
                                 .focused($focused)
@@ -161,13 +157,9 @@ public struct RDTextField: View {
                                 })
                         } else {
                             SecureField("", text: $text)
-                                .foregroundColor(.platinum950)
+                                .rdBody()
+                                .foregroundColor(Color.Token.platinum950)
                                 .frame(height: 24)
-                                .font(.system(size: 16, weight: .regular))
-                                .placeholder(when: text.isEmpty) {
-                                    Text(params.placeholder)
-                                        .foregroundColor(.gray)
-                                }
                                 .opacity(isActive ? 1 : 0)
                                 .offset(y: 7)
                                 .focused($focused)
@@ -178,21 +170,18 @@ public struct RDTextField: View {
                         
                         HStack {
                             Text(params.placeholder)
+                                .dynamicNunitoSans(size: isActive ? 12 : 16, weight: isActive ? .bold : .regular)
                                 .foregroundColor(isError ? .red : .platinum500)
                                 .frame(height: 16)
-                                .font(.system(size: isActive ? 12 : 16, weight: .regular))
                                 .offset(y: isActive ? -12 : 0) // Adjusted offset to move placeholder higher
                             Spacer()
                         }
                     } else {
                         TextField("", text: $text)
+                            .rdBody()
                             .foregroundColor(.platinum950)
                             .frame(height: 24)
-                            .font(.system(size: 16, weight: .regular))
-                            .placeholder(when: text.isEmpty) {
-                                Text(params.placeholder)
-                                    .foregroundColor(.gray)
-                            }
+//                            .font(.system(size: 16, weight: .regular))
                             .opacity(isActive ? 1 : 0)
                             .offset(y: 7)
                             .focused($focused)
@@ -202,9 +191,9 @@ public struct RDTextField: View {
                         
                         HStack {
                             Text(params.placeholder)
+                                .dynamicNunitoSans(size: isActive ? 12 : 16, weight: isActive ? .bold : .regular)
                                 .foregroundColor(isError ? .red : .platinum500)
                                 .frame(height: 16)
-                                .font(.system(size: isActive ? 12 : 16, weight: .regular))
                                 .offset(y: isActive ? -12 : 0) // Adjusted offset to move placeholder higher
                             Spacer()
                         }
@@ -247,7 +236,7 @@ public struct RDTextField: View {
             .overlay {
                 if params.isBorderExists {
                     RoundedRectangle(cornerRadius: 12)
-                        .stroke(focused ? Color.grey400 : Color.grey200)
+                        .stroke(focused ? Color.Token.grey400 : Color.Token.grey200)
                 }
             }
             .onTapGesture {
@@ -256,6 +245,7 @@ public struct RDTextField: View {
             
             if let errorString = currentErrorString.wrappedValue, !errorString.isEmpty {
                 Text(errorString)
+                    .rdCaption()
                     .foregroundColor(.red)
                     .font(.system(size: 12, weight: .regular)) // Adjusted font size
                     .padding(.top, 2) // Adjusted position to be closer to the text field
@@ -293,7 +283,8 @@ extension View {
         
         placeholder(when: shouldShow, alignment: alignment) {
             Text(text)
-                .foregroundColor(.platinum500)
+                .foregroundColor(Color.TokenColor.Component.TextField.foreground)
         }
     }
 }
+

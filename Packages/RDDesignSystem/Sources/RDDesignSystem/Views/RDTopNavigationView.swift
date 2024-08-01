@@ -74,8 +74,8 @@ public struct RDTopNavigationView: View {
                         .padding(.horizontal, 16)
                         
                         Text(params.title)
+                            .rdBodyBold()
                             .lineLimit(1)
-                            .font(.system(size: params.type.titleSize, weight: .bold))
                             .foregroundColor(.primary)
                         
                         Spacer()
@@ -105,8 +105,9 @@ public struct RDTopNavigationView: View {
                                 .padding(.horizontal, 56)
                         } else {
                             Text(params.title)
+                                .rdBodyBold()
                                 .lineLimit(1)
-                                .font(.system(size: params.type.titleSize, weight: .bold))
+//                                .font(.system(size: params.type.titleSize, weight: .bold))
                                 .foregroundColor(.primary)
                         }
                         
@@ -121,7 +122,7 @@ public struct RDTopNavigationView: View {
                     .padding(.horizontal, 16)
             }
         }
-        .background(params.bgColor)
+        .background(Color.TokenColor.Semantic.Background.primary)
     }
     
     private var nonOptionalSearchText: Binding<String> {
