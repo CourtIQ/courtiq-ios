@@ -20,7 +20,11 @@ public extension Color.TokenColor.Semantic {
         }
 
         public static var secondary: Color {
-            Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            Color(light: Color.Token.grey300, dark: Color.Token.platinum900)
+        }
+    
+        public static var disabled: Color {
+            Color(light: Color.Token.platinum200, dark: Color.Token.platinum800)
         }
 
     }
@@ -34,6 +38,10 @@ public extension Color.TokenColor.Semantic {
             Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
         }
 
+        public static var tertiary343434: Color {
+            Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+        }
+
         public static var success: Color {
             Color(light: Color.Token.green800, dark: Color.Token.green600)
         }
@@ -42,14 +50,22 @@ public extension Color.TokenColor.Semantic {
             Color(light: Color.Token.red700, dark: Color.Token.red600)
         }
 
-        public static var disabled: Color {
+        public static var disabledPrimary: Color {
+            Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+        }
+    
+        public static var disabledSecondary: Color {
             Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
         }
     }
 
     struct Border {
         public static var primary: Color {
-            Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            Color(light: Color.Token.platinum700, dark: Color.Token.platinum300)
+        }
+        
+        public static var focused: Color {
+            Color(light: Color.Token.purple500, dark: Color.Token.purple500)
         }
 
         public static var secondary: Color {
@@ -65,7 +81,7 @@ public extension Color.TokenColor.Semantic {
         }
 
         public static var disabled: Color {
-            Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            Color(light: .clear, dark: .clear)
         }
     }
 }

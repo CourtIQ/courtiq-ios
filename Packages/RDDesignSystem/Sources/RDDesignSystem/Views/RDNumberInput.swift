@@ -13,7 +13,7 @@ public struct RDNumberInput: View {
     
     public var placeholder: String
     public var helperText: String?
-    @Binding public var value: String
+    @Binding public var value: Int
     @FocusState private var focused: Bool
     
     public var range: ClosedRange<Int>
@@ -22,7 +22,14 @@ public struct RDNumberInput: View {
     
     // MARK: - Initializer
     
-    public init(placeholder: String, helperText: String, value: Binding<String>, range: ClosedRange<Int>, layout: Layout = .horizontal, state: State = .standard) {
+    public init(
+        placeholder: String,
+        helperText: String? = nil,
+        value: Binding<Int>,
+        range: ClosedRange<Int>,
+        layout: Layout = .horizontal,
+        state: State = .standard
+    ) {
         self.placeholder = placeholder
         self.helperText = helperText
         self._value = value
@@ -30,86 +37,94 @@ public struct RDNumberInput: View {
         self.layout = layout
         self.state = state
     }
-    
+
     // MARK: - Body
     
     public var body: some View {
-        let isActive = focused || !value.isEmpty
         
-        switch layout {
-        case .verticalLeading:
-            VStack {
-                HStack {
-                    getStepper()
-                    numberTextField
-                }
-                .padding(.horizontal, 12)
-                .padding(.vertical, 8)
-                .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Color.gray))
-                // TODO: Use Tokens
-                if let helperText = helperText {
-                    Text(helperText)
-                        .foregroundColor(.primary)
+        Group {
+            VStack{
+                switch layout {
+                case .verticalLeading:
+                    VStack {
+                        HStack {
+                            getStepper()
+                            numberTextField
+                        }
+
+                        if let helperText = helperText {
+                            Text(helperText)
+                                .foregroundColor(.primary)
+                        }
+                    }
+                    
+                case .verticalTrailing:
+                    VStack {
+                        getStepper()
+                        if let helperText = helperText {
+                            Text(helperText)
+                                .foregroundColor(.primary)
+                        }
+                    }
+                case .horizontal:
+                    HStack {
+                        decrementStepper()
+                        numberTextField
+                        if let helperText = helperText {
+                            Text(helperText)
+                                .foregroundColor(.primary)
+                        }
+                        incrementStepper()
+                    }
+                    
+                case .withoutStepper:
+                    VStack {
+                        numberTextField
+                        if let helperText = helperText {
+                            Text(helperText)
+                                .foregroundColor(.primary)
+                        }
+                    }
                 }
             }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .overlay(RoundedRectangle(cornerRadius: 12).stroke(state.borderColor, lineWidth: 1.5))
+            .background(state.bgColor.clipShape(RoundedRectangle(cornerRadius: 12)))
             .frame(maxWidth: 150)
-            
-        case .verticalTrailing:
-            VStack {
-                getStepper()
-                if let helperText = helperText {
-                    Text(helperText)
-                        .foregroundColor(.primary)
-                }
-            }
-            
-        case .horizontal:
-            HStack {
-                incrementStepper()
-                decrementStepper()
-                numberTextField
-                if let helperText = helperText {
-                    
-                    Text(helperText)
-                        .foregroundColor(.primary)
-                }
-            }
-            
-        case .withoutStepper:
-            VStack {
-                numberTextField
-                if let helperText = helperText {
-                    
-                    Text(helperText)
-                        .foregroundColor(.primary)
-                }
-            }
         }
     }
     
     // MARK: - Private Views
     
     private var numberTextField: some View {
-        TextField("", text: $value)
-            .multilineTextAlignment(.center)
-            .rdPlaceholder(when: value.isEmpty, alignment: .center) {
-                VStack(spacing: 8) {
-                    Text(placeholder)
-                        .foregroundColor(.secondary)
-                        .offset(y: value.isEmpty ? 0 : -12)
-                        .lineLimit(1)
-                    if !value.isEmpty {
-                        Spacer()
-                    }
+        TextField("", text: Binding(
+            get: { String(value) },
+            set: { newValue in
+                filterInput(newValue)
+            })
+        )
+        .rdBody()
+        .multilineTextAlignment(.center)
+        .rdPlaceholder(when: String(value).isEmpty, alignment: .center) {
+            VStack(spacing: 8) {
+                Text(placeholder)
+                    .foregroundColor(.secondary)
+                    .offset(y: String(value).isEmpty ? 0 : -12)
+                    .lineLimit(1)
+                if !String(value).isEmpty {
+                    Spacer()
                 }
             }
-            .frame(height: 40)
-            .offset(y: value.isEmpty ? 0 : 10)
-            .focused($focused)
-            .keyboardType(.numberPad)
-            .onChange(of: value) { newValue in
-                filterInput(newValue)
-            }
+        }
+        .frame(height: 40)
+        .offset(y: String(value).isEmpty ? 0 : 10)
+        .focused($focused)
+        .keyboardType(.numberPad)
+        .disableAutocorrection(true)
+        .onChange(of: value) { newValue in
+            filterInput(String(newValue))
+        }
     }
     
     private func getStepper() -> some View {
@@ -130,30 +145,27 @@ public struct RDNumberInput: View {
         Button(action: decrementValue) {
             Image(systemName: "minus.circle")
         }
+        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
     }
     
     // MARK: - Private Methods
     
     private func incrementValue() {
-        if let intValue = Int(value), intValue < range.upperBound {
-            value = "\(intValue + 1)"
+        if value < range.upperBound {
+            value += 1
         }
     }
     
     private func decrementValue() {
-        if let intValue = Int(value), intValue > range.lowerBound {
-            value = "\(intValue - 1)"
+        if value > range.lowerBound {
+            value -= 1
         }
     }
     
     private func filterInput(_ input: String) {
         let filtered = input.filter { "0123456789".contains($0) }
-        if filtered != input {
-            value = filtered
-        }
-        
-        if let number = Int(filtered), !range.contains(number) {
-            value = String(filtered.prefix(while: { range.contains(Int(String($0))!) }))
+        if let number = Int(filtered), range.contains(number) {
+            value = number
         }
     }
     
@@ -163,7 +175,8 @@ public struct RDNumberInput: View {
         case verticalLeading, verticalTrailing, horizontal, withoutStepper
     }
     
-    public enum State {
+    public enum State: CaseIterable, Identifiable {
+        public var id: Self { self }
         case standard, focused, disabled, error, success
     }
 }
@@ -172,7 +185,7 @@ public struct RDNumberInput: View {
 
 struct RDNumberInput_Previews: PreviewProvider {
     static var previews: some View {
-        StatefulPreviewWrapper("") { binding in
+        StatefulPreviewWrapper(0) { binding in
             AnyView(RDNumberInput(placeholder: "Enter value", helperText: "Helper text", value: binding, range: 1...10, layout: .verticalLeading))
         }
     }
@@ -210,6 +223,35 @@ extension View {
                 .zIndex(-1)
                 .disabled(true)
             self
+        }
+    }
+}
+
+// MARK: - RDNumberInputState
+
+extension RDNumberInput.State {
+    
+    var bgColor: Color {
+        switch self {
+        case .standard, .error, .success, .focused:
+            return Color.TokenColor.Semantic.Background.primary
+        case .disabled:
+            return Color.TokenColor.Semantic.Background.disabled
+        }
+    }
+    
+    var borderColor: Color {
+        switch self {
+        case .standard:
+            return Color.TokenColor.Semantic.Border.primary
+        case .disabled:
+            return Color.TokenColor.Semantic.Border.disabled
+        case .error:
+            return Color.TokenColor.Semantic.Border.error
+        case .success:
+            return Color.TokenColor.Semantic.Border.success
+        case .focused:
+            return Color.TokenColor.Semantic.Border.focused
         }
     }
 }

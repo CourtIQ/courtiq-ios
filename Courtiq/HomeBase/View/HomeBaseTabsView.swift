@@ -8,6 +8,7 @@
 import SwiftUI
 import RDDesignSystem
 import AuthenticationService
+import StringEntryService
 
 struct HomeBaseTabsView: View {
     @Binding var showSideMenu: Bool
@@ -24,7 +25,8 @@ struct HomeBaseTabsView: View {
                     SearchView(showSideMenu: $vm.showSideMenu)
                 case 2:
                     TennisView(showSideMenu: $vm.showSideMenu, 
-                               vm: TennisVM(router: appRouter))
+                               vm: TennisVM(router: appRouter, 
+                                            stringEntryService: StringEntryService()))
                 case 3:
                     ProfileView(showSideMenu: $vm.showSideMenu)
                 default:

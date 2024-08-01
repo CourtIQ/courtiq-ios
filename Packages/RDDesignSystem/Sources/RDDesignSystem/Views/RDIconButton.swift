@@ -63,7 +63,7 @@ public enum RDIconButtonType {
         case .secondary:
             return .purple100
         case .tertiary:
-            return .white
+            return .platinum50
         }
     }
     

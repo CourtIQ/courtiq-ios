@@ -62,11 +62,92 @@ public extension Color.TokenColor.Component {
         public static var helperTextDefault: Color {
             Color(light: Color.Token.platinum500, dark: Color.Token.platinum300)
         }
+        
         public static var helperTextSuccess: Color {
             Color(light: Color.Token.green800, dark: Color.Token.green600)
         }
+        
         public static var helperTextError: Color {
             Color(light: Color.Token.red700, dark: Color.Token.red600)
+        }
+    }
+    
+    struct Button {
+        struct Primary {
+            public static var background: Color {
+                Color(light: Color.Token.greyWhite, dark: Color.Token.grey900)
+            }
+            
+            public static var foreground: Color {
+                Color(light: Color.Token.greyWhite, dark: Color.Token.grey900)
+            }
+            
+            public static var border: Color {
+                Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            }
+            
+            public static var borderDisabled: Color {
+                Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            }
+            
+            public static var backgroundDisabled: Color {
+                Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            }
+            
+            public static var foregroundDisabled: Color {
+                Color(light: Color.Token.grey400, dark: Color.Token.grey400)
+            }
+        }
+        
+        struct Secondary {
+            public static var background: Color {
+                Color(light: Color.Token.greyWhite, dark: Color.Token.grey900)
+            }
+            
+            public static var foreground: Color {
+                Color(light: Color.Token.greyWhite, dark: Color.Token.grey900)
+            }
+            
+            public static var border: Color {
+                Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            }
+            
+            public static var borderDisabled: Color {
+                Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            }
+            
+            public static var backgroundDisabled: Color {
+                Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            }
+            
+            public static var foregroundDisabled: Color {
+                Color(light: Color.Token.grey400, dark: Color.Token.grey400)
+            }
+        }
+        struct Tertiary {
+            public static var background: Color {
+                Color(light: Color.Token.greyWhite, dark: Color.Token.grey900)
+            }
+            
+            public static var foreground: Color {
+                Color(light: Color.Token.greyWhite, dark: Color.Token.grey900)
+            }
+            
+            public static var border: Color {
+                Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            }
+            
+            public static var borderDisabled: Color {
+                Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            }
+            
+            public static var backgroundDisabled: Color {
+                Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            }
+            
+            public static var foregroundDisabled: Color {
+                Color(light: Color.Token.grey400, dark: Color.Token.grey400)
+            }
         }
     }
 }
