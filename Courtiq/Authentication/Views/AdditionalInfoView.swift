@@ -20,10 +20,6 @@ struct AdditionalInfoView: View {
         MarqueeView {
             RDTopNavigationView(
                 params: RDTopNavigationParams(type: .primary, title: "Additional Information"))
-        } footer: {
-            RDButtonView(.large, .primary, "Create account") {
-                vm.handle(action: .updateAddInfoBtn)
-            }
         } content: {
             PhotosPicker(selection: $vm.selectedItem, matching: .images) {
                 if let image = vm.selectedImage {
@@ -77,6 +73,11 @@ struct AdditionalInfoView: View {
                     set: { vm.user.lastName = $0.isEmpty ? nil : $0 }
                 )
             )
+        } footer: {
+            RDButtonView(.large, .primary, "Create account") {
+                vm.handle(action: .updateAddInfoBtn)
+            }
+
         }
     }
 }

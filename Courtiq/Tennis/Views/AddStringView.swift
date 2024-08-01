@@ -8,13 +8,10 @@
 import SwiftUI
 import RDDesignSystem
 import StringEntryService
+import AuthenticationService
 
 struct AddStringView: View {
     @ObservedObject var vm: TennisVM
-    @State private var stringName: String = ""
-    @State private var mainsTension: Int = 50
-    @State private var crossTension: Int = 50
-    @State private var stringingDate: Date = Date()
     
     var body: some View {
         MarqueeView {
@@ -23,17 +20,13 @@ struct AddStringView: View {
                     type: .primary,
                     title: "New String Entry",
                     trailingItem: AnyView(RDIconButton(
-                        .tertiary, .small, Image(systemName: "plus"),
+                        .tertiary, .small, Image(systemName: "xmark"),
                         action: {
                             vm.handle(action: .dismissAddString)
                         })
                     )
                 )
             )
-        } footer: {
-            RDButtonView(.small, .secondary, "Add String Entry") {
-                vm.handle(action: .addStringEntry)
-            }
         } content: {
             Image("welcomeImage")
                 .resizable()
@@ -44,25 +37,31 @@ struct AddStringView: View {
                 params: RDTextFieldParams(
                     type: .primary,
                     placeholder: "String Name"),
-                text: $stringName)
-
-            HStack {
-                RDNumberInput(placeholder: "Mains", value: $mainsTension, range: 20...80, layout: .horizontal)
-
-                RDNumberInput(placeholder: "Cross", value: $crossTension, range: 20...80, layout: .horizontal)
-            }
-            
+                text: $vm.newStringEntry.stringName)
             RDTextField(
                 params: RDTextFieldParams(
                     type: .primary,
                     placeholder: "String Name"),
-                text: $stringName,
-                validationType: .numbersOnly)
+                text: $vm.newStringEntry.stringEntryID)
+            HStack(spacing: 12)
+            {
+                RDNumberInput(placeholder: "Mains",
+                              value: $vm.newStringEntry.stringMainsTension,
+                              range: 20...80,
+                              layout: .horizontal,
+                              fixedWidth: false)
+
+                RDNumberInput(placeholder: "Cross",
+                              value: $vm.newStringEntry.stringCrossTensions,
+                              range: 20...80,
+                              layout: .horizontal,
+                              fixedWidth: false)
+            }
+        } footer: {
+            RDButtonView(.large, .primary, "Add String Entry") {
+                vm.handle(action: .addStringEntry)
+            }
         }
         .navigationBarBackButtonHidden()
     }
-}
-
-#Preview {
-    AddStringView(vm: TennisVM(router: AppRouter(), stringEntryService: StringEntryService()))
 }

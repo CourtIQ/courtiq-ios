@@ -1,52 +1,76 @@
 //
-//  TennisViewModel.swift
+//  TennisVM.swift
 //  Courtiq
 //
 //  Created by Pranav Suri on 2024-07-31.
 //
 
-import SwiftUI
+import AuthenticationService
 import StringEntryService
+import SwiftUI
+
+// MARK: - TennisVM
 
 final class TennisVM: ViewModel {
     
-    func handle(action: TennisVM.Actions) {
-        switch action {
-        case .showAddString:
-            let view = AddStringView(vm: self)
-//            let view = TestViews()
-            router.handle(action: .showHalfSheet(AnyView(view), detents: [.medium]))
-        case .showAddMatch:
-            let view = AddMatchFormView()
-            router.handle(action: .showScreen(AnyView(view)))
-        case .dismissAddString:
-            router.handle(action: .dismiss)
-        case .addStringEntry:
-            addStringEntry()
-            self.handle(action: .dismissAddString)
-        }
+    // MARK: - Internal Properties
+
+    @Published var newStringEntry: StringEntry
+    
+    var router: AppRouter
+
+    // MARK: - Initializer
+    
+    init(router: AppRouter,
+         authService: any AuthServiceProtocol,
+         newStringEntry: StringEntry = StringEntry()) {
+        self.router = router
+        self.authService = authService
+        self.newStringEntry = newStringEntry
     }
     
-    private func addStringEntry() {
-        print(#function)
-    }
+    // MARK: - Internal Methods
 
     func onAppear() {
     }
     
     func onDisappear() {
     }
-    
-    init(router: AppRouter, stringEntryService: any StringEntryServiceProtocol)
-    {
-        self.router = router
-        self.stringEntryService = stringEntryService
+
+    @MainActor func handle(action: TennisVM.Actions) {
+        switch action {
+        case .showAddString:
+            let view = AddStringView(vm: self)
+            router.handle(action: .showHalfSheet(AnyView(view), detents: [.medium]))
+        case .showAddMatch:
+            let view = AddMatchFormView(router: router)
+            router.handle(action: .showScreen(AnyView(view)))
+        case .dismissAddString:
+            router.handle(action: .dismiss)
+        case .addStringEntry:
+            addStringEntry()
+        }
+    }
+
+    // MARK: - Private Methods
+
+    @MainActor
+    private func addStringEntry() {
+        Task {
+            if let currentUserID = await authService.currentUser?.uid {
+                newStringEntry.userID = currentUserID
+                try await stringEntryService.createStringEntry(newStringEntry)
+            }
+        }
     }
     
-    var router: AppRouter
-    var stringEntryService: any StringEntryServiceProtocol
-    
+    // MARK: - Private Properties
+
+    private var authService: any AuthServiceProtocol
+    private var stringEntryService = StringEntryService()
 }
+
+// MARK: - TennisVM Actions
 
 extension TennisVM {
     enum Actions {

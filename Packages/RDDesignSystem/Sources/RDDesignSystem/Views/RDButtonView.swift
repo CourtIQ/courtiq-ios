@@ -199,7 +199,7 @@ public struct RDButtonView: View {
                 }
                 
                 Text(title)
-                    .font(.system(size: buttonSize.textSize, weight: .bold))
+                    .rdButtonMedium()
                     .underline(buttonType.underline)
                 
                 if let trailingIcon = icon?.trailingIcon, !trailingIcon.isEmpty {

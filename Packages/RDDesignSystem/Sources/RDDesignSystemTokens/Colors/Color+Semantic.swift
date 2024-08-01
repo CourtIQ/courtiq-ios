@@ -24,7 +24,7 @@ public extension Color.TokenColor.Semantic {
         }
     
         public static var disabled: Color {
-            Color(light: Color.Token.platinum200, dark: Color.Token.platinum800)
+            Color(light: Color.Token.platinum200, dark: Color.Token.platinum700)
         }
 
     }
@@ -35,7 +35,7 @@ public extension Color.TokenColor.Semantic {
         }
 
         public static var secondary: Color {
-            Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            Color(light: Color.Token.platinum700, dark: Color.Token.platinum300)
         }
 
         public static var tertiary343434: Color {
@@ -51,17 +51,17 @@ public extension Color.TokenColor.Semantic {
         }
 
         public static var disabledPrimary: Color {
-            Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            Color(light: Color.Token.grey500, dark: Color.Token.grey500)
         }
     
         public static var disabledSecondary: Color {
-            Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
+            Color(light: Color.Token.grey500, dark: Color.Token.grey500)
         }
     }
 
     struct Border {
         public static var primary: Color {
-            Color(light: Color.Token.platinum700, dark: Color.Token.platinum300)
+            Color(light: Color.Token.platinum400, dark: Color.Token.platinum600)
         }
         
         public static var focused: Color {
@@ -85,3 +85,11 @@ public extension Color.TokenColor.Semantic {
         }
     }
 }
+// TODO: Update to do this structure
+/*
+ -> Semantic
+        -> Background
+        -> Text
+        -> Border
+        -> Icon
+ */

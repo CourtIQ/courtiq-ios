@@ -11,4 +11,5 @@ import Foundation
 public protocol StringEntryServiceProtocol: ObservableObject {
     func fetchString(byID stringID: String) async throws -> StringEntry
     func deleteString(byID stringID: String) async throws
+    func createStringEntry(_ entry: StringEntry) async throws -> String
 }

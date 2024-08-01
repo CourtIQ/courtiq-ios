@@ -26,7 +26,9 @@ enum RouterAction {
 
 @available(iOS 16.0, *)
 class AppRouter: ObservableObject {
-    @Published var navigationPath: NavigationPath = NavigationPath()
+    static let shared = AppRouter()
+    
+    @Published var navigationPath: [ViewWrapper] = []
     @Published var currentSheet: ViewWrapper? = nil
     @Published var currentScreenCover: ViewWrapper? = nil
     @Published var currentHalfSheet: ViewWrapper? = nil
@@ -38,7 +40,7 @@ class AppRouter: ObservableObject {
         DispatchQueue.main.async {
             switch action {
             case .showScreen(let view):
-                self.navigationPath = NavigationPath([ViewWrapper(view: view)])
+                self.currentScreenCover = ViewWrapper(view: view)
             case .showSheet(let view):
                 self.currentSheet = ViewWrapper(view: view)
             case .showHalfSheet(let view, let detents):
@@ -55,9 +57,9 @@ class AppRouter: ObservableObject {
                     self.navigationPath.removeLast()
                 }
             case .popToRoot:
-                self.navigationPath = NavigationPath()
+                self.navigationPath = [self.navigationPath.first!]
             case .setRootView(let view):
-                self.navigationPath = NavigationPath([ViewWrapper(view: view)])
+                self.navigationPath = [ViewWrapper(view: view)]
             case .dismiss:
                 self.dismiss()
             }
@@ -69,6 +71,7 @@ class AppRouter: ObservableObject {
         self.currentHalfSheet = nil
         self.currentAlert = nil
         self.currentToast = nil
+        self.currentScreenCover = nil
     }
 }
 
@@ -123,13 +126,30 @@ struct ToastView: View {
     var body: some View {
         switch type {
         case .normal(let message):
-            return AnyView(Text(message).padding().background(Color.gray).cornerRadius(8))
+            Text(message).padding().background(Color.gray).cornerRadius(8)
         case .error(let message):
-            return AnyView(Text(message).padding().background(Color.red).cornerRadius(8))
+            Text(message).padding().background(Color.red).cornerRadius(8)
         case .warning(let message):
-            return AnyView(Text(message).padding().background(Color.yellow).cornerRadius(8))
+            Text(message).padding().background(Color.yellow).cornerRadius(8)
         case .success(let message):
-            return AnyView(Text(message).padding().background(Color.green).cornerRadius(8))
+            Text(message).padding().background(Color.green).cornerRadius(8)
         }
     }
 }
+
+// MARK: - ScreenCoverView
+
+struct ScreenCoverView: View {
+    @EnvironmentObject var appRouter: AppRouter
+    let viewWrapper: ViewWrapper
+
+    var body: some View {
+        NavigationStack(path: $appRouter.navigationPath) {
+            viewWrapper.view
+                .navigationDestination(for: ViewWrapper.self) { viewWrapper in
+                    viewWrapper.view
+                }
+        }
+    }
+}
+

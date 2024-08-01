@@ -19,13 +19,17 @@ struct ContentView: View {
         Group {
             NavigationStack(path: $router.navigationPath) {
                 if authService.isUserLoggedIn {
-                    HomeBaseRootView(authService: authService, router: router)
+                    HomeBaseRootView(authService: authService, 
+                                     router: router)
                         .navigationDestination(for: ViewWrapper.self) { view in
                             view.view
                         }
                     
                 } else {
-                    AuthenticationWelcomeView(vm: AuthenticationVM(authService: authService, userService: userService, router: router, storageService: StorageService()))
+                    AuthenticationWelcomeView(vm: AuthenticationVM(authService: authService, 
+                                                                   userService: userService,
+                                                                   router: router,
+                                                                   storageService: StorageService()))
                         .navigationDestination(for: ViewWrapper.self) { view in
                             view.view
                         }

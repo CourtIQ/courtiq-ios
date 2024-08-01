@@ -52,7 +52,8 @@ struct CourtiqApp: App {
                         .presentationDetents(Set(arrayLiteral: .medium))
                 }
                 .fullScreenCover(item: $router.currentScreenCover) { screen in
-                    screen.view
+                    ScreenCoverView(viewWrapper: screen)
+                        .environmentObject(router)
                 }
                 .background(Color.TokenColor.Semantic.Background.primary)
         }

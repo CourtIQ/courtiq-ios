@@ -9,9 +9,9 @@ import DataService
 import SwiftUI
 
 @available(iOS 14.0, *)
-public class UserService: UserServiceProtocol {
+public class UserService: UserServiceProtocol, ObservableObject {
     @Published private(set) public var currentUser: User?
-    var dataService: DataServiceProtocol
+    private let dataService: DataServiceProtocol
     private let userDefaults: UserDefaults
     private let currentUserKey = "currentUser"  // Consistent with FirebaseAuthService
 
@@ -29,9 +29,9 @@ public class UserService: UserServiceProtocol {
         if let userID = userDefaults.string(forKey: currentUserKey) {
             Task {
                 do {
-                    let user: User = try await fetchCurrentUser(userID: userID)
-                    DispatchQueue.main.async { [weak self] in
-                        self?.currentUser = user
+                    let user = try await fetchCurrentUser(userID: userID)
+                    await MainActor.run {
+                        self.currentUser = user
                     }
                 } catch {
                     print("Failed to fetch current user: \(error)")
@@ -69,8 +69,8 @@ public class UserService: UserServiceProtocol {
                 case .success:
                     Task {
                         do {
-                            let user: User = try await self.fetchCurrentUser(userID: userID)
-                            DispatchQueue.main.async {
+                            let user = try await self.fetchCurrentUser(userID: userID)
+                            await MainActor.run {
                                 self.currentUser = user
                                 self.userDefaults.set(userID, forKey: self.currentUserKey)  // Save the userID to UserDefaults
                             }

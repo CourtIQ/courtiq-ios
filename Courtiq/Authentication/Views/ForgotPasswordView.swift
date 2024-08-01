@@ -28,10 +28,6 @@ struct ForgotPasswordView: View {
                     ))
                 )
             )
-        } footer: {
-            RDButtonView(.large, .primary, "Reset password") {
-                vm.handle(action: .frgtPswdBtn)
-            }
         } content: {
             Image("forgotPassword")
                 .resizable()
@@ -39,6 +35,10 @@ struct ForgotPasswordView: View {
                 .padding(.vertical, 10)
                 .scaledToFit()
             RDTextField(params: RDTextFieldParams(placeholder: "Reset password email..."), text: $email, validationType: .email)
+        } footer: {
+            RDButtonView(.large, .primary, "Reset password") {
+                vm.handle(action: .frgtPswdBtn)
+            }
         }
     }
     @State private var email = ""

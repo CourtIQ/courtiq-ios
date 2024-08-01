@@ -9,11 +9,13 @@ import SwiftUI
 import RDDesignSystem
 import AuthenticationService
 import StringEntryService
+import UserService
 
 struct HomeBaseTabsView: View {
     @Binding var showSideMenu: Bool
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var appRouter: AppRouter
+    
     @ObservedObject var vm: HomeBaseVM
     var body: some View {
         Group {
@@ -26,7 +28,7 @@ struct HomeBaseTabsView: View {
                 case 2:
                     TennisView(showSideMenu: $vm.showSideMenu, 
                                vm: TennisVM(router: appRouter, 
-                                            stringEntryService: StringEntryService()))
+                                            authService: authService))
                 case 3:
                     ProfileView(showSideMenu: $vm.showSideMenu)
                 default:

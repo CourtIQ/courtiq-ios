@@ -41,7 +41,9 @@
 		C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DE92C2C0A770081BF59 /* AdditionalInfoView.swift */; };
 		C0904D712C297489008B7B2E /* HomeBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0904D702C297489008B7B2E /* HomeBaseVM.swift */; };
 		C0BA4ECE2C5B116D00C6F3F6 /* StorageService in Frameworks */ = {isa = PBXBuildFile; productRef = C0BA4ECD2C5B116D00C6F3F6 /* StorageService */; };
-		C0BA4ED02C5B1B4600C6F3F6 /* TestViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ECF2C5B1B4600C6F3F6 /* TestViews.swift */; };
+		C0BA4ED22C5C146600C6F3F6 /* SSMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ED12C5C146600C6F3F6 /* SSMenuConfig.swift */; };
+		C0BA4ED42C5C146C00C6F3F6 /* SSSwiftUISideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ED32C5C146B00C6F3F6 /* SSSwiftUISideMenu.swift */; };
+		C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */ = {isa = PBXBuildFile; productRef = C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */; };
 		C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */; };
 		C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BD32C29525200930364 /* AuthenticationVM.swift */; };
 /* End PBXBuildFile section */
@@ -102,7 +104,8 @@
 		C0904D702C297489008B7B2E /* HomeBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseVM.swift; sourceTree = "<group>"; };
 		C0AD6C412C373D990088E2B0 /* UserService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UserService; sourceTree = "<group>"; };
 		C0AD6C422C373E080088E2B0 /* DataService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataService; sourceTree = "<group>"; };
-		C0BA4ECF2C5B1B4600C6F3F6 /* TestViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViews.swift; sourceTree = "<group>"; };
+		C0BA4ED12C5C146600C6F3F6 /* SSMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMenuConfig.swift; sourceTree = "<group>"; };
+		C0BA4ED32C5C146B00C6F3F6 /* SSSwiftUISideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSwiftUISideMenu.swift; sourceTree = "<group>"; };
 		C0CECA542C3F8625000F2032 /* MatchUpService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MatchUpService; sourceTree = "<group>"; };
 		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWelcomeView.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 				C0BA4ECE2C5B116D00C6F3F6 /* StorageService in Frameworks */,
 				C067FEC32C5B11210089C7E9 /* AuthenticationService in Frameworks */,
 				C067FEBD2C5B10B80089C7E9 /* RDDesignSystem in Frameworks */,
+				C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */,
 				C067FEBF2C5B10B80089C7E9 /* StringEntryService in Frameworks */,
 				C067FEC12C5B10B80089C7E9 /* UserService in Frameworks */,
 			);
@@ -291,7 +295,6 @@
 		C062D2C22C3BEB4200ABF5A8 /* Tennis */ = {
 			isa = PBXGroup;
 			children = (
-				C0BA4ECF2C5B1B4600C6F3F6 /* TestViews.swift */,
 				C067FEAA2C5AEE3F0089C7E9 /* TennisVM.swift */,
 				C067FEB42C5B02B70089C7E9 /* Views */,
 			);
@@ -301,8 +304,8 @@
 		C067FEB42C5B02B70089C7E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C062D2C52C3BEB9B00ABF5A8 /* TennisView.swift */,
 				C067FEAC2C5AF0E70089C7E9 /* AddStringView.swift */,
+				C062D2C52C3BEB9B00ABF5A8 /* TennisView.swift */,
 				C067FEB22C5B001E0089C7E9 /* AddMatchFormView.swift */,
 			);
 			path = Views;
@@ -311,6 +314,8 @@
 		C07A2DB92C297FE0006DDF6F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C0BA4ED32C5C146B00C6F3F6 /* SSSwiftUISideMenu.swift */,
+				C0BA4ED12C5C146600C6F3F6 /* SSMenuConfig.swift */,
 				C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */,
 				C07A2DB72C297FE0006DDF6F /* HomeBaseTabsView.swift */,
 				C02E71F32C2CA92700830E2B /* SideMenuView.swift */,
@@ -364,6 +369,7 @@
 				C067FEC02C5B10B80089C7E9 /* UserService */,
 				C067FEC22C5B11210089C7E9 /* AuthenticationService */,
 				C0BA4ECD2C5B116D00C6F3F6 /* StorageService */,
+				C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -494,13 +500,14 @@
 				C07A2DBC2C297FE0006DDF6F /* HomeBaseTabsView.swift in Sources */,
 				C062D2C82C3BEEEC00ABF5A8 /* HomeView.swift in Sources */,
 				C0904D712C297489008B7B2E /* HomeBaseVM.swift in Sources */,
+				C0BA4ED22C5C146600C6F3F6 /* SSMenuConfig.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
+				C0BA4ED42C5C146C00C6F3F6 /* SSSwiftUISideMenu.swift in Sources */,
 				C02E71F62C2CA95300830E2B /* HomeBaseRootView.swift in Sources */,
 				C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */,
 				C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */,
 				C07A2DBD2C297FE0006DDF6F /* SearchView.swift in Sources */,
 				C062D2CA2C3BEFBC00ABF5A8 /* BaseTabPageView.swift in Sources */,
-				C0BA4ED02C5B1B4600C6F3F6 /* TestViews.swift in Sources */,
 				C062D2C42C3BEB9400ABF5A8 /* ProfileView.swift in Sources */,
 				C0889DDD2C2BA5700081BF59 /* AppRouter.swift in Sources */,
 				C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */,
@@ -915,6 +922,10 @@
 		C0BA4ECD2C5B116D00C6F3F6 /* StorageService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = StorageService;
+		};
+		C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MatchUpService;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

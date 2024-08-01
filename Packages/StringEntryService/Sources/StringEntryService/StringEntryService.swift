@@ -10,12 +10,13 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 public class StringEntryService: StringEntryServiceProtocol {
+    
     var dataService: DataServiceProtocol
-    private let collectionName = "strings"
+    private let collectionName = "stringEntries"
 
     // MARK: - Initializer
     
-    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "strings"))) {
+    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "stringEntries"))) {
         self.dataService = dataService
     }
 
@@ -34,9 +35,24 @@ public class StringEntryService: StringEntryServiceProtocol {
         }
     }
 
-    // MARK: - Delete String by ID
     
     public func deleteString(byID stringID: String) async throws {
         print(#function)
+    }
+
+    // MARK: - Create String Entry
+
+    public func createStringEntry(_ entry: StringEntry) async throws -> String {
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<String, Error>) in
+            dataService.addDocument(document: entry) { (result: Result<String, Error>) in
+                switch result {
+                case .success(let documentID):
+                    continuation.resume(returning: documentID)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
     }
 }

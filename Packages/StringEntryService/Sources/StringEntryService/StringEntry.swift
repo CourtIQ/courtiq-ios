@@ -8,16 +8,27 @@
 import Foundation
 
 public struct StringEntry: Codable {
-    var stringWEntryID: String
-    var stringName: String
-    var stringingDate: Date
-    var stringMainsTension: Float
-    var stringCrossTensions: Float
-    var lastUpdated: Date
-    var entryDate: Date
+    public var stringEntryID: String
+    public var userID: String
+    public var stringName: String
+    public var stringingDate: Date
+    public var stringMainsTension: Int
+    public var stringCrossTensions: Int
+    public var lastUpdated: Date
+    public var entryDate: Date
     
-    init(stringWEntryID: String, stringName: String, stringingDate: Date, stringMainsTension: Float, stringCrossTensions: Float, lastUpdated: Date, entryDate: Date) {
-        self.stringWEntryID = stringWEntryID
+    public init(
+        stringEntryID: String = UUID().uuidString,
+        userID: String = "",
+        stringName: String = "",
+        stringingDate: Date = Date(),
+        stringMainsTension: Int = 0,
+        stringCrossTensions: Int = 0,
+        lastUpdated: Date = Date(),
+        entryDate: Date = Date()
+    ) {
+        self.stringEntryID = stringEntryID
+        self.userID = userID
         self.stringName = stringName
         self.stringingDate = stringingDate
         self.stringMainsTension = stringMainsTension

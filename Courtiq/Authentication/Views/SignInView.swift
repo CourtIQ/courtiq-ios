@@ -38,17 +38,6 @@ struct SignInView: View {
                 )
             )
             .background(Color.TokenColor.Semantic.Background.primary)
-        } footer: {
-            RDButtonView(.small, .ghost, "Create an account.") {
-                vm.handle(action: .signUpFromSignIn)
-            }
-
-            RDButtonView(.extraLarge, .primary, "Sign in",
-                         disable: vm.email.isEmpty || vm.password.isEmpty) {
-                vm.handle(action: .signInBtn)
-            }
-            
-                        
         } content: {
             VStack(spacing: 16) {
                 HStack {
@@ -58,7 +47,7 @@ struct SignInView: View {
                         .font(.system(size: 12))
                         .rdTitle1()
                 }
-
+                
                 Image("loginImage")
                     .scaledToFit()
                     .padding(.vertical, 20)
@@ -77,8 +66,19 @@ struct SignInView: View {
                         vm.handle(action: .goToFrgtPswd)
                     }
                 }
-
+                
             }
+        } footer: {
+            RDButtonView(.small, .ghost, "Create an account.") {
+                vm.handle(action: .signUpFromSignIn)
+            }
+            
+            RDButtonView(.extraLarge, .primary, "Sign in",
+                         disable: vm.email.isEmpty || vm.password.isEmpty) {
+                vm.handle(action: .signInBtn)
+            }
+            
+            
         }
     }
     

@@ -128,7 +128,6 @@ public extension Text {
 
     /**
      Modify the Text.
-
      - Returns: A new `Text` with `font size 14` and `bold`
      */
     func rdButtonMedium() -> Text {
@@ -138,7 +137,6 @@ public extension Text {
 
     /**
      Modify the Text.
-
      - Returns: A new `Text` with `font size 12` and `bold`
      */
     func rdButtonSmall() -> Text {

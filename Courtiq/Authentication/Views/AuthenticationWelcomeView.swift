@@ -28,6 +28,11 @@ struct AuthenticationWelcomeView: View {
                     title: "Welcome to CourtIQ"
                 )
             )
+        } content: {
+            Image("welcomeImage")
+                .resizable()
+                .padding()
+                .scaledToFit()
         } footer: {
             RDButtonView(.extraLarge, .primary, "Create an account.") {
                 vm.handle(action: .goToSignUp)
@@ -35,11 +40,7 @@ struct AuthenticationWelcomeView: View {
             RDButtonView(.extraLarge, .secondary, "Log in") {
                 vm.handle(action: .goToSignIn)
             }
-        } content: {
-            Image("welcomeImage")
-                .resizable()
-                .padding()
-                .scaledToFit()
+
         }
         .background(Color.TokenColor.Semantic.Background.primary)
     }

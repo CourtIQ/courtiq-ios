@@ -19,6 +19,7 @@ public struct RDNumberInput: View {
     public var range: ClosedRange<Int>
     public var layout: Layout
     public var state: State
+    public var fixedWidth: Bool = true
     
     // MARK: - Initializer
     
@@ -28,7 +29,8 @@ public struct RDNumberInput: View {
         value: Binding<Int>,
         range: ClosedRange<Int>,
         layout: Layout = .horizontal,
-        state: State = .standard
+        state: State = .standard,
+        fixedWidth: Bool = true
     ) {
         self.placeholder = placeholder
         self.helperText = helperText
@@ -36,8 +38,9 @@ public struct RDNumberInput: View {
         self.range = range
         self.layout = layout
         self.state = state
+        self.fixedWidth = fixedWidth
     }
-
+    
     // MARK: - Body
     
     public var body: some View {
@@ -51,7 +54,7 @@ public struct RDNumberInput: View {
                             getStepper()
                             numberTextField
                         }
-
+                        
                         if let helperText = helperText {
                             Text(helperText)
                                 .foregroundColor(.primary)
@@ -60,7 +63,10 @@ public struct RDNumberInput: View {
                     
                 case .verticalTrailing:
                     VStack {
-                        getStepper()
+                        HStack {
+                            numberTextField
+                            getStepper()
+                        }
                         if let helperText = helperText {
                             Text(helperText)
                                 .foregroundColor(.primary)
@@ -89,9 +95,9 @@ public struct RDNumberInput: View {
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
-            .overlay(RoundedRectangle(cornerRadius: 12).stroke(state.borderColor, lineWidth: 1.5))
+            .overlay(RoundedRectangle(cornerRadius: 12).stroke(state.borderColor, lineWidth: 1))
             .background(state.bgColor.clipShape(RoundedRectangle(cornerRadius: 12)))
-            .frame(maxWidth: 150)
+            .frame(maxWidth: fixedWidth ? 150 : .infinity)
         }
     }
     
@@ -105,11 +111,13 @@ public struct RDNumberInput: View {
             })
         )
         .rdBody()
+        .foregroundColor(state.valueColor)
         .multilineTextAlignment(.center)
         .rdPlaceholder(when: String(value).isEmpty, alignment: .center) {
             VStack(spacing: 8) {
                 Text(placeholder)
-                    .foregroundColor(.secondary)
+                    .rdSmallBody()
+                    .foregroundColor(state.placeholderColor)
                     .offset(y: String(value).isEmpty ? 0 : -12)
                     .lineLimit(1)
                 if !String(value).isEmpty {
@@ -139,13 +147,14 @@ public struct RDNumberInput: View {
         Button(action: incrementValue) {
             Image(systemName: "plus.circle")
         }
+        .foregroundColor(state.iconColor)
     }
     
     private func decrementStepper() -> some View {
         Button(action: decrementValue) {
             Image(systemName: "minus.circle")
         }
-        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+        .foregroundColor(state.iconColor)
     }
     
     // MARK: - Private Methods
@@ -252,6 +261,33 @@ extension RDNumberInput.State {
             return Color.TokenColor.Semantic.Border.success
         case .focused:
             return Color.TokenColor.Semantic.Border.focused
+        }
+    }
+    
+    var valueColor: Color {
+        switch self {
+        case .standard, .focused, .error, .success:
+            Color.TokenColor.Semantic.Label.primary
+        case .disabled:
+            Color.TokenColor.Semantic.Label.disabledPrimary
+        }
+    }
+    
+    var iconColor: Color {
+        switch self {
+        case .standard, .focused, .error, .success:
+            Color.TokenColor.Semantic.Label.primary
+        case .disabled:
+            Color.TokenColor.Semantic.Label.disabledPrimary
+        }
+    }
+    
+    var placeholderColor: Color {
+        switch self {
+        case .standard, .focused, .error, .success:
+            Color.TokenColor.Semantic.Label.secondary
+        case .disabled:
+            Color.TokenColor.Semantic.Label.disabledSecondary
         }
     }
 }

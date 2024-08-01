@@ -8,21 +8,23 @@
 import SwiftUI
 import RDDesignSystem
 
-struct MarqueeView<Header: View, Footer: View, Content: View>: View {
+struct MarqueeView<Header: View, Content: View, Footer: View>: View {
     let header: Header
-    let footer: Footer
     let content: Content
+    let footer: Footer
 
     private let verticalPadding: CGFloat = 8
     private let verticalSpacing: CGFloat = 8
     private let horizontalPadding: CGFloat = 16
 
-    init(@ViewBuilder header: () -> Header,
-         @ViewBuilder footer: () -> Footer,
-         @ViewBuilder content: () -> Content) {
+    init(
+        @ViewBuilder header: () -> Header,
+        @ViewBuilder content: () -> Content,
+        @ViewBuilder footer: () -> Footer
+    ) {
         self.header = header()
-        self.footer = footer()
         self.content = content()
+        self.footer = footer()
     }
 
     var body: some View {
@@ -44,44 +46,46 @@ struct MarqueeView<Header: View, Footer: View, Content: View>: View {
         }
         .toolbar(.hidden, for: .navigationBar)
         .background(Color.TokenColor.Semantic.Background.primary)
-
     }
-    
 }
 
 struct AuthenticationPage_Previews: PreviewProvider {
     static var previews: some View {
-        MarqueeView {
-            // Header
-            HStack {
-                Text("Custom Navigation Bar")
-                    .font(.title2)
-                    .fontWeight(.semibold)
-                Spacer()
-            }
-            .padding()
-            .background(Color.blue)
-            .foregroundColor(.white)
-        } footer: {
-            // Footer
-            Text("Need help? Contact support.")
-                .font(.footnote)
-                .foregroundColor(.blue)
-        } content: {
-            // Custom content
-            VStack(spacing: 20) {
-                TextField("Email", text: .constant(""))
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                SecureField("Password", text: .constant(""))
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                Button("Login") {
-                    // Action
+        MarqueeView(
+            header: {
+                // Header
+                HStack {
+                    Text("Custom Navigation Bar")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                    Spacer()
                 }
                 .padding()
                 .background(Color.blue)
                 .foregroundColor(.white)
-                .cornerRadius(8)
+            },
+            content: {
+                // Custom content
+                VStack(spacing: 20) {
+                    TextField("Email", text: .constant(""))
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    SecureField("Password", text: .constant(""))
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                    Button("Login") {
+                        // Action
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                }
+            },
+            footer: {
+                // Footer
+                Text("Need help? Contact support.")
+                    .font(.footnote)
+                    .foregroundColor(.blue)
             }
-        }
+        )
     }
 }

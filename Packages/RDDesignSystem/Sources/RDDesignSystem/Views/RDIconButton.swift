@@ -24,7 +24,7 @@ public enum RDIconButtonSize {
         case .medium:
             return 32
         case .small:
-            return 28
+            return 24
         }
     }
     
