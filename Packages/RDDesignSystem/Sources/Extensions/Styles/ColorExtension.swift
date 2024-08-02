@@ -112,7 +112,7 @@ public extension Color {
         public let red950 = Color(.sRGB, red: 75/255, green: 8/255, blue: 4/255, opacity: 1) 
 
         // platinum
-        public let platinumPlatinum50 = Color(.sRGB, red: 244/255, green: 248/255, blue: 251/255, opacity: 1) 
+        public let platinum50 = Color(.sRGB, red: 244/255, green: 248/255, blue: 251/255, opacity: 1)
         public let platinum100 = Color(.sRGB, red: 218/255, green: 234/255, blue: 245/255, opacity: 1) 
         public let platinum200 = Color(.sRGB, red: 204/255, green: 223/255, blue: 235/255, opacity: 1) 
         public let platinum300 = Color(.sRGB, red: 159/255, green: 198/255, blue: 218/255, opacity: 1) 

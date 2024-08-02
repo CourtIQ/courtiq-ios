@@ -37,7 +37,7 @@ struct SignInView: View {
                     bgColor: .white
                 )
             )
-            .background(Color.TokenColor.Semantic.Background.primary)
+            .background(Color.TokenColor.Semantic.Background.default)
         } content: {
             VStack(spacing: 16) {
                 HStack {

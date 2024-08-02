@@ -45,7 +45,7 @@ struct MarqueeView<Header: View, Content: View, Footer: View>: View {
                 .padding(.vertical, verticalPadding)
         }
         .toolbar(.hidden, for: .navigationBar)
-        .background(Color.TokenColor.Semantic.Background.primary)
+        .background(Color.TokenColor.Semantic.Background.default)
     }
 }
 

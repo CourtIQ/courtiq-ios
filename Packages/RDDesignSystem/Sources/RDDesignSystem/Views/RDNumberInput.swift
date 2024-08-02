@@ -243,7 +243,7 @@ extension RDNumberInput.State {
     var bgColor: Color {
         switch self {
         case .standard, .error, .success, .focused:
-            return Color.TokenColor.Semantic.Background.primary
+            return Color.TokenColor.Semantic.Background.default
         case .disabled:
             return Color.TokenColor.Semantic.Background.disabled
         }
@@ -267,27 +267,27 @@ extension RDNumberInput.State {
     var valueColor: Color {
         switch self {
         case .standard, .focused, .error, .success:
-            Color.TokenColor.Semantic.Label.primary
+            Color.TokenColor.Semantic.Text.primary
         case .disabled:
-            Color.TokenColor.Semantic.Label.disabledPrimary
+            Color.TokenColor.Semantic.Text.primary
         }
     }
     
     var iconColor: Color {
         switch self {
         case .standard, .focused, .error, .success:
-            Color.TokenColor.Semantic.Label.primary
+            Color.TokenColor.Semantic.Text.primary
         case .disabled:
-            Color.TokenColor.Semantic.Label.disabledPrimary
+            Color.TokenColor.Semantic.Text.primary
         }
     }
     
     var placeholderColor: Color {
         switch self {
         case .standard, .focused, .error, .success:
-            Color.TokenColor.Semantic.Label.secondary
+            Color.TokenColor.Semantic.Text.secondary
         case .disabled:
-            Color.TokenColor.Semantic.Label.disabledSecondary
+            Color.TokenColor.Semantic.Text.primary
         }
     }
 }

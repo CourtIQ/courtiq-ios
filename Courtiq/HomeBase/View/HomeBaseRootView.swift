@@ -12,6 +12,14 @@ import RDDesignSystem
 struct HomeBaseRootView: View {
     @StateObject private var viewModel: HomeBaseVM
     @GestureState private var gestureOffset: CGFloat = 0
+    @State private var selectingIndex: Int = 0
+    private var menuItems = [
+        MenuItem(title: "Home", icon: "home"),
+        MenuItem(title: "My Friends", icon: "friends"),
+        MenuItem(title: "Settings", icon: "setting"),
+        MenuItem(title: "Logout", icon: "logout")
+    ]
+
 
     init(authService: any AuthServiceProtocol, router: AppRouter) {
         _viewModel = StateObject(wrappedValue: HomeBaseVM(authService: authService, router: router))
@@ -19,40 +27,10 @@ struct HomeBaseRootView: View {
 
     var body: some View {
         let sideBarWidth = UIScreen.main.bounds.width * 0.75
-
-        HStack(spacing: 0) {
-            SideMenuView()
+        
+        ZStack {
             HomeBaseTabsView(showSideMenu: $viewModel.showSideMenu, vm: viewModel)
-                .overlay(
-                    viewModel.showSideMenu ?
-                    Color.black.opacity(0.3)
-                        .edgesIgnoringSafeArea(.all)
-                        .onTapGesture {
-                        withAnimation {
-                            viewModel.closeMenu(sideBarWidth: sideBarWidth)
-                        }
-                    }:
-                    nil
-                )
-        }
-        .frame(width: UIScreen.main.bounds.width + sideBarWidth)
-        .offset(x: -sideBarWidth / 2)
-        .offset(x: max(viewModel.offset, 0))
-        .gesture(
-            DragGesture()
-                .updating($gestureOffset) { value, out, _ in
-                    out = value.translation.width
-                }
-                .onEnded { value in
-                    viewModel.onEnd(value: value)
-                }
-        )
-        .animation(.easeOut, value: viewModel.offset)
-        .onChange(of: viewModel.showSideMenu) { _ in
-            viewModel.handleMenuToggle(sideBarWidth: sideBarWidth)
-        }
-        .onChange(of: gestureOffset) { newValue in
-            viewModel.onChange(gestureOffset: newValue, sideBarWidth: sideBarWidth)
+            SideMenuView(openSideMenu: $viewModel.showSideMenu, selectedIndex: $selectingIndex, menuItems: menuItems, menuConfig: SideMenuCOnfig(menuWidth: sideBarWidth, menuDirection: .left, swipeToClose: true, tapToClose: true, showAppVersion: true, versionText: "Test"))
         }
     }
 }

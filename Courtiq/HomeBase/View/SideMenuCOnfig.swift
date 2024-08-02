@@ -12,7 +12,7 @@ public enum Directions {
     case left, right
 }
 
-struct SSMenuConfig {
+struct SideMenuCOnfig {
     
     /** Menu view top padding from the view. Default is: 10**/
     private(set) var topPadding: CGFloat

@@ -122,7 +122,7 @@ public struct RDTopNavigationView: View {
                     .padding(.horizontal, 16)
             }
         }
-        .background(Color.TokenColor.Semantic.Background.primary)
+        .background(Color.TokenColor.Semantic.Background.default)
     }
     
     private var nonOptionalSearchText: Binding<String> {

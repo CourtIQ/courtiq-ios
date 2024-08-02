@@ -37,12 +37,11 @@ struct AuthenticationWelcomeView: View {
             RDButtonView(.extraLarge, .primary, "Create an account.") {
                 vm.handle(action: .goToSignUp)
             }
-            RDButtonView(.extraLarge, .secondary, "Log in") {
+            RDButtonView(.extraLarge, .secondary, "Log in", disable: true) {
                 vm.handle(action: .goToSignIn)
             }
-
         }
-        .background(Color.TokenColor.Semantic.Background.primary)
+        .background(Color.TokenColor.Semantic.Background.default)
     }
     
     // MARK: - Private

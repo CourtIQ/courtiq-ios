@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C02E71F42C2CA92700830E2B /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F32C2CA92700830E2B /* SideMenuView.swift */; };
 		C02E71F62C2CA95300830E2B /* HomeBaseRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */; };
 		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
 		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
@@ -41,8 +40,8 @@
 		C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0889DE92C2C0A770081BF59 /* AdditionalInfoView.swift */; };
 		C0904D712C297489008B7B2E /* HomeBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0904D702C297489008B7B2E /* HomeBaseVM.swift */; };
 		C0BA4ECE2C5B116D00C6F3F6 /* StorageService in Frameworks */ = {isa = PBXBuildFile; productRef = C0BA4ECD2C5B116D00C6F3F6 /* StorageService */; };
-		C0BA4ED22C5C146600C6F3F6 /* SSMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ED12C5C146600C6F3F6 /* SSMenuConfig.swift */; };
-		C0BA4ED42C5C146C00C6F3F6 /* SSSwiftUISideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ED32C5C146B00C6F3F6 /* SSSwiftUISideMenu.swift */; };
+		C0BA4ED22C5C146600C6F3F6 /* SideMenuCOnfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ED12C5C146600C6F3F6 /* SideMenuCOnfig.swift */; };
+		C0BA4ED42C5C146C00C6F3F6 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */; };
 		C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */ = {isa = PBXBuildFile; productRef = C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */; };
 		C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */; };
 		C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BD32C29525200930364 /* AuthenticationVM.swift */; };
@@ -66,7 +65,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C02E71F32C2CA92700830E2B /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseRootView.swift; sourceTree = "<group>"; };
 		C0495D7D2C1E430400E6D023 /* AuthenticationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthenticationService; sourceTree = "<group>"; };
 		C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -104,8 +102,8 @@
 		C0904D702C297489008B7B2E /* HomeBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseVM.swift; sourceTree = "<group>"; };
 		C0AD6C412C373D990088E2B0 /* UserService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UserService; sourceTree = "<group>"; };
 		C0AD6C422C373E080088E2B0 /* DataService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataService; sourceTree = "<group>"; };
-		C0BA4ED12C5C146600C6F3F6 /* SSMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSMenuConfig.swift; sourceTree = "<group>"; };
-		C0BA4ED32C5C146B00C6F3F6 /* SSSwiftUISideMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSwiftUISideMenu.swift; sourceTree = "<group>"; };
+		C0BA4ED12C5C146600C6F3F6 /* SideMenuCOnfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuCOnfig.swift; sourceTree = "<group>"; };
+		C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		C0CECA542C3F8625000F2032 /* MatchUpService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MatchUpService; sourceTree = "<group>"; };
 		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWelcomeView.swift; sourceTree = "<group>"; };
@@ -314,11 +312,10 @@
 		C07A2DB92C297FE0006DDF6F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C0BA4ED32C5C146B00C6F3F6 /* SSSwiftUISideMenu.swift */,
-				C0BA4ED12C5C146600C6F3F6 /* SSMenuConfig.swift */,
+				C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */,
+				C0BA4ED12C5C146600C6F3F6 /* SideMenuCOnfig.swift */,
 				C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */,
 				C07A2DB72C297FE0006DDF6F /* HomeBaseTabsView.swift */,
-				C02E71F32C2CA92700830E2B /* SideMenuView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -496,13 +493,12 @@
 				C067FEAB2C5AEE3F0089C7E9 /* TennisVM.swift in Sources */,
 				C062D2C62C3BEB9B00ABF5A8 /* TennisView.swift in Sources */,
 				C0495D932C1E54D100E6D023 /* ForgotPasswordView.swift in Sources */,
-				C02E71F42C2CA92700830E2B /* SideMenuView.swift in Sources */,
 				C07A2DBC2C297FE0006DDF6F /* HomeBaseTabsView.swift in Sources */,
 				C062D2C82C3BEEEC00ABF5A8 /* HomeView.swift in Sources */,
 				C0904D712C297489008B7B2E /* HomeBaseVM.swift in Sources */,
-				C0BA4ED22C5C146600C6F3F6 /* SSMenuConfig.swift in Sources */,
+				C0BA4ED22C5C146600C6F3F6 /* SideMenuCOnfig.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
-				C0BA4ED42C5C146C00C6F3F6 /* SSSwiftUISideMenu.swift in Sources */,
+				C0BA4ED42C5C146C00C6F3F6 /* SideMenuView.swift in Sources */,
 				C02E71F62C2CA95300830E2B /* HomeBaseRootView.swift in Sources */,
 				C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */,
 				C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */,

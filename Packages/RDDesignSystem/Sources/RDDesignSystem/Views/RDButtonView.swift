@@ -8,34 +8,33 @@
 import SwiftUI
 
 // MARK: - ButtonSize
+/// An enumeration representing various button sizes.
 public enum ButtonSize {
     case extraLarge
     case large
     case medium
     case small
     
+    /// Returns the height corresponding to the button size.
     var height: CGFloat {
         switch self {
         case .extraLarge:
-            return 56
-        case .large:
             return 48
-        case .medium:
+        case .large:
             return 40
-        case .small:
+        case .medium:
             return 32
+        case .small:
+            return 28
         }
     }
     
+    /// Returns the corner radius for the button.
     var cornerRadius: CGFloat {
-        switch self {
-        case .extraLarge, .large:
-            return 12
-        default:
-            return 8
-        }
+        return 30
     }
     
+    /// Returns the text size corresponding to the button size.
     var textSize: CGFloat {
         switch self {
         case .small:
@@ -47,90 +46,67 @@ public enum ButtonSize {
 }
 
 // MARK: - ButtonType
+/// An enumeration representing various button types.
 @available(iOS 13.0, *)
-public enum ButtonType {
+public enum RDButtonType {
     case primary
     case secondary
     case tertiary
     case ghost
     
+    /// Returns the text color for the button type.
     var textColor: Color {
         switch self {
         case .primary:
-            return .white
-        case .secondary, .ghost:
-            return .purple500
+            return Color.TokenColor.Semantic.Text.inverted
+        case .secondary:
+            return Color.TokenColor.Semantic.Text.primary
         case .tertiary:
-            return .platinum950
+            return Color.TokenColor.Semantic.Text.default
+        case .ghost:
+            return Color.TokenColor.Semantic.Text.secondary
         }
     }
     
+    /// Returns the background color for the button type.
     var bgColor: Color {
         switch self {
         case .primary:
-            return .purple500
+            return Color.TokenColor.Semantic.Background.primary
         case .secondary:
-            return .purple100
-        case .tertiary:
-            return .white
-        case .ghost:
-            return .clear
+            return Color.TokenColor.Semantic.Background.secondary
+        case .tertiary, .ghost:
+            return Color.TokenColor.Semantic.Background.default
         }
     }
-    
-    var pressedTextColor: Color {
+
+    /// Returns the icon color for the button type.
+    var iconColor: Color {
         switch self {
         case .primary:
-            return .white
+            return Color.TokenColor.Semantic.Icon.inverted
         case .secondary:
-            return .purple500
+            return Color.TokenColor.Semantic.Icon.primary
         case .tertiary:
-            return .platinum950
+            return Color.TokenColor.Semantic.Icon.default
         case .ghost:
-            return .purple700
+            return Color.TokenColor.Semantic.Icon.secondary
         }
     }
-    
-    var pressedBgColor: Color {
-        switch self {
-        case .primary:
-            return .purple700
-        case .secondary:
-            return .purple200
-        case .tertiary:
-            return .platinum100
-        case .ghost:
-            return .clear
-        }
-    }
-    
-    var disabledTextColor: Color {
-        switch self {
-        case .primary, .secondary, .tertiary:
-            return .platinum300
-        case .ghost:
-            return .purple200
-        }
-    }
-    
-    var disabledBgColor: Color {
-        switch self {
-        case .primary, .secondary:
-            return .platinum100
-        default:
-            return .clear
-        }
-    }
-    
+
+    /// Returns the border color for the button type.
     var borderColor: Color {
         switch self {
+        case .primary, .ghost:
+            return Color.clear
+        case .secondary:
+            return Color.TokenColor.Semantic.Border.primary
         case .tertiary:
-            return .platinum200
-        default:
-            return .clear
+            return Color.TokenColor.Semantic.Border.emphasis
         }
     }
     
+    /// Indicates whether the button text should be underlined.
     var underline: Bool {
         switch self {
         case .ghost:
@@ -141,40 +117,37 @@ public enum ButtonType {
     }
 }
 
-// MARK: - RDButtonPressEffect
-@available(iOS 13.0, *)
-struct RDButtonPressEffect: ButtonStyle {
-    var buttonSize: ButtonSize
-    var buttonType: ButtonType
-    var disable: Bool
-    
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .foregroundColor(disable ? buttonType.disabledTextColor : (configuration.isPressed ? buttonType.pressedTextColor : buttonType.textColor))
-            .background(disable ? buttonType.disabledBgColor : (configuration.isPressed ? buttonType.pressedBgColor : buttonType.bgColor))
-            .animation(.easeInOut, value: configuration.isPressed)
-    }
-}
-
 // MARK: - RDButtonView
+/// A custom button view that supports various sizes, types, and configurations.
 @available(iOS 15.0.0, *)
 public struct RDButtonView: View {
     
+    // MARK: Properties
     var buttonSize: ButtonSize
-    var buttonType: ButtonType
+    var buttonType: RDButtonType
     var title: String
     var width: CGFloat
-    var icon: (leadingIcon: String, trailingIcon: String)?
-    var trailingButton: String?
+    var icon: (leadingIcon: Image, trailingIcon: Image)?
     var disable: Bool
     var action: (() -> ())?
     
+    // MARK: Initializer
+    /// Initializes a new `RDButtonView`.
+    ///
+    /// - Parameters:
+    ///   - buttonSize: The size of the button.
+    ///   - buttonType: The type of the button.
+    ///   - title: The title of the button.
+    ///   - width: The width of the button. Defaults to `.infinity`.
+    ///   - icon: An optional tuple containing the leading and trailing icons.
+    ///   - disable: A boolean indicating whether the button is disabled.
+    ///   - action: An optional closure to execute when the button is tapped.
     public init(
         _ buttonSize: ButtonSize = .extraLarge,
-        _ buttonType: ButtonType = .primary,
+        _ buttonType: RDButtonType = .primary,
         _ title: String,
         width: CGFloat = .infinity,
-        icon: (leadingIcon: String, trailingIcon: String)? = nil,
+        icon: (leadingIcon: Image, trailingIcon: Image)? = nil,
         disable: Bool = false,
         action: (() -> Void)? = nil
     ) {
@@ -187,41 +160,42 @@ public struct RDButtonView: View {
         self.action = action
     }
     
+    // MARK: Body
     public var body: some View {
         Button {
             action?()
         } label: {
-            HStack(spacing: 8) {
-                if let leadingIcon = icon?.leadingIcon, !leadingIcon.isEmpty {
-                    Image(leadingIcon)
+            HStack {
+                if let leadingIcon = icon?.leadingIcon {
+                    leadingIcon
                         .resizable()
+                        .foregroundColor(buttonType.iconColor)
                         .frame(width: 24, height: 24)
                 }
                 
                 Text(title)
                     .rdButtonMedium()
+                    .foregroundColor(buttonType.textColor)
                     .underline(buttonType.underline)
                 
-                if let trailingIcon = icon?.trailingIcon, !trailingIcon.isEmpty {
-                    Image(trailingIcon)
+                if let trailingIcon = icon?.trailingIcon {
+                    trailingIcon
                         .resizable()
+                        .foregroundColor(buttonType.iconColor)
                         .frame(width: 24, height: 24)
                 }
             }
-            .frame(maxWidth: width, minHeight: buttonSize.height)
+            .frame(
+                maxWidth: buttonType == .ghost ? nil : width,
+                minHeight: buttonSize.height
+            )
+            .background(buttonType.bgColor)
+            .clipShape(Capsule())
+            .overlay {
+                Capsule(style: .continuous)
+                    .stroke(buttonType.borderColor, lineWidth: 1)
+            }
         }
         .disabled(disable)
-        .buttonStyle(
-            RDButtonPressEffect(
-                buttonSize: buttonSize,
-                buttonType: buttonType,
-                disable: disable
-            )
-        )
-        .cornerRadius(buttonSize.cornerRadius)
-        .overlay {
-            RoundedRectangle(cornerRadius: buttonSize.cornerRadius)
-                .stroke(buttonType.borderColor)
-        }
     }
 }

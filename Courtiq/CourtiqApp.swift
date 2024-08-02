@@ -55,7 +55,7 @@ struct CourtiqApp: App {
                     ScreenCoverView(viewWrapper: screen)
                         .environmentObject(router)
                 }
-                .background(Color.TokenColor.Semantic.Background.primary)
+                .background(Color.TokenColor.Semantic.Background.default)
         }
     }
 }
