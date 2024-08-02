@@ -112,8 +112,8 @@ public extension Color {
         public let red950 = Color(.sRGB, red: 75/255, green: 8/255, blue: 4/255, opacity: 1) 
 
         // platinum
-        public let platinumPlatinum50 = Color(.sRGB, red: 244/255, green: 248/255, blue: 251/255, opacity: 1) 
-        public let platinum100 = Color(.sRGB, red: 218/255, green: 234/255, blue: 245/255, opacity: 1) 
+        public let platinum50 = Color(.sRGB, red: 244/255, green: 248/255, blue: 251/255, opacity: 1) 
+        public let platinum100 = Color(.sRGB, red: 215/255, green: 237/255, blue: 246/255, opacity: 1) 
         public let platinum200 = Color(.sRGB, red: 204/255, green: 223/255, blue: 235/255, opacity: 1) 
         public let platinum300 = Color(.sRGB, red: 159/255, green: 198/255, blue: 218/255, opacity: 1) 
         public let platinum400 = Color(.sRGB, red: 129/255, green: 180/255, blue: 205/255, opacity: 1) 
@@ -137,5 +137,35 @@ public extension Color {
         public let grey800 = Color(.sRGB, red: 31/255, green: 31/255, blue: 31/255, opacity: 1) 
         public let grey900 = Color(.sRGB, red: 20/255, green: 20/255, blue: 20/255, opacity: 1) 
         public let greyBlack = Color(.sRGB, red: 0/255, green: 0/255, blue: 0/255, opacity: 1) 
+
+        // Background
+        public let backgroundDefault = Color(.sRGB, red: 244/255, green: 248/255, blue: 251/255, opacity: 1) 
+        public let backgroundPrimary = Color(.sRGB, red: 73/255, green: 141/255, blue: 174/255, opacity: 1) 
+        public let backgroundSecondary = Color(.sRGB, red: 215/255, green: 237/255, blue: 246/255, opacity: 1) 
+        public let backgroundTertiary = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let backgroundColor = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // Border
+        public let borderPrimary = Color(.sRGB, red: 25/255, green: 43/255, blue: 56/255, opacity: 1) 
+        public let borderSecondary = Color(.sRGB, red: 73/255, green: 141/255, blue: 174/255, opacity: 1) 
+        public let borderFocused = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let borderError = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let borderSuccess = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // Icon
+        public let iconInverted = Color(.sRGB, red: 244/255, green: 248/255, blue: 251/255, opacity: 1) 
+        public let iconDefault = Color(.sRGB, red: 25/255, green: 43/255, blue: 56/255, opacity: 1) 
+        public let iconSecondary = Color(.sRGB, red: 45/255, green: 91/255, blue: 119/255, opacity: 1) 
+        public let iconPrimary = Color(.sRGB, red: 45/255, green: 91/255, blue: 119/255, opacity: 1) 
+        public let iconError = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let iconSuccess = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+
+        // Text
+        public let textDefault = Color(.sRGB, red: 25/255, green: 43/255, blue: 56/255, opacity: 1) 
+        public let textPrimary = Color(.sRGB, red: 45/255, green: 91/255, blue: 119/255, opacity: 1) 
+        public let textInverted = Color(.sRGB, red: 244/255, green: 248/255, blue: 251/255, opacity: 1) 
+        public let textFocused = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let textError = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
+        public let textSuccess = Color(.sRGB, red: 255/255, green: 255/255, blue: 255/255, opacity: 1) 
     }
 }
