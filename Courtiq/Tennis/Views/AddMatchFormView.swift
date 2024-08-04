@@ -21,6 +21,7 @@ struct AddMatchFormView: View {
                         router.handle(action: .dismiss)
                     }))))
         } content: {
+            RDTextFieldUpdated(textFieldType: <#T##RDTextFieldUpdatedType#>, placeholder: <#T##String#>, icon: <#T##(leadingIcon: Image?, trailingIcon: Image?)?#>, value: <#T##Binding<String>#>, state: <#T##Binding<RDTextFieldUpdatedState>#>, trailingAction: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
             Text("Hello")
         } footer: {
             RDButtonView(.extraLarge, .ghost, "Next") {

@@ -19,6 +19,7 @@ struct AuthenticationWelcomeView: View {
     init(vm: AuthenticationVM) {
         self._vm = StateObject(wrappedValue: vm)
     }
+    @State var state = RDTextFieldUpdatedState.normal
 
     var body: some View {
         MarqueeView {

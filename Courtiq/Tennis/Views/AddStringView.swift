@@ -12,7 +12,7 @@ import AuthenticationService
 
 struct AddStringView: View {
     @ObservedObject var vm: TennisVM
-    
+    @State private var stringNameState: RDTextFieldUpdatedState = .normal
     var body: some View {
         MarqueeView {
             RDTopNavigationView(
@@ -33,16 +33,9 @@ struct AddStringView: View {
                 .padding()
                 .scaledToFit()
 
-            RDTextField(
-                params: RDTextFieldParams(
-                    type: .primary,
-                    placeholder: "String Name"),
-                text: $vm.newStringEntry.stringName)
-            RDTextField(
-                params: RDTextFieldParams(
-                    type: .primary,
-                    placeholder: "String Name"),
-                text: $vm.newStringEntry.stringEntryID)
+            RDTextFieldUpdated(textFieldType: .primary, placeholder: "String name", icon: (leadingIcon: Image(systemName: "number"), trailingIcon: nil), value: $vm.newStringEntry.stringName, state: $stringNameState)
+            RDTextFieldUpdated(textFieldType: .primary, placeholder: "Racket name", icon: (leadingIcon: Image(systemName: "number"), trailingIcon: nil), value: $vm.newStringEntry.stringName, state: $stringNameState)
+
             HStack(spacing: 12)
             {
                 RDNumberInput(placeholder: "Mains",

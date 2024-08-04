@@ -190,32 +190,6 @@ public struct RDNumberInput: View {
     }
 }
 
-// MARK: - Previews
-
-struct RDNumberInput_Previews: PreviewProvider {
-    static var previews: some View {
-        StatefulPreviewWrapper(0) { binding in
-            AnyView(RDNumberInput(placeholder: "Enter value", helperText: "Helper text", value: binding, range: 1...10, layout: .verticalLeading))
-        }
-    }
-}
-
-// MARK: - Utility
-
-struct StatefulPreviewWrapper<T: Equatable>: View {
-    @State var value: T
-    var content: (Binding<T>) -> AnyView
-    
-    init(_ value: T, @ViewBuilder content: @escaping (Binding<T>) -> AnyView) {
-        self._value = State(wrappedValue: value)
-        self.content = content
-    }
-    
-    var body: some View {
-        content($value)
-    }
-}
-
 extension View {
     /**
      Modify the Textfield.
@@ -252,7 +226,7 @@ extension RDNumberInput.State {
     var borderColor: Color {
         switch self {
         case .standard:
-            return Color.TokenColor.Semantic.Border.primary
+            return Color.TokenColor.Semantic.Border.default
         case .disabled:
             return Color.TokenColor.Semantic.Border.disabled
         case .error:

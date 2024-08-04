@@ -36,12 +36,12 @@ public extension Color.TokenColor.Semantic {
     }
     
     struct Icon {
-        public static var inverted: Color {
-            Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
-        }
-        
         public static var `default`: Color {
             Color(light: Color.Token.platinum950, dark: Color.Token.platinum50)
+        }
+
+        public static var inverted: Color {
+            Color(light: Color.Token.platinum50, dark: Color.Token.platinum950)
         }
         
         public static var secondary: Color {
@@ -55,7 +55,7 @@ public extension Color.TokenColor.Semantic {
 
     struct Border {
         public static var `default`: Color {
-            Color(light: Color.Token.platinum400, dark: Color.Token.platinum600)
+            Color(light: Color.Token.platinum300, dark: Color.Token.platinum700)
         }
         
         public static var primary: Color {
@@ -75,11 +75,11 @@ public extension Color.TokenColor.Semantic {
         }
 
         public static var success: Color {
-            Color(light: Color.Token.green800, dark: Color.Token.green600)
+            Color(light: Color.Token.green700, dark: Color.Token.green600)
         }
 
         public static var error: Color {
-            Color(light: Color.Token.red700, dark: Color.Token.red600)
+            Color(light: Color.Token.red500, dark: Color.Token.red500)
         }
 
         public static var disabled: Color {

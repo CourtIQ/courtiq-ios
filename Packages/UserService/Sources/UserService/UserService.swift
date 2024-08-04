@@ -20,7 +20,9 @@ public class UserService: UserServiceProtocol, ObservableObject {
     @AppStorage("isUserLoggedIn") private var isUserLoggedInStorage: Bool = false
     @AppStorage("currentUserUID") private var currentUserUIDStorage: String? {
         didSet {
-            loadCurrentUser()
+            Task {
+                await self.loadCurrentUser()
+            }
         }
     }
     
@@ -33,7 +35,9 @@ public class UserService: UserServiceProtocol, ObservableObject {
     /// - Parameter dataService: The data service to be used for fetching and updating user data.
     public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "users"))) {
         self.dataService = dataService
-        loadCurrentUser()
+        Task {
+            await self.loadCurrentUser()
+        }
         
         // Observe changes to the currentUserUID key
         NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChange), name: UserDefaults.didChangeNotification, object: nil)
@@ -42,25 +46,26 @@ public class UserService: UserServiceProtocol, ObservableObject {
     // MARK: - Notification Handler
     
     @objc private func userDefaultsDidChange() {
-        loadCurrentUser()
+        Task {
+            await self.loadCurrentUser()
+        }
     }
     
     // MARK: - Load Current User
     
     /// Loads the current user from local storage or fetches from the data service if not available locally.
-    private func loadCurrentUser() {
+    @MainActor
+    private func loadCurrentUser() async {
         guard let userID = currentUserUIDStorage else {
             self.currentUser = nil
             return
         }
         
-        Task {
-            do {
-                let user = try await fetchCurrentUser(userID: userID)
-                self.currentUser = user
-            } catch {
-                self.currentUser = nil
-            }
+        do {
+            let user = try await fetchCurrentUser(userID: userID)
+            self.currentUser = user
+        } catch {
+            self.currentUser = nil
         }
     }
 

@@ -12,6 +12,7 @@ struct SearchView: View {
     @Binding var showSideMenu: Bool
     @State var searchText: String? = ""
     var body: some View {
+        
         BaseTabPageView {
             RDTopNavigationView(
                 params: RDTopNavigationParams(

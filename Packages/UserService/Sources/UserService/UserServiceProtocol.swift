@@ -8,6 +8,7 @@
 import Foundation
 
 @available(iOS 13.0, *)
+@MainActor
 public protocol UserServiceProtocol: ObservableObject {
     var currentUser: User? { get }
     

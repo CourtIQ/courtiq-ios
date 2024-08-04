@@ -34,7 +34,8 @@ struct ForgotPasswordView: View {
                 .padding(.horizontal, 60)
                 .padding(.vertical, 10)
                 .scaledToFit()
-            RDTextField(params: RDTextFieldParams(placeholder: "Reset password email..."), text: $email, validationType: .email)
+            
+            RDTextFieldUpdated(textFieldType: .primary, placeholder: "Enter email", icon: (leadingIcon: Image(systemName: "envelope"), trailingIcon: nil), value: $email, state: $emailState)
         } footer: {
             RDButtonView(.large, .primary, "Reset password") {
                 vm.handle(action: .frgtPswdBtn)
@@ -42,6 +43,7 @@ struct ForgotPasswordView: View {
         }
     }
     @State private var email = ""
+    @State private var emailState = RDTextFieldUpdatedState.normal
     @ObservedObject var vm: AuthenticationVM
 }
 
