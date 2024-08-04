@@ -34,6 +34,15 @@ public class UserService: UserServiceProtocol, ObservableObject {
     public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "users"))) {
         self.dataService = dataService
         loadCurrentUser()
+        
+        // Observe changes to the currentUserUID key
+        NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChange), name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
+    // MARK: - Notification Handler
+    
+    @objc private func userDefaultsDidChange() {
+        loadCurrentUser()
     }
     
     // MARK: - Load Current User
@@ -50,7 +59,6 @@ public class UserService: UserServiceProtocol, ObservableObject {
                 let user = try await fetchCurrentUser(userID: userID)
                 self.currentUser = user
             } catch {
-                print("Failed to fetch current user: \(error)")
                 self.currentUser = nil
             }
         }
@@ -134,13 +142,13 @@ public class UserService: UserServiceProtocol, ObservableObject {
     /// - Parameter userID: The ID of the user to listen for changes.
     /// - Parameter onChange: A closure to be called when the user data changes.
     public func startListeningForCurrentUser(userID: String, onChange: @escaping (Result<User, Error>) -> Void) {
-        print(#function)
+        // Implementation to start listening for user changes
     }
 
     // MARK: - Stop Listening
     
     /// Stops listening for changes to the current user.
     public func stopListening() {
-        print(#function)
+        // Implementation to stop listening for user changes
     }
 }
