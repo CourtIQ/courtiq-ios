@@ -135,24 +135,6 @@
           "revision": "9f0c76544701845ad98716f3f6a774a892152bcb",
           "version": "1.26.0"
         }
-      },
-      {
-        "package": "swift-snapshot-testing",
-        "repositoryURL": "https://github.com/pointfreeco/swift-snapshot-testing",
-        "state": {
-          "branch": null,
-          "revision": "e883fc9ea51e76dc9ed13fd4a92b0ee258a1e8c9",
-          "version": "1.17.3"
-        }
-      },
-      {
-        "package": "swift-syntax",
-        "repositoryURL": "https://github.com/swiftlang/swift-syntax",
-        "state": {
-          "branch": null,
-          "revision": "06b5cdc432e93b60e3bdf53aff2857c6b312991a",
-          "version": "600.0.0-prerelease-2024-07-30"
-        }
       }
     ]
   },

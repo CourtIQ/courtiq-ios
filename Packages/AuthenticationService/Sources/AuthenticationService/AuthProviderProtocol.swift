@@ -1,5 +1,5 @@
 //
-//  AuthServiceProtocol.swift
+//  AuthProviderProtocol.swift
 //
 //
 //  Created by Pranav Suri on 2024-06-15.
@@ -7,64 +7,48 @@
 
 import FirebaseAuth
 
+// MARK: - AuthProviderProtocol
+
+/// A protocol defining the required properties and methods for an authentication provider.
 @available(iOS 13.0.0, *)
 public protocol AuthProviderProtocol: AnyObject {
+    
+    // MARK: - Properties
+    
+    /// The currently authenticated user, if any.
     var currentUser: AuthUser? { get }
+    
+    /// A Boolean value indicating whether a user is logged in.
     var isUserLoggedIn: Bool { get }
-
+    
+    // MARK: - Authentication Methods
+    
+    /// Signs up a user with the provided email and password.
+    /// - Parameters:
+    ///   - email: The email of the user.
+    ///   - password: The password of the user.
+    /// - Returns: The authenticated user.
+    /// - Throws: An error if sign up fails.
     func signUp(email: String, password: String) async throws -> AuthUser
+    
+    /// Signs in a user with the provided email and password.
+    /// - Parameters:
+    ///   - email: The email of the user.
+    ///   - password: The password of the user.
+    /// - Returns: The authenticated user.
+    /// - Throws: An error if sign in fails.
     func signIn(email: String, password: String) async throws -> AuthUser
+    
+    /// Signs in a user with Google authentication.
+    /// - Returns: The authenticated user.
+    /// - Throws: An error if sign in with Google fails.
     func signInWithGoogle() async throws -> AuthUser
+    
+    /// Signs out the currently authenticated user.
+    /// - Throws: An error if sign out fails.
     func signOut() async throws
+    
+    /// Deletes the currently authenticated user's account.
+    /// - Throws: An error if account deletion fails.
     func deleteAccount() async throws
-}
-
-@available(iOS 13.0.0, *)
-final class MockAuthProvider: AuthProviderProtocol {
-    var currentUser: (any AuthUser)? = MockUser(uid: UUID().uuidString)
-    
-    // MARK: Internal
-    
-    var isUserLoggedIn: Bool = false
-    
-    func signUp(email: String, password: String) async throws -> AuthUser {
-        let mockUser = MockUser(uid: UUID().uuidString)
-        self.currentUser = mockUser
-        self.isUserLoggedIn = true
-        return mockUser
-    }
-    
-    func signIn(email: String, password: String) async throws -> AuthUser {
-        let mockUser = MockUser(uid: UUID().uuidString)
-        self.currentUser = mockUser
-        self.isUserLoggedIn = true
-        return mockUser
-    }
-    
-    func signInWithGoogle() async throws -> AuthUser {
-        let mockUser = MockUser(uid: UUID().uuidString)
-        self.currentUser = mockUser
-        self.isUserLoggedIn = true
-        return mockUser
-    }
-    
-    func signOut() async throws {
-        self.currentUser = nil
-        self.isUserLoggedIn = false
-    }
-    
-    func deleteAccount() async throws {
-        self.currentUser = nil
-        self.isUserLoggedIn = false
-    }
-}
-
-// MARK: - MockUser
-
-class MockUser: AuthUser {
-    var uid: String
-    
-    init(uid: String) {
-        self.uid = uid
-    }
 }

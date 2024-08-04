@@ -34,7 +34,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct CourtiqApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @StateObject var authService = AuthService(provider: FirebaseAuthService())
+    @StateObject var authService = AuthService(provider: FirebaseAuthProvider())
     @StateObject var router = AppRouter()
     @StateObject var userService = UserService()
 

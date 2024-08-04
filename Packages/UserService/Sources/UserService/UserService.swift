@@ -8,42 +8,62 @@
 import DataService
 import SwiftUI
 
+// MARK: - UserService
+
+/// A service responsible for managing user data.
 @available(iOS 14.0, *)
+@MainActor
 public class UserService: UserServiceProtocol, ObservableObject {
+    
+    // MARK: - Properties
+    
+    @AppStorage("isUserLoggedIn") private var isUserLoggedInStorage: Bool = false
+    @AppStorage("currentUserUID") private var currentUserUIDStorage: String? {
+        didSet {
+            loadCurrentUser()
+        }
+    }
+    
     @Published private(set) public var currentUser: User?
     private let dataService: DataServiceProtocol
-    private let userDefaults: UserDefaults
-    private let currentUserKey = "currentUser"  // Consistent with FirebaseAuthService
 
     // MARK: - Initializer
     
-    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "users")), userDefaults: UserDefaults = .standard) {
+    /// Initializes the UserService with a specified DataService.
+    /// - Parameter dataService: The data service to be used for fetching and updating user data.
+    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "users"))) {
         self.dataService = dataService
-        self.userDefaults = userDefaults
         loadCurrentUser()
     }
     
     // MARK: - Load Current User
     
+    /// Loads the current user from local storage or fetches from the data service if not available locally.
     private func loadCurrentUser() {
-        if let userID = userDefaults.string(forKey: currentUserKey) {
-            Task {
-                do {
-                    let user = try await fetchCurrentUser(userID: userID)
-                    await MainActor.run {
-                        self.currentUser = user
-                    }
-                } catch {
-                    print("Failed to fetch current user: \(error)")
-                }
+        guard let userID = currentUserUIDStorage else {
+            self.currentUser = nil
+            return
+        }
+        
+        Task {
+            do {
+                let user = try await fetchCurrentUser(userID: userID)
+                self.currentUser = user
+            } catch {
+                print("Failed to fetch current user: \(error)")
+                self.currentUser = nil
             }
         }
     }
 
     // MARK: - Fetch Current User
     
+    /// Fetches the current user from the data service.
+    /// - Parameter userID: The ID of the user to be fetched.
+    /// - Returns: The fetched user.
+    /// - Throws: An error if fetching the user fails.
     public func fetchCurrentUser(userID: String) async throws -> User {
-        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<User, Error>) in
+        return try await withCheckedThrowingContinuation { continuation in
             dataService.fetchDocument(documentID: userID) { (result: Result<User, Error>) in
                 switch result {
                 case .success(let user):
@@ -57,6 +77,11 @@ public class UserService: UserServiceProtocol, ObservableObject {
 
     // MARK: - Update Current User
     
+    /// Updates the current user's data in the data service.
+    /// - Parameters:
+    ///   - userID: The ID of the user to be updated.
+    ///   - data: The new user data to be updated.
+    /// - Throws: An error if updating the user data fails.
     public func updateCurrentUser(userID: String, data: User) async throws {
         try await withCheckedThrowingContinuation { [weak self] (continuation: CheckedContinuation<Void, Error>) in
             guard let self = self else {
@@ -70,10 +95,8 @@ public class UserService: UserServiceProtocol, ObservableObject {
                     Task {
                         do {
                             let user = try await self.fetchCurrentUser(userID: userID)
-                            await MainActor.run {
-                                self.currentUser = user
-                                self.userDefaults.set(userID, forKey: self.currentUserKey)  // Save the userID to UserDefaults
-                            }
+                            self.currentUser = user
+                            self.currentUserUIDStorage = userID  // Save the userID to AppStorage
                             continuation.resume(returning: ())
                         } catch {
                             continuation.resume(throwing: error)
@@ -88,8 +111,12 @@ public class UserService: UserServiceProtocol, ObservableObject {
 
     // MARK: - Fetch User by ID
     
+    /// Fetches a user by ID from the data service.
+    /// - Parameter userID: The ID of the user to be fetched.
+    /// - Returns: The fetched user.
+    /// - Throws: An error if fetching the user fails.
     public func fetchUser(byID userID: String) async throws -> User {
-        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<User, Error>) in
+        return try await withCheckedThrowingContinuation { continuation in
             dataService.fetchDocument(documentID: userID) { (result: Result<User, Error>) in
                 switch result {
                 case .success(let user):
@@ -103,12 +130,16 @@ public class UserService: UserServiceProtocol, ObservableObject {
 
     // MARK: - Start Listening for Current User
     
+    /// Starts listening for changes to the current user.
+    /// - Parameter userID: The ID of the user to listen for changes.
+    /// - Parameter onChange: A closure to be called when the user data changes.
     public func startListeningForCurrentUser(userID: String, onChange: @escaping (Result<User, Error>) -> Void) {
         print(#function)
     }
 
     // MARK: - Stop Listening
     
+    /// Stops listening for changes to the current user.
     public func stopListening() {
         print(#function)
     }

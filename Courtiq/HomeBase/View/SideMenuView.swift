@@ -24,13 +24,13 @@ struct SideMenuView: View {
     @Binding var openSideMenu: Bool
     @Binding var selectedIndex: Int
     @State var menuItems: [MenuItem]
-    let menuConfig: SideMenuCOnfig
+    let menuConfig: SideMenuConfig
     
     public init(
         openSideMenu: Binding<Bool>,
         selectedIndex: Binding<Int>,
         menuItems: [MenuItem],
-        menuConfig: SideMenuCOnfig = SideMenuCOnfig()
+        menuConfig: SideMenuConfig = SideMenuConfig()
     ) {
         self._openSideMenu = openSideMenu
         self._selectedIndex = selectedIndex

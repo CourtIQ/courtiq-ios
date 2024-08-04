@@ -37,7 +37,7 @@ struct AuthenticationWelcomeView: View {
             RDButtonView(.extraLarge, .primary, "Create an account.") {
                 vm.handle(action: .goToSignUp)
             }
-            RDButtonView(.extraLarge, .secondary, "Log in", disable: true) {
+            RDButtonView(.extraLarge, .secondary, "Log in") {
                 vm.handle(action: .goToSignIn)
             }
         }
@@ -55,7 +55,7 @@ struct AuthenticationWelcomeView: View {
 //    AuthenticationWelcomeView(
 //        vm: AuthenticationVM(
 //            authService: AuthService(
-//                provider: FirebaseAuthService()),
+//                provider: FirebaseAuthProvider()),
 //            userService: UserService(),
 //            router: AppRouter()))
 //}

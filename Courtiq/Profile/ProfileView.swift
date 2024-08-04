@@ -38,13 +38,16 @@ struct ProfileView: View {
             )
         } content: {
             RDButtonView(.extraLarge, .primary, "Logout") {
+                print(userService.currentUser?.uid)
                 Task {
                     try await authService.signOut()
                 }
+                print(userService.currentUser?.uid)
             }
             Text("ProfileView")
             Text("\(authService.currentUser?.uid)")
-            Text("\(authService.currentUser?.uid)")
+            Text("\(userService.currentUser?.uid)")
+
             Text("\(String(describing: userService.currentUser?.firstName))")
             Text("\(String(describing: userService.currentUser?.lastName))")
         }

@@ -30,15 +30,15 @@ struct HomeBaseRootView: View {
         
         ZStack {
             HomeBaseTabsView(showSideMenu: $viewModel.showSideMenu, vm: viewModel)
-            SideMenuView(openSideMenu: $viewModel.showSideMenu, selectedIndex: $selectingIndex, menuItems: menuItems, menuConfig: SideMenuCOnfig(menuWidth: sideBarWidth, menuDirection: .left, swipeToClose: true, tapToClose: true, showAppVersion: true, versionText: "Test"))
+            SideMenuView(openSideMenu: $viewModel.showSideMenu, selectedIndex: $selectingIndex, menuItems: menuItems, menuConfig: SideMenuConfig(menuWidth: sideBarWidth, menuDirection: .left, swipeToClose: true, tapToClose: true, showAppVersion: true, versionText: "Test"))
         }
     }
 }
 
 struct HomeRootView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeBaseRootView(authService: AuthService(provider: FirebaseAuthService()), router: AppRouter())
-            .environmentObject(AuthService(provider: FirebaseAuthService()))
+        HomeBaseRootView(authService: AuthService(provider: FirebaseAuthProvider()), router: AppRouter())
+            .environmentObject(AuthService(provider: FirebaseAuthProvider()))
             .environmentObject(AppRouter())
     }
 }

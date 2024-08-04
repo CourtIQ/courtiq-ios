@@ -89,9 +89,3 @@ struct SignUpView: View {
                vm.password == vm.confirmPassword
     }
 }
-
-// MARK: - Preview
-
-//#Preview {
-//    SignUpView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthService()), userService: UserService(), router: AppRouter()))
-//}

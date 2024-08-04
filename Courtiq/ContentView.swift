@@ -54,6 +54,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environmentObject(AuthService(provider: FirebaseAuthService()))
+        .environmentObject(AuthService(provider: FirebaseAuthProvider()))
         .environmentObject(AppRouter())
 }

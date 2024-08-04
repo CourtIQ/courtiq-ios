@@ -57,7 +57,7 @@ class AppRouter: ObservableObject {
                     self.navigationPath.removeLast()
                 }
             case .popToRoot:
-                self.navigationPath = [self.navigationPath.first!]
+                self.navigationPath.removeAll()
             case .setRootView(let view):
                 self.navigationPath = [ViewWrapper(view: view)]
             case .dismiss:
@@ -152,4 +152,3 @@ struct ScreenCoverView: View {
         }
     }
 }
-
