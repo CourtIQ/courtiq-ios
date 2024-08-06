@@ -108,7 +108,7 @@ public class UserService: UserServiceProtocol, ObservableObject {
                         do {
                             let user = try await self.fetchCurrentUser(userID: userID)
                             self.currentUser = user
-                            self.currentUserUIDStorage = userID  // Save the userID to AppStorage
+                            self.currentUserUIDStorage = userID
                             continuation.resume(returning: ())
                         } catch {
                             continuation.resume(throwing: error)

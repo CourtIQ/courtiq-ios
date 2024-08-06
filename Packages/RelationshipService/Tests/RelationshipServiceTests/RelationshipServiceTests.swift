@@ -1,7 +1,7 @@
 import XCTest
-@testable import FriendshipService
+@testable import RelationshipService
 
-final class FriendshipServiceTests: XCTestCase {
+final class RelationshipServiceTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest

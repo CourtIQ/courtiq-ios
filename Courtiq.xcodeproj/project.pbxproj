@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C02692392C62CFBE00B34F42 /* RelationshipService in Frameworks */ = {isa = PBXBuildFile; productRef = C02692382C62CFBE00B34F42 /* RelationshipService */; };
 		C02E71F62C2CA95300830E2B /* HomeBaseRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */; };
 		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
 		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C026923B2C62D01300B34F42 /* RelationshipService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RelationshipService; sourceTree = "<group>"; };
 		C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseRootView.swift; sourceTree = "<group>"; };
 		C0495D7D2C1E430400E6D023 /* AuthenticationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthenticationService; sourceTree = "<group>"; };
 		C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -104,11 +106,10 @@
 		C0889DE92C2C0A770081BF59 /* AdditionalInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoView.swift; sourceTree = "<group>"; };
 		C0904D702C297489008B7B2E /* HomeBaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseVM.swift; sourceTree = "<group>"; };
 		C0AD6C412C373D990088E2B0 /* UserService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UserService; sourceTree = "<group>"; };
-		C0AD6C422C373E080088E2B0 /* DataService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataService; sourceTree = "<group>"; };
 		C0B0C6F02C6055C800D56577 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		C0B0C6F22C6062F800D56577 /* MatchUpVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUpVM.swift; sourceTree = "<group>"; };
-		C0B0C6F82C60734300D56577 /* FriendshipService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = FriendshipService; sourceTree = "<group>"; };
 		C0B0C6F92C61933C00D56577 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		C0B0C6FF2C61A07D00D56577 /* DataService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataService; sourceTree = "<group>"; };
 		C0BA4ED12C5C146600C6F3F6 /* SideMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuConfig.swift; sourceTree = "<group>"; };
 		C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		C0CECA542C3F8625000F2032 /* MatchUpService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MatchUpService; sourceTree = "<group>"; };
@@ -129,6 +130,7 @@
 				C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */,
 				C067FEBF2C5B10B80089C7E9 /* StringEntryService in Frameworks */,
 				C067FEC12C5B10B80089C7E9 /* UserService in Frameworks */,
+				C02692392C62CFBE00B34F42 /* RelationshipService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,13 +266,13 @@
 		C060AF5D2C19752F00D160A5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				C0B0C6F82C60734300D56577 /* FriendshipService */,
-				C067FEB52C5B071C0089C7E9 /* StringEntryService */,
-				C0CECA542C3F8625000F2032 /* MatchUpService */,
-				C0FB31CF2C3CE64C0004D153 /* StorageService */,
 				C0495D7D2C1E430400E6D023 /* AuthenticationService */,
-				C0AD6C422C373E080088E2B0 /* DataService */,
+				C0B0C6FF2C61A07D00D56577 /* DataService */,
+				C0CECA542C3F8625000F2032 /* MatchUpService */,
 				C0495DA12C1E606700E6D023 /* RDDesignSystem */,
+				C026923B2C62D01300B34F42 /* RelationshipService */,
+				C067FEB52C5B071C0089C7E9 /* StringEntryService */,
+				C0FB31CF2C3CE64C0004D153 /* StorageService */,
 				C0AD6C412C373D990088E2B0 /* UserService */,
 			);
 			path = Packages;
@@ -378,6 +380,7 @@
 				C067FEC22C5B11210089C7E9 /* AuthenticationService */,
 				C0BA4ECD2C5B116D00C6F3F6 /* StorageService */,
 				C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */,
+				C02692382C62CFBE00B34F42 /* RelationshipService */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -455,6 +458,8 @@
 				C0495D7E2C1E45A100E6D023 /* XCLocalSwiftPackageReference "Packages/AuthenticationService" */,
 				C0495D9B2C1E5F7F00E6D023 /* XCLocalSwiftPackageReference "Packages/RDDesignSystem" */,
 				C0BA4ECC2C5B116D00C6F3F6 /* XCLocalSwiftPackageReference "Packages/StorageService" */,
+				C0B0C6FC2C61A03300D56577 /* XCLocalSwiftPackageReference "Packages/DataService" */,
+				C02692372C62CFBE00B34F42 /* XCLocalSwiftPackageReference "Packages/RelationshipService" */,
 			);
 			productRefGroup = C060AF2E2C1974D100D160A5 /* Products */;
 			projectDirPath = "";
@@ -898,6 +903,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		C02692372C62CFBE00B34F42 /* XCLocalSwiftPackageReference "Packages/RelationshipService" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/RelationshipService;
+		};
 		C0495D7E2C1E45A100E6D023 /* XCLocalSwiftPackageReference "Packages/AuthenticationService" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/AuthenticationService;
@@ -906,6 +915,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/RDDesignSystem;
 		};
+		C0B0C6FC2C61A03300D56577 /* XCLocalSwiftPackageReference "Packages/DataService" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/DataService;
+		};
 		C0BA4ECC2C5B116D00C6F3F6 /* XCLocalSwiftPackageReference "Packages/StorageService" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/StorageService;
@@ -913,6 +926,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C02692382C62CFBE00B34F42 /* RelationshipService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RelationshipService;
+		};
 		C067FEBC2C5B10B80089C7E9 /* RDDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RDDesignSystem;

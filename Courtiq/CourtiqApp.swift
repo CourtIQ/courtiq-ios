@@ -7,10 +7,12 @@
 
 import AuthenticationService
 import FirebaseCore
+import RDDesignSystem
+import RelationshipService
 import SwiftUI
 import SwiftData
 import UserService
-import RDDesignSystem
+
 
 // MARK: - AppDelegate
 
@@ -37,6 +39,7 @@ struct CourtiqApp: App {
     @StateObject var authService = AuthService(provider: FirebaseAuthProvider())
     @StateObject var router = AppRouter()
     @StateObject var userService = UserService()
+    @StateObject var relationshipService = RelationshipService()
 
     var body: some Scene {
         WindowGroup {
@@ -45,6 +48,7 @@ struct CourtiqApp: App {
                     .environmentObject(authService)
                     .environmentObject(router)
                     .environmentObject(userService)
+                    .environmentObject(relationshipService)
                     .sheet(item: $router.currentSheet) { sheet in
                         sheet.view
                     }

@@ -163,7 +163,7 @@ final class AuthenticationVM: ViewModel {
                     if let imageData = data {
                         let path = "users/\(userID)/profile.jpg"
                         do {
-                            _ = try await storageService.uploadData(imageData, to: path)
+                            user.imageUrl = (try await storageService.uploadData(imageData, to: path)).absoluteString
                         } catch {
                             print("Error uploading image: \(error.localizedDescription)")
                         }
@@ -173,6 +173,7 @@ final class AuthenticationVM: ViewModel {
                 }
             }
 
+            user.uid = userID
             try await userService.updateCurrentUser(userID: userID, data: user)
             await authService.setAdditionalInfoProvided()
             router.handle(action: .stopLoading)

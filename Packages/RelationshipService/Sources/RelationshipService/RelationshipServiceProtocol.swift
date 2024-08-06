@@ -1,5 +1,5 @@
 //
-//  FriendshipServiceProtocol.swift
+//  RelationshipServiceProtocol.swift
 //
 //
 //  Created by Pranav Suri on 2024-08-04.
@@ -8,7 +8,7 @@
 import Foundation
 
 /// Protocol that defines the operations for a friendship service.
-public protocol FriendshipServiceProtocol {
+public protocol RelationshipServiceProtocol: ObservableObject {
 
     /// Sends a friend request from one user to another.
     /// - Parameters:
@@ -20,7 +20,7 @@ public protocol FriendshipServiceProtocol {
     /// - Parameters:
     ///   - currentUserId: The ID of the user accepting the friend request.
     ///   - friendUserId: The ID of the user whose friend request is being accepted.
-    func acceptFriendRequest(currentUserId: String, friendUserId: String) async throws
+    func acceptFriendRequest(request: RelationshipRequest) async throws
     
     /// Fetches the list of friends for a user.
     /// - Parameters:

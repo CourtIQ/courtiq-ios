@@ -41,8 +41,8 @@ public struct Relationship: Codable, Identifiable {
     ///   - relatedUserProfilePicture: The profile picture URL of the related user (optional).
     ///   - createdAt: The timestamp of when the relationship was created (defaults to the current date and time).
     ///   - updatedAt: The timestamp of the last update to the relationship (defaults to the current date and time).
-    public init(id: String, relatedUserID: String, relationshipType: RelationshipType, relatedUserName: String? = nil, relatedUserProfilePicture: URL? = nil, createdAt: Date = Date(), updatedAt: Date = Date()) {
-        self.id = id
+    public init(relatedUserID: String, relationshipType: RelationshipType, relatedUserName: String? = nil, relatedUserProfilePicture: URL? = nil, createdAt: Date = Date(), updatedAt: Date = Date()) {
+        self.id = UUID().uuidString
         self.relatedUserID = relatedUserID
         self.relationshipType = relationshipType
         self.relatedUserName = relatedUserName

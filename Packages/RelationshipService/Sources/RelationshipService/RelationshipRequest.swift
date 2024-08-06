@@ -49,7 +49,7 @@ public struct RelationshipRequest: Codable, Identifiable {
     ///   - receiverProfilePicture: The profile picture URL of the user who received the request (optional).
     ///   - createdAt: The timestamp of when the request was created (defaults to the current date and time).
     public init(senderID: String, receiverID: String, requestType: RelationshipType, senderName: String? = nil, senderProfilePicture: URL? = nil, receiverName: String? = nil, receiverProfilePicture: URL? = nil, createdAt: Date = Date()) {
-        self.id = UUID().uuidString // Generate a unique ID
+        self.id = UUID().uuidString
         self.senderID = senderID
         self.receiverID = receiverID
         self.requestType = requestType

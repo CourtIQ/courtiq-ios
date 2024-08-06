@@ -19,7 +19,7 @@ public struct User: Identifiable, Codable {
     public var nationality: String?
     public var dob: Date?
     public var phoneNumber: String?
-    public var photoURL: String?
+    public var imageUrl: String?
     public var createdAt: Date
     public var lastUpdated: Date?
     
@@ -33,7 +33,7 @@ public struct User: Identifiable, Codable {
                 nationality: String? = nil,
                 dob: Date? = nil,
                 phoneNumber: String? = nil,
-                photoURL: String? = nil,
+                imageUrl: String? = nil,
                 createdAt: Date = Date(),
                 lastUpdated: Date? = nil) {
         self.id = id
@@ -46,7 +46,7 @@ public struct User: Identifiable, Codable {
         self.nationality = nationality
         self.dob = dob
         self.phoneNumber = phoneNumber
-        self.photoURL = photoURL
+        self.imageUrl = imageUrl
         self.createdAt = createdAt
         self.lastUpdated = lastUpdated
     }

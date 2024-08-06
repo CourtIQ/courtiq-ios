@@ -5,10 +5,12 @@
 //  Created by Pranav Suri on 2024-07-08.
 //
 
-import SwiftUI
-import RDDesignSystem
 import AuthenticationService
+import RDDesignSystem
+import RelationshipService
+import SwiftUI
 import UserService
+
 
 // MARK: - ProfileView
 
@@ -18,7 +20,8 @@ struct ProfileView: View {
     @Binding var showSideMenu: Bool
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var userService: UserService
-    
+    @EnvironmentObject var relationshipService: RelationshipService
+
     private var navigationParams: RDTopNavigationParams {
         RDTopNavigationParams(
             type: .primary,
@@ -58,6 +61,12 @@ struct ProfileView: View {
                     RDButtonView(.small, .primary, "Edit Profile") {
                         Task {
                             try await authService.signOut()
+                        }
+                    }
+                    
+                    RDButtonView(.small, .primary, "Send request") {
+                        Task {
+                            try await relationshipService.sendFriendRequest(from: authService.currentUserUID!, to: "vi6VdzZGYuRFV5hDwwSLRT37SLS2")
                         }
                     }
                 }

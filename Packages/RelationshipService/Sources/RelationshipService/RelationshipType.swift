@@ -11,13 +11,13 @@ import Foundation
 
 /// Represents the type of a relationship request.
 ///
-/// The type can either be a friend request or a coach request.
+/// The type can either be a friend or a coach.
 public enum RelationshipType: String, Codable, CustomStringConvertible, CaseIterable {
     
-    /// A friend request.
+    /// A friend relationship.
     case friend = "F"
     
-    /// A coach request.
+    /// A coach relationship.
     case coach = "C"
     
     // MARK: - Description
