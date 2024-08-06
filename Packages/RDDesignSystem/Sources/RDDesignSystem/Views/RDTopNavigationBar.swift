@@ -1,5 +1,5 @@
 //
-//  RDTopNavigationView.swift
+//  RDTopNavigationBar.swift
 //
 //
 //  Created by Pranav Suri on 13/06/2024.
@@ -27,27 +27,33 @@ public enum RDTopNavigationType {
 public struct RDTopNavigationParams {
     var type: RDTopNavigationType
     let title: String
-    var leadingItem: AnyView?
-    var trailingItem: AnyView?
-    var bgColor: Color
+    var leadingItem: (leadingItemType: RDIconButton.IconButtonType, 
+                      leadingItemIcon: Image,
+                      leadingItemAction: (() -> ()))?
+    var trailingItem: (trailingItemType: RDIconButton.IconButtonType, 
+                       trailingItemIcon: Image,                      
+                       trailingItemAction: (() -> ()))?
+    var bgColor: Color = Color.TokenColor.Semantic.Background.default
     
     public init(
         type: RDTopNavigationType = .primary,
         title: String,
-        leadingItem: AnyView? = nil,
-        trailingItem: AnyView? = nil,
-        bgColor: Color = .white
-    ) {
+        leadingItem: (leadingItemType: RDIconButton.IconButtonType, 
+                      leadingItemIcon: Image,
+                      leadingItemAction: (() -> ()))? = nil,
+        trailingItem: (trailingItemType: RDIconButton.IconButtonType,
+                       trailingItemIcon: Image,
+                       trailingItemAction: (() -> ()))? = nil)
+    {
         self.type = type
         self.title = title
         self.leadingItem = leadingItem
         self.trailingItem = trailingItem
-        self.bgColor = bgColor
     }
 }
 
 @available(iOS 15.0, *)
-public struct RDTopNavigationView: View {
+public struct RDTopNavigationBar: View {
     var params: RDTopNavigationParams
     @Binding var searchText: String?
     var onMicPressed: (() -> Void)?
@@ -82,8 +88,10 @@ public struct RDTopNavigationView: View {
                     }
                     
                     if let leadingItem = params.leadingItem {
-                        leadingItem
-                            .padding(.leading, 16) // Add padding to the leading item
+                        RDIconButton(leadingItem.leadingItemType, .small, leadingItem.leadingItemIcon) {
+                            leadingItem.leadingItemAction()
+                        }
+                        .padding(.leading, 16)
                     }
                     
                     if params.type != .primaryWithProfileAvatar {
@@ -91,8 +99,10 @@ public struct RDTopNavigationView: View {
                     }
                     
                     if let trailingItem = params.trailingItem {
-                        trailingItem
-                            .padding(.trailing, 16) // Add padding to the trailing item
+                        RDIconButton(trailingItem.trailingItemType, .small, trailingItem.trailingItemIcon) {
+                            trailingItem.trailingItemAction()
+                        }
+                        .padding(.trailing, 16)
                     }
                 }
                 
@@ -122,7 +132,7 @@ public struct RDTopNavigationView: View {
                     .padding(.horizontal, 16)
             }
         }
-        .background(Color.TokenColor.Semantic.Background.default)
+        .background(params.bgColor)
     }
     
     private var nonOptionalSearchText: Binding<String> {

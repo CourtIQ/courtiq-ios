@@ -12,43 +12,62 @@ import AuthenticationService
 
 struct AddStringView: View {
     @ObservedObject var vm: TennisVM
-    @State private var stringNameState: RDTextFieldUpdatedState = .normal
+    @State private var stringNameState: RDTextFieldUpdated.FieldState = .normal
+    @State private var mainsState: RDNumberInput.FieldState = .standard
+    @State private var crossState: RDNumberInput.FieldState = .standard
+
+    private var navigationParams: RDTopNavigationParams {
+        RDTopNavigationParams(
+            type: .primary,
+            title: "New String Entry",
+            trailingItem: (
+                trailingItemType: .ghost,
+                trailingItemIcon: Image(systemName: "xmark"),
+                trailingItemAction: {
+                    vm.handle(action: .dismissAddString)
+                }
+            )
+        )
+    }
+
     var body: some View {
         MarqueeView {
-            RDTopNavigationView(
-                params: RDTopNavigationParams(
-                    type: .primary,
-                    title: "New String Entry",
-                    trailingItem: AnyView(RDIconButton(
-                        .tertiary, .small, Image(systemName: "xmark"),
-                        action: {
-                            vm.handle(action: .dismissAddString)
-                        })
-                    )
-                )
-            )
+            RDTopNavigationBar(params: navigationParams)
         } content: {
             Image("welcomeImage")
                 .resizable()
                 .padding()
                 .scaledToFit()
 
-            RDTextFieldUpdated(textFieldType: .primary, placeholder: "String name", icon: (leadingIcon: Image(systemName: "number"), trailingIcon: nil), value: $vm.newStringEntry.stringName, state: $stringNameState)
-            RDTextFieldUpdated(textFieldType: .primary, placeholder: "Racket name", icon: (leadingIcon: Image(systemName: "number"), trailingIcon: nil), value: $vm.newStringEntry.stringName, state: $stringNameState)
+            RDTextFieldUpdated(
+                textFieldType: .primary,
+                placeholder: "String name",
+                icon: (leadingIcon: Image(systemName: "number"), trailingIcon: nil),
+                value: $vm.newStringEntry.stringName,
+                state: $stringNameState
+            )
+            
+            HStack( alignment: .top, spacing: 12) {
+                RDNumberInput(
+                    placeholder: "Mains",
+                    helperText: "Must be between 20 & 80",
+                    value: $vm.newStringEntry.stringMainsTension,
+                    range: 20...80,
+                    layout: .horizontal,
+                    state: $mainsState,
+                    fixedWidth: false
+                )
 
-            HStack(spacing: 12)
-            {
-                RDNumberInput(placeholder: "Mains",
-                              value: $vm.newStringEntry.stringMainsTension,
-                              range: 20...80,
-                              layout: .horizontal,
-                              fixedWidth: false)
-
-                RDNumberInput(placeholder: "Cross",
-                              value: $vm.newStringEntry.stringCrossTensions,
-                              range: 20...80,
-                              layout: .horizontal,
-                              fixedWidth: false)
+                RDNumberInput(
+                    placeholder: "Cross",
+                    value: $vm.newStringEntry.stringCrossTensions,
+                    range: 20...80,
+                    layout: .horizontal,
+                    state: $crossState,
+                    fixedWidth: false
+                )
+                
+                
             }
         } footer: {
             RDButtonView(.large, .primary, "Add String Entry") {

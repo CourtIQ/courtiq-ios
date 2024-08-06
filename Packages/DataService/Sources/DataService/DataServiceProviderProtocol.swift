@@ -11,7 +11,7 @@ import Foundation
 public protocol DataServiceProviderProtocol {
     
     /// The collection name used by the provider.
-    var collection: String { get set }
+    var collectionPath: String { get set }
     
     /// Fetches a document from a collection by document ID.
     /// - Parameters:

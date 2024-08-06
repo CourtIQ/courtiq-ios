@@ -11,23 +11,27 @@ import AuthenticationService
 import UserService
 
 struct ForgotPasswordView: View {
+    @ObservedObject var vm: AuthenticationVM
+    @State private var email = ""
+    @State private var emailState = RDTextFieldUpdated.FieldState.normal
+
+    private var navigationParams: RDTopNavigationParams {
+        RDTopNavigationParams(
+            type: .primary,
+            title: "Reset password",
+            trailingItem: (
+                trailingItemType: .tertiary,
+                trailingItemIcon: Image(systemName: "xmark"),
+                trailingItemAction: {
+                    vm.router.handle(action: .dismiss)
+                }
+            )
+        )
+    }
+
     var body: some View {
         MarqueeView {
-            RDTopNavigationView(
-                params: RDTopNavigationParams(
-                    type: .primary,
-                    title: "Reset password",
-                    trailingItem: AnyView(
-                        RDIconButton(
-                        .tertiary,
-                        .small, 
-                        Image(systemName: "xmark"),
-                        action: {
-                            vm.router.handle(action: .dismiss)
-                        }
-                    ))
-                )
-            )
+            RDTopNavigationBar(params: navigationParams)
         } content: {
             Image("forgotPassword")
                 .resizable()
@@ -35,16 +39,19 @@ struct ForgotPasswordView: View {
                 .padding(.vertical, 10)
                 .scaledToFit()
             
-            RDTextFieldUpdated(textFieldType: .primary, placeholder: "Enter email", icon: (leadingIcon: Image(systemName: "envelope"), trailingIcon: nil), value: $email, state: $emailState)
+            RDTextFieldUpdated(
+                textFieldType: .primary,
+                placeholder: "Enter email",
+                icon: (leadingIcon: Image(systemName: "envelope"), trailingIcon: nil),
+                value: $email,
+                state: $emailState
+            )
         } footer: {
             RDButtonView(.large, .primary, "Reset password") {
                 vm.handle(action: .frgtPswdBtn)
             }
         }
     }
-    @State private var email = ""
-    @State private var emailState = RDTextFieldUpdatedState.normal
-    @ObservedObject var vm: AuthenticationVM
 }
 
 //#Preview {

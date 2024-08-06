@@ -16,7 +16,6 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
     // MARK: - Properties
     
     @AppStorage("isUserLoggedIn") private var isUserLoggedInStorage: Bool = false
-    @AppStorage("additionalInfoNeeded") private var additionalInfoNeededStorage: Bool = false
     @AppStorage("currentUserUID") private var currentUserUIDStorage: String?
     
     public private(set) var currentUser: AuthUser?
@@ -34,7 +33,6 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
             self.isUserLoggedInStorage = false
             self.currentUserUIDStorage = nil
         }
-        // Do not reset additionalInfoNeededStorage on fresh start
     }
     
     /// A Boolean value indicating whether a user is logged in.
@@ -58,6 +56,8 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
                 } else if let user = authResult?.user {
                     let firebaseUser = FirebaseUser(uid: user.uid)
                     self.currentUser = firebaseUser
+                    self.isUserLoggedInStorage = true
+                    self.currentUserUIDStorage = self.currentUser?.uid
                     continuation.resume(returning: firebaseUser)
                 } else {
                     continuation.resume(throwing: NSError(domain: "Unknown error", code: -1, userInfo: nil))
@@ -80,6 +80,8 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
                 } else if let user = authResult?.user {
                     let firebaseUser = FirebaseUser(uid: user.uid)
                     self.currentUser = firebaseUser
+                    self.isUserLoggedInStorage = true
+                    self.currentUserUIDStorage = self.currentUser?.uid
                     continuation.resume(returning: firebaseUser)
                 } else {
                     continuation.resume(throwing: NSError(domain: "Unknown error", code: -1, userInfo: nil))
@@ -103,6 +105,8 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
             do {
                 try Auth.auth().signOut()
                 self.currentUser = nil
+                self.isUserLoggedInStorage = false
+                self.currentUserUIDStorage = nil
                 continuation.resume(returning: ())
             } catch let signOutError as NSError {
                 continuation.resume(throwing: signOutError)
@@ -123,6 +127,8 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
                     continuation.resume(throwing: error)
                 } else {
                     self.currentUser = nil
+                    self.isUserLoggedInStorage = false
+                    self.currentUserUIDStorage = nil
                     continuation.resume(returning: ())
                 }
             }

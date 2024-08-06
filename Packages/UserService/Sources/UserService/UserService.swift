@@ -17,7 +17,6 @@ public class UserService: UserServiceProtocol, ObservableObject {
     
     // MARK: - Properties
     
-    @AppStorage("isUserLoggedIn") private var isUserLoggedInStorage: Bool = false
     @AppStorage("currentUserUID") private var currentUserUIDStorage: String? {
         didSet {
             Task {
@@ -33,7 +32,7 @@ public class UserService: UserServiceProtocol, ObservableObject {
     
     /// Initializes the UserService with a specified DataService.
     /// - Parameter dataService: The data service to be used for fetching and updating user data.
-    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "users"))) {
+    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collectionPath: "users"))) {
         self.dataService = dataService
         Task {
             await self.loadCurrentUser()

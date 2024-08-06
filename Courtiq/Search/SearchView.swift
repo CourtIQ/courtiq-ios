@@ -11,34 +11,34 @@ import RDDesignSystem
 struct SearchView: View {
     @Binding var showSideMenu: Bool
     @State var searchText: String? = ""
+
+    private var navigationParams: RDTopNavigationParams {
+        RDTopNavigationParams(
+            type: .primaryWithSearch,
+            title: "Search",
+            leadingItem: (
+                leadingItemType: .tertiary,
+                leadingItemIcon: Image(systemName: "line.horizontal.3"),
+                leadingItemAction: {
+                    showSideMenu.toggle()
+                }
+            ),
+            trailingItem: (
+                trailingItemType: .tertiary,
+                trailingItemIcon: Image("imprint"),
+                trailingItemAction: { return }
+            )
+        )
+    }
+
     var body: some View {
-        
         BaseTabPageView {
-            RDTopNavigationView(
-                params: RDTopNavigationParams(
-                    type: .primaryWithSearch,
-                    title: "Search",
-                    leadingItem: AnyView(
-                        RDIconButton(
-                            .tertiary, .small, Image(systemName: "line.horizontal.3"),
-                            action: {
-                                showSideMenu.toggle()
-                            }
-                        )
-                    ),
-                    trailingItem: AnyView(
-                        RDIconButton(
-                            .tertiary, .small, Image("imprint"),
-                            action: {
-                                print("filter button pressed")
-                            }
-                        )
-                    )
-                ),
-                searchText: $searchText)
+            RDTopNavigationBar(
+                params: navigationParams,
+                searchText: $searchText
+            )
         } content: {
             Text("SearchView")
-
         }
     }
 }

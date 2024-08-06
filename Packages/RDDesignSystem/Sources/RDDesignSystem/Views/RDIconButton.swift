@@ -7,14 +7,89 @@
 
 import SwiftUI
 
-// MARK: - RDIconButtonSize
-@available(iOS 13.0, *)
-public enum RDIconButtonSize {
-    case extraLarge
-    case large
-    case medium
-    case small
+// MARK: - RDIconButton
+
+/// A customizable icon button for different types and sizes.
+@available(iOS 15.0.0, *)
+public struct RDIconButton: View {
+    // MARK: - Properties
     
+    /// The type of the icon button.
+    public enum IconButtonType {
+        case primary
+        case secondary
+        case tertiary
+        case ghost
+    }
+    
+    /// The size of the icon button.
+    public enum IconButtonSize {
+        case extraLarge
+        case large
+        case medium
+        case small
+    }
+    
+    var type: IconButtonType
+    var size: IconButtonSize
+    let icon: Image
+    var disable: Bool
+    var action: (() -> ())?
+    
+    // MARK: - Initializer
+    
+    /// Initializes a new `RDIconButton`.
+    ///
+    /// - Parameters:
+    ///   - type: The type of the icon button.
+    ///   - size: The size of the icon button.
+    ///   - icon: The icon image to display.
+    ///   - disable: A boolean indicating whether the button is disabled.
+    ///   - action: An optional closure to execute when the button is pressed.
+    public init(
+        _ type: IconButtonType = .primary,
+        _ size: IconButtonSize = .extraLarge,
+        _ icon: Image,
+        _ disable: Bool = false,
+        action: (() -> ())? = nil
+    ) {
+        self.type = type
+        self.size = size
+        self.icon = icon
+        self.disable = disable
+        self.action = action
+    }
+    
+    // MARK: - Body
+    
+    public var body: some View {
+        Button {
+            action?()
+        } label: {
+            icon
+                .resizable()
+                .scaledToFit()
+                .frame(width: 20, height: 20)
+                .padding(8)
+                .foregroundColor(disable ? type.disabledIconColor : type.iconColor)
+                .background(disable ? type.disabledBgColor : type.bgColor)
+                .cornerRadius(size.cornerRadius)
+                .overlay {
+                    if type != .ghost {
+                        RoundedRectangle(cornerRadius: size.cornerRadius)
+                            .stroke(type.borderColor)
+                    }
+                }
+        }
+        .frame(width: size.size, height: size.size)
+        .disabled(disable)
+    }
+}
+
+// MARK: - Extensions for IconButtonSize
+
+@available(iOS 13.0, *)
+extension RDIconButton.IconButtonSize {
     var size: CGFloat {
         switch self {
         case .extraLarge:
@@ -29,170 +104,85 @@ public enum RDIconButtonSize {
     }
     
     var cornerRadius: CGFloat {
-        switch self {
-        case .extraLarge, .large:
-            return 12
-        default:
-            return 8
-        }
+        return 8
     }
 }
 
-// MARK: - RDIconButtonType
+// MARK: - Extensions for IconButtonType
+
 @available(iOS 13.0, *)
-public enum RDIconButtonType {
-    case primary
-    case secondary
-    case tertiary
-    
+extension RDIconButton.IconButtonType {
     var iconColor: Color {
         switch self {
         case .primary:
-            return .white
+            return Color.TokenColor.Semantic.Icon.inverted
         case .secondary:
-            return .purple500
+            return Color.TokenColor.Semantic.Icon.primary
         case .tertiary:
-            return .platinum950
+            return Color.TokenColor.Semantic.Icon.default
+        case .ghost:
+            return Color.TokenColor.Semantic.Icon.secondary
         }
     }
     
     var bgColor: Color {
         switch self {
         case .primary:
-            return .purple500
+            return Color.TokenColor.Semantic.Background.primary
         case .secondary:
-            return .purple100
-        case .tertiary:
-            return .platinum50
+            return Color.TokenColor.Semantic.Background.secondary
+        case .tertiary, .ghost:
+            return Color.TokenColor.Semantic.Background.default
         }
     }
     
     var pressedIconColor: Color {
         switch self {
         case .primary:
-            return .white
+            return Color.TokenColor.Semantic.Icon.inverted
         case .secondary:
-            return .purple500
+            return Color.TokenColor.Semantic.Icon.primary
         case .tertiary:
-            return .platinum950
+            return Color.TokenColor.Semantic.Icon.default
+        case .ghost:
+            return Color.TokenColor.Semantic.Icon.secondary
         }
     }
     
     var pressedBgColor: Color {
         switch self {
         case .primary:
-            return .purple700
-        case .secondary:
-            return .purple200
-        case .tertiary:
             return Color.TokenColor.Semantic.Background.primary
+        case .secondary:
+            return Color.TokenColor.Semantic.Background.secondary
+        case .tertiary:
+            return Color.TokenColor.Semantic.Background.default
+        case .ghost:
+            return .clear
         }
     }
     
     var disabledIconColor: Color {
-        switch self {
-        case .primary, .secondary, .tertiary:
-            return .platinum300
-        }
+        return Color.TokenColor.Semantic.Background.disabled
     }
     
     var disabledBgColor: Color {
         switch self {
         case .primary, .secondary:
-            return .platinum100
-        default:
+            return Color.TokenColor.Semantic.Background.disabled
+        case .tertiary, .ghost:
             return .clear
         }
     }
     
     var borderColor: Color {
-        switch self{
-        case .tertiary:
-            return .platinum200
-        default:
+        switch self {
+        case .primary, .ghost:
             return .clear
+        case .secondary:
+            return Color.TokenColor.Semantic.Border.primary
+        case .tertiary:
+            return Color.TokenColor.Semantic.Border.emphasis
         }
-    }
-}
-
-// MARK: - RDIconButtonPressedStyle
-@available(iOS 13.0, *)
-struct RDIconButtonPressedStyle: ButtonStyle {
-    var buttonSize: RDIconButtonSize
-    var buttonType: RDIconButtonType
-    var disable: Bool
-    
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .foregroundColor(disable ? buttonType.disabledIconColor : (configuration.isPressed ? buttonType.pressedIconColor : buttonType.iconColor))
-            .background(disable ? buttonType.disabledBgColor : (configuration.isPressed ? buttonType.pressedBgColor : buttonType.bgColor))
-            .animation(.easeInOut, value: configuration.isPressed)
-    }
-}
-
-// MARK: - RDIconButton
-@available(iOS 15.0.0, *)
-public struct RDIconButton: View {
-    var type: RDIconButtonType
-    var size: RDIconButtonSize
-    let icon: Image
-    var disable: Bool
-    var action: (() -> ())?
-    
-    public init(
-        _ type: RDIconButtonType = .primary,
-        _ size: RDIconButtonSize = .extraLarge,
-        _ icon: Image,
-        _ disable: Bool = false,
-        action: (() -> ())? = nil
-    ) {
-        self.type = type
-        self.size = size
-        self.icon = icon
-        self.disable = disable
-        self.action = action
-    }
-    
-    public var body: some View {
-        Button {
-            action?()
-        } label: {
-            icon
-                .renderingMode(.template)
-                .resizable()
-                .scaledToFit()
-                .frame(width: 20, height: 20)
-                .padding(8)
-        }
-        .buttonStyle(
-            RDIconButtonPressedStyle(
-                buttonSize: size,
-                buttonType: type,
-                disable: disable
-            )
-        )
-        .cornerRadius(size.cornerRadius)
-        .overlay {
-            RoundedRectangle(cornerRadius: size.cornerRadius)
-                .stroke(type.borderColor)
-        }
-        .disabled(disable)
-    }
-}
-
-// Usage Example
-
-@available(iOS 15.0.0, *)
-struct ContentView: View {
-    var body: some View {
-        RDIconButton(
-            .primary,
-            .extraLarge,
-            Image(systemName: "bell.fill"),
-            false,
-            action: {
-                print("Button pressed")
-            }
-        )
     }
 }

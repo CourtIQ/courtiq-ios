@@ -113,19 +113,25 @@ final class AuthenticationVM: ViewModel {
     private var storageService: any StorageServiceProtocol
     
     private func signIn(email: String, password: String) async {
+        router.handle(action: .isLoading)
         do {
             try await authService.signIn(email: email, password: password)
+            router.handle(action: .stopLoading)
             router.handle(action: .popToRoot)
         } catch {
+            router.handle(action: .stopLoading)
             print(error.localizedDescription)
         }
     }
     
     private func signUp(email: String, password: String) async {
+        router.handle(action: .isLoading)
         do {
             let user = try await authService.signUp(email: email, password: password)
             await fetchCurrentUserAndUpdate(userID: user.uid)
+            router.handle(action: .stopLoading)
         } catch {
+            router.handle(action: .stopLoading)
             print(error.localizedDescription)
         }
     }
@@ -136,16 +142,17 @@ final class AuthenticationVM: ViewModel {
             await MainActor.run {
                 self.user = currentUser
             }
-            let view = AnyView(AdditionalInfoView(vm: self))
-            self.router.handle(action: .push(view))
+            self.router.handle(action: .popToRoot)
         } catch {
             print(error.localizedDescription)
         }
     }
     
     private func updateAdditionalInfo() async {
+        router.handle(action: .isLoading)
         guard let userID = await authService.currentUser?.uid else {
             print("No user")
+            router.handle(action: .isLoading)
             return
         }
 
@@ -167,10 +174,9 @@ final class AuthenticationVM: ViewModel {
             }
 
             try await userService.updateCurrentUser(userID: userID, data: user)
+            await authService.setAdditionalInfoProvided()
+            router.handle(action: .stopLoading)
             router.handle(action: .popToRoot)
-            await MainActor.run {
-                authService.toggleLoggedInState()
-            }
         } catch {
             print(error.localizedDescription)
         }

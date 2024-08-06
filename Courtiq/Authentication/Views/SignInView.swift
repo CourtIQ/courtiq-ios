@@ -11,33 +11,37 @@ import SwiftUI
 import UserService
 import StorageService
 
-// MARK: SignInView
+// MARK: - SignInView
 
 struct SignInView: View {
     
-    // MARK: Internal
-    
+    // MARK: - Properties
     init(vm: AuthenticationVM) {
         self.vm = vm
+    }
+
+    @ObservedObject private var vm: AuthenticationVM
+    @EnvironmentObject private var router: AppRouter
+    
+    private var navigationParams: RDTopNavigationParams {
+        RDTopNavigationParams(
+            type: .primary,
+            title: "Sign In",
+            leadingItem: (
+                leadingItemType: .tertiary,
+                leadingItemIcon: Image(systemName: "chevron.left"),
+                leadingItemAction: {
+                    router.handle(action: .pop)
+                }
+            )
+        )
     }
     
     // MARK: - Body
     
     var body: some View {
         MarqueeView {
-            RDTopNavigationView(
-                params: RDTopNavigationParams(
-                    type: .primary,
-                    title: "Sign In",
-                    leadingItem: AnyView(
-                        RDIconButton(.tertiary, .small, Image(systemName: "chevron.left"), action: {
-                            router.handle(action: .pop)
-                        })
-                    ),
-                    bgColor: .white
-                )
-            )
-            .background(Color.TokenColor.Semantic.Background.default)
+            RDTopNavigationBar(params: navigationParams)
         } content: {
             VStack(spacing: 16) {
                 HStack {
@@ -66,7 +70,6 @@ struct SignInView: View {
                         vm.handle(action: .goToFrgtPswd)
                     }
                 }
-                
             }
         } footer: {
             RDButtonView(.small, .ghost, "Create an account.") {
@@ -77,19 +80,13 @@ struct SignInView: View {
                          disable: vm.email.isEmpty || vm.password.isEmpty) {
                 vm.handle(action: .signInBtn)
             }
-            
-            
         }
+        .navigationBarHidden(true)
     }
-    
-    // MARK: - Private
-    
-    @ObservedObject private var vm: AuthenticationVM
-    @EnvironmentObject private var router: AppRouter
 }
 
-// MARK: - Preview
-
-#Preview {
-    SignInView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthProvider()), userService: UserService(), router: AppRouter(), storageService: StorageService()))
-}
+//// MARK: - Preview
+//
+//#Preview {
+//    SignInView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthProvider()), userService: UserService(), router: AppRouter(), storageService: StorageService()))
+//}

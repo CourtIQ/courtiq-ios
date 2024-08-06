@@ -14,11 +14,11 @@ public struct RDNumberInput: View {
     public var placeholder: String
     public var helperText: String?
     @Binding public var value: Int
+    @Binding public var state: FieldState
     @FocusState private var focused: Bool
     
     public var range: ClosedRange<Int>
     public var layout: Layout
-    public var state: State
     public var fixedWidth: Bool = true
     
     // MARK: - Initializer
@@ -29,7 +29,7 @@ public struct RDNumberInput: View {
         value: Binding<Int>,
         range: ClosedRange<Int>,
         layout: Layout = .horizontal,
-        state: State = .standard,
+        state: Binding<FieldState>,
         fixedWidth: Bool = true
     ) {
         self.placeholder = placeholder
@@ -37,101 +37,84 @@ public struct RDNumberInput: View {
         self._value = value
         self.range = range
         self.layout = layout
-        self.state = state
+        self._state = state
         self.fixedWidth = fixedWidth
     }
     
     // MARK: - Body
     
     public var body: some View {
-        
-        Group {
-            VStack{
+        VStack {
+            Group {
                 switch layout {
                 case .verticalLeading:
-                    VStack {
-                        HStack {
-                            getStepper()
-                            numberTextField
-                        }
-                        
-                        if let helperText = helperText {
-                            Text(helperText)
-                                .foregroundColor(.primary)
-                        }
+                    HStack {
+                        getStepper()
+                        numberTextField
                     }
-                    
                 case .verticalTrailing:
-                    VStack {
-                        HStack {
-                            numberTextField
-                            getStepper()
-                        }
-                        if let helperText = helperText {
-                            Text(helperText)
-                                .foregroundColor(.primary)
-                        }
+                    HStack {
+                        numberTextField
+                        getStepper()
                     }
                 case .horizontal:
                     HStack {
                         decrementStepper()
                         numberTextField
-                        if let helperText = helperText {
-                            Text(helperText)
-                                .foregroundColor(.primary)
-                        }
                         incrementStepper()
                     }
                     
                 case .withoutStepper:
-                    VStack {
-                        numberTextField
-                        if let helperText = helperText {
-                            Text(helperText)
-                                .foregroundColor(.primary)
-                        }
-                    }
+                    numberTextField
                 }
+                
+                
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
+            .frame(height: 56)
             .overlay(RoundedRectangle(cornerRadius: 12).stroke(state.borderColor, lineWidth: 1))
             .background(state.bgColor.clipShape(RoundedRectangle(cornerRadius: 12)))
             .frame(maxWidth: fixedWidth ? 150 : .infinity)
+            
+            if let helperText = helperText {
+                HStack {
+                    Text(helperText)
+                        .rdSmallBody()
+                        .foregroundColor(state.placeholderColor)
+                    Spacer()
+                }
+            }
         }
     }
     
     // MARK: - Private Views
     
     private var numberTextField: some View {
-        TextField("", text: Binding(
-            get: { String(value) },
-            set: { newValue in
-                filterInput(newValue)
-            })
-        )
-        .rdBody()
-        .foregroundColor(state.valueColor)
-        .multilineTextAlignment(.center)
-        .rdPlaceholder(when: String(value).isEmpty, alignment: .center) {
-            VStack(spacing: 8) {
-                Text(placeholder)
-                    .rdSmallBody()
-                    .foregroundColor(state.placeholderColor)
-                    .offset(y: String(value).isEmpty ? 0 : -12)
-                    .lineLimit(1)
-                if !String(value).isEmpty {
-                    Spacer()
-                }
+        VStack {
+            Text(placeholder)
+                .rdSmallBodyBold()
+                .foregroundStyle(state.placeholderColor)
+                .offset(y: 4)
+            
+            TextField("", text: Binding(
+                get: { String(value) },
+                set: { newValue in
+                    filterInput(newValue)
+                }))
+            .rdBody()
+            .foregroundColor(state.valueColor)
+            .multilineTextAlignment(.center)
+            .focused($focused)
+            .keyboardType(.numberPad)
+            .disableAutocorrection(true)
+            .onChange(of: focused) { isFocused in
+                state = isFocused ? .focused : .standard
             }
-        }
-        .frame(height: 40)
-        .offset(y: String(value).isEmpty ? 0 : 10)
-        .focused($focused)
-        .keyboardType(.numberPad)
-        .disableAutocorrection(true)
-        .onChange(of: value) { newValue in
-            filterInput(String(newValue))
+            .onChange(of: value) { newValue in
+                filterInput(String(newValue))
+            }
+            .offset(y: -8)
         }
     }
     
@@ -175,6 +158,10 @@ public struct RDNumberInput: View {
         let filtered = input.filter { "0123456789".contains($0) }
         if let number = Int(filtered), range.contains(number) {
             value = number
+        } else if let number = Int(filtered), number < range.lowerBound {
+            value = range.lowerBound
+        } else if let number = Int(filtered), number > range.upperBound {
+            value = range.upperBound
         }
     }
     
@@ -184,35 +171,14 @@ public struct RDNumberInput: View {
         case verticalLeading, verticalTrailing, horizontal, withoutStepper
     }
     
-    public enum State: CaseIterable, Identifiable {
-        public var id: Self { self }
+    public enum FieldState {
         case standard, focused, disabled, error, success
     }
 }
 
-extension View {
-    /**
-     Modify the Textfield.
-     
-     - Returns: `Textfield` with `placeholder`
-     */
-    func rdPlaceholder<Content: View>(
-        when _: Bool,
-        alignment: Alignment = .leading,
-        @ViewBuilder placeholder: () -> Content
-    ) -> some View {
-        ZStack(alignment: alignment) {
-            placeholder()
-                .zIndex(-1)
-                .disabled(true)
-            self
-        }
-    }
-}
+// MARK: - Extensions for RDNumberInput.FieldState
 
-// MARK: - RDNumberInputState
-
-extension RDNumberInput.State {
+extension RDNumberInput.FieldState {
     
     var bgColor: Color {
         switch self {
@@ -241,27 +207,27 @@ extension RDNumberInput.State {
     var valueColor: Color {
         switch self {
         case .standard, .focused, .error, .success:
-            Color.TokenColor.Semantic.Text.primary
+            return Color.TokenColor.Semantic.Text.primary
         case .disabled:
-            Color.TokenColor.Semantic.Text.primary
+            return Color.TokenColor.Semantic.Text.primary
         }
     }
     
     var iconColor: Color {
         switch self {
         case .standard, .focused, .error, .success:
-            Color.TokenColor.Semantic.Text.primary
+            return Color.TokenColor.Semantic.Text.primary
         case .disabled:
-            Color.TokenColor.Semantic.Text.primary
+            return Color.TokenColor.Semantic.Text.primary
         }
     }
     
     var placeholderColor: Color {
         switch self {
         case .standard, .focused, .error, .success:
-            Color.TokenColor.Semantic.Text.secondary
+            return Color.TokenColor.Semantic.Text.secondary
         case .disabled:
-            Color.TokenColor.Semantic.Text.primary
+            return Color.TokenColor.Semantic.Text.primary
         }
     }
 }

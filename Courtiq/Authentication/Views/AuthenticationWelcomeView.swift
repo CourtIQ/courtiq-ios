@@ -19,11 +19,11 @@ struct AuthenticationWelcomeView: View {
     init(vm: AuthenticationVM) {
         self._vm = StateObject(wrappedValue: vm)
     }
-    @State var state = RDTextFieldUpdatedState.normal
+    @State var state = RDTextFieldUpdated.FieldState.normal
 
     var body: some View {
         MarqueeView {
-            RDTopNavigationView(
+            RDTopNavigationBar(
                 params: RDTopNavigationParams(
                     type: .primary,
                     title: "Welcome to CourtIQ"

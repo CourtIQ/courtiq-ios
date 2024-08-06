@@ -40,22 +40,32 @@ struct CourtiqApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(authService)
-                .environmentObject(router)
-                .environmentObject(userService)
-                .sheet(item: $router.currentSheet) { sheet in
-                    sheet.view
+            ZStack {
+                ContentView()
+                    .environmentObject(authService)
+                    .environmentObject(router)
+                    .environmentObject(userService)
+                    .sheet(item: $router.currentSheet) { sheet in
+                        sheet.view
+                    }
+                    .sheet(item: $router.currentHalfSheet) { sheet in
+                        sheet.view
+                            .presentationDetents(Set(arrayLiteral: .medium))
+                    }
+                    .fullScreenCover(item: $router.currentScreenCover) { screen in
+                        ScreenCoverView(viewWrapper: screen)
+                            .environmentObject(router)
+                    }
+                    .background(Color.TokenColor.Semantic.Background.default)
+                    .transition(.opacity)
+                
+                if router.isLoading {
+                    withAnimation {
+                        LoadingView()
+                            .transition(.opacity)
+                    }
                 }
-                .sheet(item: $router.currentHalfSheet) { sheet in
-                    sheet.view
-                        .presentationDetents(Set(arrayLiteral: .medium))
-                }
-                .fullScreenCover(item: $router.currentScreenCover) { screen in
-                    ScreenCoverView(viewWrapper: screen)
-                        .environmentObject(router)
-                }
-                .background(Color.TokenColor.Semantic.Background.default)
+            }
         }
     }
 }

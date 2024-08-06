@@ -62,6 +62,7 @@ public struct RDTabBar: View {
         .padding(.top, 6)
         .border(width: 1, edges: [.top], color: Color.platinum200)
         .frame(height: 64)
+        .background(Color.TokenColor.Semantic.Background.default)
     }
     
     // MARK: - TabItem

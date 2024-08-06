@@ -27,12 +27,12 @@ struct BaseTabPageView<Header: View, Content: View>: View {
                 content
             }
             .padding(.horizontal, horizontalPadding)
-            .padding(.vertical, verticalPadding)
+            .padding(.top, verticalPadding)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 
             Spacer()
         }
-        .background(Color(.systemBackground))
+        .background(Color.TokenColor.Semantic.Background.default)
         .toolbar(.hidden, for: .navigationBar)
     }
 }

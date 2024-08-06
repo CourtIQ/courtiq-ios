@@ -18,7 +18,7 @@ struct AdditionalInfoView: View {
     
     var body: some View {
         MarqueeView {
-            RDTopNavigationView(
+            RDTopNavigationBar(
                 params: RDTopNavigationParams(type: .primary, title: "Additional Information"))
         } content: {
             PhotosPicker(selection: $vm.selectedItem, matching: .images) {

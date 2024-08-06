@@ -10,46 +10,58 @@ import RDDesignSystem
 import AuthenticationService
 import UserService
 
+// MARK: - ProfileView
+
 struct ProfileView: View {
+    // MARK: - Properties
+    
     @Binding var showSideMenu: Bool
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var userService: UserService
-    var body: some View {
-        BaseTabPageView {
-            RDTopNavigationView(
-                params: RDTopNavigationParams(
-                    type: .primary,
-                    title: "Profile",
-                    leadingItem: AnyView(
-                        RDIconButton(
-                            .tertiary, .small, Image(systemName: "line.horizontal.3"),
-                            action: {
-                                showSideMenu.toggle()
-                            }
-                        )
-                    ),
-                    trailingItem: AnyView(
-                        RDIconButton(.tertiary, .small, Image("settings"), action: {
-                            print("Settings Button pressed")
-
-                        })
-                    )
-                )
-            )
-        } content: {
-            RDButtonView(.extraLarge, .primary, "Logout") {
-                print(userService.currentUser?.uid)
-                Task {
-                    try await authService.signOut()
+    
+    private var navigationParams: RDTopNavigationParams {
+        RDTopNavigationParams(
+            type: .primary,
+            title: "Profile",
+            leadingItem: (
+                leadingItemType: .tertiary,
+                leadingItemIcon: Image(systemName: "line.horizontal.3"),
+                leadingItemAction: {
+                    showSideMenu.toggle()
                 }
-                print(userService.currentUser?.uid)
-            }
-            Text("ProfileView")
-            Text("\(authService.currentUser?.uid)")
-            Text("\(userService.currentUser?.uid)")
+            ),
+            trailingItem: (
+                trailingItemType: .tertiary,
+                trailingItemIcon: Image("settings"),
+                trailingItemAction: {
+                    print("Settings Button pressed")
+                }
+            )
+        )
+    }
 
-            Text("\(String(describing: userService.currentUser?.firstName))")
-            Text("\(String(describing: userService.currentUser?.lastName))")
+    // MARK: - Body
+    
+    var body: some View {
+        
+        BaseTabPageView {
+            RDTopNavigationBar(params: navigationParams)
+        } content: {
+            HStack(alignment: .top, spacing: 12) {
+                Image(systemName: "person")
+                VStack(alignment: .leading) {
+                    if let currentUser = userService.currentUser {
+                        Text("\(currentUser.firstName ?? "-") \(currentUser.lastName ?? "-")")
+                            .rdHeadline()
+                    }
+                    
+                    RDButtonView(.small, .primary, "Edit Profile") {
+                        Task {
+                            try await authService.signOut()
+                        }
+                    }
+                }
+            }
         }
     }
 }

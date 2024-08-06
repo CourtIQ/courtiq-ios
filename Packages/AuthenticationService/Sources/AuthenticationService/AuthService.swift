@@ -29,8 +29,6 @@ public class AuthService: AuthServiceProtocol {
     public init(provider: AuthProviderProtocol) {
         self.authProvider = provider
         self.currentUser = provider.currentUser
-        self.isUserLoggedIn = provider.isUserLoggedIn
-        self.currentUserUID = provider.currentUser?.uid
     }
     
     // MARK: - Authentication Methods
@@ -45,9 +43,7 @@ public class AuthService: AuthServiceProtocol {
         let user = try await authProvider.signUp(email: email, password: password)
         await MainActor.run {
             self.currentUser = user
-            self.isUserLoggedIn = true
             self.additionalInfoNeeded = true
-            self.currentUserUID = user.uid
         }
         return user
     }
@@ -62,8 +58,6 @@ public class AuthService: AuthServiceProtocol {
         let user = try await authProvider.signIn(email: email, password: password)
         await MainActor.run {
             self.currentUser = user
-            self.isUserLoggedIn = true
-            self.currentUserUID = user.uid
         }
         return user
     }
@@ -75,8 +69,6 @@ public class AuthService: AuthServiceProtocol {
         let user = try await authProvider.signInWithGoogle()
         await MainActor.run {
             self.currentUser = user
-            self.isUserLoggedIn = true
-            self.currentUserUID = user.uid
         }
         return user
     }
@@ -87,8 +79,6 @@ public class AuthService: AuthServiceProtocol {
         try await authProvider.signOut()
         await MainActor.run {
             self.currentUser = nil
-            self.isUserLoggedIn = false
-            self.currentUserUID = nil
         }
     }
     
@@ -98,8 +88,6 @@ public class AuthService: AuthServiceProtocol {
         try await authProvider.deleteAccount()
         await MainActor.run {
             self.currentUser = nil
-            self.isUserLoggedIn = false
-            self.currentUserUID = nil
         }
     }
     

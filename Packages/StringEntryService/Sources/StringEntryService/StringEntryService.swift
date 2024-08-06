@@ -16,7 +16,7 @@ public class StringEntryService: StringEntryServiceProtocol {
 
     // MARK: - Initializer
     
-    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collection: "stringEntries"))) {
+    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collectionPath: "stringEntries"))) {
         self.dataService = dataService
     }
 
@@ -35,9 +35,19 @@ public class StringEntryService: StringEntryServiceProtocol {
         }
     }
 
-    
+    // MARK: - Delete String by ID
+
     public func deleteString(byID stringID: String) async throws {
-        print(#function)
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
+            dataService.deleteDocument(documentID: stringID) { (result: Result<Void, Error>) in
+                switch result {
+                case .success:
+                    continuation.resume(returning: ())
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
     }
 
     // MARK: - Create String Entry

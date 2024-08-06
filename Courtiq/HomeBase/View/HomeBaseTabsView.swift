@@ -38,6 +38,7 @@ struct HomeBaseTabsView: View {
                 RDTabBar(items: vm.tabBarItems, selectedIndex: $vm.selectedTab)
             }
             .frame(width: getRect().width)
+            .background(Color.TokenColor.Semantic.Background.default)
             
         }
     }

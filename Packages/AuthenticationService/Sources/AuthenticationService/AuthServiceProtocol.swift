@@ -57,4 +57,7 @@ public protocol AuthServiceProtocol: ObservableObject {
     
     /// Toggles the logged-in state of the user.
     func toggleLoggedInState()
+    
+    /// Sets the additionalInfoNeeded state of the user.
+    func setAdditionalInfoProvided()
 }

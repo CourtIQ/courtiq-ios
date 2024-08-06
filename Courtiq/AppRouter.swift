@@ -20,7 +20,10 @@ enum RouterAction {
     case popToRoot
     case setRootView(AnyView)
     case dismiss
+    case isLoading
+    case stopLoading
 }
+
 
 // MARK: - AppRouter
 
@@ -35,6 +38,7 @@ class AppRouter: ObservableObject {
     @Published var halfSheetDetents: [UISheetPresentationController.Detent] = []
     @Published var currentAlert: Alert? = nil
     @Published var currentToast: ViewWrapper? = nil
+    @Published var isLoading: Bool = false
 
     func handle(action: RouterAction) {
         DispatchQueue.main.async {
@@ -62,6 +66,10 @@ class AppRouter: ObservableObject {
                 self.navigationPath = [ViewWrapper(view: view)]
             case .dismiss:
                 self.dismiss()
+            case .isLoading:
+                self.isLoading = true
+            case .stopLoading:
+                self.isLoading = false
             }
         }
     }

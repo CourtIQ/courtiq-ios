@@ -43,7 +43,11 @@ public struct MatchUpFormat: Codable {
     ///   - numberOfSets: The number of sets in the match.
     ///   - setFormat: The format of each set in the match.
     ///   - finalSetFormat: The format of the final set in the match.
-    public init(numberOfSets: NumberOfSets, setFormat: SetFormat, finalSetFormat: SetFormat? = nil) {
+    public init(
+        numberOfSets: NumberOfSets = .one,
+        setFormat: SetFormat = SetFormat(numberOfGames: .six, deuceType: .normalDeuce, mustWinByTwo: true),
+        finalSetFormat: SetFormat? = nil)
+    {
         self.numberOfSets = numberOfSets
         self.setFormat = setFormat
         self.finalSetFormat = finalSetFormat

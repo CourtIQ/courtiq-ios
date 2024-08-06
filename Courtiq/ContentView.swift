@@ -14,27 +14,53 @@ import StorageService
 
 struct ContentView: View {
     // MARK: Internal
+    @AppStorage("isUserLoggedIn") public var isUserLoggedIn: Bool = false
+    @AppStorage("additionalInfoNeeded") public var additionalInfoNeeded: Bool = false
+    @AppStorage("currentUserUID") public var currentUserUID: String?
     
     var body: some View {
         Group {
             NavigationStack(path: $router.navigationPath) {
-                if authService.isUserLoggedIn {
-                    HomeBaseRootView(authService: authService, 
+                if authService.isUserLoggedIn && !authService.additionalInfoNeeded {
+                    HomeBaseRootView(authService: authService,
                                      router: router)
-                        .navigationDestination(for: ViewWrapper.self) { view in
-                            view.view
-                        }
+                    .navigationDestination(for: ViewWrapper.self) { view in
+                        view.view
+                    }
+                    .onAppear {
+                        print("User is logged in: \(authService.isUserLoggedIn)")
+                        print("Additional info needed: \(authService.additionalInfoNeeded)")
+                        print("Current user UID: \(authService.currentUserUID)")
+                    }
                     
-                } else {
-                    AuthenticationWelcomeView(vm: AuthenticationVM(authService: authService, 
+                } else if authService.isUserLoggedIn && authService.additionalInfoNeeded {
+                    AdditionalInfoView(vm: AuthenticationVM(authService: authService,
+                                                            userService: userService,
+                                                            router: router,
+                                                            storageService: StorageService()))
+                    .navigationDestination(for: ViewWrapper.self) { view in
+                        view.view
+                    }
+                    .onAppear {
+                        print("User is logged in: \(authService.isUserLoggedIn)")
+                        print("Additional info needed: \(authService.additionalInfoNeeded)")
+                        print("Current user UID: \(authService.currentUserUID)")
+                    }
+                }
+                else {
+                    AuthenticationWelcomeView(vm: AuthenticationVM(authService: authService,
                                                                    userService: userService,
                                                                    router: router,
                                                                    storageService: StorageService()))
-                        .navigationDestination(for: ViewWrapper.self) { view in
-                            view.view
-                        }
-                        .background(Color.TokenColor.Semantic.Background.default)
-
+                    .navigationDestination(for: ViewWrapper.self) { view in
+                        view.view
+                    }
+                    .background(Color.TokenColor.Semantic.Background.default)
+                    .onAppear {
+                        print("User is logged in: \(authService.isUserLoggedIn)")
+                        print("Additional info needed: \(authService.additionalInfoNeeded)")
+                        print("Current user UID: \(authService.currentUserUID)")
+                    }
                 }
                 
             }

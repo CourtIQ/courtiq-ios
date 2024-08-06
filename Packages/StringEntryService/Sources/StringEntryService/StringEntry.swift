@@ -22,8 +22,8 @@ public struct StringEntry: Codable {
         userID: String = "",
         stringName: String = "",
         stringingDate: Date = Date(),
-        stringMainsTension: Int = 0,
-        stringCrossTensions: Int = 0,
+        stringMainsTension: Int = 50,
+        stringCrossTensions: Int = 50,
         lastUpdated: Date = Date(),
         entryDate: Date = Date()
     ) {
