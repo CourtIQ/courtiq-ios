@@ -8,11 +8,11 @@
 import Foundation
 
 protocol Validator {
-    func validate(input: String) -> (RDTextFieldStatus, String?)
+    func validate(input: String) -> (RDTextField.RDTextFieldState, String?)
 }
 
 struct EmailValidator: Validator {
-    func validate(input: String) -> (RDTextFieldStatus, String?) {
+    func validate(input: String) -> (RDTextField.RDTextFieldState, String?) {
         let emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}$"
         let emailPredicate = NSPredicate(format: "SELF MATCHES[c] %@", emailRegex)
         if emailPredicate.evaluate(with: input) {
@@ -24,7 +24,7 @@ struct EmailValidator: Validator {
 }
 
 struct PasswordValidator: Validator {
-    func validate(input: String) -> (RDTextFieldStatus, String?) {
+    func validate(input: String) -> (RDTextField.RDTextFieldState, String?) {
         if input.count >= 8 {
             return (.success, nil)
         } else {
@@ -34,7 +34,7 @@ struct PasswordValidator: Validator {
 }
 
 struct NumbersOnlyValidator: Validator {
-    func validate(input: String) -> (RDTextFieldStatus, String?) {
+    func validate(input: String) -> (RDTextField.RDTextFieldState, String?) {
         if input.allSatisfy({ $0.isNumber }) {
             return (.success, nil)
         } else {

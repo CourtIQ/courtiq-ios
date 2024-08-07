@@ -22,7 +22,10 @@ struct SignInView: View {
 
     @ObservedObject private var vm: AuthenticationVM
     @EnvironmentObject private var router: AppRouter
-    
+    @State private var emailState = RDTextField.RDTextFieldState.normal
+    @State private var passwordState = RDTextField.RDTextFieldState.normal
+    @State private var repeatPasswordState = RDTextField.RDTextFieldState.normal
+
     private var navigationParams: RDTopNavigationParams {
         RDTopNavigationParams(
             type: .primary,
@@ -44,27 +47,23 @@ struct SignInView: View {
             RDTopNavigationBar(params: navigationParams)
         } content: {
             VStack(spacing: 16) {
-                HStack {
-                    Text("Hello tester")
-                        .font(Font.custom("NunitoSans-12ptExtraLight_Regular", size: 12))
-                    Text("Hello tester")
-                        .font(.system(size: 12))
-                        .rdTitle1()
-                }
                 
                 Image("loginImage")
                     .scaledToFit()
                     .padding(.vertical, 20)
-                RDTextField(
-                    params: RDTextFieldParams(type: .primary, placeholder: "Enter email"),
-                    text: $vm.email,
-                    validationType: .email
-                )
-                RDTextField(
-                    params: RDTextFieldParams(type: .password, placeholder: "Enter password"),
-                    text: $vm.password,
-                    validationType: .password
-                )
+                
+                RDTextField(textFieldType: .primary,
+                            placeholder: "Enter email",
+                            icon: (leadingIcon: Image.Token.Icons.envelope, trailingIcon: nil),
+                            value: $vm.email,
+                            state: $emailState)
+                
+                RDTextField(textFieldType: .password,
+                            placeholder: "Enter password",
+                            icon: (leadingIcon: Image.Token.Icons.locked, trailingIcon: nil),
+                            value: $vm.password,
+                            state: $passwordState)
+                
                 HStack {
                     RDButtonView(.small, .ghost, "Forgot password?") {
                         vm.handle(action: .goToFrgtPswd)
@@ -84,9 +83,3 @@ struct SignInView: View {
         .navigationBarHidden(true)
     }
 }
-
-//// MARK: - Preview
-//
-//#Preview {
-//    SignInView(vm: AuthenticationVM(authService: AuthService(provider: FirebaseAuthProvider()), userService: UserService(), router: AppRouter(), storageService: StorageService()))
-//}

@@ -13,7 +13,7 @@ import UserService
 struct ForgotPasswordView: View {
     @ObservedObject var vm: AuthenticationVM
     @State private var email = ""
-    @State private var emailState = RDTextFieldUpdated.FieldState.normal
+    @State private var emailState = RDTextField.RDTextFieldState.normal
 
     private var navigationParams: RDTopNavigationParams {
         RDTopNavigationParams(
@@ -39,7 +39,7 @@ struct ForgotPasswordView: View {
                 .padding(.vertical, 10)
                 .scaledToFit()
             
-            RDTextFieldUpdated(
+            RDTextField(
                 textFieldType: .primary,
                 placeholder: "Enter email",
                 icon: (leadingIcon: Image(systemName: "envelope"), trailingIcon: nil),

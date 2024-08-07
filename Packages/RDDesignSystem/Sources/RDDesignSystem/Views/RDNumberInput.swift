@@ -225,9 +225,9 @@ extension RDNumberInput.FieldState {
     var placeholderColor: Color {
         switch self {
         case .standard, .focused, .error, .success:
-            return Color.TokenColor.Semantic.Text.secondary
-        case .disabled:
             return Color.TokenColor.Semantic.Text.primary
+        case .disabled:
+            return Color.TokenColor.Semantic.Text.default
         }
     }
 }

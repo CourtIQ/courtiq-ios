@@ -143,17 +143,6 @@ public struct RDTopNavigationBar: View {
     }
     
     func SearchField() -> some View {
-        RDTextField(
-            params: RDTextFieldParams(
-                type: .search,
-                placeholder: "Search",
-                height: 40,
-                isBorderExists: false
-            ),
-            text: nonOptionalSearchText,
-            status: .constant(.none),
-            errorString: .constant(""),
-            onTrailingIconPressed: onMicPressed
-        )
+        Text("search field should go here")
     }
 }

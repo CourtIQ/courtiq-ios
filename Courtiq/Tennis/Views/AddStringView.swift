@@ -12,7 +12,7 @@ import AuthenticationService
 
 struct AddStringView: View {
     @ObservedObject var vm: TennisVM
-    @State private var stringNameState: RDTextFieldUpdated.FieldState = .normal
+    @State private var stringNameState: RDTextField.RDTextFieldState = .normal
     @State private var mainsState: RDNumberInput.FieldState = .standard
     @State private var crossState: RDNumberInput.FieldState = .standard
 
@@ -22,7 +22,7 @@ struct AddStringView: View {
             title: "New String Entry",
             trailingItem: (
                 trailingItemType: .ghost,
-                trailingItemIcon: Image(systemName: "xmark"),
+                trailingItemIcon: Image.Token.Icons.close,
                 trailingItemAction: {
                     vm.handle(action: .dismissAddString)
                 }
@@ -39,7 +39,7 @@ struct AddStringView: View {
                 .padding()
                 .scaledToFit()
 
-            RDTextFieldUpdated(
+            RDTextField(
                 textFieldType: .primary,
                 placeholder: "String name",
                 icon: (leadingIcon: Image(systemName: "number"), trailingIcon: nil),

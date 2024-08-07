@@ -16,16 +16,14 @@ struct SignUpView: View {
     
     // MARK: - Properties
     
-    @State private var emailStatus: RDTextFieldStatus = .none
-    @State private var passwordStatus: RDTextFieldStatus = .none
-    @State private var confirmPasswordStatus: RDTextFieldStatus = .none
+    @State private var emailStatus: RDTextField.RDTextFieldState = .normal
+    @State private var passwordStatus: RDTextField.RDTextFieldState = .normal
+    @State private var confirmPasswordStatus: RDTextField.RDTextFieldState = .normal
     @ObservedObject private var vm: AuthenticationVM
     
     private var isFormValid: Bool {
-        return emailStatus == .success &&
-               passwordStatus == .success &&
-               confirmPasswordStatus == .success &&
-               vm.password == vm.confirmPassword
+        return true
+        // TODO: Fix the validator for the text field
     }
 
     private var navigationParams: RDTopNavigationParams {
@@ -61,26 +59,23 @@ struct SignUpView: View {
                     .scaledToFit()
                     .padding(.vertical, 20)
                 
-                RDTextField(
-                    params: RDTextFieldParams(type: .primary, placeholder: "Enter email"),
-                    text: $vm.email,
-                    status: $emailStatus,
-                    validationType: .email
-                )
+                RDTextField(textFieldType: .primary,
+                            placeholder: "Enter email",
+                            icon: (leadingIcon: Image.Token.Icons.envelope, trailingIcon: nil),
+                            value: $vm.email,
+                            state: $emailStatus)
                 
-                RDTextField(
-                    params: RDTextFieldParams(type: .password, placeholder: "Enter password"),
-                    text: $vm.password,
-                    status: $passwordStatus,
-                    validationType: .password
-                )
+                RDTextField(textFieldType: .password,
+                            placeholder: "Enter password",
+                            icon: (leadingIcon: Image.Token.Icons.locked, trailingIcon: nil),
+                            value: $vm.password,
+                            state: $passwordStatus)
                 
-                RDTextField(
-                    params: RDTextFieldParams(type: .password, placeholder: "Confirm password"),
-                    text: $vm.confirmPassword,
-                    status: $confirmPasswordStatus,
-                    validationType: .password
-                )
+                RDTextField(textFieldType: .password,
+                            placeholder: "Repeat password",
+                            icon: (leadingIcon: Image.Token.Icons.envelope, trailingIcon: nil),
+                            value: $vm.confirmPassword,
+                            state: $confirmPasswordStatus)
             }
         } footer: {
             VStack {

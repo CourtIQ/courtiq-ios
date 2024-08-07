@@ -69,7 +69,7 @@ public struct RDIconButton: View {
             icon
                 .resizable()
                 .scaledToFit()
-                .frame(width: 20, height: 20)
+                .frame(width: 24, height: 24)
                 .padding(8)
                 .foregroundColor(disable ? type.disabledIconColor : type.iconColor)
                 .background(disable ? type.disabledBgColor : type.bgColor)

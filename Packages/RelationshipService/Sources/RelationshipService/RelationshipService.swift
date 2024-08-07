@@ -67,14 +67,13 @@ public class RelationshipService: RelationshipServiceProtocol {
             throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
         }
 
-        // Create the friend request object
         let request = RelationshipRequest(senderID: from,
                                           receiverID: to,
                                           requestType: .friend,
                                           createdAt: Date())
+
         // TODO: Fix the id of the document
 
-        // Use a continuation to convert the completion handler-based API to async/await
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             let senderCollectionPath = "users/\(from)/\(relationRequestsCollection)"
             let receiverCollectionPath = "users/\(to)/\(relationRequestsCollection)"

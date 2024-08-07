@@ -15,7 +15,9 @@ struct AdditionalInfoView: View {
     @State private var gender = 0
     @State private var location = CLLocation()
     @ObservedObject var vm: AuthenticationVM
-    
+    @State private var firstNameState = RDTextField.RDTextFieldState.normal
+    @State private var lastNameState = RDTextField.RDTextFieldState.normal
+
     var body: some View {
         MarqueeView {
             RDTopNavigationBar(
@@ -54,25 +56,21 @@ struct AdditionalInfoView: View {
             })
             .padding()
             
-            RDTextField(
-                params: RDTextFieldParams(
-                    type: .primary,
-                    placeholder: "First name"),
-                text: Binding(
-                    get: { vm.user.firstName ?? "" },
-                    set: { vm.user.firstName = $0.isEmpty ? nil : $0 }
-                )
-            )
+            RDTextField(textFieldType: .primary,
+                        placeholder: "First name",
+                        icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
+                        value: Binding(
+                            get: { vm.user.firstName ?? "" },
+                            set: { vm.user.firstName = $0.isEmpty ? nil : $0 }),
+                        state: $firstNameState)
             
-            RDTextField(
-                params: RDTextFieldParams(
-                    type: .primary,
-                    placeholder: "Last name"),
-                text: Binding(
-                    get: { vm.user.lastName ?? "" },
-                    set: { vm.user.lastName = $0.isEmpty ? nil : $0 }
-                )
-            )
+            RDTextField(textFieldType: .primary,
+                        placeholder: "Last name",
+                        icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
+                        value: Binding(
+                            get: { vm.user.lastName ?? "" },
+                            set: { vm.user.lastName = $0.isEmpty ? nil : $0 }),
+                        state: $lastNameState)
         } footer: {
             RDButtonView(.large, .primary, "Create account") {
                 vm.handle(action: .updateAddInfoBtn)

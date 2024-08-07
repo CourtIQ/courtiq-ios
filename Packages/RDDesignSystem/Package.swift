@@ -16,7 +16,10 @@ let package = Package(
         .target(
             name: "RDDesignSystem",
             dependencies: [],
-            path: "Sources"
+            path: "Sources",
+            resources: [
+                .process("Resources")
+            ]
         ),
         .testTarget(
             name: "RDDesignSystemTests",
