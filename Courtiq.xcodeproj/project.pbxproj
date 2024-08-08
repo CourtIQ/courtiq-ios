@@ -47,6 +47,9 @@
 		C0BA4ED22C5C146600C6F3F6 /* SideMenuConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ED12C5C146600C6F3F6 /* SideMenuConfig.swift */; };
 		C0BA4ED42C5C146C00C6F3F6 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */; };
 		C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */ = {isa = PBXBuildFile; productRef = C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */; };
+		C0DA7F1B2C633EB4005966C1 /* ProfileCardPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA7F1A2C633EB4005966C1 /* ProfileCardPictureView.swift */; };
+		C0DA7F1D2C633F18005966C1 /* ProfileCardActionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA7F1C2C633F18005966C1 /* ProfileCardActionItemView.swift */; };
+		C0DA7F202C640CE5005966C1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA7F1F2C640CE5005966C1 /* SettingsView.swift */; };
 		C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */; };
 		C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BD32C29525200930364 /* AuthenticationVM.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +116,9 @@
 		C0BA4ED12C5C146600C6F3F6 /* SideMenuConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuConfig.swift; sourceTree = "<group>"; };
 		C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		C0CECA542C3F8625000F2032 /* MatchUpService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MatchUpService; sourceTree = "<group>"; };
+		C0DA7F1A2C633EB4005966C1 /* ProfileCardPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardPictureView.swift; sourceTree = "<group>"; };
+		C0DA7F1C2C633F18005966C1 /* ProfileCardActionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardActionItemView.swift; sourceTree = "<group>"; };
+		C0DA7F1F2C640CE5005966C1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWelcomeView.swift; sourceTree = "<group>"; };
 		C0F58BD32C29525200930364 /* AuthenticationVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationVM.swift; sourceTree = "<group>"; };
@@ -220,13 +226,14 @@
 				C0889DDC2C2BA5700081BF59 /* AppRouter.swift */,
 				C060AF322C1974D100D160A5 /* ContentView.swift */,
 				C060AF302C1974D100D160A5 /* CourtiqApp.swift */,
-				C04935EB2C41C217002E68B5 /* MatchUp */,
-				C062D2C22C3BEB4200ABF5A8 /* Tennis */,
-				C062D2C12C3BEB3A00ABF5A8 /* Profile */,
-				C062D2C02C3BEB3300ABF5A8 /* Search */,
-				C062D2BF2C3BEB2C00ABF5A8 /* Home */,
 				C0495D892C1E544E00E6D023 /* Authentication */,
+				C062D2BF2C3BEB2C00ABF5A8 /* Home */,
 				C0495D8A2C1E545700E6D023 /* HomeBase */,
+				C04935EB2C41C217002E68B5 /* MatchUp */,
+				C062D2C12C3BEB3A00ABF5A8 /* Profile */,
+				C0DA7F1E2C640CC1005966C1 /* Settings */,
+				C062D2C02C3BEB3300ABF5A8 /* Search */,
+				C062D2C22C3BEB4200ABF5A8 /* Tennis */,
 				C0889DDE2C2BEC930081BF59 /* Utils */,
 				C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */,
 				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
@@ -299,6 +306,8 @@
 			children = (
 				C062D2C32C3BEB9400ABF5A8 /* ProfileView.swift */,
 				C0B0C6F02C6055C800D56577 /* ProfileVM.swift */,
+				C0DA7F1A2C633EB4005966C1 /* ProfileCardPictureView.swift */,
+				C0DA7F1C2C633F18005966C1 /* ProfileCardActionItemView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -340,6 +349,14 @@
 				C0B0C6F92C61933C00D56577 /* LoadingView.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		C0DA7F1E2C640CC1005966C1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C0DA7F1F2C640CE5005966C1 /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		C0F4A4FD2C1E8119006B204C /* Frameworks */ = {
@@ -508,6 +525,7 @@
 				C0889DE22C2BFA4D0081BF59 /* Extensions.swift in Sources */,
 				C067FEAB2C5AEE3F0089C7E9 /* TennisVM.swift in Sources */,
 				C062D2C62C3BEB9B00ABF5A8 /* TennisView.swift in Sources */,
+				C0DA7F1B2C633EB4005966C1 /* ProfileCardPictureView.swift in Sources */,
 				C0495D932C1E54D100E6D023 /* ForgotPasswordView.swift in Sources */,
 				C07A2DBC2C297FE0006DDF6F /* HomeBaseTabsView.swift in Sources */,
 				C0B0C6FA2C61933C00D56577 /* LoadingView.swift in Sources */,
@@ -519,6 +537,7 @@
 				C0BA4ED42C5C146C00C6F3F6 /* SideMenuView.swift in Sources */,
 				C02E71F62C2CA95300830E2B /* HomeBaseRootView.swift in Sources */,
 				C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */,
+				C0DA7F1D2C633F18005966C1 /* ProfileCardActionItemView.swift in Sources */,
 				C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */,
 				C07A2DBD2C297FE0006DDF6F /* SearchView.swift in Sources */,
 				C062D2CA2C3BEFBC00ABF5A8 /* BaseTabPageView.swift in Sources */,
@@ -532,6 +551,7 @@
 				C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */,
 				C067FEB32C5B001E0089C7E9 /* AddMatchFormView.swift in Sources */,
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
+				C0DA7F202C640CE5005966C1 /* SettingsView.swift in Sources */,
 				C0495D9A2C1E5C3A00E6D023 /* MarqueeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

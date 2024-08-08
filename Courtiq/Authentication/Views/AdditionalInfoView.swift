@@ -20,8 +20,7 @@ struct AdditionalInfoView: View {
 
     var body: some View {
         MarqueeView {
-            RDTopNavigationBar(
-                params: RDTopNavigationParams(type: .primary, title: "Additional Information"))
+            RDNavigationBar(.primary, title: "Additional Information")
         } content: {
             PhotosPicker(selection: $vm.selectedItem, matching: .images) {
                 if let image = vm.selectedImage {

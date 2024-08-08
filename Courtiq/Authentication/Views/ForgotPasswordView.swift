@@ -15,23 +15,14 @@ struct ForgotPasswordView: View {
     @State private var email = ""
     @State private var emailState = RDTextField.RDTextFieldState.normal
 
-    private var navigationParams: RDTopNavigationParams {
-        RDTopNavigationParams(
-            type: .primary,
-            title: "Reset password",
-            trailingItem: (
-                trailingItemType: .tertiary,
-                trailingItemIcon: Image(systemName: "xmark"),
-                trailingItemAction: {
-                    vm.router.handle(action: .dismiss)
-                }
-            )
-        )
-    }
-
     var body: some View {
         MarqueeView {
-            RDTopNavigationBar(params: navigationParams)
+            RDNavigationBar(.primary, title: "Reset password", leading: {}, trailing: {
+                Image.Token.Icons.close
+                    .rdActionIcon {
+                        vm.router.handle(action: .dismiss)
+                    }
+            })
         } content: {
             Image("forgotPassword")
                 .resizable()

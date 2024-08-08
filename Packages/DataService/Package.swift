@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "DataService",
+    platforms: [
+        .iOS(.v12)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -14,6 +17,7 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "10.26.0"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.1.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.

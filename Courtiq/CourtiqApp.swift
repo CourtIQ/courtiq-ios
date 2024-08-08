@@ -20,13 +20,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
+        
         FirebaseApp.configure()
-        for family in UIFont.familyNames {
-             print(family)
-             for names in UIFont.fontNames(forFamilyName: family){
-             print("== \(names)")
-             }
-        }
+        
         return true
     }
 }

@@ -5,6 +5,7 @@ import Foundation
 /// Represents a relationship between two users.
 ///
 /// The relationship includes information about the related user's ID, the type of relationship, and timestamps for creation and updates.
+@available(iOS 14.0, *)
 public struct Relationship: Codable, Identifiable {
     
     // MARK: - Properties

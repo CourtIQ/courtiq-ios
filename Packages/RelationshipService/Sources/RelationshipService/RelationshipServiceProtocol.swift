@@ -8,6 +8,7 @@
 import Foundation
 
 /// Protocol that defines the operations for a friendship service.
+@available(iOS 14.0, *)
 public protocol RelationshipServiceProtocol: ObservableObject {
 
     /// Sends a friend request from one user to another.

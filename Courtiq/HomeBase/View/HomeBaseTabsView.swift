@@ -15,7 +15,8 @@ struct HomeBaseTabsView: View {
     @Binding var showSideMenu: Bool
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var appRouter: AppRouter
-    
+    @EnvironmentObject var userService: UserService
+
     @ObservedObject var vm: HomeBaseVM
     var body: some View {
         Group {
@@ -30,7 +31,10 @@ struct HomeBaseTabsView: View {
                                vm: TennisVM(router: appRouter, 
                                             authService: authService))
                 case 3:
-                    ProfileView(showSideMenu: $vm.showSideMenu)
+                    ProfileView(showSideMenu: $vm.showSideMenu,
+                                userService: userService, 
+                                authService: authService,
+                                router: appRouter)
                 default:
                     EmptyView()
                 }

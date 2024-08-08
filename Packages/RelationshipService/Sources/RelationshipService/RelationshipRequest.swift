@@ -5,6 +5,7 @@ import Foundation
 /// Represents a relationship request between two users.
 ///
 /// The request includes information about the sender, receiver, type of request, and creation timestamp.
+@available(iOS 14.0, *)
 public struct RelationshipRequest: Codable, Identifiable {
     
     // MARK: - Properties

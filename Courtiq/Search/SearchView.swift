@@ -12,31 +12,9 @@ struct SearchView: View {
     @Binding var showSideMenu: Bool
     @State var searchText: String? = ""
 
-    private var navigationParams: RDTopNavigationParams {
-        RDTopNavigationParams(
-            type: .primaryWithSearch,
-            title: "Search",
-            leadingItem: (
-                leadingItemType: .tertiary,
-                leadingItemIcon: Image(systemName: "line.horizontal.3"),
-                leadingItemAction: {
-                    showSideMenu.toggle()
-                }
-            ),
-            trailingItem: (
-                trailingItemType: .tertiary,
-                trailingItemIcon: Image("imprint"),
-                trailingItemAction: { return }
-            )
-        )
-    }
-
     var body: some View {
         BaseTabPageView {
-            RDTopNavigationBar(
-                params: navigationParams,
-                searchText: $searchText
-            )
+            RDNavigationBar(.primary, title: "Search")
         } content: {
             Text("SearchView")
         }

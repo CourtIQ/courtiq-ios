@@ -4,7 +4,7 @@ import PackageDescription
 let package = Package(
     name: "RelationshipService",
     platforms: [
-        .macOS(.v10_15), .iOS(.v13)
+        .iOS(.v13)
     ],
     products: [
         .library(
@@ -12,7 +12,7 @@ let package = Package(
             targets: ["RelationshipService"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.1.0"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0"),
         .package(path: "../DataService")
     ],
     targets: [

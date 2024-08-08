@@ -5,41 +5,21 @@ struct TennisView: View {
     @Binding var showSideMenu: Bool
     @EnvironmentObject var router: AppRouter
     @StateObject var vm: TennisVM
-    @State private var isMenuPresented: Bool = false // State for managing menu visibility
-
-    private var navigationParams: RDTopNavigationParams {
-        RDTopNavigationParams(
-            type: .primary,
-            title: "Tennis",
-            leadingItem: (
-                leadingItemType: .tertiary,
-                leadingItemIcon: Image(systemName: "line.horizontal.3"),
-                leadingItemAction: {
-                    showSideMenu.toggle() // Toggle side menu
-                }
-            ),
-            trailingItem: (
-                trailingItemType: .tertiary,
-                trailingItemIcon: Image("play"),
-                trailingItemAction: {
-                    isMenuPresented.toggle() // Toggle menu visibility
-                }
-            )
-        )
-    }
 
     var body: some View {
         BaseTabPageView {
-            RDTopNavigationBar(
-                params: navigationParams
-            )
-            .environmentObject(router)
-            .overlay(
-                // Conditionally present the menu overlay
-                MenuView()
-                    .opacity(isMenuPresented ? 1 : 0)
-                    .animation(.easeInOut, value: isMenuPresented)
-            )
+            RDNavigationBar(.primary, title: "Tennis", leading: {
+                Image.Token.Icons.menu
+                    .rdActionIcon {
+                        showSideMenu.toggle()
+                    }
+            }, trailing: {
+                Image.Token.Icons.add
+                    .rdActionIcon {
+                        vm.handle(action: .showAddMatch)
+                    }
+            })
+
         } content: {
             Text("TennisView")
         }

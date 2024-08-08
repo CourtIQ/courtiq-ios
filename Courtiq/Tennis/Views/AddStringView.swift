@@ -16,23 +16,14 @@ struct AddStringView: View {
     @State private var mainsState: RDNumberInput.FieldState = .standard
     @State private var crossState: RDNumberInput.FieldState = .standard
 
-    private var navigationParams: RDTopNavigationParams {
-        RDTopNavigationParams(
-            type: .primary,
-            title: "New String Entry",
-            trailingItem: (
-                trailingItemType: .ghost,
-                trailingItemIcon: Image.Token.Icons.close,
-                trailingItemAction: {
-                    vm.handle(action: .dismissAddString)
-                }
-            )
-        )
-    }
-
     var body: some View {
         MarqueeView {
-            RDTopNavigationBar(params: navigationParams)
+            RDNavigationBar(.primary, title: "Add new string entry", leading: {}, trailing: {
+                Image.Token.Icons.close
+                    .rdActionIcon {
+                        vm.handle(action: .dismissAddString)
+                    }
+            })
         } content: {
             Image("welcomeImage")
                 .resizable()
@@ -66,8 +57,6 @@ struct AddStringView: View {
                     state: $crossState,
                     fixedWidth: false
                 )
-                
-                
             }
         } footer: {
             RDButtonView(.large, .primary, "Add String Entry") {

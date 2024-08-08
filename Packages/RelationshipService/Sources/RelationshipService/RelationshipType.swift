@@ -12,6 +12,7 @@ import Foundation
 /// Represents the type of a relationship request.
 ///
 /// The type can either be a friend or a coach.
+@available(iOS 14.0, *)
 public enum RelationshipType: String, Codable, CustomStringConvertible, CaseIterable {
     
     /// A friend relationship.

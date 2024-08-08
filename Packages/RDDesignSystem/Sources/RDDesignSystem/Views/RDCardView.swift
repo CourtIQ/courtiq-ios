@@ -1,108 +1,96 @@
 //
 //  RDCardView.swift
+//  Courtiq
 //
-//
-//  Created by Pranav Suri on 06/12/2024.
+//  Created by Pranav Suri on 2024-08-07.
 //
 
 import SwiftUI
 
-// MARK: - RDCardType
-@available(iOS 13.0.0, *)
-public enum RDCardType {
-    case small
-    case medium
-    case large
-    
-    var alignment: HorizontalAlignment {
+// MARK: - CardType Enum
+
+/// Enum representing different types of cards with associated styling properties.
+public enum CardType {
+    case primary
+    case secondary
+    case warning
+    case success
+    case error
+
+    /// The background color associated with the card type.
+    public var backgroundColor: Color {
         switch self {
-        case .medium:
-            return .leading
-        default:
-            return .center
+        case .primary, .warning, .success, .error:
+            Color.TokenColor.Semantic.Background.default
+        case .secondary:
+            Color.Token.greyWhite
         }
     }
-    
-    var verticalPadding: CGFloat {
+
+    /// The border color associated with the card type.
+    public var borderColor: Color {
         switch self {
-        case .large:
-            return 16
-        default:
-            return 12
-        }
-    }
-    
-    var minWidth: CGFloat {
-        switch self {
-        case .large:
-            return 200
-        case .medium:
-            return 150
-        default:
-            return 0
+        case .primary, .secondary:
+            Color.TokenColor.Semantic.Border.default
+        case .warning:
+            Color.TokenColor.Semantic.Border.emphasis
+        case .success:
+            Color.TokenColor.Semantic.Border.success
+        case .error:
+            Color.TokenColor.Semantic.Border.error
         }
     }
 }
 
-// MARK: - RDCardView
-@available(iOS 15.0.0, *)
-public struct RDCardView: View {
-    
-    var type: RDCardType = .large
-    var image: String
-    var title: String
-    var description: String
-    
-    public init(type: RDCardType, image: String, title: String, description: String) {
+// MARK: - RDCardView Struct
+
+/// A reusable card view that wraps around any content and applies styling based on the card type.
+public struct RDCardView<Content: View>: View {
+    public var type: CardType
+    public var content: Content
+
+    /// Initializes the RDCardView with a specific card type and content.
+    /// - Parameters:
+    ///   - type: The type of the card which determines its styling.
+    ///   - content: A view builder that provides the content to be displayed within the card.
+    public init(type: CardType, @ViewBuilder content: () -> Content) {
         self.type = type
-        self.image = image
-        self.title = title
-        self.description = description
+        self.content = content()
     }
-    
+
     public var body: some View {
-        VStack(alignment: type.alignment, spacing: 16) {
-            HStack {
-                
-                if type == .large {
-                    Spacer()
-                }
-                
-                Image(image)
-                    .resizable()
-                    .frame(width: 40, height: 40)
-                
-                if type == .small {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text(title)
-                            .foregroundColor(.platinum950)
-                            .font(.system(size: 14, weight: .bold))
-                        Text(description)
-                            .foregroundColor(.platinum500)
-                            .font(.system(size: 14, weight: .regular))
-                            .lineLimit(1)
-                    }
-                }
-                
-                Spacer()
+        content
+            .padding(12)
+            .background(type.backgroundColor)
+            .cornerRadius(12)
+            .clipShape(RoundedRectangle(cornerRadius: 12))
+            .overlay(
+                RoundedRectangle(cornerRadius: 12)
+                    .stroke(type.borderColor, lineWidth: 1)
+            )
+    }
+}
+
+// MARK: - Preview
+
+struct RDCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            RDCardView(type: .primary) {
+                Text("Primary Card")
             }
-            
-            if type != .small {
-                VStack(alignment: type.alignment, spacing: 4) {
-                    Text(title)
-                        .foregroundColor(.platinum950)
-                        .font(.system(size: 14, weight: .bold))
-                    Text(description)
-                        .foregroundColor(.platinum500)
-                        .font(.system(size: 14, weight: .regular))
-                        .lineLimit(1)
-                }
+            RDCardView(type: .secondary) {
+                Text("Secondary Card")
             }
-        }
-        .padding(type.verticalPadding)
-        .overlay {
-            RoundedRectangle(cornerRadius: 12)
-                .stroke(Color.chipBorderColor)
+            RDCardView(type: .warning) {
+                Text("Warning Card")
+            }
+            RDCardView(type: .success) {
+                Text("Success Card")
+            }
+            RDCardView(type: .error) {
+                Text("Error Card")
+            }
         }
     }
 }

@@ -40,6 +40,34 @@ public extension Image {
             public static var close: Image {
                 Image("cross", bundle: .module)
             }
+            
+            public static var back: Image {
+                Image("chevron-left", bundle: .module)
+            }
+            
+            public static var menu: Image {
+                Image("menu", bundle: .module)
+            }
+            
+            public static var add: Image {
+                Image("add", bundle: .module)
+            }
+            
+            public static var settings: Image {
+                Image("settings", bundle: .module)
+            }
+
+            public static var home: Image {
+                Image("home", bundle: .module)
+            }
+            
+            public static var search: Image {
+                Image("search", bundle: .module)
+            }
+            
+            public static var tennisBall: Image {
+                Image("tennis-ball", bundle: .module)
+            }
         }
     }
 }

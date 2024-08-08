@@ -48,7 +48,7 @@ public class DataService: DataServiceProtocol {
     /// - Parameters:
     ///   - documentID: The document ID.
     ///   - document: The document to be updated.
-    ///   - completion: The completion handler with the result of the update.
+    /// - Parameter completion: The completion handler with the result of the update.
     public func updateDocument<T: Codable>(documentID: String, document: T, completion: @escaping (Result<Void, Error>) -> Void) {
         provider.updateDocument(documentID: documentID, document: document, completion: completion)
     }
@@ -58,7 +58,7 @@ public class DataService: DataServiceProtocol {
     ///   - collectionPath: The path of the collection.
     ///   - documentID: The document ID.
     ///   - document: The document to be updated.
-    ///   - completion: The completion handler with the result of the update.
+    /// - Parameter completion: The completion handler with the result of the update.
     public func updateDocument<T: Codable>(collectionPath: String, documentID: String, document: T, completion: @escaping (Result<Void, Error>) -> Void) {
         provider.updateDocument(collectionPath: collectionPath, documentID: documentID, document: document, completion: completion)
     }

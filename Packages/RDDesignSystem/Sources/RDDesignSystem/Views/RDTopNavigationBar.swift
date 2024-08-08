@@ -1,5 +1,5 @@
 //
-//  RDTopNavigationBar.swift
+//  RDNavigationBar.swift
 //
 //
 //  Created by Pranav Suri on 13/06/2024.
@@ -7,142 +7,128 @@
 
 import SwiftUI
 
-public enum RDTopNavigationType {
+// MARK: - RDNavigationBarType
+
+public enum RDNavigationBarType {
     case primary
-    case primaryWithSearch
-    case primaryWithProfileAvatar
-    case onlySearchWithIcons
-    
-    var titleSize: CGFloat {
+    case secondary
+
+    var bgColor: Color {
         switch self {
-        case .primary, .primaryWithSearch, .onlySearchWithIcons:
-            return 18
-        case .primaryWithProfileAvatar:
-            return 20
+        case .primary:
+            return Color.TokenColor.Semantic.Background.default
+        case .secondary:
+            return Color.Token.greyWhite
+        }
+    }
+    
+    var titleColor: Color {
+        switch self {
+        case .primary, .secondary:
+            return Color.TokenColor.Semantic.Text.default
         }
     }
 }
 
-@available(iOS 13.0, *)
-public struct RDTopNavigationParams {
-    var type: RDTopNavigationType
-    let title: String
-    var leadingItem: (leadingItemType: RDIconButton.IconButtonType, 
-                      leadingItemIcon: Image,
-                      leadingItemAction: (() -> ()))?
-    var trailingItem: (trailingItemType: RDIconButton.IconButtonType, 
-                       trailingItemIcon: Image,                      
-                       trailingItemAction: (() -> ()))?
-    var bgColor: Color = Color.TokenColor.Semantic.Background.default
-    
-    public init(
-        type: RDTopNavigationType = .primary,
-        title: String,
-        leadingItem: (leadingItemType: RDIconButton.IconButtonType, 
-                      leadingItemIcon: Image,
-                      leadingItemAction: (() -> ()))? = nil,
-        trailingItem: (trailingItemType: RDIconButton.IconButtonType,
-                       trailingItemIcon: Image,
-                       trailingItemAction: (() -> ()))? = nil)
-    {
-        self.type = type
-        self.title = title
-        self.leadingItem = leadingItem
-        self.trailingItem = trailingItem
-    }
-}
+// MARK: - RDNavigationBar
 
 @available(iOS 15.0, *)
-public struct RDTopNavigationBar: View {
-    var params: RDTopNavigationParams
-    @Binding var searchText: String?
-    var onMicPressed: (() -> Void)?
-    
+public struct RDNavigationBar<LeadingContent: View, TrailingContent: View>: View {
+    var type: RDNavigationBarType
+    var title: String
+    var leadingContent: LeadingContent?
+    var trailingContent: TrailingContent?
+
+    // MARK: - Initializer
+
     public init(
-        params: RDTopNavigationParams,
-        searchText: Binding<String?> = .constant(nil),
-        onMicPressed: (() -> Void)? = nil
+        _ type: RDNavigationBarType,
+        title: String,
+        @ViewBuilder leading: () -> LeadingContent,
+        @ViewBuilder trailing: () -> TrailingContent
     ) {
-        self.params = params
-        self._searchText = searchText
-        self.onMicPressed = onMicPressed
+        self.type = type
+        self.title = title
+        self.leadingContent = leading()
+        self.trailingContent = trailing()
+    }
+
+    public init(
+        _ type: RDNavigationBarType,
+        title: String
+    ) where LeadingContent == EmptyView, TrailingContent == EmptyView {
+        self.type = type
+        self.title = title
+        self.leadingContent = EmptyView()
+        self.trailingContent = EmptyView()
     }
     
+    // MARK: - Body
+
     public var body: some View {
-        VStack(spacing: 0) {
-            ZStack {
-                HStack(spacing: 0) {
-                    if params.type == .primaryWithProfileAvatar {
-                        RDAvatarView(
-                            rdAvatarSizing: .small,
-                            rdAvatarBadgeType: .none
-                        )
-                        .padding(.horizontal, 16)
-                        
-                        Text(params.title)
-                            .rdBodyBold()
-                            .lineLimit(1)
-                            .foregroundColor(.primary)
-                        
-                        Spacer()
-                    }
-                    
-                    if let leadingItem = params.leadingItem {
-                        RDIconButton(leadingItem.leadingItemType, .small, leadingItem.leadingItemIcon) {
-                            leadingItem.leadingItemAction()
-                        }
-                        .padding(.leading, 16)
-                    }
-                    
-                    if params.type != .primaryWithProfileAvatar {
-                        Spacer()
-                    }
-                    
-                    if let trailingItem = params.trailingItem {
-                        RDIconButton(trailingItem.trailingItemType, .small, trailingItem.trailingItemIcon) {
-                            trailingItem.trailingItemAction()
-                        }
-                        .padding(.trailing, 16)
-                    }
-                }
-                
-                if params.type != .primaryWithProfileAvatar {
-                    HStack {
-                        Spacer()
-                        
-                        if params.type == .onlySearchWithIcons {
-                            SearchField()
-                                .padding(.horizontal, 56)
-                        } else {
-                            Text(params.title)
-                                .rdBodyBold()
-                                .lineLimit(1)
-//                                .font(.system(size: params.type.titleSize, weight: .bold))
-                                .foregroundColor(.primary)
-                        }
-                        
-                        Spacer()
-                    }
+        HStack {
+            HStack {
+                if let leadingContent = leadingContent {
+                    leadingContent
                 }
             }
-            .frame(height: 56)
+            .frame(width: 56, height: 56)
             
-            if params.type == .primaryWithSearch {
-                SearchField()
+            HStack {
+                Spacer()
+                Text(title)
+                    .rdSubheadline()
+                    .lineLimit(1)
+                    .foregroundColor(type.titleColor)
                     .padding(.horizontal, 16)
+                Spacer()
+            }
+            .frame(maxWidth: .infinity)
+
+            HStack {
+                if let trailingContent = trailingContent {
+                    trailingContent
+                }
+            }
+            .frame(width: 56, height: 56)
+        }
+        .frame(maxWidth: .infinity, maxHeight: 56)
+        .background(type.bgColor)
+    }
+}
+
+// MARK: - Preview
+
+struct RDNavigationBar_Previews: PreviewProvider {
+    static var previews: some View {
+        VStack {
+            RDNavigationBar(.primary, title: "Title") {
+                Button(action: {}) {
+                    Image(systemName: "bell")
+                        .foregroundColor(.blue)
+                }
+            } trailing: {
+                Button(action: {}) {
+                    Image(systemName: "gear")
+                        .foregroundColor(.blue)
+                }
+            }
+            
+            RDNavigationBar(.secondary, title: "Title Only")
+            
+            RDNavigationBar(.primary, title: "Only Leading") {} trailing: {
+                Button(action: {}) {
+                    Image(systemName: "bell")
+                        .foregroundColor(.blue)
+                }
+            }
+            
+            RDNavigationBar(.primary, title: "Only Trailing") {} trailing: {
+                Button(action: {}) {
+                    Image(systemName: "gear")
+                        .foregroundColor(.blue)
+                }
             }
         }
-        .background(params.bgColor)
-    }
-    
-    private var nonOptionalSearchText: Binding<String> {
-        Binding(
-            get: { searchText ?? "" },
-            set: { searchText = $0 }
-        )
-    }
-    
-    func SearchField() -> some View {
-        Text("search field should go here")
     }
 }

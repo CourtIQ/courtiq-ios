@@ -17,10 +17,10 @@ class HomeBaseVM: ObservableObject {
     @Published var showSideMenu = false
 
     let tabBarItems = [
-        RDTabBarItem(title: "Home", icon: Image("home")),
-        RDTabBarItem(title: "Search", icon: Image("search")),
-        RDTabBarItem(title: "Tennis", icon: Image("home")),
-        RDTabBarItem(title: "Profile", icon: Image("user"))
+        RDTabBarItem(title: "Home", icon: Image.Token.Icons.home),
+        RDTabBarItem(title: "Search", icon: Image.Token.Icons.search),
+        RDTabBarItem(title: "Tennis", icon: Image.Token.Icons.tennisBall),
+        RDTabBarItem(title: "Profile", icon: Image.Token.Icons.person)
     ]
 
     private let authService: any AuthServiceProtocol

@@ -26,20 +26,6 @@ struct SignUpView: View {
         // TODO: Fix the validator for the text field
     }
 
-    private var navigationParams: RDTopNavigationParams {
-        RDTopNavigationParams(
-            type: .primary,
-            title: "Sign Up",
-            leadingItem: (
-                leadingItemType: .tertiary,
-                leadingItemIcon: Image(systemName: "chevron.left"),
-                leadingItemAction: {
-                    vm.router.handle(action: .pop)
-                }
-            )
-        )
-    }
-
     // MARK: - Initializer
     
     init(vm: AuthenticationVM) {
@@ -50,9 +36,12 @@ struct SignUpView: View {
     
     var body: some View {
         MarqueeView {
-            RDTopNavigationBar(
-                params: navigationParams
-            )
+            RDNavigationBar(.primary, title: "Sign Up", leading: {
+                Image.Token.Icons.back
+                    .rdActionIcon {
+                        vm.router.handle(action: .pop)
+                    }
+            }, trailing: {})
         } content: {
             VStack(spacing: 16) {
                 Image("signUpImage")

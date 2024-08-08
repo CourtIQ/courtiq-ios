@@ -11,8 +11,8 @@ import SwiftUI
 
 // MARK: - RelationshipService
 
-@available(iOS 14.0, *)
-public class RelationshipService: RelationshipServiceProtocol {    
+@available(iOS 14.0, macOS 11.0, *)
+public class RelationshipService: RelationshipServiceProtocol {
     
     // MARK: - Properties
     
@@ -61,8 +61,8 @@ public class RelationshipService: RelationshipServiceProtocol {
     ///
     /// If either operation fails, the method will throw an error. If both operations succeed,
     /// the method will complete successfully.
+    @available(iOS 14.0, macOS 10.15, *)
     public func sendFriendRequest(from: String, to: String) async throws {
-        // Ensure the relationRequestsService is initialized
         guard let relationRequestsService = relationRequestsService else {
             throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
         }
@@ -75,14 +75,11 @@ public class RelationshipService: RelationshipServiceProtocol {
         // TODO: Fix the id of the document
 
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-            let senderCollectionPath = "users/\(from)/\(relationRequestsCollection)"
-            let receiverCollectionPath = "users/\(to)/\(relationRequestsCollection)"
-            
             let dispatchGroup = DispatchGroup()
             var error: Error?
 
             dispatchGroup.enter()
-            relationRequestsService.addDocument(collectionPath: senderCollectionPath, document: request) { result in
+            relationRequestsService.addDocument(collectionPath: "users/\(from)/\(relationRequestsCollection)", document: request) { result in
                 if case .failure(let err) = result {
                     error = err
                 }
@@ -90,7 +87,7 @@ public class RelationshipService: RelationshipServiceProtocol {
             }
 
             dispatchGroup.enter()
-            relationRequestsService.addDocument(collectionPath: receiverCollectionPath, document: request) { result in
+            relationRequestsService.addDocument(collectionPath: "users/\(to)/\(relationRequestsCollection)", document: request) { result in
                 if case .failure(let err) = result {
                     error = err
                 }
@@ -118,6 +115,7 @@ public class RelationshipService: RelationshipServiceProtocol {
     ///
     /// If any of these operations fail, the method will throw an error. If all operations succeed,
     /// the method will complete successfully.
+    @available(iOS 14.0, macOS 10.15, *)
     public func acceptFriendRequest(request: RelationshipRequest) async throws {
         guard let relationsService = relationsService, let relationRequestsService = relationRequestsService else {
             throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
@@ -135,16 +133,11 @@ public class RelationshipService: RelationshipServiceProtocol {
                                                    updatedAt: Date())
         
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-            let currentUserRelationshipsPath = "users/\(currentUserId)/\(relationsCollection)"
-            let friendUserRelationshipsPath = "users/\(friendUserId)/\(relationsCollection)"
-            let currentUserRequestsPath = "users/\(currentUserId)/\(relationRequestsCollection)"
-            let friendUserRequestsPath = "users/\(friendUserId)/\(relationRequestsCollection)"
-            
             let dispatchGroup = DispatchGroup()
             var error: Error?
 
             dispatchGroup.enter()
-            relationsService.addDocument(collectionPath: currentUserRelationshipsPath, document: currentUserRelationship) { result in
+            relationsService.addDocument(collectionPath: "users/\(currentUserId)/\(relationsCollection)", document: currentUserRelationship) { result in
                 if case .failure(let err) = result {
                     error = err
                 }
@@ -152,7 +145,7 @@ public class RelationshipService: RelationshipServiceProtocol {
             }
 
             dispatchGroup.enter()
-            relationsService.addDocument(collectionPath: friendUserRelationshipsPath, document: friendUserRelationship) { result in
+            relationsService.addDocument(collectionPath: "users/\(friendUserId)/\(relationsCollection)", document: friendUserRelationship) { result in
                 if case .failure(let err) = result {
                     error = err
                 }
@@ -160,7 +153,7 @@ public class RelationshipService: RelationshipServiceProtocol {
             }
 
             dispatchGroup.enter()
-            relationRequestsService.deleteDocument(collectionPath: currentUserRequestsPath, documentID: request.id) { result in
+            relationRequestsService.deleteDocument(collectionPath: "users/\(currentUserId)/\(relationRequestsCollection)", documentID: request.id) { result in
                 if case .failure(let err) = result {
                     error = err
                 }
@@ -168,7 +161,7 @@ public class RelationshipService: RelationshipServiceProtocol {
             }
 
             dispatchGroup.enter()
-            relationRequestsService.deleteDocument(collectionPath: friendUserRequestsPath, documentID: request.id) { result in
+            relationRequestsService.deleteDocument(collectionPath: "users/\(friendUserId)/\(relationRequestsCollection)", documentID: request.id) { result in
                 if case .failure(let err) = result {
                     error = err
                 }
@@ -189,6 +182,7 @@ public class RelationshipService: RelationshipServiceProtocol {
     /// - Parameters:
     ///   - userId: The ID of the user whose friends are being fetched.
     /// - Returns: An array of `Relationship` objects.
+    @available(iOS 14.0, macOS 10.15, *)
     public func fetchFriends(userId: String) async throws -> [Relationship] {
         guard let relationsService = relationsService else {
             throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
@@ -197,19 +191,19 @@ public class RelationshipService: RelationshipServiceProtocol {
         let collectionPath = "users/\(userId)/\(relationsCollection)"
         let constraints: [QueryConstraint] = [.equalTo(field: "relationshipType", value: RelationshipType.friend.rawValue)]
         
-        return try await withCheckedThrowingContinuation { continuation in
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<[Relationship], Error>) in
             relationsService.fetchDocuments(constraints: constraints) { (result: Result<[Relationship], Error>) in
                 continuation.resume(with: result)
             }
         }
     }
 
-    
     /// Finds mutual friends between two users.
     /// - Parameters:
     ///   - userId1: The ID of the first user.
     ///   - userId2: The ID of the second user.
     /// - Returns: An array of mutual friend `Relationship` objects.
+    @available(iOS 14.0, macOS 10.15, *)
     public func fetchMutualFriends(userId1: String, userId2: String) async throws -> [Relationship] {
         throw NSError(domain: "Function not working", code: 500, userInfo: nil)
     }
@@ -218,6 +212,7 @@ public class RelationshipService: RelationshipServiceProtocol {
     /// - Parameters:
     ///   - currentUserId: The ID of the user removing the friend.
     ///   - friendUserId: The ID of the friend being removed.
+    @available(iOS 14.0, macOS 10.15, *)
     public func removeFriend(currentUserId: String, friendUserId: String) async throws {
         throw NSError(domain: "Function not working", code: 500, userInfo: nil)
     }

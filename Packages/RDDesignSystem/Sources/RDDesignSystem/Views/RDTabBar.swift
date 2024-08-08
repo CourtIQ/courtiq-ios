@@ -6,36 +6,13 @@ public struct RDTabBarItem {
     let id = UUID().uuidString
     let title: String
     let icon: Image
-    var badgeType: RDNotificationBadgeType?
-    var notiCount: Int?
-    
+
     public init(
         title: String,
-        icon: Image,
-        badgeType: RDNotificationBadgeType? = nil,
-        notiCount: Int? = nil
+        icon: Image
     ) {
         self.title = title
         self.icon = icon
-        self.badgeType = badgeType
-        self.notiCount = notiCount
-    }
-    
-    public func getXOffset() -> CGFloat {
-        if badgeType == .small {
-            return 6
-        } else {
-            switch notiCount ?? 0 {
-            case ..<10:
-                return 10
-            case 10...99:
-                return 12
-            case 100...:
-                return 24
-            default:
-                return 6
-            }
-        }
     }
 }
 
@@ -60,34 +37,50 @@ public struct RDTabBar: View {
             }
         }
         .padding(.top, 6)
-        .border(width: 1, edges: [.top], color: Color.platinum200)
-        .frame(height: 64)
+        .border(width: 1, edges: [.top], color: Color.TokenColor.Semantic.Border.default)
+        .frame(height: 75)
         .background(Color.TokenColor.Semantic.Background.default)
     }
     
     // MARK: - TabItem
     func TabItem(item: RDTabBarItem, isSelected: Bool, action: @escaping () -> ()) -> some View {
-        VStack(spacing: 8) {
-            ZStack {
-                item.icon
-                    .resizable()
-                    .renderingMode(.template)
-                    .frame(width: 24, height: 24)
-                
-                if let badgeType = item.badgeType {
-                    RDNotificationBadgeView(type: badgeType, notiCount: item.notiCount)
-                        .offset(x: item.getXOffset(), y: -6)
+        Group {
+            if isSelected {
+                VStack(alignment: .center, spacing: 4) {
+                    HStack(alignment: .center, spacing: 4) {
+                        item.icon
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(Color.TokenColor.Semantic.Icon.primary)
+                        Text(item.title)
+                            .rdCaption()
+                            .foregroundColor(Color.TokenColor.Semantic.Text.primary)
+                    }
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 10)
+                    .background(Color.TokenColor.Semantic.Background.secondary)
+                    .clipShape(.capsule)
+                    
+                    Circle()
+                        .fill(Color.TokenColor.Semantic.Background.primary)
+                        .frame(width: 4, height: 4)
+                }
+                .padding(.top, 4)
+
+            } else {
+                VStack(alignment: .center) {
+                    item.icon
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .foregroundColor(Color.TokenColor.Semantic.Icon.secondary)
+                }
+                .onTapGesture {
+                    withAnimation {
+                        action()
+                    }
                 }
             }
-            Text(item.title)
-                .font(.system(size: 12, weight: .bold))
         }
-        .foregroundColor(isSelected ? .platinum950 : .platinum400)
-        .padding(.horizontal, 8)
-        .onTapGesture {
-            withAnimation {
-                action()
-            }
-        }
+        .frame(maxHeight: .infinity)
     }
 }

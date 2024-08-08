@@ -8,6 +8,7 @@
 import AuthenticationService
 import Foundation
 import UserService
+import SwiftUI
 
 final class ProfileVM: ViewModel {
     
@@ -15,7 +16,7 @@ final class ProfileVM: ViewModel {
     
     // MARK: - Private Properties
     
-    private var userService: any UserServiceProtocol
+    var userService: any UserServiceProtocol
     private var authService: any AuthServiceProtocol
     private var router: AppRouter
     
@@ -33,8 +34,16 @@ final class ProfileVM: ViewModel {
     
     func handle(action: ProfileVM.Actions) {
         switch action {
-        case .goToSettings:
+        case .settingsIconTapped:
             goToSettings()
+        case .actionRowItemTapped:
+            handleActionRowItemTapped()
+        case .profilePictureTapped:
+            goToProfilePictureView()
+        case .statsCardTapped:
+            handleStatsCardTappedTapped()
+        case .matchUpTapped:
+            handeMatchUpTapped()
         }
     }
 
@@ -49,6 +58,24 @@ final class ProfileVM: ViewModel {
     // MARK: - Private Methods
     
     private func goToSettings() {
+        let view = SettingsView()
+        router.handle(action: .showScreen(AnyView(view)))
+    }
+    
+    private func handleActionRowItemTapped() {
+        router.handle(action: .push(AnyView(Text("Hello World!"))))
+        print(#function)
+    }
+    
+    private func handleStatsCardTappedTapped() {
+        print(#function)
+    }
+    
+    private func goToProfilePictureView() {
+        print(#function)
+    }
+    
+    private func handeMatchUpTapped() {
         print(#function)
     }
 }
@@ -57,7 +84,11 @@ extension ProfileVM {
     
     // MARK: Actions
     enum Actions {
-        case goToSettings
+        case settingsIconTapped
+        case actionRowItemTapped
+        case profilePictureTapped
+        case statsCardTapped
+        case matchUpTapped
     }
 }
 

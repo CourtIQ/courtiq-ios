@@ -11,23 +11,14 @@ import RDDesignSystem
 struct MatchUpFormView: View {
     @ObservedObject var router: AppRouter
 
-    private var navigationParams: RDTopNavigationParams {
-        RDTopNavigationParams(
-            type: .primary,
-            title: "Track a new match",
-            trailingItem: (
-                trailingItemType: .tertiary,
-                trailingItemIcon: Image(systemName: "xmark"),
-                trailingItemAction: {
-                    router.handle(action: .dismiss)
-                }
-            )
-        )
-    }
-
     var body: some View {
         MarqueeView {
-            RDTopNavigationBar(params: navigationParams)
+            RDNavigationBar(.primary, title: "Track a new match", leading: {}, trailing: {
+                Image.Token.Icons.close
+                    .rdActionIcon {
+                        router.handle(action: .dismiss)
+                    }
+            })
         } content: {
             Text("Hello")
         } footer: {

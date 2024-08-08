@@ -186,3 +186,34 @@ extension RDIconButton.IconButtonType {
         }
     }
 }
+
+// MARK: - RDActionIcon View
+
+public struct RDActionIcon: View {
+    let image: Image
+    let action: () -> Void
+
+    public init(image: Image, action: @escaping () -> Void) {
+        self.image = image
+        self.action = action
+    }
+
+    public var body: some View {
+        Button(action: action) {
+            image
+                .resizable()
+                .scaledToFit()
+                .frame(width: 20)
+                .foregroundColor(Color.TokenColor.Semantic.Icon.secondary)
+        }
+    }
+}
+
+// MARK: - Image Extension
+
+public extension Image {
+    func rdActionIcon(action: @escaping () -> Void) -> some View {
+        RDActionIcon(image: self, action: action)
+    }
+}
+

@@ -22,12 +22,7 @@ struct AuthenticationWelcomeView: View {
 
     var body: some View {
         MarqueeView {
-            RDTopNavigationBar(
-                params: RDTopNavigationParams(
-                    type: .primary,
-                    title: "Welcome to CourtIQ"
-                )
-            )
+            RDNavigationBar(.primary, title: "Welcome to CourtIQ")
         } content: {
             Image("welcomeImage")
                 .resizable()

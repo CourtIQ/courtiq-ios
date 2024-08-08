@@ -25,26 +25,17 @@ struct SignInView: View {
     @State private var emailState = RDTextField.RDTextFieldState.normal
     @State private var passwordState = RDTextField.RDTextFieldState.normal
     @State private var repeatPasswordState = RDTextField.RDTextFieldState.normal
-
-    private var navigationParams: RDTopNavigationParams {
-        RDTopNavigationParams(
-            type: .primary,
-            title: "Sign In",
-            leadingItem: (
-                leadingItemType: .tertiary,
-                leadingItemIcon: Image(systemName: "chevron.left"),
-                leadingItemAction: {
-                    router.handle(action: .pop)
-                }
-            )
-        )
-    }
     
     // MARK: - Body
     
     var body: some View {
         MarqueeView {
-            RDTopNavigationBar(params: navigationParams)
+            RDNavigationBar(.primary, title: "Sign in", leading: {
+                Image.Token.Icons.back
+                    .rdActionIcon {
+                        router.handle(action: .pop)
+                    }
+            }, trailing: {})
         } content: {
             VStack(spacing: 16) {
                 
