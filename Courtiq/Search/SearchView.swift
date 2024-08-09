@@ -7,16 +7,22 @@
 
 import SwiftUI
 import RDDesignSystem
-import UserService
 import InstantSearchSwiftUI
 
 struct SearchView: View {
+    
+    // MARK: - Lifecycle
+    
+    init(vm: SearchVM,
+         showSideMenu: Binding<Bool>)
+    {
+        self._vm = StateObject(wrappedValue: vm)
+        self._showSideMenu = showSideMenu
+    }
+    
+    // MARK: - Internal
+    
     @Binding var showSideMenu: Bool
-    @State private var searchText: String = ""
-    @State private var isEditing = false
-    @ObservedObject var searchBoxController: SearchBoxObservableController
-    @ObservedObject var hitsController: HitsObservableController<User>
-    @ObservedObject var statsController: StatsTextObservableController
     
     var body: some View {
         BaseTabPageView {
@@ -33,39 +39,21 @@ struct SearchView: View {
             })
             RDTextField(textFieldType: .search,
                         placeholder: "Search for players or matches...",
-                        onSubmit: { searchBoxController.submit() },
-                        value: $searchBoxController.query,
-                        state: .constant(.normal), 
-                        isEditing: $isEditing)
+                        onSubmit: { vm.searchBoxController.submit() },
+                        value: $vm.searchBoxController.query,
+                        state: .constant(.normal),
+                        isEditing: $vm.searchFieldIsEditing)
             .padding(.horizontal, 12)
 
         } content: {
             VStack {
-
-                
-                if !hitsController.hits.isEmpty {
-                    ScrollView(.vertical) {
-                        LazyVStack(spacing: 8) {
-                            ForEach(hitsController.hits.compactMap { $0 }) { user in
-                                ProfileRowView(
-                                    imageUrl: user.imageUrl ?? "",
-                                    name: "\(user.firstName ?? "") \(user.lastName ?? "")",
-                                    gender: "Male",
-                                    country: "",
-                                    age: "23",
-                                    action: { print("go to hit") })
-                                .padding(.horizontal, 2)
-                            }
-                        }
-                        .padding(.top, 2)
-                    }
-                    .frame(maxWidth: .infinity)
-
-                } else {
-                    Text("No Results")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
+                Text("No Results")
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
         }
     }
+    
+    // MARK: - Private
+    
+    @StateObject private var vm: SearchVM
 }

@@ -26,7 +26,9 @@ class HomeBaseVM: ObservableObject {
     private let authService: any AuthServiceProtocol
     private let router: AppRouter
 
-    init(authService: any AuthServiceProtocol, router: AppRouter) {
+    init(authService: any AuthServiceProtocol, 
+         router: AppRouter)
+    {
         self.authService = authService
         self.router = router
     }

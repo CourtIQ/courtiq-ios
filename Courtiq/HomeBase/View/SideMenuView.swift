@@ -15,20 +15,19 @@ struct SideMenuView: View {
     // MARK: - Lifecycle
     
     public init(
-        openSideMenu: Binding<Bool>,
+        showSideMenu: Binding<Bool>,
         selectedIndex: Binding<Int>,
-        menuItems: [MenuItem]
+        authService: any AuthServiceProtocol
     ) {
-        self._openSideMenu = openSideMenu
+        self._showSideMenu = showSideMenu
         self._selectedIndex = selectedIndex
-        self.menuItems = menuItems
+        self._vm = StateObject(wrappedValue: SideMenuVM(authService: authService))
     }
     
     // MARK: - Internal
     
-    @Binding var openSideMenu: Bool
     @Binding var selectedIndex: Int
-    @State var menuItems: [MenuItem]
+    @Binding var showSideMenu: Bool
     
     public var body: some View {
         ZStack {
@@ -36,8 +35,8 @@ struct SideMenuView: View {
                 EmptyView()
             }
             .background(Color.black.opacity(0.2))
-            .opacity(self.openSideMenu ? 1.0 : 0.0)
-            .animation(.default.delay(0.25), value: openSideMenu)
+            .opacity(showSideMenu ? 1.0 : 0.0)
+            .animation(.default.delay(0.25), value: showSideMenu)
             
             HStack {
                 MarqueeView {
@@ -53,13 +52,11 @@ struct SideMenuView: View {
                     Text("Content")
                 } footer: {
                     RDButtonView(.large, .primary, "Logout") {
-                        Task {
-                            try await authService.signOut()
-                        }
+                        vm.handle(action: .logout)
                     }
                 }
                 .frame(width: sideMenuWidth)
-                .offset(x: self.openSideMenu ? 0 : -sideMenuWidth)
+                .offset(x: showSideMenu ? 0 : -sideMenuWidth)
 
                 Spacer()
             }
@@ -72,7 +69,7 @@ struct SideMenuView: View {
                     
                     if abs(horizontalAmount) > abs(verticalAmount) {
                         if horizontalAmount < 0 {
-                            self.openSideMenu.toggle()
+                            showSideMenu.toggle()
                         }
                     }
                 }
@@ -81,7 +78,7 @@ struct SideMenuView: View {
             TapGesture()
                 .onEnded { _ in
                     withAnimation {
-                        self.openSideMenu.toggle()
+                        showSideMenu.toggle()
                     }
                 }
         )
@@ -89,12 +86,9 @@ struct SideMenuView: View {
     
     // MARK: - Private
     
-    @EnvironmentObject private var authService: AuthService
-    
+    @StateObject private var vm: SideMenuVM
+
     private let sideMenuWidth: CGFloat = UIScreen.main.bounds.width * 0.75
-    private var viewWidth: CGFloat {
-        UIScreen.main.bounds.width
-    }
 }
 
 // MARK: - MenuItem
@@ -104,16 +98,22 @@ struct MenuItem: Hashable {
     // MARK: - Properties
     
     let title: String
-    let iconName: String
-    
-    var icon: Image {
-        Image(iconName)
-    }
+    let icon: Image
     
     // MARK: - Initializer
     
-    public init(title: String, iconName: String) {
+    public init(title: String, icon: Image) {
         self.title = title
-        self.iconName = iconName
+        self.icon = icon
+    }
+    
+    // MARK: - Hashable Conformance
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(title)
+    }
+    
+    public static func == (lhs: MenuItem, rhs: MenuItem) -> Bool {
+        return lhs.title == rhs.title
     }
 }

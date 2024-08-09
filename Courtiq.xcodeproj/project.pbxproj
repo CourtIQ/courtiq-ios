@@ -63,8 +63,11 @@
 		C0C9FBAF2C65676200E913DD /* InstantSearchSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C0C9FBAE2C65676200E913DD /* InstantSearchSwiftUI */; };
 		C0C9FBB12C65688800E913DD /* AlgoliaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB02C65688800E913DD /* AlgoliaController.swift */; };
 		C0C9FBB32C65793100E913DD /* ProfileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB22C65793100E913DD /* ProfileRowView.swift */; };
-		C0DA7F1B2C633EB4005966C1 /* ProfileCardPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA7F1A2C633EB4005966C1 /* ProfileCardPictureView.swift */; };
-		C0DA7F1D2C633F18005966C1 /* ProfileCardActionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA7F1C2C633F18005966C1 /* ProfileCardActionItemView.swift */; };
+		C0C9FBB52C65B6FE00E913DD /* SideMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB42C65B6FE00E913DD /* SideMenuVM.swift */; };
+		C0C9FBB72C65BBEE00E913DD /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */; };
+		C0C9FBBA2C65E86000E913DD /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB92C65E86000E913DD /* ProfileCardView.swift */; };
+		C0C9FBBC2C65EB9700E913DD /* ActionItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBBB2C65EB9700E913DD /* ActionItemRowView.swift */; };
+		C0DA7F1D2C633F18005966C1 /* StatActionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA7F1C2C633F18005966C1 /* StatActionItemView.swift */; };
 		C0DA7F202C640CE5005966C1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA7F1F2C640CE5005966C1 /* SettingsView.swift */; };
 		C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */; };
 		C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0F58BD32C29525200930364 /* AuthenticationVM.swift */; };
@@ -146,9 +149,12 @@
 		C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		C0C9FBB02C65688800E913DD /* AlgoliaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoliaController.swift; sourceTree = "<group>"; };
 		C0C9FBB22C65793100E913DD /* ProfileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRowView.swift; sourceTree = "<group>"; };
+		C0C9FBB42C65B6FE00E913DD /* SideMenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVM.swift; sourceTree = "<group>"; };
+		C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
+		C0C9FBB92C65E86000E913DD /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
+		C0C9FBBB2C65EB9700E913DD /* ActionItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionItemRowView.swift; sourceTree = "<group>"; };
 		C0CECA542C3F8625000F2032 /* MatchUpService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = MatchUpService; sourceTree = "<group>"; };
-		C0DA7F1A2C633EB4005966C1 /* ProfileCardPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardPictureView.swift; sourceTree = "<group>"; };
-		C0DA7F1C2C633F18005966C1 /* ProfileCardActionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardActionItemView.swift; sourceTree = "<group>"; };
+		C0DA7F1C2C633F18005966C1 /* StatActionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatActionItemView.swift; sourceTree = "<group>"; };
 		C0DA7F1F2C640CE5005966C1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C0F4A4FC2C1E80F0006B204C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0F58BBE2C29021000930364 /* AuthenticationWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationWelcomeView.swift; sourceTree = "<group>"; };
@@ -331,6 +337,7 @@
 			children = (
 				C07A2DB82C297FE0006DDF6F /* SearchView.swift */,
 				C0C9FBB22C65793100E913DD /* ProfileRowView.swift */,
+				C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -338,10 +345,9 @@
 		C062D2C12C3BEB3A00ABF5A8 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				C0C9FBB82C65E80800E913DD /* ProfileCardView */,
 				C062D2C32C3BEB9400ABF5A8 /* ProfileView.swift */,
 				C0B0C6F02C6055C800D56577 /* ProfileVM.swift */,
-				C0DA7F1A2C633EB4005966C1 /* ProfileCardPictureView.swift */,
-				C0DA7F1C2C633F18005966C1 /* ProfileCardActionItemView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -371,6 +377,7 @@
 				C0BA4ED12C5C146600C6F3F6 /* SideMenuConfig.swift */,
 				C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */,
 				C07A2DB72C297FE0006DDF6F /* HomeBaseTabsView.swift */,
+				C0C9FBB42C65B6FE00E913DD /* SideMenuVM.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -404,6 +411,16 @@
 				C091381D2C64AB0F00598535 /* XelaPieDatasets.swift */,
 			);
 			path = Chart;
+			sourceTree = "<group>";
+		};
+		C0C9FBB82C65E80800E913DD /* ProfileCardView */ = {
+			isa = PBXGroup;
+			children = (
+				C0DA7F1C2C633F18005966C1 /* StatActionItemView.swift */,
+				C0C9FBB92C65E86000E913DD /* ProfileCardView.swift */,
+				C0C9FBBB2C65EB9700E913DD /* ActionItemRowView.swift */,
+			);
+			path = ProfileCardView;
 			sourceTree = "<group>";
 		};
 		C0DA7F1E2C640CC1005966C1 /* Settings */ = {
@@ -585,7 +602,6 @@
 				C067FEAB2C5AEE3F0089C7E9 /* TennisVM.swift in Sources */,
 				C062D2C62C3BEB9B00ABF5A8 /* TennisView.swift in Sources */,
 				C09138242C64AB0F00598535 /* XelaChartType.swift in Sources */,
-				C0DA7F1B2C633EB4005966C1 /* ProfileCardPictureView.swift in Sources */,
 				C0495D932C1E54D100E6D023 /* ForgotPasswordView.swift in Sources */,
 				C07A2DBC2C297FE0006DDF6F /* HomeBaseTabsView.swift in Sources */,
 				C09138232C64AB0F00598535 /* XelaChartPieItemShape.swift in Sources */,
@@ -593,20 +609,23 @@
 				C09138112C64AAFD00598535 /* XelaChart.swift in Sources */,
 				C0B0C6FA2C61933C00D56577 /* LoadingView.swift in Sources */,
 				C062D2C82C3BEEEC00ABF5A8 /* HomeView.swift in Sources */,
+				C0C9FBB52C65B6FE00E913DD /* SideMenuVM.swift in Sources */,
 				C0B0C6F32C6062F800D56577 /* MatchUpVM.swift in Sources */,
 				C09138222C64AB0F00598535 /* XelaChartLineShape.swift in Sources */,
 				C0904D712C297489008B7B2E /* HomeBaseVM.swift in Sources */,
+				C0C9FBB72C65BBEE00E913DD /* SearchVM.swift in Sources */,
 				C0BA4ED22C5C146600C6F3F6 /* SideMenuConfig.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
 				C0BA4ED42C5C146C00C6F3F6 /* SideMenuView.swift in Sources */,
 				C02E71F62C2CA95300830E2B /* HomeBaseRootView.swift in Sources */,
 				C091382A2C64AB0F00598535 /* XelaPieDatasets.swift in Sources */,
 				C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */,
-				C0DA7F1D2C633F18005966C1 /* ProfileCardActionItemView.swift in Sources */,
+				C0DA7F1D2C633F18005966C1 /* StatActionItemView.swift in Sources */,
 				C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */,
 				C07A2DBD2C297FE0006DDF6F /* SearchView.swift in Sources */,
 				C062D2CA2C3BEFBC00ABF5A8 /* BaseTabPageView.swift in Sources */,
 				C062D2C42C3BEB9400ABF5A8 /* ProfileView.swift in Sources */,
+				C0C9FBBA2C65E86000E913DD /* ProfileCardView.swift in Sources */,
 				C0C9FBB32C65793100E913DD /* ProfileRowView.swift in Sources */,
 				C09138202C64AB0F00598535 /* XelaBarDatasets.swift in Sources */,
 				C0889DDD2C2BA5700081BF59 /* AppRouter.swift in Sources */,
@@ -624,6 +643,7 @@
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
 				C0DA7F202C640CE5005966C1 /* SettingsView.swift in Sources */,
 				C0495D9A2C1E5C3A00E6D023 /* MarqueeView.swift in Sources */,
+				C0C9FBBC2C65EB9700E913DD /* ActionItemRowView.swift in Sources */,
 				C09138272C64AB0F00598535 /* XelaLineChartBody.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

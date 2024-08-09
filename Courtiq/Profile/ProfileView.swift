@@ -46,54 +46,7 @@ struct ProfileView: View {
                     }
             })
         } content: {
-            
-            RDCardView(type: .primary) {
-                HStack(alignment: .top, spacing: 12) {
-                    
-                    ProfileCardPictureView(imageUrl: URL(string: vm.userService.currentUser?.imageUrl ?? ""), size: .large)
-                    
-                    VStack(alignment: .leading, spacing: 12) {
-                        if let currentUser = vm.userService.currentUser {
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text("\(currentUser.firstName ?? "-") \(currentUser.lastName ?? "-")")
-                                    .rdBodyBold()
-                                    .foregroundStyle(Color.TokenColor.Semantic.Text.default)
-
-                                Text("🇮🇳 USA  |  Age 18")
-                                    .rdSmallBody()
-                                    .foregroundStyle(Color.TokenColor.Semantic.Text.primary)
-                            }
-
-                            RDActionRow(
-                                actionItems: [(value: "24",
-                                               title: "Rating",
-                                               action: { vm.handle(action: .actionRowItemTapped) }),
-                                              (value: "12",
-                                               title: "Rank",
-                                               action: { vm.handle(action: .actionRowItemTapped) }),
-                                              (value: "5",
-                                               title: "Level",
-                                               action: { vm.handle(action: .actionRowItemTapped) }),
-                                              (value: "3",
-                                               title: "Division",
-                                               action: { vm.handle(action: .actionRowItemTapped) })
-                                ])
-                        }
-                        
-
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-
-            }
-            XelaChart(type: .Pie, labels: ["A", "B", "C"], datasetPieChart: XelaPieDatasets(dataset: XelaPieChartDataset(label: "A", data: [4.5,8.8,7.4], fillColors: [.red,.blue,.green100])))
-            .onAppear {
-                Task {
-                }
-                
-            }
+            ProfileCardView(vm: vm)
         }
     }
 }

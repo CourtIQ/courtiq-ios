@@ -15,6 +15,38 @@ public class StorageService: StorageServiceProtocol {
         self.storage = storage
     }
     
+    /// Uploads a profile picture as a PNG image to Firebase Storage.
+    /// - Parameters:
+    ///   - image: The `UIImage` to be uploaded.
+    ///   - userId: The ID of the user to whom this profile picture belongs.
+    /// - Returns: The URL of the uploaded profile picture.
+    /// - Throws: An error if the upload fails or if the image cannot be converted to PNG data.
+    public func uploadProfilePicture(_ imageData: Data, for userId: String) async throws -> URL {
+        
+        let fileName = "profile_picture.png"
+        let path = "users/\(userId)/profilePictures/\(fileName)"
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/png"
+        
+        let storageRef = storage.reference().child(path)
+        return try await withCheckedThrowingContinuation { continuation in
+            storageRef.putData(imageData, metadata: metadata) { _, error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else {
+                    storageRef.downloadURL { url, error in
+                        if let error = error {
+                            continuation.resume(throwing: error)
+                        } else if let url = url {
+                            continuation.resume(returning: url)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public func uploadData(_ data: Data, to path: String) async throws -> URL {
         let storageRef = storage.reference().child(path)
         return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<URL, Error>) in

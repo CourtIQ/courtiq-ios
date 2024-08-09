@@ -10,9 +10,10 @@ import RDDesignSystem
 import SwiftUI
 
 struct ProfileRowView: View {
-    let imageUrl: String
-    let name: String
-    let gender: String
+    
+     let imageUrl: String
+     let name: String
+     let gender: String
     let country: String
     let age: String
     let action: () -> Void
@@ -20,8 +21,7 @@ struct ProfileRowView: View {
     var body: some View {
         RDCardView(type: .primary) {
             HStack(alignment: .center, spacing: 12) {
-                ProfileCardPictureView(imageUrl: URL(string: imageUrl), size: .medium)
-                
+                AvatarImage(size: .small, url: imageUrl)
                 HStack{
                     VStack(alignment: .leading, spacing: 4) {
                         Text(name)

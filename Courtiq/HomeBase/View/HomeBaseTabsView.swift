@@ -16,8 +16,6 @@ struct HomeBaseTabsView: View {
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var appRouter: AppRouter
     @EnvironmentObject var userService: UserService
-    let algoliaController = AlgoliaController()
-    
     @ObservedObject var vm: HomeBaseVM
     var body: some View {
         VStack{
@@ -25,11 +23,8 @@ struct HomeBaseTabsView: View {
             case 0:
                 HomeView(showSideMenu: $vm.showSideMenu)
             case 1:
-                SearchView(showSideMenu: $vm.showSideMenu,
-                           searchBoxController: algoliaController.searchBoxController,
-                hitsController: algoliaController.hitsController,
-                statsController: algoliaController.statsController)
-
+                SearchView(vm: SearchVM(),
+                           showSideMenu: $vm.showSideMenu)
             case 2:
                 TennisView(showSideMenu: $vm.showSideMenu,
                            vm: TennisVM(router: appRouter,
@@ -49,13 +44,3 @@ struct HomeBaseTabsView: View {
         .background(Color.TokenColor.Semantic.Background.default)
     }
 }
-
-// MARK: - Preview
-
-//struct HomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeView()
-//    }
-//}
-
-

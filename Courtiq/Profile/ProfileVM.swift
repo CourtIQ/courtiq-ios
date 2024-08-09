@@ -8,20 +8,49 @@
 import AuthenticationService
 import Foundation
 import UserService
+import RelationshipService
 import SwiftUI
 
+@MainActor
 final class ProfileVM: ViewModel {
     
-    // MARK: - Internal Properties
+    // MARK: - Internal
+    var currentUser: User? {
+        return userService.currentUser
+    }
+    
+    var smallImageUrl: URL? {
+        guard let urlString = currentUser?.imageUrls?[.small]?.url else { return nil }
+        return URL(string: urlString)
+    }
+    
+    var mediumImageUrl: URL? {
+        guard let urlString = currentUser?.imageUrls?[.medium]?.url else { return nil }
+        return URL(string: urlString)
+    }
+    
+    var largeImageUrl: URL? {
+        guard let urlString = currentUser?.imageUrls?[.large]?.url else { return nil }
+        return URL(string: urlString)
+    }
+    
+    var statsActionItems: [String : Int] {
+        ["Friends": 123,
+         "Matches": 22,
+         "Wins": 15,
+         "Losses": 7]
+    }
     
     // MARK: - Private Properties
     
-    var userService: any UserServiceProtocol
+    private var userService: any UserServiceProtocol
     private var authService: any AuthServiceProtocol
     private var router: AppRouter
     
+    
+    
     // MARK: - Initializer
-    init(userService: any UserServiceProtocol, 
+    init(userService: any UserServiceProtocol,
          authService: any AuthServiceProtocol,
          router: AppRouter)
     {
@@ -46,7 +75,7 @@ final class ProfileVM: ViewModel {
             handeMatchUpTapped()
         }
     }
-
+    
     func onAppear() {
         // Add your code here.
     }
@@ -85,7 +114,7 @@ extension ProfileVM {
     // MARK: Actions
     enum Actions {
         case settingsIconTapped
-        case actionRowItemTapped
+        case actionRowItemTapped(Int)
         case profilePictureTapped
         case statsCardTapped
         case matchUpTapped

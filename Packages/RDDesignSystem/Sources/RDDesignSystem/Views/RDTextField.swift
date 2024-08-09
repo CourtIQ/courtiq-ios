@@ -117,6 +117,7 @@ public struct RDTextField: View {
                 isEditing = false
             })
             .rdBody()
+            .autocorrectionDisabled()
             .foregroundColor(Color.TokenColor.Semantic.Text.default)
             .padding(7)
             .padding(.horizontal, 25)
@@ -178,6 +179,7 @@ public struct RDTextField: View {
                     if textFieldType == .password && !showPassword {
                         SecureField("", text: $value)
                             .rdBody()
+                            .autocorrectionDisabled()
                             .foregroundColor(currentState.valueColor)
                             .offset(y: 7)
                             .padding(.leading, 4)
@@ -185,6 +187,7 @@ public struct RDTextField: View {
                     } else {
                         TextField("", text: $value)
                             .rdBody()
+                            .autocorrectionDisabled()
                             .foregroundColor(currentState.valueColor)
                             .padding(.leading, 4)
                             .offset(y: 7)

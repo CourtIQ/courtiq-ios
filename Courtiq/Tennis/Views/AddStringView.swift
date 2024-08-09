@@ -14,10 +14,13 @@ import SwiftUI
 
 struct AddStringView: View {
     
+    // MARK: - Lifecycle
+    public init(vm: TennisVM) {
+        self.vm = vm
+    }
+
     // MARK: - Internal
-    
-    @ObservedObject var vm: TennisVM
-    
+
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "Add new string entry", leading: {}, trailing: {
@@ -46,7 +49,6 @@ struct AddStringView: View {
                     value: $vm.newStringEntry.stringMainsTension,
                     range: 20...80,
                     layout: .horizontal,
-                    state: $mainsState,
                     fixedWidth: false)
 
                 RDNumberInput(
@@ -54,7 +56,6 @@ struct AddStringView: View {
                     value: $vm.newStringEntry.stringCrossTensions,
                     range: 20...80,
                     layout: .horizontal,
-                    state: $crossState,
                     fixedWidth: false)
             }
         } footer: {
@@ -66,7 +67,6 @@ struct AddStringView: View {
     }
     
     // MARK: - Private Properties
-    
-    @State private var mainsState: RDNumberInput.FieldState = .standard
-    @State private var crossState: RDNumberInput.FieldState = .standard
+
+    @ObservedObject private var vm: TennisVM
 }

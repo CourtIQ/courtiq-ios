@@ -13,15 +13,11 @@ struct HomeBaseRootView: View {
     @StateObject private var viewModel: HomeBaseVM
     @GestureState private var gestureOffset: CGSize = .zero
     @State private var selectingIndex: Int = 0
-    private var menuItems = [
-        MenuItem(title: "Home", iconName: "menu"),
-        MenuItem(title: "My Friends", iconName: "person"),
-        MenuItem(title: "Settings", iconName: "setting"),
-        MenuItem(title: "Logout", iconName: "cross")
-    ]
-
-
-    init(authService: any AuthServiceProtocol, router: AppRouter) {
+    @EnvironmentObject private var authService: AuthService
+    
+    init(authService: any AuthServiceProtocol,
+         router: AppRouter)
+    {
         _viewModel = StateObject(wrappedValue: HomeBaseVM(authService: authService, router: router))
     }
 
@@ -29,7 +25,8 @@ struct HomeBaseRootView: View {
         let sideBarWidth = UIScreen.main.bounds.width * 0.75
         
         ZStack {
-            HomeBaseTabsView(showSideMenu: $viewModel.showSideMenu, vm: viewModel)
+            HomeBaseTabsView(showSideMenu: $viewModel.showSideMenu, 
+                             vm: viewModel)
                 .gesture(
                     DragGesture()
                         .onEnded({ (value) in
@@ -40,13 +37,9 @@ struct HomeBaseRootView: View {
                             }
                         })
                 )
-//            SideMenuView(openSideMenu: $viewModel.showSideMenu, selectedIndex: $selectingIndex, menuItems: menuItems, menuConfig: SideMenuConfig(menuWidth: sideBarWidth, menuDirection: .left, swipeToClose: true, tapToClose: true))
-            SideMenuView(openSideMenu: $viewModel.showSideMenu,
+            SideMenuView(showSideMenu: $viewModel.showSideMenu,
                          selectedIndex: $selectingIndex,
-                         menuItems: [MenuItem(title: "Home", iconName: "house"),
-                                     MenuItem(title: "My Friends", iconName: "person"),
-                                     MenuItem(title: "Settings", iconName: "gear"),
-                                     MenuItem(title: "Logout", iconName: "power")])
+                         authService: authService)
 
         }
 

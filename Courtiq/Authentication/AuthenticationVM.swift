@@ -161,9 +161,14 @@ final class AuthenticationVM: ViewModel {
                 do {
                     let data = try await selectedItem.loadTransferable(type: Data.self)
                     if let imageData = data {
-                        let path = "users/\(userID)/profile.jpg"
+                        
                         do {
-                            user.imageUrl = (try await storageService.uploadData(imageData, to: path)).absoluteString
+                            let url = (try await storageService.uploadProfilePicture(imageData, for: userID)).absoluteString
+                            
+                            let imageUrls = constructImageUrls(baseUrl: url)
+                            
+                            self.user.imageUrls = imageUrls
+
                         } catch {
                             print("Error uploading image: \(error.localizedDescription)")
                         }
@@ -183,6 +188,25 @@ final class AuthenticationVM: ViewModel {
         }
     }
     
+    private func constructImageUrls(baseUrl: String) -> [ImageSize: ImageURL] {
+        // Define the sizes and corresponding suffixes
+        let sizes: [ImageSize: String] = [
+            .small: "100x100",
+            .medium: "200x200",
+            .large: "400x400"
+        ]
+
+        // Construct URLs for each size
+        var imageUrls: [ImageSize: ImageURL] = [:]
+
+        for (size, suffix) in sizes {
+            let newUrl = baseUrl.replacingOccurrences(of: "profile_picture.png", with: "profile_picture_\(suffix).png")
+            imageUrls[size] = ImageURL(url: newUrl, size: size)
+        }
+
+        return imageUrls
+    }
+
     private func resetPassword(email: String) {
     }
     
