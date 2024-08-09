@@ -5,17 +5,19 @@
 //  Created by Pranav Suri on 2024-07-31.
 //
 
-import SwiftUI
+import AuthenticationService
 import RDDesignSystem
 import StringEntryService
-import AuthenticationService
+import SwiftUI
+
+// MARK: - AddStringView
 
 struct AddStringView: View {
+    
+    // MARK: - Internal
+    
     @ObservedObject var vm: TennisVM
-    @State private var stringNameState: RDTextField.RDTextFieldState = .normal
-    @State private var mainsState: RDNumberInput.FieldState = .standard
-    @State private var crossState: RDNumberInput.FieldState = .standard
-
+    
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "Add new string entry", leading: {}, trailing: {
@@ -25,20 +27,19 @@ struct AddStringView: View {
                     }
             })
         } content: {
-            Image("welcomeImage")
-                .resizable()
-                .padding()
-                .scaledToFit()
-
             RDTextField(
                 textFieldType: .primary,
                 placeholder: "String name",
                 icon: (leadingIcon: Image(systemName: "number"), trailingIcon: nil),
-                value: $vm.newStringEntry.stringName,
-                state: $stringNameState
-            )
+                value: $vm.newStringEntry.stringName)
             
-            HStack( alignment: .top, spacing: 12) {
+            RDTextField(
+                textFieldType: .primary,
+                placeholder: "Racket name",
+                icon: (leadingIcon: Image.Token.Icons.tennisBall, trailingIcon: nil),
+                value: $vm.newStringEntry.racketName)
+            
+            HStack(alignment: .top, spacing: 12) {
                 RDNumberInput(
                     placeholder: "Mains",
                     helperText: "Must be between 20 & 80",
@@ -46,8 +47,7 @@ struct AddStringView: View {
                     range: 20...80,
                     layout: .horizontal,
                     state: $mainsState,
-                    fixedWidth: false
-                )
+                    fixedWidth: false)
 
                 RDNumberInput(
                     placeholder: "Cross",
@@ -55,8 +55,7 @@ struct AddStringView: View {
                     range: 20...80,
                     layout: .horizontal,
                     state: $crossState,
-                    fixedWidth: false
-                )
+                    fixedWidth: false)
             }
         } footer: {
             RDButtonView(.large, .primary, "Add String Entry") {
@@ -65,4 +64,9 @@ struct AddStringView: View {
         }
         .navigationBarBackButtonHidden()
     }
+    
+    // MARK: - Private Properties
+    
+    @State private var mainsState: RDNumberInput.FieldState = .standard
+    @State private var crossState: RDNumberInput.FieldState = .standard
 }

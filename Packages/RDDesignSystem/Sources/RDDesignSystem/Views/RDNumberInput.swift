@@ -7,29 +7,52 @@
 
 import SwiftUI
 
+// MARK: - RDNumberInput
 /// A view that represents a number input field with optional stepper controls and helper text.
 public struct RDNumberInput: View {
-    // MARK: - Properties
     
-    public var placeholder: String
-    public var helperText: String?
+    // MARK: - Enums
+    /// Layout options for the number input field.
+    public enum Layout {
+        case verticalLeading, verticalTrailing, horizontal, withoutStepper
+    }
+    
+    /// Enumeration defining the states of the input field with their associated styles.
+    public enum FieldState {
+        case standard, focused, disabled, error, success
+    }
+    
+    // MARK: - Internal Properties
     @Binding public var value: Int
-    @Binding public var state: FieldState
+    
+    // MARK: - Private Properties
+    private var placeholder: String
+    private var helperText: String?
+    private var range: ClosedRange<Int>
+    private var layout: Layout
+    private var fixedWidth: Bool
     @FocusState private var focused: Bool
-    
-    public var range: ClosedRange<Int>
-    public var layout: Layout
-    public var fixedWidth: Bool = true
-    
+    @State private var internalState: FieldState = .standard
+    private var externalState: Binding<FieldState>?
+
     // MARK: - Initializer
-    
+    /// Initializes a new `RDNumberInput`.
+    ///
+    /// - Parameters:
+    ///   - placeholder: A string containing the placeholder text.
+    ///   - helperText: An optional string containing helper text.
+    ///   - value: A binding to the number input's value.
+    ///   - range: The valid range for the input value.
+    ///   - layout: The layout of the input field (default is `.horizontal`).
+    ///   - state: An optional binding to the input field's state.
+    ///   - fixedWidth: A boolean indicating if the field should have a fixed width (default is `true`).
     public init(
         placeholder: String,
         helperText: String? = nil,
         value: Binding<Int>,
         range: ClosedRange<Int>,
         layout: Layout = .horizontal,
-        state: Binding<FieldState>,
+        state: Binding<FieldState>? = nil,
         fixedWidth: Bool = true
     ) {
         self.placeholder = placeholder
@@ -37,64 +60,83 @@ public struct RDNumberInput: View {
         self._value = value
         self.range = range
         self.layout = layout
-        self._state = state
         self.fixedWidth = fixedWidth
+        if let state = state {
+            self.externalState = state
+        }
     }
     
     // MARK: - Body
-    
     public var body: some View {
+        let currentState = externalState?.wrappedValue ?? internalState
+        
         VStack {
             Group {
                 switch layout {
                 case .verticalLeading:
                     HStack {
-                        getStepper()
-                        numberTextField
+                        getStepper(currentState: currentState)
+                        numberTextField(currentState: currentState)
                     }
                 case .verticalTrailing:
                     HStack {
-                        numberTextField
-                        getStepper()
+                        numberTextField(currentState: currentState)
+                        getStepper(currentState: currentState)
                     }
                 case .horizontal:
                     HStack {
-                        decrementStepper()
-                        numberTextField
-                        incrementStepper()
+                        decrementStepper(currentState: currentState)
+                        numberTextField(currentState: currentState)
+                        incrementStepper(currentState: currentState)
                     }
-                    
                 case .withoutStepper:
-                    numberTextField
+                    numberTextField(currentState: currentState)
                 }
-                
-                
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
             .frame(height: 56)
-            .overlay(RoundedRectangle(cornerRadius: 12).stroke(state.borderColor, lineWidth: 1))
-            .background(state.bgColor.clipShape(RoundedRectangle(cornerRadius: 12)))
+            .overlay(RoundedRectangle(cornerRadius: 12).stroke(currentState.borderColor, lineWidth: 1))
+            .background(currentState.bgColor.clipShape(RoundedRectangle(cornerRadius: 12)))
             .frame(maxWidth: fixedWidth ? 150 : .infinity)
             
             if let helperText = helperText {
                 HStack {
                     Text(helperText)
                         .rdSmallBody()
-                        .foregroundColor(state.placeholderColor)
+                        .foregroundColor(currentState.placeholderColor)
                     Spacer()
                 }
             }
         }
+        .onChange(of: focused) { _ in
+            updateState()
+        }
     }
     
-    // MARK: - Private Views
+    // MARK: - Private Methods
     
-    private var numberTextField: some View {
+    private func updateState() {
+        if focused {
+            if let externalState = externalState {
+                externalState.wrappedValue = .focused
+            } else {
+                internalState = .focused
+            }
+        } else {
+            if let externalState = externalState {
+                externalState.wrappedValue = .standard
+            } else {
+                internalState = .standard
+            }
+        }
+    }
+    
+    private func numberTextField(currentState: FieldState) -> some View {
         VStack {
             Text(placeholder)
                 .rdSmallBodyBold()
-                .foregroundStyle(state.placeholderColor)
+                .foregroundStyle(currentState.placeholderColor)
                 .offset(y: 4)
             
             TextField("", text: Binding(
@@ -103,13 +145,13 @@ public struct RDNumberInput: View {
                     filterInput(newValue)
                 }))
             .rdBody()
-            .foregroundColor(state.valueColor)
+            .foregroundColor(currentState.valueColor)
             .multilineTextAlignment(.center)
             .focused($focused)
             .keyboardType(.numberPad)
             .disableAutocorrection(true)
-            .onChange(of: focused) { isFocused in
-                state = isFocused ? .focused : .standard
+            .onChange(of: focused) { _ in
+                updateState()
             }
             .onChange(of: value) { newValue in
                 filterInput(String(newValue))
@@ -118,29 +160,27 @@ public struct RDNumberInput: View {
         }
     }
     
-    private func getStepper() -> some View {
+    private func getStepper(currentState: FieldState) -> some View {
         VStack(spacing: 4) {
-            incrementStepper()
-            decrementStepper()
+            incrementStepper(currentState: currentState)
+            decrementStepper(currentState: currentState)
         }
         .foregroundColor(.primary)
     }
     
-    private func incrementStepper() -> some View {
+    private func incrementStepper(currentState: FieldState) -> some View {
         Button(action: incrementValue) {
             Image(systemName: "plus.circle")
         }
-        .foregroundColor(state.iconColor)
+        .foregroundColor(currentState.iconColor)
     }
     
-    private func decrementStepper() -> some View {
+    private func decrementStepper(currentState: FieldState) -> some View {
         Button(action: decrementValue) {
             Image(systemName: "minus.circle")
         }
-        .foregroundColor(state.iconColor)
+        .foregroundColor(currentState.iconColor)
     }
-    
-    // MARK: - Private Methods
     
     private func incrementValue() {
         if value < range.upperBound {
@@ -164,20 +204,9 @@ public struct RDNumberInput: View {
             value = range.upperBound
         }
     }
-    
-    // MARK: - Enums
-    
-    public enum Layout {
-        case verticalLeading, verticalTrailing, horizontal, withoutStepper
-    }
-    
-    public enum FieldState {
-        case standard, focused, disabled, error, success
-    }
 }
 
 // MARK: - Extensions for RDNumberInput.FieldState
-
 extension RDNumberInput.FieldState {
     
     var bgColor: Color {
@@ -207,7 +236,7 @@ extension RDNumberInput.FieldState {
     var valueColor: Color {
         switch self {
         case .standard, .focused, .error, .success:
-            return Color.TokenColor.Semantic.Text.primary
+            return Color.TokenColor.Semantic.Text.default
         case .disabled:
             return Color.TokenColor.Semantic.Text.primary
         }

@@ -203,7 +203,7 @@ public struct RDActionIcon: View {
             image
                 .resizable()
                 .scaledToFit()
-                .frame(width: 20)
+                .frame(width: 24)
                 .foregroundColor(Color.TokenColor.Semantic.Icon.secondary)
         }
     }

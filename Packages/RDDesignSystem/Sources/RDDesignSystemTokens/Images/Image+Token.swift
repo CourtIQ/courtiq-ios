@@ -38,7 +38,7 @@ public extension Image {
             }
             
             public static var close: Image {
-                Image("cross", bundle: .module)
+                Image("close", bundle: .module)
             }
             
             public static var back: Image {

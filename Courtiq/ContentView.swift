@@ -27,12 +27,6 @@ struct ContentView: View {
                     .navigationDestination(for: ViewWrapper.self) { view in
                         view.view
                     }
-                    .onAppear {
-                        print("User is logged in: \(authService.isUserLoggedIn)")
-                        print("Additional info needed: \(authService.additionalInfoNeeded)")
-                        print("Current user UID: \(authService.currentUserUID)")
-                    }
-                    
                 } else if authService.isUserLoggedIn && authService.additionalInfoNeeded {
                     AdditionalInfoView(vm: AuthenticationVM(authService: authService,
                                                             userService: userService,
@@ -41,25 +35,15 @@ struct ContentView: View {
                     .navigationDestination(for: ViewWrapper.self) { view in
                         view.view
                     }
-                    .onAppear {
-                        print("User is logged in: \(authService.isUserLoggedIn)")
-                        print("Additional info needed: \(authService.additionalInfoNeeded)")
-                        print("Current user UID: \(authService.currentUserUID)")
-                    }
                 }
                 else {
-                    AuthenticationWelcomeView(vm: AuthenticationVM(authService: authService,
-                                                                   userService: userService,
-                                                                   router: router,
-                                                                   storageService: StorageService()))
+                    AuthenticationWelcomeView(
+                        vm: AuthenticationVM(authService: authService,
+                                             userService: userService,
+                                             router: router,
+                                             storageService: StorageService()))
                     .navigationDestination(for: ViewWrapper.self) { view in
                         view.view
-                    }
-                    .background(Color.TokenColor.Semantic.Background.default)
-                    .onAppear {
-                        print("User is logged in: \(authService.isUserLoggedIn)")
-                        print("Additional info needed: \(authService.additionalInfoNeeded)")
-                        print("Current user UID: \(authService.currentUserUID)")
                     }
                 }
                 

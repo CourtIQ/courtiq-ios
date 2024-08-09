@@ -8,9 +8,10 @@
 import Foundation
 
 public struct StringEntry: Codable {
-    public var stringEntryID: String
+    public var id: String
     public var userID: String
     public var stringName: String
+    public var racketName: String
     public var stringingDate: Date
     public var stringMainsTension: Int
     public var stringCrossTensions: Int
@@ -18,18 +19,20 @@ public struct StringEntry: Codable {
     public var entryDate: Date
     
     public init(
-        stringEntryID: String = UUID().uuidString,
+        id: String = UUID().uuidString,
         userID: String = "",
         stringName: String = "",
+        racketName: String = "",
         stringingDate: Date = Date(),
         stringMainsTension: Int = 50,
         stringCrossTensions: Int = 50,
         lastUpdated: Date = Date(),
         entryDate: Date = Date()
     ) {
-        self.stringEntryID = stringEntryID
+        self.id = id
         self.userID = userID
         self.stringName = stringName
+        self.racketName = racketName
         self.stringingDate = stringingDate
         self.stringMainsTension = stringMainsTension
         self.stringCrossTensions = stringCrossTensions
@@ -37,3 +40,4 @@ public struct StringEntry: Codable {
         self.entryDate = entryDate
     }
 }
+// TODO: Fix the document ID not being the same
