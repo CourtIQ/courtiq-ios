@@ -16,35 +16,37 @@ struct HomeBaseTabsView: View {
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var appRouter: AppRouter
     @EnvironmentObject var userService: UserService
-
+    let algoliaController = AlgoliaController()
+    
     @ObservedObject var vm: HomeBaseVM
     var body: some View {
-        Group {
-            VStack{
-                switch vm.selectedTab {
-                case 0:
-                    HomeView(showSideMenu: $vm.showSideMenu)
-                case 1:
-                    SearchView(showSideMenu: $vm.showSideMenu)
-                case 2:
-                    TennisView(showSideMenu: $vm.showSideMenu, 
-                               vm: TennisVM(router: appRouter, 
-                                            authService: authService))
-                case 3:
-                    ProfileView(showSideMenu: $vm.showSideMenu,
-                                userService: userService, 
-                                authService: authService,
-                                router: appRouter)
-                default:
-                    EmptyView()
-                }
-                Spacer()
-                RDTabBar(items: vm.tabBarItems, selectedIndex: $vm.selectedTab)
+        VStack{
+            switch vm.selectedTab {
+            case 0:
+                HomeView(showSideMenu: $vm.showSideMenu)
+            case 1:
+                SearchView(showSideMenu: $vm.showSideMenu,
+                           searchBoxController: algoliaController.searchBoxController,
+                hitsController: algoliaController.hitsController,
+                statsController: algoliaController.statsController)
+
+            case 2:
+                TennisView(showSideMenu: $vm.showSideMenu,
+                           vm: TennisVM(router: appRouter,
+                                        authService: authService))
+            case 3:
+                ProfileView(showSideMenu: $vm.showSideMenu,
+                            userService: userService,
+                            authService: authService,
+                            router: appRouter)
+            default:
+                EmptyView()
             }
-            .frame(width: getRect().width)
-            .background(Color.TokenColor.Semantic.Background.default)
-            
+            Spacer()
+            RDTabBar(items: vm.tabBarItems, selectedIndex: $vm.selectedTab)
         }
+        .frame(width: getRect().width)
+        .background(Color.TokenColor.Semantic.Background.default)
     }
 }
 

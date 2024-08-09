@@ -10,6 +10,7 @@ import RDDesignSystem
 import RelationshipService
 import SwiftUI
 import UserService
+import StorageService
 
 // MARK: - ProfileView
 
@@ -18,7 +19,8 @@ struct ProfileView: View {
     
     @Binding var showSideMenu: Bool
     @StateObject private var vm: ProfileVM
-
+    @EnvironmentObject var storagService: StorageService
+    
     init(showSideMenu: Binding<Bool>,
          userService: UserService,
          authService: AuthService,
@@ -28,7 +30,7 @@ struct ProfileView: View {
     }
     
     // MARK: - Body
-    
+
     var body: some View {
         
         BaseTabPageView {
@@ -48,15 +50,7 @@ struct ProfileView: View {
             RDCardView(type: .primary) {
                 HStack(alignment: .top, spacing: 12) {
                     
-                    Image("serena")
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: 60, height: 60)
-                        .clipShape(Circle())
-                        .overlay(
-                            Circle()
-                                .stroke(Color.TokenColor.Semantic.Border.secondary, lineWidth: 4)
-                        )
+                    ProfileCardPictureView(imageUrl: URL(string: vm.userService.currentUser?.imageUrl ?? ""), size: .large)
                     
                     VStack(alignment: .leading, spacing: 12) {
                         if let currentUser = vm.userService.currentUser {
@@ -85,10 +79,20 @@ struct ProfileView: View {
                                                action: { vm.handle(action: .actionRowItemTapped) })
                                 ])
                         }
+                        
+
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
+
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+
+            }
+            XelaChart(type: .Pie, labels: ["A", "B", "C"], datasetPieChart: XelaPieDatasets(dataset: XelaPieChartDataset(label: "A", data: [4.5,8.8,7.4], fillColors: [.red,.blue,.green100])))
+            .onAppear {
+                Task {
+                }
+                
             }
         }
     }

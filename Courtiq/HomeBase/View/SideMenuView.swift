@@ -1,133 +1,119 @@
-//
-//  SSSwiftUISideMenu.swift
-//  SSSwiftUISideMenu
+//  SideMenuView.swift
+//  SideMenuView
 //
 //  Created by Parth Dumaswala on 31/10/23.
 //
 
+import AuthenticationService
 import SwiftUI
+import RDDesignSystem
 
-struct MenuItem : Hashable {
-    
-    var title : String
-    var icon : String
-    
-    public init(title: String, icon: String) {
-        self.title = title
-        self.icon = icon
-    }
-    
-}
+// MARK: - SideMenuView
 
 struct SideMenuView: View {
     
-    @Binding var openSideMenu: Bool
-    @Binding var selectedIndex: Int
-    @State var menuItems: [MenuItem]
-    let menuConfig: SideMenuConfig
+    // MARK: - Lifecycle
     
     public init(
         openSideMenu: Binding<Bool>,
         selectedIndex: Binding<Int>,
-        menuItems: [MenuItem],
-        menuConfig: SideMenuConfig = SideMenuConfig()
+        menuItems: [MenuItem]
     ) {
         self._openSideMenu = openSideMenu
         self._selectedIndex = selectedIndex
         self.menuItems = menuItems
-        self.menuConfig = menuConfig
     }
     
-    private var viewWidth = UIScreen.main.bounds.width
+    // MARK: - Internal
+    
+    @Binding var openSideMenu: Bool
+    @Binding var selectedIndex: Int
+    @State var menuItems: [MenuItem]
+    
     public var body: some View {
-        
         ZStack {
             GeometryReader { _ in
                 EmptyView()
             }
             .background(Color.black.opacity(0.2))
             .opacity(self.openSideMenu ? 1.0 : 0.0)
-            .animation(menuConfig.animationType.delay(0.25), value: 0)
+            .animation(.default.delay(0.25), value: openSideMenu)
             
             HStack {
-                
-                VStack {
-                    VStack(alignment: .leading, spacing: menuConfig.rowPadding) {
-                        List {
-                            ForEach(0..<menuItems.count, id: \.self) { value in
-                                
-                                Button(action: {
-                                    withAnimation(.spring()) {
-                                        self.selectedIndex = value
-                                        if menuConfig.tapToClose { return }
-                                        self.openSideMenu.toggle()
-                                    }
-                                }, label: {
-                                    HStack(spacing: menuConfig.imageToTitlePadding) {
-                                        Image(menuItems[value].icon)
-                                            .renderingMode(.template)
-                                            .foregroundColor(menuConfig.iconTintColor)
-                                            .frame(width: menuConfig.iconWidth, height: menuConfig.iconHeight)
-                                        Text(menuItems[value].title)
-                                            .font(menuConfig.titleFont)
-                                            .fontWeight(.semibold)
-                                    }
-                                    .foregroundColor(selectedIndex == value ? menuConfig.selectedTitleColor : menuConfig.titleColor)
-                                    .padding(.vertical, menuConfig.rowPadding)
-                                    .padding(.horizontal, menuConfig.leftIconPadding)
-                                    .frame(maxWidth: UIScreen.main.bounds.width - 170, alignment: .leading)
-                                })
-                            }
-                            .listRowSeparator(.hidden)
-                            .listRowInsets(.init())
-                            .buttonStyle(.plain)
-                            .listRowBackground(Color.clear)
-                        }
-                        .scrollIndicators(.hidden)
-                        .listStyle(.plain)
+                MarqueeView {
+                    HStack {
+                        Text("Side Menu")
+                            .rdHeadline()
                     }
-                    .padding(.top, menuConfig.topPadding)
-                    
-                    if menuConfig.showAppVersion {
-                        VStack() {
-                            Text(menuConfig.versionText)
-                                .padding()
-                                .frame(maxWidth: .infinity, alignment: menuConfig.versionAlignment)
-                                .foregroundStyle(menuConfig.versionTitleColor)
-                                .font(menuConfig.versionFont)
+                    Text("Side Menu")
+                        .rdHeadline()
+                        .foregroundColor(Color.TokenColor.Semantic.Text.default)
+                        .padding()
+                } content: {
+                    Text("Content")
+                } footer: {
+                    RDButtonView(.large, .primary, "Logout") {
+                        Task {
+                            try await authService.signOut()
                         }
                     }
                 }
-                .padding()
-                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                .frame(width: menuConfig.menuWidth)
-                .background(menuConfig.backgroundColor)
-                .offset(x: self.openSideMenu ? menuConfig.menuDirection == .left ? 0 : viewWidth - menuConfig.menuWidth : menuConfig.menuDirection == .left ? -menuConfig.menuWidth : viewWidth)
-                .animation(menuConfig.animationType, value: openSideMenu)
+                .frame(width: sideMenuWidth)
+                .offset(x: self.openSideMenu ? 0 : -sideMenuWidth)
+
                 Spacer()
             }
-            
-        }.gesture(DragGesture(minimumDistance: 20, coordinateSpace: .global)
+        }
+        .gesture(DragGesture(minimumDistance: 20, coordinateSpace: .global)
             .onEnded { value in
-                if !menuConfig.swipeToClose { return }
-                let horizontalAmount = value.translation.width
-                let verticalAmount = value.translation.height
-                
-                if abs(horizontalAmount) > abs(verticalAmount) {
-                    if menuConfig.menuDirection == .left && horizontalAmount < 0 {
-                        self.openSideMenu.toggle()
-                    } else if menuConfig.menuDirection == .right && horizontalAmount > 0 {
-                        self.openSideMenu.toggle()
+                withAnimation(.easeOut) {
+                    let horizontalAmount = value.translation.width
+                    let verticalAmount = value.translation.height
+                    
+                    if abs(horizontalAmount) > abs(verticalAmount) {
+                        if horizontalAmount < 0 {
+                            self.openSideMenu.toggle()
+                        }
                     }
                 }
             })
         .gesture(
             TapGesture()
                 .onEnded { _ in
-                    if !menuConfig.tapToClose { return }
-                    self.openSideMenu.toggle()
+                    withAnimation {
+                        self.openSideMenu.toggle()
+                    }
                 }
         )
     }
     
+    // MARK: - Private
+    
+    @EnvironmentObject private var authService: AuthService
+    
+    private let sideMenuWidth: CGFloat = UIScreen.main.bounds.width * 0.75
+    private var viewWidth: CGFloat {
+        UIScreen.main.bounds.width
+    }
+}
+
+// MARK: - MenuItem
+
+struct MenuItem: Hashable {
+    
+    // MARK: - Properties
+    
+    let title: String
+    let iconName: String
+    
+    var icon: Image {
+        Image(iconName)
+    }
+    
+    // MARK: - Initializer
+    
+    public init(title: String, iconName: String) {
+        self.title = title
+        self.iconName = iconName
+    }
 }

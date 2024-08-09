@@ -7,8 +7,10 @@
 
 import AuthenticationService
 import FirebaseCore
+import InstantSearchTelemetry
 import RDDesignSystem
 import RelationshipService
+import StorageService
 import SwiftUI
 import SwiftData
 import UserService
@@ -23,6 +25,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        InstantSearchTelemetry.shared.isEnabled = false
+
         return true
     }
 }
@@ -36,6 +40,7 @@ struct CourtiqApp: App {
     @StateObject var router = AppRouter()
     @StateObject var userService = UserService()
     @StateObject var relationshipService = RelationshipService()
+    @StateObject var storageService = StorageService()
 
     var body: some Scene {
         WindowGroup {
@@ -45,6 +50,7 @@ struct CourtiqApp: App {
                     .environmentObject(router)
                     .environmentObject(userService)
                     .environmentObject(relationshipService)
+                    .environmentObject(storageService)
                     .sheet(item: $router.currentSheet) { sheet in
                         sheet.view
                     }

@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestore
 
 public struct User: Identifiable, Codable {
-    @DocumentID public var id: String?
+    public var id: String?
     public var uid: String
     public var displayName: String?
     public var firstName: String?
@@ -22,7 +22,23 @@ public struct User: Identifiable, Codable {
     public var imageUrl: String?
     public var createdAt: Date
     public var lastUpdated: Date?
-    
+
+    enum CodingKeys: String, CodingKey {
+        case id = "objectID"
+        case uid
+        case displayName
+        case firstName
+        case lastName
+        case email
+        case gender
+        case nationality
+        case dob
+        case phoneNumber
+        case imageUrl
+        case createdAt
+        case lastUpdated
+    }
+
     public init(id: String? = nil,
                 uid: String,
                 displayName: String? = nil,

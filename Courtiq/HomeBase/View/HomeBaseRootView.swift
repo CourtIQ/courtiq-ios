@@ -11,13 +11,13 @@ import RDDesignSystem
 
 struct HomeBaseRootView: View {
     @StateObject private var viewModel: HomeBaseVM
-    @GestureState private var gestureOffset: CGFloat = 0
+    @GestureState private var gestureOffset: CGSize = .zero
     @State private var selectingIndex: Int = 0
     private var menuItems = [
-        MenuItem(title: "Home", icon: "home"),
-        MenuItem(title: "My Friends", icon: "friends"),
-        MenuItem(title: "Settings", icon: "setting"),
-        MenuItem(title: "Logout", icon: "logout")
+        MenuItem(title: "Home", iconName: "menu"),
+        MenuItem(title: "My Friends", iconName: "person"),
+        MenuItem(title: "Settings", iconName: "setting"),
+        MenuItem(title: "Logout", iconName: "cross")
     ]
 
 
@@ -30,8 +30,26 @@ struct HomeBaseRootView: View {
         
         ZStack {
             HomeBaseTabsView(showSideMenu: $viewModel.showSideMenu, vm: viewModel)
-            SideMenuView(openSideMenu: $viewModel.showSideMenu, selectedIndex: $selectingIndex, menuItems: menuItems, menuConfig: SideMenuConfig(menuWidth: sideBarWidth, menuDirection: .left, swipeToClose: true, tapToClose: true, showAppVersion: true, versionText: "Test"))
+                .gesture(
+                    DragGesture()
+                        .onEnded({ (value) in
+                            if value.translation.width > 100 {
+                                withAnimation {
+                                    self.viewModel.showSideMenu = true
+                                }
+                            }
+                        })
+                )
+//            SideMenuView(openSideMenu: $viewModel.showSideMenu, selectedIndex: $selectingIndex, menuItems: menuItems, menuConfig: SideMenuConfig(menuWidth: sideBarWidth, menuDirection: .left, swipeToClose: true, tapToClose: true))
+            SideMenuView(openSideMenu: $viewModel.showSideMenu,
+                         selectedIndex: $selectingIndex,
+                         menuItems: [MenuItem(title: "Home", iconName: "house"),
+                                     MenuItem(title: "My Friends", iconName: "person"),
+                                     MenuItem(title: "Settings", iconName: "gear"),
+                                     MenuItem(title: "Logout", iconName: "power")])
+
         }
+
     }
 }
 

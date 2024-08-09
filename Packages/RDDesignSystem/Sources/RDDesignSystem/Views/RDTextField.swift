@@ -27,8 +27,10 @@ public struct RDTextField: View {
     var placeholder: String = ""
     var helperText: String? = nil
     var icon: (leadingIcon: Image?, trailingIcon: Image?)?
+    private var onSubmit: () -> Void
     @Binding public var value: String
     @Binding public var state: RDTextFieldState
+    @Binding public var isEditing: Bool?
     @State private var showPassword: Bool = false
     @FocusState private var focused: Bool {
         didSet {
@@ -51,15 +53,26 @@ public struct RDTextField: View {
         textFieldType: RDTextFieldType,
         placeholder: String,
         icon: (leadingIcon: Image?, trailingIcon: Image?)? = nil,
+        onSubmit: @escaping () -> Void = {},
         value: Binding<String>,
         state: Binding<RDTextFieldState>,
+        isEditing: Binding<Bool>? = nil,
         trailingAction: (() -> Void)? = nil
     ) {
         self.textFieldType = textFieldType
         self.placeholder = placeholder
         self.icon = icon
+        self.onSubmit = onSubmit
         self._value = value
         self._state = state
+        if let isEditing = isEditing {
+            self._isEditing = Binding<Bool?>(
+                get: { isEditing.wrappedValue },
+                set: { isEditing.wrappedValue = $0 ?? false }
+            )
+        } else {
+            self._isEditing = .constant(nil)
+        }
         self.trailingAction = trailingAction
     }
     
@@ -77,50 +90,102 @@ public struct RDTextField: View {
     public var body: some View {
         let isActive = focused || value.count > 0
         
-        VStack(spacing: 8) {
-            HStack(spacing: 8) {
-                leadingIconView
-                
-                ZStack(alignment: .leading) {
-                    Text(placeholder)
-                        .dynamicNunitoSans(size: isActive ? 14 : 16, weight: isActive ? .bold : .regular)
-                        .foregroundColor(state.placeholderColor)
-                        .frame(height: 24)
-                        .padding(.leading, 4)
-                        .offset(y: isActive ? -12 : 0)
-                        .animation(.default, value: isActive)
-                    
-                    if textFieldType == .password && !showPassword {
-                        SecureField("", text: $value)
-                            .rdBody()
-                            .foregroundColor(state.valueColor)
-                            .offset(y: 7)
-                            .padding(.leading, 4)
-                            .focused($focused)
-                    } else {
-                        TextField("", text: $value)
-                            .rdBody()
-                            .foregroundColor(state.valueColor)
-                            .padding(.leading, 4)
-                            .offset(y: 7)
-                            .focused($focused)
+        if textFieldType == .search {
+            HStack {
+                TextField(placeholder, text: $value, onCommit: {
+                    onSubmit()
+                    isEditing = false
+                })
+                .rdBody()
+                .foregroundColor(Color.TokenColor.Semantic.Text.default)
+                .padding(7)
+                .padding(.horizontal, 25)
+                .cornerRadius(8)
+                .overlay(
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(Color.TokenColor.Semantic.Icon.default)
+                            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 8)
+                            .disabled(true)
+                        if isEditing == true && !value.isEmpty {
+                            Button(action: {
+                                value = ""
+                            },
+                                   label: {
+                                Image(systemName: "multiply.circle.fill")
+                                    .foregroundColor(.gray)
+                                    .padding(.trailing, 8)
+                            })
+                        }
                     }
+                )
+                .onTapGesture {
+                    isEditing = true
                 }
-                
-                trailingIconView
+                .background(Color.TokenColor.Component.SearchField.background)
+                .cornerRadius(10)
+                if isEditing == true {
+                    Button(action: {
+                        isEditing = false
+                    },
+                           label: {
+                        Text("Cancel")
+                            .rdBody()
+                            .foregroundColor(Color.TokenColor.Semantic.Text.secondary)
+                    })
+                    .padding(.trailing, 10)
+                    .transition(.move(edge: .trailing))
+                    .animation(.default)
+                }
             }
-            .padding(.horizontal, 16)
-            .frame(height: 56)
-            .background(state.backgroundColor)
-            .overlay(borderOverlay)
             
-            if let helperText = helperText {
-                helperTextView
+        } else {
+            VStack(spacing: 8) {
+                HStack(spacing: 8) {
+                    leadingIconView
+                    
+                    ZStack(alignment: .leading) {
+                        Text(placeholder)
+                            .dynamicNunitoSans(size: isActive ? 14 : 16, weight: isActive ? .bold : .regular)
+                            .foregroundColor(state.placeholderColor)
+                            .frame(height: 24)
+                            .padding(.leading, 4)
+                            .offset(y: isActive ? -12 : 0)
+                            .animation(.default, value: isActive)
+                        
+                        if textFieldType == .password && !showPassword {
+                            SecureField("", text: $value)
+                                .rdBody()
+                                .foregroundColor(state.valueColor)
+                                .offset(y: 7)
+                                .padding(.leading, 4)
+                                .focused($focused)
+                        } else {
+                            TextField("", text: $value)
+                                .rdBody()
+                                .foregroundColor(state.valueColor)
+                                .padding(.leading, 4)
+                                .offset(y: 7)
+                                .focused($focused)
+                        }
+                    }
+                    
+                    trailingIconView
+                }
+                .padding(.horizontal, 16)
+                .frame(height: 56)
+                .background(state.backgroundColor)
+                .overlay(borderOverlay)
+                
+                if let helperText = helperText {
+                    helperTextView
+                }
             }
-        }
-        .animation(.linear, value: focused)
-        .onChange(of: focused) { _ in
-            updateState()
+            .animation(.linear, value: focused)
+            .onChange(of: focused) { _ in
+                updateState()
+            }
         }
     }
     
@@ -145,8 +210,8 @@ public struct RDTextField: View {
             if textFieldType == .password {
                 Button(action: { showPassword.toggle() }) {
                     (showPassword
-                    ? Image.Token.Icons.eyeOpen
-                    : Image.Token.Icons.eyeClosed)
+                     ? Image.Token.Icons.eyeOpen
+                     : Image.Token.Icons.eyeClosed)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 20)

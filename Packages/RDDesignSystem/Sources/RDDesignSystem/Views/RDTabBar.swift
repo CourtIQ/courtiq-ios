@@ -37,9 +37,8 @@ public struct RDTabBar: View {
             }
         }
         .padding(.top, 6)
-        .border(width: 1, edges: [.top], color: Color.TokenColor.Semantic.Border.default)
-        .frame(height: 75)
         .background(Color.TokenColor.Semantic.Background.default)
+        .border(width: 1, edges: [.top], color: Color.TokenColor.Semantic.Border.default)
     }
     
     // MARK: - TabItem
@@ -81,6 +80,6 @@ public struct RDTabBar: View {
                 }
             }
         }
-        .frame(maxHeight: .infinity)
+//        .frame(maxHeight: .infinity)
     }
 }

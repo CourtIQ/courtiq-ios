@@ -11,6 +11,21 @@ import SwiftUI
 
 struct ProfileCardPictureView: View {
     let imageUrl: URL?
+    let size: Size
+    
+    enum Size {
+        case small, medium, large
+        var value: CGFloat {
+            switch self {
+            case .small:
+                return 30
+            case .medium:
+                return 45
+            case .large:
+                return 60
+            }
+        }
+    }
 
     var body: some View {
         Group {
@@ -19,7 +34,7 @@ struct ProfileCardPictureView: View {
                     switch phase {
                     case .empty:
                         ProgressView()
-                            .frame(width: 60, height: 60)
+                            .frame(width: size.value, height: size.value)
                             .background(Color.clear)
                             .clipShape(Circle())
                             .overlay(
@@ -30,7 +45,7 @@ struct ProfileCardPictureView: View {
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 60, height: 60)
+                            .frame(width: size.value, height: size.value)
                             .clipShape(Circle())
                             .overlay(
                                 Circle()
@@ -40,7 +55,7 @@ struct ProfileCardPictureView: View {
                         Image(systemName: "person")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 60, height: 60)
+                            .frame(width: size.value, height: size.value)
                             .clipShape(Circle())
                             .overlay(
                                 Circle()
@@ -50,7 +65,7 @@ struct ProfileCardPictureView: View {
                         Image(systemName: "person")
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(width: 60, height: 60)
+                            .frame(width: size.value, height: size.value)
                             .clipShape(Circle())
                             .overlay(
                                 Circle()
@@ -62,7 +77,7 @@ struct ProfileCardPictureView: View {
                 Image(systemName: "person")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 60, height: 60)
+                    .frame(width: size.value, height: size.value)
                     .clipShape(Circle())
                     .overlay(
                         Circle()
@@ -77,6 +92,6 @@ struct ProfileCardPictureView: View {
 
 struct ProfileCardPictureView_Previews: PreviewProvider {
     static var previews: some View {
-        ProfileCardPictureView(imageUrl: URL(string: "https://example.com/profile.jpg"))
+        ProfileCardPictureView(imageUrl: URL(string: "https://example.com/profile.jpg"), size: .large)
     }
 }

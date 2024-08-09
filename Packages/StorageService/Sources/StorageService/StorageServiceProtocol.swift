@@ -8,7 +8,7 @@
 import Foundation
 
 // Protocol for Firebase Storage Service
-public protocol StorageServiceProtocol {
+public protocol StorageServiceProtocol: ObservableObject {
     func uploadData(_ data: Data, to path: String) async throws -> URL
     func downloadData(from path: String) async throws -> Data
     func deleteData(at path: String) async throws

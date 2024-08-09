@@ -67,6 +67,14 @@ public extension Image {
             
             public static var tennisBall: Image {
                 Image("tennis-ball", bundle: .module)
+            }            
+            
+            public static var chevronRight: Image {
+                Image("chevron-right", bundle: .module)
+            }
+            
+            public static var filter: Image {
+                Image("filter", bundle: .module)
             }
         }
     }
