@@ -47,6 +47,8 @@ struct ProfileView: View {
             })
         } content: {
             ProfileCardView(vm: vm)
+            Text("Hello, World!")
+            Spacer()
         }
     }
 }

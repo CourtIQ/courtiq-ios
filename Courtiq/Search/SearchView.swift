@@ -34,21 +34,33 @@ struct SearchView: View {
             }, trailing: {
                 Image.Token.Icons.filter
                     .rdActionIcon {
-                        print("Settings")
+                        vm.handle(action: .filterButtonTapped)
                     }
             })
-            RDTextField(textFieldType: .search,
-                        placeholder: "Search for players or matches...",
-                        onSubmit: { vm.searchBoxController.submit() },
-                        value: $vm.searchBoxController.query,
-                        state: .constant(.normal),
-                        isEditing: $vm.searchFieldIsEditing)
-            .padding(.horizontal, 12)
 
+            RDTextField(
+                textFieldType: .search,
+                placeholder: "Search for players or matches...",
+                onSubmit: {
+                    if !vm.searchBoxController.query.isEmpty {
+                        vm.searchBoxController.submit()
+                    }
+                },
+                value: $vm.searchBoxController.query,
+                state: .constant(.normal),
+                isEditing: $vm.searchFieldIsEditing)
+            .padding(.horizontal, 12)
+            
         } content: {
             VStack {
-                Text("No Results")
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                HitsList(vm.hitsController) { hit, _ in
+                    ProfileRowView(imageUrl: hit?.imageUrls?[.small]?.url ?? "", name: hit?.firstName ?? "--", gender: "M", country: "IND", age: "22") {
+                        vm.handle(action: .userSearchItemTapped(user: hit!))
+                    }
+                } noResults: {
+                    Text("No Results")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                }
             }
         }
     }

@@ -1,6 +1,6 @@
 //
-//  SwiftUIView.swift
-//  
+//  CachedAsyncImage.swift
+//
 //
 //  Created by Pranav Suri on 2024-08-09.
 //
@@ -17,17 +17,8 @@ import SwiftUI
 ///
 @available(iOS 15.0, *)
 public struct CachedAsyncImage<Content>: View where Content: View {
-    
-    // MARK: - Properties
-    
-    @State private var phase: AsyncImagePhase
-    private let urlRequest: URLRequest?
-    private let urlSession: URLSession
-    private let scale: CGFloat
-    private let transaction: Transaction
-    private let content: (AsyncImagePhase) -> Content
-    
-    // MARK: - Initializers
+
+    // MARK: - Lifecycle
     
     public init(url: URL?, urlCache: URLCache = .shared, scale: CGFloat = 1, @ViewBuilder content: @escaping (AsyncImagePhase) -> Content) {
         let urlRequest = url.map { URLRequest(url: $0) }
@@ -64,14 +55,21 @@ public struct CachedAsyncImage<Content>: View where Content: View {
         }
     }
     
-    // MARK: - Body
+    // MARK: - Internal
     
     public var body: some View {
         content(phase)
             .task(id: urlRequest, load)
     }
     
-    // MARK: - Private Methods
+    // MARK: - Private
+    
+    @State private var phase: AsyncImagePhase
+    private let urlRequest: URLRequest?
+    private let urlSession: URLSession
+    private let scale: CGFloat
+    private let transaction: Transaction
+    private let content: (AsyncImagePhase) -> Content
     
     private func load() async {
         do {
@@ -96,6 +94,8 @@ public struct CachedAsyncImage<Content>: View where Content: View {
         }
     }
     
+    // MARK: Private
+    
     private func remoteImage(from request: URLRequest, session: URLSession) async throws -> (Image, URLSessionTaskMetrics) {
         let (data, _, metrics) = try await session.data(for: request)
         return (try image(from: data), metrics)
@@ -113,9 +113,7 @@ public struct CachedAsyncImage<Content>: View where Content: View {
             throw LoadingError()
         }
     }
-    
-    // MARK: - LoadingError
-    
+
     private struct LoadingError: Error {}
 }
 

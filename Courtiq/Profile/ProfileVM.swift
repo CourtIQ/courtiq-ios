@@ -65,8 +65,8 @@ final class ProfileVM: ViewModel {
         switch action {
         case .settingsIconTapped:
             goToSettings()
-        case .actionRowItemTapped:
-            handleActionRowItemTapped()
+        case .actionRowItemTapped(let index):
+            handleActionRowItemTapped(index: index)
         case .profilePictureTapped:
             goToProfilePictureView()
         case .statsCardTapped:
@@ -91,9 +91,23 @@ final class ProfileVM: ViewModel {
         router.handle(action: .showScreen(AnyView(view)))
     }
     
-    private func handleActionRowItemTapped() {
-        router.handle(action: .push(AnyView(Text("Hello World!"))))
-        print(#function)
+    private func handleActionRowItemTapped(index: Int) {
+        switch index {
+        case 0:
+            let view = Text("Friends Lsit")
+            router.handle(action: .push(AnyView(view)))
+        case 1:
+            let view = Text("Matches Lsit")
+            router.handle(action: .push(AnyView(view)))
+        case 2:
+            let view = Text("Wins Lsit")
+            router.handle(action: .push(AnyView(view)))
+        case 3:
+            let view = Text("Losses Lsit")
+            router.handle(action: .push(AnyView(view)))
+        default:
+            return
+        }
     }
     
     private func handleStatsCardTappedTapped() {

@@ -43,7 +43,6 @@ struct ProfileCardView: View {
                             vm.handle(action: .actionRowItemTapped(3))
                         })
                     ])
-                    .frame(maxWidth: .infinity)
                 }
             }
         }
@@ -51,6 +50,18 @@ struct ProfileCardView: View {
     }
     
     // MARK: - Private
+    
+    private var title: String {
+        if let firstName = vm.currentUser?.firstName,
+           let lastName = vm.currentUser?.lastName {
+            return "\(firstName) \(lastName)"
+        }
+        return ""
+    }
+    
+    private var subtitle: String { return "🇮🇳 India  |  Male  |  22" }
+    
+    @ObservedObject private var vm: ProfileVM
     
     @ViewBuilder
     private func profileTextContent() -> some View {
@@ -60,23 +71,11 @@ struct ProfileCardView: View {
                 .foregroundStyle(Color.TokenColor.Semantic.Text.default)
             
             Text(subtitle)
-                .rdBody()
+                .rdSmallBody()
                 .foregroundStyle(Color.TokenColor.Semantic.Text.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.red)
     }
-    
-    private var title: String {
-        if let firstName = vm.currentUser?.firstName,
-           let lastName = vm.currentUser?.lastName {
-            return "\(firstName) \(lastName)"
-        }
-        return ""
-    }
-    private var subtitle: String { return "🇮🇳 India  |  Male  |  22" }
-    
-    @ObservedObject private var vm: ProfileVM
 }
 
 #Preview {

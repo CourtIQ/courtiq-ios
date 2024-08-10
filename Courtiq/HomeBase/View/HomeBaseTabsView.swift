@@ -23,7 +23,7 @@ struct HomeBaseTabsView: View {
             case 0:
                 HomeView(showSideMenu: $vm.showSideMenu)
             case 1:
-                SearchView(vm: SearchVM(),
+                SearchView(vm: SearchVM(router: appRouter),
                            showSideMenu: $vm.showSideMenu)
             case 2:
                 TennisView(showSideMenu: $vm.showSideMenu,

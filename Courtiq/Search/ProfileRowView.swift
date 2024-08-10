@@ -11,9 +11,9 @@ import SwiftUI
 
 struct ProfileRowView: View {
     
-     let imageUrl: String
-     let name: String
-     let gender: String
+    let imageUrl: String
+    let name: String
+    let gender: String
     let country: String
     let age: String
     let action: () -> Void
@@ -33,7 +33,7 @@ struct ProfileRowView: View {
                     }
                     Spacer()
                 }
-
+                
                 
                 Image.Token.Icons.chevronRight
                     .rdActionIcon {
@@ -44,3 +44,4 @@ struct ProfileRowView: View {
         }
     }
 }
+

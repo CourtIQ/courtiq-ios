@@ -14,6 +14,7 @@
 		C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D902C1E54C700E6D023 /* SignUpView.swift */; };
 		C0495D932C1E54D100E6D023 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D922C1E54D100E6D023 /* ForgotPasswordView.swift */; };
 		C0495D9A2C1E5C3A00E6D023 /* MarqueeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D992C1E5C3A00E6D023 /* MarqueeView.swift */; };
+		C05FC2A72C662CFF00818A49 /* RDDesignSystem in Resources */ = {isa = PBXBuildFile; fileRef = C0495DA12C1E606700E6D023 /* RDDesignSystem */; };
 		C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF302C1974D100D160A5 /* CourtiqApp.swift */; };
 		C060AF332C1974D100D160A5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C060AF322C1974D100D160A5 /* ContentView.swift */; };
 		C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C060AF362C1974D200D160A5 /* Assets.xcassets */; };
@@ -264,8 +265,8 @@
 				C0889DDC2C2BA5700081BF59 /* AppRouter.swift */,
 				C060AF322C1974D100D160A5 /* ContentView.swift */,
 				C060AF302C1974D100D160A5 /* CourtiqApp.swift */,
-				C091381E2C64AB0F00598535 /* Chart */,
 				C0495D892C1E544E00E6D023 /* Authentication */,
+				C091381E2C64AB0F00598535 /* Chart */,
 				C062D2BF2C3BEB2C00ABF5A8 /* Home */,
 				C0495D8A2C1E545700E6D023 /* HomeBase */,
 				C04935EB2C41C217002E68B5 /* MatchUp */,
@@ -568,6 +569,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05FC2A72C662CFF00818A49 /* RDDesignSystem in Resources */,
 				C067FEB12C5AF45A0089C7E9 /* NunitoSans.ttf in Resources */,
 				C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */,
 				C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */,

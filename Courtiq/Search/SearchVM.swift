@@ -10,6 +10,7 @@ import AuthenticationService
 import Foundation
 import InstantSearchSwiftUI
 import UserService
+import SwiftUI
 
 
 final class SearchVM: ViewModel {
@@ -25,8 +26,11 @@ final class SearchVM: ViewModel {
     
     // MARK: - Private Properties
     
+    private var router: AppRouter
+    
     // MARK: - Initializer
-    init() {
+    init(router: AppRouter) {
+        self.router = router
         self.searchBoxController = algoliaController.searchBoxController
         self.hitsController = algoliaController.hitsController
         self.statsController = algoliaController.statsController
@@ -40,6 +44,8 @@ final class SearchVM: ViewModel {
             filterButtonTapped()
         case .searchButtonTapped:
             searchButtonTapped()
+        case .userSearchItemTapped(let user):
+            searchItemTapped(user: user)
         }
     }
 
@@ -60,6 +66,11 @@ final class SearchVM: ViewModel {
     private func searchButtonTapped() {
         // Add your code here.
     }
+    
+    private func searchItemTapped(user: User) {
+        let view = Text("\(user.firstName)")
+        router.handle(action: .push(AnyView(view)))
+    }
 }
 
 extension SearchVM {
@@ -68,5 +79,6 @@ extension SearchVM {
     enum Actions {
         case filterButtonTapped
         case searchButtonTapped
+        case userSearchItemTapped(user: User)
     }
 }

@@ -57,6 +57,11 @@ public struct AvatarImage: View {
                     }
             } placeholder: {
                 ProgressView()
+                    .overlay {
+                        Circle()
+                            .stroke(Color.TokenColor.Semantic.Border.secondary, lineWidth: 1)
+                            .frame(width: size.value, height: size.value)
+                    }
             }
         } else {
             Circle()
