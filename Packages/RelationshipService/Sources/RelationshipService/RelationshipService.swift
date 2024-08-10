@@ -67,7 +67,7 @@ public class RelationshipService: RelationshipServiceProtocol {
             throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
         }
 
-        let request = RelationshipRequest(senderID: from,
+        let request = RelationRequest(senderID: from,
                                           receiverID: to,
                                           requestType: .friend,
                                           createdAt: Date())
@@ -116,18 +116,18 @@ public class RelationshipService: RelationshipServiceProtocol {
     /// If any of these operations fail, the method will throw an error. If all operations succeed,
     /// the method will complete successfully.
     @available(iOS 14.0, macOS 10.15, *)
-    public func acceptFriendRequest(request: RelationshipRequest) async throws {
+    public func acceptFriendRequest(request: RelationRequest) async throws {
         guard let relationsService = relationsService, let relationRequestsService = relationRequestsService else {
             throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
         }
 
         let currentUserId = request.receiverID
         let friendUserId = request.senderID
-        let currentUserRelationship = Relationship(relatedUserID: friendUserId,
+        let currentUserRelationship = Relation(relatedUserID: friendUserId,
                                                    relationshipType: .friend,
                                                    createdAt: Date(),
                                                    updatedAt: Date())
-        let friendUserRelationship = Relationship(relatedUserID: currentUserId,
+        let friendUserRelationship = Relation(relatedUserID: currentUserId,
                                                    relationshipType: .friend,
                                                    createdAt: Date(),
                                                    updatedAt: Date())
@@ -183,16 +183,16 @@ public class RelationshipService: RelationshipServiceProtocol {
     ///   - userId: The ID of the user whose friends are being fetched.
     /// - Returns: An array of `Relationship` objects.
     @available(iOS 14.0, macOS 10.15, *)
-    public func fetchFriends(userId: String) async throws -> [Relationship] {
+    public func fetchFriends(userId: String) async throws -> [Relation] {
         guard let relationsService = relationsService else {
             throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
         }
         
         let collectionPath = "users/\(userId)/\(relationsCollection)"
-        let constraints: [QueryConstraint] = [.equalTo(field: "relationshipType", value: RelationshipType.friend.rawValue)]
+        let constraints: [QueryConstraint] = [.equalTo(field: "relationshipType", value: RelationType.friend.rawValue)]
         
-        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<[Relationship], Error>) in
-            relationsService.fetchDocuments(constraints: constraints) { (result: Result<[Relationship], Error>) in
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<[Relation], Error>) in
+            relationsService.fetchDocuments(constraints: constraints) { (result: Result<[Relation], Error>) in
                 continuation.resume(with: result)
             }
         }
@@ -204,7 +204,7 @@ public class RelationshipService: RelationshipServiceProtocol {
     ///   - userId2: The ID of the second user.
     /// - Returns: An array of mutual friend `Relationship` objects.
     @available(iOS 14.0, macOS 10.15, *)
-    public func fetchMutualFriends(userId1: String, userId2: String) async throws -> [Relationship] {
+    public func fetchMutualFriends(userId1: String, userId2: String) async throws -> [Relation] {
         throw NSError(domain: "Function not working", code: 500, userInfo: nil)
     }
     

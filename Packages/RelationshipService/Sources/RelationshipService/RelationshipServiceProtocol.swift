@@ -21,20 +21,20 @@ public protocol RelationshipServiceProtocol: ObservableObject {
     /// - Parameters:
     ///   - currentUserId: The ID of the user accepting the friend request.
     ///   - friendUserId: The ID of the user whose friend request is being accepted.
-    func acceptFriendRequest(request: RelationshipRequest) async throws
+    func acceptFriendRequest(request: RelationRequest) async throws
     
     /// Fetches the list of friends for a user.
     /// - Parameters:
     ///   - userId: The ID of the user whose friends are being fetched.
     /// - Returns: An array of `Relationship` objects.
-    func fetchFriends(userId: String) async throws -> [Relationship]
+    func fetchFriends(userId: String) async throws -> [Relation]
     
     /// Finds mutual friends between two users.
     /// - Parameters:
     ///   - userId1: The ID of the first user.
     ///   - userId2: The ID of the second user.
     /// - Returns: An array of mutual friend `Relationship` objects.
-    func fetchMutualFriends(userId1: String, userId2: String) async throws -> [Relationship]
+    func fetchMutualFriends(userId1: String, userId2: String) async throws -> [Relation]
     
     /// Removes a friend from a user's friend list.
     /// - Parameters:

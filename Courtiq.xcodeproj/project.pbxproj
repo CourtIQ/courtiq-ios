@@ -92,6 +92,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C01BFBF12C67EF7500184E1B /* CachedAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachedAsyncImage.swift; sourceTree = "<group>"; };
+		C01BFBF22C67EF7500184E1B /* EdgeBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeBorder.swift; sourceTree = "<group>"; };
+		C01BFBF32C67EF7500184E1B /* PopupBubbleShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBubbleShape.swift; sourceTree = "<group>"; };
+		C01BFBF42C67EF7500184E1B /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		C026923B2C62D01300B34F42 /* RelationshipService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RelationshipService; sourceTree = "<group>"; };
 		C02E71F52C2CA95300830E2B /* HomeBaseRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBaseRootView.swift; sourceTree = "<group>"; };
 		C0495D7D2C1E430400E6D023 /* AuthenticationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthenticationService; sourceTree = "<group>"; };
@@ -196,6 +200,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C01BFBF52C67EF7500184E1B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C01BFBF12C67EF7500184E1B /* CachedAsyncImage.swift */,
+				C01BFBF22C67EF7500184E1B /* EdgeBorder.swift */,
+				C01BFBF32C67EF7500184E1B /* PopupBubbleShape.swift */,
+				C01BFBF42C67EF7500184E1B /* Validators.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		C04935EB2C41C217002E68B5 /* MatchUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +334,7 @@
 				C0495DA12C1E606700E6D023 /* RDDesignSystem */,
 				C026923B2C62D01300B34F42 /* RelationshipService */,
 				C067FEB52C5B071C0089C7E9 /* StringEntryService */,
+				C01BFBF52C67EF7500184E1B /* Utils */,
 				C0FB31CF2C3CE64C0004D153 /* StorageService */,
 				C0AD6C412C373D990088E2B0 /* UserService */,
 			);

@@ -13,9 +13,12 @@ import Foundation
 @available(iOS 13.0.0, *)
 final class MockAuthProvider: AuthProviderProtocol {
     
-    // MARK: - Properties
+    // MARK: - Internal Properties
     
+    /// The currently authenticated user in the mock environment.
     var currentUser: (any AuthUser)? = MockUser(uid: UUID().uuidString)
+    
+    /// A Boolean value indicating whether a user is logged in.
     var isUserLoggedIn: Bool = false
     
     // MARK: - Authentication Methods
@@ -69,12 +72,34 @@ final class MockAuthProvider: AuthProviderProtocol {
         self.currentUser = nil
         self.isUserLoggedIn = false
     }
+    
+    /// Updates the authenticated user's profile information.
+    /// - Parameters:
+    ///   - displayName: The display name of the user (optional).
+    ///   - photoURL: The URL of the user's profile picture as a string (optional).
+    /// - Throws: An error if the update fails.
+    func updateUserProfile(displayName: String?, photoURL: String?) async throws {
+        guard let mockUser = currentUser as? MockUser else {
+            throw NSError(domain: "MockAuthProvider", code: -1, userInfo: [NSLocalizedDescriptionKey: "No user is currently signed in."])
+        }
+
+        // Update mock user's properties (if needed)
+        if let displayName = displayName {
+            print("Mock: Updated displayName to \(displayName)")
+        }
+
+        if let photoURL = photoURL {
+            print("Mock: Updated photoURL to \(photoURL)")
+        }
+    }
 }
 
 // MARK: - MockUser
 
 /// A mock user for testing purposes.
 class MockUser: AuthUser {
+    
+    /// The unique identifier for the user.
     var uid: String
     
     /// Initializes a MockUser with a unique identifier.

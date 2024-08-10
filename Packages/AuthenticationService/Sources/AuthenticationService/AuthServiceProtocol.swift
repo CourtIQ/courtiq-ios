@@ -53,10 +53,14 @@ public protocol AuthServiceProtocol: ObservableObject {
     /// - Throws: An error if account deletion fails.
     func deleteAccount() async throws
     
-    // MARK: - State Management
+    /// Updates the authenticated user's profile information.
+    /// - Parameters:
+    ///   - displayName: The display name of the user (optional).
+    ///   - photoURL: The URL of the user's profile picture as a string (optional).
+    /// - Throws: An error if the update fails.
+    func updateUserProfile(displayName: String?, photoURL: String?) async throws
     
-    /// Toggles the logged-in state of the user.
-    func toggleLoggedInState()
+    // MARK: - State Management
     
     /// Sets the additionalInfoNeeded state of the user.
     func setAdditionalInfoProvided()

@@ -13,13 +13,16 @@ import Foundation
 ///
 /// The type can either be a friend or a coach.
 @available(iOS 14.0, *)
-public enum RelationshipType: String, Codable, CustomStringConvertible, CaseIterable {
+public enum RelationType: String, Codable, CustomStringConvertible, CaseIterable {
     
     /// A friend relationship.
     case friend = "F"
     
     /// A coach relationship.
     case coach = "C"
+    
+    /// A group relationship.
+    case group = "G"
     
     // MARK: - Description
     
@@ -29,9 +32,11 @@ public enum RelationshipType: String, Codable, CustomStringConvertible, CaseIter
     public var description: String {
         switch self {
         case .friend:
-            return "Friend Request"
+            return "Friend"
         case .coach:
-            return "Coach Request"
+            return "Coach"
+        case .group:
+            return "Group"
         }
     }
     

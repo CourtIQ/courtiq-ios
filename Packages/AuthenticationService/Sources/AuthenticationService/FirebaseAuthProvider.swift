@@ -134,6 +134,31 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
             }
         }
     }
+    
+    // MARK: - User Profile Update
+    
+    /// Updates the authenticated user's profile information.
+    /// - Parameters:
+    ///   - displayName: The display name of the user (optional).
+    ///   - photoURL: The URL of the user's profile picture as a string (optional).
+    /// - Throws: An error if the update fails.
+    public func updateUserProfile(displayName: String?, photoURL: String?) async throws {
+        guard let user = Auth.auth().currentUser else {
+            throw NSError(domain: "FirebaseAuthProvider", code: -1, userInfo: [NSLocalizedDescriptionKey: "No user is currently signed in."])
+        }
+
+        let changeRequest = user.createProfileChangeRequest()
+
+        if let displayName = displayName {
+            changeRequest.displayName = displayName
+        }
+
+        if let photoURLString = photoURL, let url = URL(string: photoURLString) {
+            changeRequest.photoURL = url
+        }
+
+        try await changeRequest.commitChanges()
+    }
 }
 
 // MARK: - FirebaseUser

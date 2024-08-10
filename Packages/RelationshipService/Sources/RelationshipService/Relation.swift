@@ -6,7 +6,7 @@ import Foundation
 ///
 /// The relationship includes information about the related user's ID, the type of relationship, and timestamps for creation and updates.
 @available(iOS 14.0, *)
-public struct Relationship: Codable, Identifiable {
+public struct Relation: Codable, Identifiable {
     
     // MARK: - Properties
     
@@ -14,16 +14,16 @@ public struct Relationship: Codable, Identifiable {
     public var id: String
     
     /// The ID of the related user in the relationship.
-    public var relatedUserID: String
+    public var relatedID: String
     
     /// The type of the relationship (e.g., friend, coach).
-    public var relationshipType: RelationshipType
+    public var relationType: RelationType
     
     /// The name of the related user.
-    public var relatedUserName: String?
+    public var relatedName: String?
     
     /// The profile picture URL of the related user.
-    public var relatedUserProfilePicture: URL?
+    public var imageUrls: URL?
     
     /// Timestamp of when the relationship was created.
     public var createdAt: Date
@@ -42,12 +42,12 @@ public struct Relationship: Codable, Identifiable {
     ///   - relatedUserProfilePicture: The profile picture URL of the related user (optional).
     ///   - createdAt: The timestamp of when the relationship was created (defaults to the current date and time).
     ///   - updatedAt: The timestamp of the last update to the relationship (defaults to the current date and time).
-    public init(relatedUserID: String, relationshipType: RelationshipType, relatedUserName: String? = nil, relatedUserProfilePicture: URL? = nil, createdAt: Date = Date(), updatedAt: Date = Date()) {
+    public init(relatedUserID: String, relationshipType: RelationType, relatedUserName: String? = nil, relatedUserProfilePicture: URL? = nil, createdAt: Date = Date(), updatedAt: Date = Date()) {
         self.id = UUID().uuidString
-        self.relatedUserID = relatedUserID
-        self.relationshipType = relationshipType
-        self.relatedUserName = relatedUserName
-        self.relatedUserProfilePicture = relatedUserProfilePicture
+        self.relatedID = relatedUserID
+        self.relationType = relationshipType
+        self.relatedName = relatedUserName
+        self.imageUrls = relatedUserProfilePicture
         self.createdAt = createdAt
         self.updatedAt = updatedAt
     }

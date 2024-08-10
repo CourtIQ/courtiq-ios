@@ -91,13 +91,16 @@ public class AuthService: AuthServiceProtocol {
         }
     }
     
-    // MARK: - State Management
-    
-    /// Toggles the logged-in state of the user.
-    @MainActor
-    public func toggleLoggedInState() {
-        self.isUserLoggedIn = true
+    /// Updates the authenticated user's profile information.
+    /// - Parameters:
+    ///   - displayName: The display name of the user (optional).
+    ///   - photoURL: The URL of the user's profile picture as a string (optional).
+    /// - Throws: An error if the update fails.
+    public func updateUserProfile(displayName: String?, photoURL: String?) async throws {
+        try await authProvider.updateUserProfile(displayName: displayName, photoURL: photoURL)
     }
+    
+    // MARK: - State Management
     
     /// Sets the additional information provided flag to false.
     @MainActor

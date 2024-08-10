@@ -6,7 +6,7 @@ import Foundation
 ///
 /// The request includes information about the sender, receiver, type of request, and creation timestamp.
 @available(iOS 14.0, *)
-public struct RelationshipRequest: Codable, Identifiable {
+public struct RelationRequest: Codable, Identifiable {
     
     // MARK: - Properties
     
@@ -20,7 +20,7 @@ public struct RelationshipRequest: Codable, Identifiable {
     public var receiverID: String
     
     /// The type of the relationship request (e.g., friend, coach).
-    public var requestType: RelationshipType
+    public var requestType: RelationType
     
     /// The name of the user who sent the request.
     public var senderName: String?
@@ -49,7 +49,7 @@ public struct RelationshipRequest: Codable, Identifiable {
     ///   - receiverName: The name of the user who received the request (optional).
     ///   - receiverProfilePicture: The profile picture URL of the user who received the request (optional).
     ///   - createdAt: The timestamp of when the request was created (defaults to the current date and time).
-    public init(senderID: String, receiverID: String, requestType: RelationshipType, senderName: String? = nil, senderProfilePicture: URL? = nil, receiverName: String? = nil, receiverProfilePicture: URL? = nil, createdAt: Date = Date()) {
+    public init(senderID: String, receiverID: String, requestType: RelationType, senderName: String? = nil, senderProfilePicture: URL? = nil, receiverName: String? = nil, receiverProfilePicture: URL? = nil, createdAt: Date = Date()) {
         self.id = UUID().uuidString
         self.senderID = senderID
         self.receiverID = receiverID

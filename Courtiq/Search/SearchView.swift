@@ -50,6 +50,11 @@ struct SearchView: View {
                 state: .constant(.normal),
                 isEditing: $vm.searchFieldIsEditing)
             .padding(.horizontal, 12)
+            .onChange(of: vm.searchBoxController.query) { query in
+                if query.isEmpty {
+                    vm.hitsController.hits = []
+                }
+            }
             
         } content: {
             VStack {

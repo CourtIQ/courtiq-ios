@@ -5,8 +5,8 @@
 //  Created by Pranav Suri on 2024-08-08.
 //
 
-import Foundation
 import AuthenticationService
+import UserService
 import SwiftUI
 
 final class SideMenuVM: ViewModel {
@@ -19,15 +19,25 @@ final class SideMenuVM: ViewModel {
         MenuItem(title: "Tennis", icon: Image.Token.Icons.tennisBall),
         MenuItem(title: "Profile", icon: Image.Token.Icons.person)
     ]
-
+    
+    @MainActor
+    var mediumImageUrl: URL? {
+        guard let urlString = userService.currentUser?.imageUrls?[.medium]?.url else { return nil }
+        return URL(string: urlString)
+    }
+    
     // MARK: - Private Properties
     
     private let authService: any AuthServiceProtocol
-    
+    private let userService: any UserServiceProtocol
+    private let router: AppRouter
+
     // MARK: - Lifecycle
-    init(authService: any AuthServiceProtocol)
+    init(authService: any AuthServiceProtocol,
+         userService: any UserServiceProtocol)
     {
         self.authService = authService
+        self.userService = userService
     }
     
     // MARK: - Internal Methods

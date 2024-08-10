@@ -40,14 +40,8 @@ struct SideMenuView: View {
             
             HStack {
                 MarqueeView {
-                    HStack {
-                        Text("Side Menu")
-                            .rdHeadline()
-                    }
-                    Text("Side Menu")
-                        .rdHeadline()
-                        .foregroundColor(Color.TokenColor.Semantic.Text.default)
-                        .padding()
+                    AvatarImage(size: .medium, 
+                                url: <#T##String?#>)
                 } content: {
                     Text("Content")
                 } footer: {
