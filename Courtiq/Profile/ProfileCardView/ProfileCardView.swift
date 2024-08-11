@@ -55,9 +55,8 @@ struct ProfileCardView: View {
     // MARK: - Private
     
     private var title: String {
-        if let firstName = vm.currentUser?.firstName,
-           let lastName = vm.currentUser?.lastName {
-            return "\(firstName) \(lastName)"
+        if let name = vm.currentUser?.displayName{
+            return name
         }
         return ""
     }

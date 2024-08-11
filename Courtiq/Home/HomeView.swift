@@ -18,7 +18,9 @@ struct HomeView: View {
             RDNavigationBar(.primary, title: "CourtIQ", leading: {
                 Image.Token.Icons.menu
                     .rdActionIcon {
-                        showSideMenu.toggle()
+                        withAnimation {
+                            showSideMenu.toggle()
+                        }
                     }
             }, trailing: {
                 AvatarImage(size: .small,

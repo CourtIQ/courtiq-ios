@@ -12,8 +12,7 @@ public struct User: Identifiable, Codable {
     public var id: String?
     public var uid: String
     public var username: String?
-    public var firstName: String?
-    public var lastName: String?
+    public var displayName: String?
     public var email: String?
     public var gender: String?
     public var nationality: String?
@@ -27,8 +26,7 @@ public struct User: Identifiable, Codable {
         case id = "objectID"
         case uid
         case username
-        case firstName
-        case lastName
+        case displayName
         case email
         case gender
         case nationality
@@ -42,8 +40,7 @@ public struct User: Identifiable, Codable {
     public init(id: String? = nil,
                 uid: String,
                 username: String? = nil,
-                firstName: String? = nil,
-                lastName: String? = nil,
+                displayName: String? = nil,
                 email: String? = nil,
                 gender: String? = nil,
                 nationality: String? = nil,
@@ -55,8 +52,7 @@ public struct User: Identifiable, Codable {
         self.id = id
         self.uid = uid
         self.username = username
-        self.firstName = firstName
-        self.lastName = lastName
+        self.displayName = displayName
         self.email = email
         self.gender = gender
         self.nationality = nationality

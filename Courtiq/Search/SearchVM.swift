@@ -38,7 +38,7 @@ final class SearchVM: ViewModel {
     
     // MARK: - Internal Methods
     
-    func handle(action: SearchVM.Actions) {
+    @MainActor func handle(action: SearchVM.Actions) {
         switch action {
         case .filterButtonTapped:
             filterButtonTapped()
@@ -67,8 +67,8 @@ final class SearchVM: ViewModel {
         // Add your code here.
     }
     
-    private func searchItemTapped(user: User) {
-        let view = Text("\(user.firstName)")
+    @MainActor private func searchItemTapped(user: User) {
+        let view = Text("\(user.displayName)")
         router.handle(action: .push(AnyView(view)))
     }
 }

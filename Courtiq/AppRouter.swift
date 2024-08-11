@@ -24,9 +24,9 @@ enum RouterAction {
     case stopLoading
 }
 
-
 // MARK: - AppRouter
 
+@MainActor
 @available(iOS 16.0, *)
 class AppRouter: ObservableObject {
     static let shared = AppRouter()
@@ -41,36 +41,34 @@ class AppRouter: ObservableObject {
     @Published var isLoading: Bool = false
 
     func handle(action: RouterAction) {
-        DispatchQueue.main.async {
-            switch action {
-            case .showScreen(let view):
-                self.currentScreenCover = ViewWrapper(view: view)
-            case .showSheet(let view):
-                self.currentSheet = ViewWrapper(view: view)
-            case .showHalfSheet(let view, let detents):
-                self.currentHalfSheet = ViewWrapper(view: view)
-                self.halfSheetDetents = detents.map { $0.value }
-            case .showAlert(let alert):
-                self.currentAlert = alert
-            case .showToast(let type):
-                self.currentToast = ViewWrapper(view: AnyView(ToastView(type: type)))
-            case .push(let view):
-                self.navigationPath.append(ViewWrapper(view: view))
-            case .pop:
-                if !self.navigationPath.isEmpty {
-                    self.navigationPath.removeLast()
-                }
-            case .popToRoot:
-                self.navigationPath.removeAll()
-            case .setRootView(let view):
-                self.navigationPath = [ViewWrapper(view: view)]
-            case .dismiss:
-                self.dismiss()
-            case .isLoading:
-                self.isLoading = true
-            case .stopLoading:
-                self.isLoading = false
+        switch action {
+        case .showScreen(let view):
+            self.currentScreenCover = ViewWrapper(view: view)
+        case .showSheet(let view):
+            self.currentSheet = ViewWrapper(view: view)
+        case .showHalfSheet(let view, let detents):
+            self.currentHalfSheet = ViewWrapper(view: view)
+            self.halfSheetDetents = detents.map { $0.value }
+        case .showAlert(let alert):
+            self.currentAlert = alert
+        case .showToast(let type):
+            self.currentToast = ViewWrapper(view: AnyView(ToastView(type: type)))
+        case .push(let view):
+            self.navigationPath.append(ViewWrapper(view: view))
+        case .pop:
+            if !self.navigationPath.isEmpty {
+                self.navigationPath.removeLast()
             }
+        case .popToRoot:
+            self.navigationPath.removeAll()
+        case .setRootView(let view):
+            self.navigationPath = [ViewWrapper(view: view)]
+        case .dismiss:
+            self.dismiss()
+        case .isLoading:
+            self.isLoading = true
+        case .stopLoading:
+            self.isLoading = false
         }
     }
 

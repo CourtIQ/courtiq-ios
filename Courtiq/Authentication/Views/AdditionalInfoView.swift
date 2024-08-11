@@ -11,12 +11,15 @@ import PhotosUI
 import CoreLocation
 
 struct AdditionalInfoView: View {
-//    @State private var dob = Date()
-    @State private var gender = 0
-    @State private var location = CLLocation()
-    @ObservedObject var vm: AuthenticationVM
-    @State private var dob: Int = 0
-
+    
+    // MARK: - Lifecycle
+    
+    public init(vm: AuthenticationVM) {
+        self.vm = vm
+    }
+    
+    // MARK: - Internal
+    
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "Additional Information")
@@ -60,31 +63,43 @@ struct AdditionalInfoView: View {
                         value: Binding(
                             get: { vm.user.username ?? "" },
                             set: { vm.user.username = $0.isEmpty ? nil : $0 }))
+            .autocapitalization(.none)
             
             RDTextField(textFieldType: .primary,
                         placeholder: "Full name",
                         icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
                         value: Binding(
-                            get: { vm.user.firstName ?? "" },
-                            set: { vm.user.firstName = $0.isEmpty ? nil : $0 }))
-
+                            get: { vm.user.displayName ?? "" },
+                            set: { vm.user.displayName = $0.isEmpty ? nil : $0 }))
             
             HStack {
-                RDNumberInput(placeholder: "Date of Birth", value: $dob, range: 1...100,
-                              layout: .horizontal, fixedWidth: false)
-                RDTextField(textFieldType: .primary, placeholder: "Gender", value: Binding(
-                    get: { vm.user.gender ?? "" },
-                    set: { vm.user.gender = $0.isEmpty ? nil : $0 }))
-            }
-            
-            HStack {
-                
+                RDTextField(
+                    textFieldType: .date,
+                    placeholder: "Date of birth",
+                    value: $dateString,
+                    dateValue: $vm.user.dob,
+                    state: .constant(.normal)
+                )
+                RDTextField(textFieldType: .dropdown,
+                            placeholder: "Gender",
+                            value: Binding(
+                                get: { vm.user.gender ?? "" },
+                                set: { vm.user.gender = $0.isEmpty ? nil : $0 }),
+                            dropdownItems: [DropdownItem(image: Image.Token.Icons.person, title: "Male"),
+                                            DropdownItem(image: Image.Token.Icons.person, title: "Female"),
+                                            DropdownItem(image: Image.Token.Icons.person, title: "Male"),
+                                            DropdownItem(image: Image.Token.Icons.person, title: "Female")])
             }
         } footer: {
             RDButtonView(.large, .primary, "Create account") {
                 vm.handle(action: .updateAddInfoBtn)
             }
-
+            
         }
     }
+    
+    // MARK: - Private
+    
+    @State private var dateString: String = ""
+    @ObservedObject private var vm: AuthenticationVM
 }

@@ -59,45 +59,15 @@ struct SearchView: View {
             
         } content: {
             VStack {
-                //                HitsList(vm.hitsController) { hit, _ in
-                //                    ProfileRowView(imageUrl: hit?.imageUrls?[.small]?.url ?? "", name: hit?.firstName ?? "--", gender: "M", country: "IND", age: "22") {
-                //                        vm.handle(action: .userSearchItemTapped(user: hit!))
-                //                    }
-                //                } noResults: {
-                //                    Text("No Results")
-                //                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                //                }
-                
-                List {
-                    ForEach(0..<30) { _ in
-                        Button {
-                            vm.handle(action: .userSearchItemTapped(user: User(uid: "123")))
-                        } label: {
-                            HStack{
-                                AvatarImage(size: .small, url: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg")
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text("Pranav Suri")
-                                        .rdBodyBold()
-                                        .foregroundStyle(Color.TokenColor.Semantic.Text.default)
-                                    Text("M")
-                                        .rdBody()
-                                        .foregroundStyle(Color.TokenColor.Semantic.Text.primary)
-                                }
-                                Spacer()
-                                Image.Token.Icons.chevronRight
-                                    .rdActionIcon {
-                                        print("Tapped")
-                                    }
-                            }
-                        }
-                        .border(.red)
+                HitsList(vm.hitsController) { hit, _ in
+                    ProfileRowView(imageUrl: hit?.imageUrls?[.small]?.url ?? "", name: hit?.displayName ?? "--", gender: "M", country: "IND", age: "22") {
+                        vm.handle(action: .userSearchItemTapped(user: hit!))
                     }
-                    .fullWidthSeparator()
-                    .listRowSpacing(0)
-                    .listRowInsets(EdgeInsets())
-                    .listRowSeparatorTint(Color.TokenColor.Semantic.Border.default)
+                } noResults: {
+                    Text("No Results")
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                .listStyle(PlainListStyle())
+
                 
             }
         }

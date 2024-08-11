@@ -68,7 +68,7 @@ final class AuthenticationVM: ViewModel {
         }
     }
     
-    func handle(action: AuthenticationVM.Actions) {
+    @MainActor func handle(action: AuthenticationVM.Actions) {
         switch action {
         case .goToSignIn:
             let view = SignInView(vm: self)
@@ -114,76 +114,82 @@ final class AuthenticationVM: ViewModel {
     private var storageService: any StorageServiceProtocol
     
     private func signIn(email: String, password: String) async {
-        router.handle(action: .isLoading)
+        await router.handle(action: .isLoading)
         do {
             try await authService.signIn(email: email, password: password)
-            router.handle(action: .stopLoading)
-            router.handle(action: .popToRoot)
+            await MainActor.run {
+                router.handle(action: .stopLoading)
+                router.handle(action: .popToRoot)
+            }
         } catch {
-            router.handle(action: .stopLoading)
-            print(error.localizedDescription)
+            await MainActor.run {
+                router.handle(action: .stopLoading)
+                print(error.localizedDescription)
+            }
         }
     }
-    
+
     private func signUp(email: String, password: String) async {
-        router.handle(action: .isLoading)
+        await router.handle(action: .isLoading)
         do {
             let user = try await authService.signUp(email: email, password: password)
             await fetchCurrentUserAndUpdate(userID: user.uid)
-            router.handle(action: .stopLoading)
+            await MainActor.run {
+                router.handle(action: .stopLoading)
+            }
         } catch {
-            router.handle(action: .stopLoading)
-            print(error.localizedDescription)
+            await MainActor.run {
+                router.handle(action: .stopLoading)
+                print(error.localizedDescription)
+            }
         }
     }
-    
+
     private func fetchCurrentUserAndUpdate(userID: String) async {
         do {
             let currentUser = try await userService.fetchCurrentUser(userID: userID)
             await MainActor.run {
                 self.user = currentUser
+                self.router.handle(action: .popToRoot)
             }
-            self.router.handle(action: .popToRoot)
         } catch {
             print(error.localizedDescription)
         }
     }
-    
+
     private func updateAdditionalInfo() async {
-        router.handle(action: .isLoading)
+        await router.handle(action: .isLoading)
         guard let userID = await authService.currentUser?.uid else {
-            print("No user")
-            router.handle(action: .isLoading)
+            await MainActor.run {
+                print("No user")
+                router.handle(action: .stopLoading)
+            }
             return
         }
 
         do {
             if let selectedItem = selectedItem {
-                do {
-                    let data = try await selectedItem.loadTransferable(type: Data.self)
-                    if let imageData = data {
-                        
-                        do {
-                            let url = (try await storageService.uploadProfilePicture(imageData, for: userID)).absoluteString
-                            
-                            let imageUrls = constructImageUrls(baseUrl: url)
-                            
-                            self.user.imageUrls = imageUrls
+                if let data = try await selectedItem.loadTransferable(type: Data.self) {
+                    do {
+                        let url = try await storageService.uploadProfilePicture(data, for: userID).absoluteString
+                        let imageUrls = constructImageUrls(baseUrl: url)
 
-                        } catch {
-                            print("Error uploading image: \(error.localizedDescription)")
+                        await MainActor.run {
+                            self.user.imageUrls = imageUrls
                         }
+                    } catch {
+                        print("Error uploading image: \(error.localizedDescription)")
                     }
-                } catch {
-                    print("Error loading image: \(error.localizedDescription)")
                 }
             }
 
             user.uid = userID
             try await userService.updateCurrentUser(userID: userID, data: user)
             await authService.setAdditionalInfoProvided()
-            router.handle(action: .stopLoading)
-            router.handle(action: .popToRoot)
+            await MainActor.run {
+                router.handle(action: .stopLoading)
+                router.handle(action: .popToRoot)
+            }
         } catch {
             print(error.localizedDescription)
         }

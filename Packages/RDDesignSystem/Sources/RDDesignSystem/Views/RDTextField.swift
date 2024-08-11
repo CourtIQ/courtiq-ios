@@ -14,7 +14,7 @@ public struct RDTextField: View {
     // MARK: - Enums
     /// Enumeration defining the types of text fields.
     public enum RDTextFieldType {
-        case primary, password, search
+        case primary, password, search, date, dropdown
     }
     
     /// Enumeration defining the states of the text field with their associated styles.
@@ -26,7 +26,8 @@ public struct RDTextField: View {
     
     @Binding public var value: String
     @Binding public var isEditing: Bool?
-    
+    @Binding public var dateValue: Date?
+
     // MARK: - Private
     
     private var textFieldType: RDTextFieldType = .primary
@@ -34,7 +35,9 @@ public struct RDTextField: View {
     private var helperText: String? = nil
     private var icon: (leadingIcon: Image?, trailingIcon: Image?)?
     private var onSubmit: () -> Void
+    private var dropdownItems: [DropdownItem] = []
     @State private var showPassword: Bool = false
+    @State private var filteredItems: [DropdownItem] = []
     @FocusState private var focused: Bool {
         didSet {
             updateState()
@@ -60,6 +63,8 @@ public struct RDTextField: View {
         icon: (leadingIcon: Image?, trailingIcon: Image?)? = nil,
         onSubmit: @escaping () -> Void = {},
         value: Binding<String>,
+        dateValue: Binding<Date?> = .constant(nil),
+        dropdownItems: [DropdownItem] = [], // New parameter for dropdown items
         state: Binding<RDTextFieldState>? = nil,
         isEditing: Binding<Bool>? = nil,
         trailingAction: (() -> Void)? = nil
@@ -69,6 +74,8 @@ public struct RDTextField: View {
         self.icon = icon
         self.onSubmit = onSubmit
         self._value = value
+        self._dateValue = dateValue
+        self.dropdownItems = dropdownItems
         if let state = state {
             self.externalState = state
         }
@@ -81,6 +88,7 @@ public struct RDTextField: View {
             self._isEditing = .constant(nil)
         }
         self.trailingAction = trailingAction
+        self._filteredItems = State(initialValue: dropdownItems) // Initialize with all items
     }
     
     // MARK: - Body
@@ -109,6 +117,14 @@ public struct RDTextField: View {
             } else {
                 internalState = .normal
             }
+        }
+    }
+    
+    private func filterDropdownItems() {
+        if value.isEmpty {
+            filteredItems = dropdownItems
+        } else {
+            filteredItems = dropdownItems.filter { $0.title.lowercased().contains(value.lowercased()) }
         }
     }
     
@@ -166,45 +182,110 @@ public struct RDTextField: View {
     
     private func standardTextField(currentState: RDTextFieldState, isActive: Bool) -> some View {
         VStack(spacing: 8) {
-            HStack(spacing: 8) {
-                leadingIconView(currentState: currentState)
-                
-                ZStack(alignment: .leading) {
-                    Text(placeholder)
-                        .dynamicNunitoSans(size: isActive ? 14 : 16, weight: isActive ? .bold : .regular)
-                        .foregroundColor(currentState.placeholderColor)
-                        .frame(height: 24)
-                        .padding(.leading, 4)
-                        .offset(y: isActive ? -12 : 0)
-                        .animation(.default, value: isActive)
+            VStack {
+                HStack(spacing: 8) {
+                    leadingIconView(currentState: currentState)
                     
-                    if textFieldType == .password && !showPassword {
-                        SecureField("", text: $value)
-                            .rdBody()
-                            .autocorrectionDisabled()
-                            .foregroundColor(currentState.valueColor)
-                            .offset(y: 7)
-                            .padding(.leading, 4)
-                            .focused($focused)
-                    } else {
-                        TextField("", text: $value)
-                            .rdBody()
-                            .autocorrectionDisabled()
-                            .foregroundColor(currentState.valueColor)
-                            .padding(.leading, 4)
-                            .offset(y: 7)
-                            .focused($focused)
+                    ZStack(alignment: .leading) {
+                        HStack {
+                            if textFieldType == .date {
+                                Spacer()
+                            }
+                            
+                            Text(placeholder)
+                                .dynamicNunitoSans(size: isActive || textFieldType == .date ? 14 : 16,
+                                                   weight: isActive || textFieldType == .date ? .bold : .regular)
+                                .foregroundColor(currentState.placeholderColor)
+                                .frame(height: 24)
+                                .padding(.leading, 4)
+                                .offset(y: isActive || textFieldType == .date ? -12 : 0)
+                                .offset(y: textFieldType == .date ? -2 : 0)
+                                .animation(.default, value: isActive)
+                            
+                            if textFieldType == .date {
+                                Spacer()
+                            }
+                        }
+
+                        if textFieldType == .password && !showPassword {
+                            SecureField("", text: $value)
+                                .rdBody()
+                                .autocorrectionDisabled()
+                                .foregroundColor(currentState.valueColor)
+                                .offset(y: 7)
+                                .padding(.leading, 4)
+                                .focused($focused)
+                                
+                        } else if textFieldType == .date {
+                            HStack{
+                                Spacer()
+                                DatePicker(
+                                    "",
+                                    selection: Binding(
+                                        get: { dateValue ?? Date() },
+                                        set: { dateValue = $0; value = formatDate($0) }
+                                    ),
+                                    displayedComponents: .date
+                                )
+                                .rdBody()
+                                .foregroundStyle(currentState.valueColor)
+                                .datePickerStyle(.compact)
+                                .labelsHidden()
+                                .accentColor(currentState.valueColor)
+                                .offset(y: 8)
+                                .padding(.leading, 4)
+                                .focused($focused)
+                                .background(Color.clear)
+            
+                                Spacer()
+                            }
+
+                        } else {
+                            TextField("", text: $value)
+                                .rdBody()
+                                .autocorrectionDisabled()
+                                .foregroundColor(currentState.valueColor)
+                                .padding(.leading, 4)
+                                .offset(y: 7)
+                                .focused($focused)
+                                .onChange(of: value) { _ in
+                                    filterDropdownItems()
+                                }
+                        }
                     }
+                    
+                    trailingIconView(currentState: currentState)
                 }
                 
-                trailingIconView(currentState: currentState)
+                if textFieldType == .dropdown && focused == true && !filteredItems.isEmpty {
+                    ScrollView(.vertical) {
+                        ForEach(filteredItems) { item in
+                            HStack {
+                                item.image
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                                Text(item.title)
+                                    .foregroundColor(currentState.valueColor)
+                                Spacer()
+                            }
+                            .background(currentState.backgroundColor)
+                            .onTapGesture {
+                                value = item.title
+                                isEditing = false
+                            }
+                            Divider()
+                        }
+                    }
+                    .frame(maxHeight: 80)
+                }
             }
             .padding(.horizontal, 16)
-            .frame(height: 56)
+            .frame(minHeight: 56)
             .background(currentState.backgroundColor)
-            .overlay(borderOverlay(currentState: currentState))
+            .overlay(        RoundedRectangle(cornerRadius: 12)
+                .stroke(externalState?.wrappedValue.borderColor ?? currentState.borderColor, lineWidth: 1))
             
-            if let helperText = helperText {
+            if helperText != nil {
                 helperTextView(currentState: currentState)
             }
         }
@@ -212,6 +293,12 @@ public struct RDTextField: View {
         .onChange(of: focused) { _ in
             updateState()
         }
+    }
+
+    private func formatDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: date)
     }
     
     // MARK: - Subviews
@@ -354,5 +441,16 @@ extension RDTextField.RDTextFieldState {
         case .disabled:
             return Color.Token.grey200
         }
+    }
+}
+
+public struct DropdownItem: Identifiable {
+    public let id = UUID()
+    public var image: Image
+    public var title: String
+
+    public init(image: Image, title: String) {
+        self.image = image
+        self.title = title
     }
 }
