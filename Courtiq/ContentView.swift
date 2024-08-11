@@ -22,7 +22,7 @@ struct ContentView: View {
         Group {
             NavigationStack(path: $router.navigationPath) {
                 if authService.isUserLoggedIn && !authService.additionalInfoNeeded {
-                    HomeBaseRootView(authService: authService,
+                    HomeRootFlowView(authService: authService,
                                      router: router)
                     .navigationDestination(for: ViewWrapper.self) { view in
                         view.view

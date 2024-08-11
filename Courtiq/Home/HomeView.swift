@@ -7,9 +7,11 @@
 
 import SwiftUI
 import RDDesignSystem
+import UserService
 
 struct HomeView: View {
     @Binding var showSideMenu: Bool
+    @EnvironmentObject var userService: UserService
     
     var body: some View {
         BaseTabPageView {
@@ -19,13 +21,21 @@ struct HomeView: View {
                         showSideMenu.toggle()
                     }
             }, trailing: {
-                Image.Token.Icons.person
-                    .rdActionIcon {
-                        print("profile pressed")
-                    }
+                AvatarImage(size: .small,
+                            url: userService.currentUser?.imageUrls?[.small]?.url ?? "")
             })
         } content: {
-            Text("Hello, World!")
+            List {
+                ForEach(0..<8) { index in
+                    HStack {
+                        Text("Hello")
+                        Spacer()
+                    }
+                }
+            }
+            .listStyle(.plain)
+            .cornerRadius(12)
+            .border(Color.TokenColor.Semantic.Border.default, width: 1 )
         }
     }
 }

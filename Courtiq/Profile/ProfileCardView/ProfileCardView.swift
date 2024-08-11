@@ -22,31 +22,34 @@ struct ProfileCardView: View {
     
     var body: some View {
         RDCardView(type: .primary) {
-            HStack(alignment: .top, spacing: 12) {
-                AvatarImage(size: .large,
-                            url: vm.mediumImageUrl?.absoluteString)
-                
-                VStack(spacing: 2) {
-                    profileTextContent()
+            Group {
+                HStack(alignment: .top, spacing: 12) {
+                    AvatarImage(size: .large,
+                                url: vm.mediumImageUrl?.absoluteString)
                     
-                    ActionItemRowView(items: [
-                        (title: "Friends", count: 311, action: {
-                            vm.handle(action: .actionRowItemTapped(0))
-                        }),
-                        (title: "Matches", count: 12, action: {
-                            vm.handle(action: .actionRowItemTapped(1))
-                        }),
-                        (title: "Wins", count: 15, action: {
-                            vm.handle(action: .actionRowItemTapped(2))
-                        }),
-                        (title: "Losses", count: 7, action: {
-                            vm.handle(action: .actionRowItemTapped(3))
-                        })
-                    ])
+                    VStack(spacing: 2) {
+                        profileTextContent()
+                        
+                        Group {
+                            ActionItemRowView(items: [
+                                (title: "Friends", count: 311, action: {
+                                    vm.handle(action: .actionRowItemTapped(0))
+                                }),
+                                (title: "Matches", count: 12, action: {
+                                    vm.handle(action: .actionRowItemTapped(1))
+                                }),
+                                (title: "Wins", count: 15, action: {
+                                    vm.handle(action: .actionRowItemTapped(2))
+                                }),
+                                (title: "Losses", count: 7, action: {
+                                    vm.handle(action: .actionRowItemTapped(3))
+                                })
+                            ])
+                        }
+                    }
                 }
             }
         }
-        
     }
     
     // MARK: - Private
@@ -74,7 +77,6 @@ struct ProfileCardView: View {
                 .rdSmallBody()
                 .foregroundStyle(Color.TokenColor.Semantic.Text.secondary)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 

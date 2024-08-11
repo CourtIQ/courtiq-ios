@@ -30,7 +30,6 @@ final class SideMenuVM: ViewModel {
     
     private let authService: any AuthServiceProtocol
     private let userService: any UserServiceProtocol
-    private let router: AppRouter
 
     // MARK: - Lifecycle
     init(authService: any AuthServiceProtocol,

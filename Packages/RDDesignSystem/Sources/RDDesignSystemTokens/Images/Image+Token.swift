@@ -76,6 +76,10 @@ public extension Image {
             public static var filter: Image {
                 Image("filter", bundle: .module)
             }
+
+            public static var dataPicker: Image {
+                Image("chevrons-up-down", bundle: .module)
+            }
         }
     }
 }

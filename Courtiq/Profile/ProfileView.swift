@@ -46,9 +46,16 @@ struct ProfileView: View {
                     }
             })
         } content: {
-            ProfileCardView(vm: vm)
-            Text("Hello, World!")
-            Spacer()
+            ScrollView
+            {
+                // Profile Card View
+                ProfileCardView(vm: vm)
+                
+                // Add a groups list
+                ProfileClubsListView()
+                
+                // Ad
+            }
         }
     }
 }

@@ -12,32 +12,34 @@ import StringEntryService
 import UserService
 
 struct HomeBaseTabsView: View {
-    @Binding var showSideMenu: Bool
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var appRouter: AppRouter
     @EnvironmentObject var userService: UserService
     @ObservedObject var vm: HomeBaseVM
     var body: some View {
-        VStack{
-            switch vm.selectedTab {
-            case 0:
-                HomeView(showSideMenu: $vm.showSideMenu)
-            case 1:
-                SearchView(vm: SearchVM(router: appRouter),
-                           showSideMenu: $vm.showSideMenu)
-            case 2:
-                TennisView(showSideMenu: $vm.showSideMenu,
-                           vm: TennisVM(router: appRouter,
-                                        authService: authService))
-            case 3:
-                ProfileView(showSideMenu: $vm.showSideMenu,
-                            userService: userService,
-                            authService: authService,
-                            router: appRouter)
-            default:
-                EmptyView()
+        VStack(spacing: 0) {
+            Group {
+                switch vm.selectedTab {
+                case 0:
+                    HomeView(showSideMenu: $vm.sideMenuShowing)
+                case 1:
+                    SearchView(vm: SearchVM(router: appRouter),
+                               showSideMenu: $vm.sideMenuShowing)
+                case 2:
+                    TennisView(showSideMenu: $vm.sideMenuShowing,
+                               vm: TennisVM(router: appRouter,
+                                            authService: authService))
+                case 3:
+                    ProfileView(showSideMenu: $vm.sideMenuShowing,
+                                userService: userService,
+                                authService: authService,
+                                router: appRouter)
+                default:
+                    EmptyView()
+                }
             }
-            Spacer()
+            .animation(.easeInOut, value: vm.selectedTab)
+
             RDTabBar(items: vm.tabBarItems, selectedIndex: $vm.selectedTab)
         }
         .frame(width: getRect().width)

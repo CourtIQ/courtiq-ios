@@ -16,7 +16,7 @@ import StorageService
 
 final class AuthenticationVM: ViewModel {
     
-    // MARK: Internal
+    // MARK: Lifecycle
     
     init(authService: any AuthServiceProtocol,
          userService: any UserServiceProtocol,
@@ -29,12 +29,13 @@ final class AuthenticationVM: ViewModel {
         self.storageService = storageService
     }
     
+    // MARK: - Internal
+    
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
     @Published var yearOfBirth: String = ""
     @Published var user: User = User(uid: "")
-
     @Published var selectedItem: PhotosPickerItem? = nil {
         didSet {
             if let selectedItem = selectedItem {
@@ -106,7 +107,7 @@ final class AuthenticationVM: ViewModel {
         }
     }
     
-    // MARK: - Private Properties
+    // MARK: - Private
     
     private var authService: any AuthServiceProtocol
     private var userService: any UserServiceProtocol
@@ -220,7 +221,7 @@ final class AuthenticationVM: ViewModel {
 // MARK: AuthenticationVM Actions
 
 extension AuthenticationVM {
-    
+
     // MARK: Actions
     enum Actions {
         case goToSignIn

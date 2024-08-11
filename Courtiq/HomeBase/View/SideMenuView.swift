@@ -6,6 +6,7 @@
 
 import AuthenticationService
 import SwiftUI
+import UserService
 import RDDesignSystem
 
 // MARK: - SideMenuView
@@ -17,11 +18,13 @@ struct SideMenuView: View {
     public init(
         showSideMenu: Binding<Bool>,
         selectedIndex: Binding<Int>,
-        authService: any AuthServiceProtocol
-    ) {
+        authService: any AuthServiceProtocol,
+        userService: any UserServiceProtocol)
+    {
         self._showSideMenu = showSideMenu
         self._selectedIndex = selectedIndex
-        self._vm = StateObject(wrappedValue: SideMenuVM(authService: authService))
+        self._vm = StateObject(wrappedValue: SideMenuVM(authService: authService,
+                                                        userService: userService))
     }
     
     // MARK: - Internal
@@ -41,7 +44,7 @@ struct SideMenuView: View {
             HStack {
                 MarqueeView {
                     AvatarImage(size: .medium, 
-                                url: <#T##String?#>)
+                                url: vm.mediumImageUrl?.absoluteString)
                 } content: {
                     Text("Content")
                 } footer: {

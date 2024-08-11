@@ -68,6 +68,8 @@ public struct RDCardView<Content: View>: View {
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(type.borderColor, lineWidth: 1)
             )
+            .padding(1)
+            .fixedSize(horizontal: false, vertical: false)
     }
 }
 

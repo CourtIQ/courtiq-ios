@@ -10,9 +10,9 @@ import Foundation
 // MARK: ViewModel
 
 protocol ViewModel: ObservableObject {
-    associatedtype Action
+    associatedtype Actions
 
-    func handle(action: Action)
+    func handle(action: Actions)
     func onAppear()
     func onDisappear()
 }

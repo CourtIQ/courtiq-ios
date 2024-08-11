@@ -57,6 +57,7 @@ public struct AvatarImage: View {
                     }
             } placeholder: {
                 ProgressView()
+                    .frame(width: size.value, height: size.value)
                     .overlay {
                         Circle()
                             .stroke(Color.TokenColor.Semantic.Border.secondary, lineWidth: 1)

@@ -22,11 +22,13 @@ public struct RDTextField: View {
         case normal, focused, error, success, disabled
     }
     
-    // MARK: - Internal Properties
+    // MARK: - Internal
+    
     @Binding public var value: String
     @Binding public var isEditing: Bool?
     
-    // MARK: - Private Properties
+    // MARK: - Private
+    
     private var textFieldType: RDTextFieldType = .primary
     private var placeholder: String = ""
     private var helperText: String? = nil
@@ -122,6 +124,9 @@ public struct RDTextField: View {
             .padding(7)
             .padding(.horizontal, 25)
             .cornerRadius(8)
+            .onTapGesture {
+                isEditing = true
+            }
             .overlay(
                 HStack {
                     Image(systemName: "magnifyingglass")
@@ -141,9 +146,6 @@ public struct RDTextField: View {
                     }
                 }
             )
-            .onTapGesture {
-                isEditing = true
-            }
             .background(Color.TokenColor.Component.SearchField.background)
             .cornerRadius(10)
             if isEditing == true {
@@ -215,6 +217,7 @@ public struct RDTextField: View {
     // MARK: - Subviews
     
     /// View for the leading icon.
+    @ViewBuilder
     private func leadingIconView(currentState: RDTextFieldState) -> some View {
         Group {
             if let leadingIcon = icon?.leadingIcon {
@@ -228,6 +231,7 @@ public struct RDTextField: View {
     }
     
     /// View for the trailing icon.
+    @ViewBuilder
     private func trailingIconView(currentState: RDTextFieldState) -> some View {
         Group {
             if textFieldType == .password {
@@ -263,12 +267,14 @@ public struct RDTextField: View {
     }
     
     /// View for the border overlay.
+    @ViewBuilder
     private func borderOverlay(currentState: RDTextFieldState) -> some View {
         RoundedRectangle(cornerRadius: 12)
             .stroke(externalState?.wrappedValue.borderColor ?? currentState.borderColor, lineWidth: 1)
     }
     
     /// View for the helper text.
+    @ViewBuilder
     private func helperTextView(currentState: RDTextFieldState) -> some View {
         HStack {
             Text(helperText ?? "")

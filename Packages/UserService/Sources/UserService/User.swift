@@ -11,7 +11,7 @@ import FirebaseFirestore
 public struct User: Identifiable, Codable {
     public var id: String?
     public var uid: String
-    public var displayName: String?
+    public var username: String?
     public var firstName: String?
     public var lastName: String?
     public var email: String?
@@ -26,7 +26,7 @@ public struct User: Identifiable, Codable {
     enum CodingKeys: String, CodingKey {
         case id = "objectID"
         case uid
-        case displayName
+        case username
         case firstName
         case lastName
         case email
@@ -41,7 +41,7 @@ public struct User: Identifiable, Codable {
 
     public init(id: String? = nil,
                 uid: String,
-                displayName: String? = nil,
+                username: String? = nil,
                 firstName: String? = nil,
                 lastName: String? = nil,
                 email: String? = nil,
@@ -54,7 +54,7 @@ public struct User: Identifiable, Codable {
                 lastUpdated: Date? = nil) {
         self.id = id
         self.uid = uid
-        self.displayName = displayName
+        self.username = username
         self.firstName = firstName
         self.lastName = lastName
         self.email = email

@@ -11,12 +11,11 @@ import PhotosUI
 import CoreLocation
 
 struct AdditionalInfoView: View {
-    @State private var dob = Date()
+//    @State private var dob = Date()
     @State private var gender = 0
     @State private var location = CLLocation()
     @ObservedObject var vm: AuthenticationVM
-    @State private var firstNameState = RDTextField.RDTextFieldState.normal
-    @State private var lastNameState = RDTextField.RDTextFieldState.normal
+    @State private var dob: Int = 0
 
     var body: some View {
         MarqueeView {
@@ -56,20 +55,31 @@ struct AdditionalInfoView: View {
             .padding()
             
             RDTextField(textFieldType: .primary,
-                        placeholder: "First name",
+                        placeholder: "Username",
+                        icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
+                        value: Binding(
+                            get: { vm.user.username ?? "" },
+                            set: { vm.user.username = $0.isEmpty ? nil : $0 }))
+            
+            RDTextField(textFieldType: .primary,
+                        placeholder: "Full name",
                         icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
                         value: Binding(
                             get: { vm.user.firstName ?? "" },
-                            set: { vm.user.firstName = $0.isEmpty ? nil : $0 }),
-                        state: $firstNameState)
+                            set: { vm.user.firstName = $0.isEmpty ? nil : $0 }))
+
             
-            RDTextField(textFieldType: .primary,
-                        placeholder: "Last name",
-                        icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
-                        value: Binding(
-                            get: { vm.user.lastName ?? "" },
-                            set: { vm.user.lastName = $0.isEmpty ? nil : $0 }),
-                        state: $lastNameState)
+            HStack {
+                RDNumberInput(placeholder: "Date of Birth", value: $dob, range: 1...100,
+                              layout: .horizontal, fixedWidth: false)
+                RDTextField(textFieldType: .primary, placeholder: "Gender", value: Binding(
+                    get: { vm.user.gender ?? "" },
+                    set: { vm.user.gender = $0.isEmpty ? nil : $0 }))
+            }
+            
+            HStack {
+                
+            }
         } footer: {
             RDButtonView(.large, .primary, "Create account") {
                 vm.handle(action: .updateAddInfoBtn)

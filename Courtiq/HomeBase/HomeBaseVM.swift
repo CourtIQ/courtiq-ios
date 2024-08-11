@@ -5,16 +5,38 @@
 //  Created by Pranav Suri on 2024-06-24.
 //
 
-import Foundation
 import AuthenticationService
-import SwiftUI
+import Foundation
 import RDDesignSystem
+import RelationshipService
+import SwiftUI
+import UserService
 
-class HomeBaseVM: ObservableObject {
+// MARK: - HomeBaseViewModelProvider
+
+protocol HomeBaseViewModelProvider: ViewModel {
+    var selectedTab: Int { get set }
+    var sideMenuShowing: Bool { get set }
+    var tabBarItems: [RDTabBarItem] { get }
+}
+
+// MARK: - HomeBaseVM
+
+final class HomeBaseVM: HomeBaseViewModelProvider {
+
+    // MARK: - Lifecycle
+    
+    init(authService: any AuthServiceProtocol,
+         router: AppRouter)
+    {
+        self.authService = authService
+        self.router = router
+    }
+    
+    // MARK: - Internal
+
     @Published var selectedTab: Int = 0
-    @Published var offset: CGFloat = 0
-    @Published var lastStoredOffset: CGFloat = 0
-    @Published var showSideMenu = false
+    @Published var sideMenuShowing = false
 
     let tabBarItems = [
         RDTabBarItem(title: "Home", icon: Image.Token.Icons.home),
@@ -23,64 +45,36 @@ class HomeBaseVM: ObservableObject {
         RDTabBarItem(title: "Profile", icon: Image.Token.Icons.person)
     ]
 
+    func handle(action: HomeBaseVM.Actions) {
+        switch action {
+        case .showSideMenu:
+            sideMenuShowing.toggle()
+        case .chageTab(let int):
+            print("Hello")
+        }
+    }
+
+    // MARK: - Private
+    
     private let authService: any AuthServiceProtocol
     private let router: AppRouter
 
-    init(authService: any AuthServiceProtocol, 
-         router: AppRouter)
-    {
-        self.authService = authService
-        self.router = router
+    func onAppear() {
+        print("Hello")
     }
-
-    func handleMenuToggle(sideBarWidth: CGFloat) {
-        if showSideMenu && offset == 0 {
-            offset = sideBarWidth
-            lastStoredOffset = offset
-        } else if !showSideMenu && offset == sideBarWidth {
-            offset = 0
-            lastStoredOffset = 0
-        }
+    
+    func onDisappear() {
+        print("Hello")
     }
+    
 
-    func onChange(gestureOffset: CGFloat, sideBarWidth: CGFloat) {
-        offset = gestureOffset + lastStoredOffset
-        if offset > sideBarWidth {
-            offset = sideBarWidth
-        } else if offset < 0 {
-            offset = 0
-        }
-    }
+}
 
-    func onEnd(value: DragGesture.Value) {
-        let sideBarWidth = UIScreen.main.bounds.width * 0.75
-        let translation = value.translation.width
+// MARK: - Actions
 
-        withAnimation {
-            if translation > 0 {
-                if translation > (sideBarWidth / 4) {
-                    openMenu(sideBarWidth: sideBarWidth)
-                } else {
-                    closeMenu(sideBarWidth: sideBarWidth)
-                }
-            } else {
-                if -translation > (sideBarWidth / 4) {
-                    closeMenu(sideBarWidth: sideBarWidth)
-                } else {
-                    openMenu(sideBarWidth: sideBarWidth)
-                }
-            }
-        }
-        lastStoredOffset = offset
-    }
-
-    private func openMenu(sideBarWidth: CGFloat) {
-        offset = sideBarWidth
-        showSideMenu = true
-    }
-
-    func closeMenu(sideBarWidth: CGFloat) {
-        offset = 0
-        showSideMenu = false
+extension HomeBaseVM {
+    enum Actions {
+        case showSideMenu
+        case chageTab(Int)
     }
 }

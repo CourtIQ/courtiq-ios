@@ -39,7 +39,7 @@ struct CourtiqApp: App {
     @StateObject var authService = AuthService(provider: FirebaseAuthProvider())
     @StateObject var router = AppRouter()
     @StateObject var userService = UserService()
-    @StateObject var relationshipService = RelationshipService()
+    @StateObject var relationsService = RelationshipService()
     @StateObject var storageService = StorageService()
 
     var body: some Scene {
@@ -49,7 +49,7 @@ struct CourtiqApp: App {
                     .environmentObject(authService)
                     .environmentObject(router)
                     .environmentObject(userService)
-                    .environmentObject(relationshipService)
+                    .environmentObject(relationsService)
                     .environmentObject(storageService)
                     .sheet(item: $router.currentSheet) { sheet in
                         sheet.view
@@ -63,7 +63,7 @@ struct CourtiqApp: App {
                             .environmentObject(router)
                     }
                     .background(Color.TokenColor.Semantic.Background.default)
-                    .transition(.opacity)
+//                    .transition(.opacity)
                 
                 if router.isLoading {
                     withAnimation {

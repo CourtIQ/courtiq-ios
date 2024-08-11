@@ -38,11 +38,11 @@ struct MarqueeView<Header: View, Content: View, Footer: View>: View {
             .padding(.vertical, verticalPadding)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             
-            Spacer()
-            
-            footer
-                .padding(.horizontal, horizontalPadding)
-                .padding(.vertical, verticalPadding)
+            VStack(spacing: verticalSpacing) {
+                footer
+                    .padding(.horizontal, horizontalPadding)
+                    .padding(.vertical, verticalPadding)
+            }
         }
         .background(Color.TokenColor.Semantic.Background.default)
     }

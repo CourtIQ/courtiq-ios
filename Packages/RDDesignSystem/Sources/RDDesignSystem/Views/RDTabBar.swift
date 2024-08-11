@@ -80,6 +80,5 @@ public struct RDTabBar: View {
                 }
             }
         }
-//        .frame(maxHeight: .infinity)
     }
 }

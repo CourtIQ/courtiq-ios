@@ -8,6 +8,7 @@
 import SwiftUI
 import RDDesignSystem
 import InstantSearchSwiftUI
+import UserService
 
 struct SearchView: View {
     
@@ -37,7 +38,7 @@ struct SearchView: View {
                         vm.handle(action: .filterButtonTapped)
                     }
             })
-
+            
             RDTextField(
                 textFieldType: .search,
                 placeholder: "Search for players or matches...",
@@ -58,14 +59,46 @@ struct SearchView: View {
             
         } content: {
             VStack {
-                HitsList(vm.hitsController) { hit, _ in
-                    ProfileRowView(imageUrl: hit?.imageUrls?[.small]?.url ?? "", name: hit?.firstName ?? "--", gender: "M", country: "IND", age: "22") {
-                        vm.handle(action: .userSearchItemTapped(user: hit!))
+                //                HitsList(vm.hitsController) { hit, _ in
+                //                    ProfileRowView(imageUrl: hit?.imageUrls?[.small]?.url ?? "", name: hit?.firstName ?? "--", gender: "M", country: "IND", age: "22") {
+                //                        vm.handle(action: .userSearchItemTapped(user: hit!))
+                //                    }
+                //                } noResults: {
+                //                    Text("No Results")
+                //                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                //                }
+                
+                List {
+                    ForEach(0..<30) { _ in
+                        Button {
+                            vm.handle(action: .userSearchItemTapped(user: User(uid: "123")))
+                        } label: {
+                            HStack{
+                                AvatarImage(size: .small, url: "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg")
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text("Pranav Suri")
+                                        .rdBodyBold()
+                                        .foregroundStyle(Color.TokenColor.Semantic.Text.default)
+                                    Text("M")
+                                        .rdBody()
+                                        .foregroundStyle(Color.TokenColor.Semantic.Text.primary)
+                                }
+                                Spacer()
+                                Image.Token.Icons.chevronRight
+                                    .rdActionIcon {
+                                        print("Tapped")
+                                    }
+                            }
+                        }
+                        .border(.red)
                     }
-                } noResults: {
-                    Text("No Results")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .fullWidthSeparator()
+                    .listRowSpacing(0)
+                    .listRowInsets(EdgeInsets())
+                    .listRowSeparatorTint(Color.TokenColor.Semantic.Border.default)
                 }
+                .listStyle(PlainListStyle())
+                
             }
         }
     }
@@ -73,4 +106,55 @@ struct SearchView: View {
     // MARK: - Private
     
     @StateObject private var vm: SearchVM
+}
+// MARK: - FullWidthSeparatorModifier
+
+public struct FullWidthSeparatorModifier: ViewModifier {
+    public let leadingOffset: CGFloat
+    public let trailingOffset: CGFloat
+
+    public func body(content: Content) -> some View {
+        content
+            .listRowSeparatorLeading(offset: leadingOffset)
+    }
+}
+
+// MARK: View Extension
+
+extension View {
+    /// Applies a full-width separator style with custom leading and trailing offsets.
+    /// - Parameters:
+    ///   - leadingOffset: The leading offset for the separator.
+    ///   - trailingOffset: The trailing offset for the separator.
+    /// - Returns: A view with the applied full-width separator style.
+    public func fullWidthSeparator(leadingOffset: CGFloat = -16, trailingOffset: CGFloat = 0) -> some View {
+        modifier(FullWidthSeparatorModifier(leadingOffset: leadingOffset, trailingOffset: trailingOffset))
+    }
+}
+
+public struct ListRowSeparatorLeadingModifier: ViewModifier {
+
+    // MARK: Public
+
+    public let offset: CGFloat
+    
+    public func body(content: Content) -> some View {
+        #if os(watchOS)
+        content
+        #else
+        content
+            .alignmentGuide(.listRowSeparatorLeading) { _ in
+                offset
+            }
+        #endif
+    }
+}
+
+// MARK: View
+
+extension View {
+
+    public func listRowSeparatorLeading(offset: CGFloat) -> some View {
+        modifier(ListRowSeparatorLeadingModifier(offset: offset))
+    }
 }
