@@ -19,7 +19,8 @@ struct ProfileView: View {
     
     @Binding var showSideMenu: Bool
     @StateObject private var vm: ProfileVM
-
+    @EnvironmentObject private var relationsService: RelationshipService
+    
     init(showSideMenu: Binding<Bool>,
          userService: UserService,
          authService: AuthService,
@@ -53,9 +54,19 @@ struct ProfileView: View {
                 // Add a groups list
                 ProfileClubsListView()
                 
-                
-                // Ad
+                if relationsService.friendRequests.isEmpty {
+                    // Empty Friends View
+                    Text("no friends")
+                } else {
+                    // Friends List View
+                    ForEach(relationsService.friendRequests) { request in
+                        Text(request.senderID ?? "")
+                    }
+                }
             }
+        }
+        .onAppear {
+            print(relationsService.friendRequests)
         }
     }
 }

@@ -52,9 +52,6 @@ public struct AvatarImage: View {
                         Circle()
                             .stroke(Color.TokenColor.Semantic.Border.secondary, lineWidth: 1)
                     )
-                    .onAppear {
-                        print(url.absoluteString)
-                    }
             } placeholder: {
                 ProgressView()
                     .frame(width: size.value, height: size.value)

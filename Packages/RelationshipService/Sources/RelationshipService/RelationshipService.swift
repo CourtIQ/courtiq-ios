@@ -12,28 +12,37 @@ import SwiftUI
 // MARK: - RelationshipService
 
 @available(iOS 14.0, macOS 11.0, *)
+@MainActor
 public class RelationshipService: RelationshipServiceProtocol {
     
     // MARK: - Properties
     
     private var relationsService: DataService?
     private var relationRequestsService: DataService?
-    private var relationsCollection: String = "relationships"
-    private var relationRequestsCollection: String = "relationshipRequests"
+    private let relationsCollection: String = "relationships"
+    private let relationRequestsCollection: String = "relationshipRequests"
 
+    @MainActor
     @AppStorage("currentUserUID") private var currentUserUIDStorage: String? {
         didSet {
-            if let uid = currentUserUIDStorage {
-                initializeServices(for: uid)
+            Task {
+                await handleCurrentUserChange()
             }
         }
     }
+    
+    @Published public private(set) var friends: [Relation] = []
+    @Published public private(set) var clubs: [Relation] = []
+    @Published public private(set) var coaches: [Relation] = []
+    @Published public private(set) var friendRequests: [RelationRequest] = []
+    @Published public private(set) var clubRequests: [RelationRequest] = []
+    @Published public private(set) var coachRequests: [RelationRequest] = []
     
     // MARK: - Initializer
     
     public init() {
         if let uid = currentUserUIDStorage {
-            initializeServices(for: uid)
+             initializeServices(for: uid)
         }
     }
     
@@ -45,6 +54,40 @@ public class RelationshipService: RelationshipServiceProtocol {
         
         self.relationsService = DataService(provider: relationshipProvider)
         self.relationRequestsService = DataService(provider: relationshipRequestProvider)
+        Task {
+            await fetchInitialData(for: uid)
+        }
+    }
+    
+    private func handleCurrentUserChange() async {
+        guard let uid = currentUserUIDStorage else {
+            friends = []
+            clubs = []
+            coaches = []
+            relationsService = nil
+            relationRequestsService = nil
+            return
+        }
+        
+        initializeServices(for: uid)
+        await fetchInitialData(for: uid)
+    }
+    
+    private func fetchInitialData(for uid: String) async {
+        do {
+            print(uid)
+            let relations = try await fetchRelations(userId: uid)
+            friends = relations.filter { $0.relationType == .friend }
+            clubs = relations.filter { $0.relationType == .group }
+            coaches = relations.filter { $0.relationType == .coach }
+            
+            let relationRequests = try await fetchRelationRequests(userId: uid)
+            friendRequests = relationRequests.filter { $0.requestType == .friend }
+            clubRequests = relationRequests.filter { $0.requestType == .group }
+            coachRequests = relationRequests.filter { $0.requestType == .coach }
+        } catch {
+            print("Failed to fetch relations or relation requests: \(error)")
+        }
     }
     
     // MARK: - RelationshipServiceProtocol Methods
@@ -68,12 +111,12 @@ public class RelationshipService: RelationshipServiceProtocol {
         }
 
         let request = RelationRequest(senderID: from,
-                                          receiverID: to,
-                                          requestType: .friend,
-                                          createdAt: Date())
+                                      receiverID: to,
+                                      requestType: .friend,
+                                      createdAt: Date())
 
         // TODO: Fix the id of the document as right now the
-        // TODO: id var in the struct is no consistent with the actual document id
+        // TODO: id var in the struct is not consistent with the actual document id
 
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             let dispatchGroup = DispatchGroup()
@@ -125,13 +168,13 @@ public class RelationshipService: RelationshipServiceProtocol {
         let currentUserId = request.receiverID
         let friendUserId = request.senderID
         let currentUserRelationship = Relation(relatedUserID: friendUserId,
-                                                   relationshipType: .friend,
-                                                   createdAt: Date(),
-                                                   updatedAt: Date())
+                                               relationshipType: .friend,
+                                               createdAt: Date(),
+                                               updatedAt: Date())
         let friendUserRelationship = Relation(relatedUserID: currentUserId,
-                                                   relationshipType: .friend,
-                                                   createdAt: Date(),
-                                                   updatedAt: Date())
+                                              relationshipType: .friend,
+                                              createdAt: Date(),
+                                              updatedAt: Date())
         
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             let dispatchGroup = DispatchGroup()
@@ -189,11 +232,45 @@ public class RelationshipService: RelationshipServiceProtocol {
             throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
         }
         
-        let collectionPath = "users/\(userId)/\(relationsCollection)"
         let constraints: [QueryConstraint] = [.equalTo(field: "relationshipType", value: RelationType.friend.rawValue)]
         
         return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<[Relation], Error>) in
             relationsService.fetchDocuments(constraints: constraints) { (result: Result<[Relation], Error>) in
+                continuation.resume(with: result)
+            }
+        }
+    }
+
+    /// Fetches the list of all relations for a user.
+    /// - Parameters:
+    ///   - userId: The ID of the user whose relations are being fetched.
+    /// - Returns: An array of `Relation` objects.
+    @available(iOS 14.0, macOS 10.15, *)
+    public func fetchRelations(userId: String) async throws -> [Relation] {
+        guard let relationsService = relationsService else {
+            throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
+        }
+
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<[Relation], Error>) in
+            relationsService.fetchDocuments(collectionPath: "users/\(userId)/\(relationsCollection)", constraints: []) { (result: Result<[Relation], Error>) in
+                continuation.resume(with: result)
+            }
+        }
+    }
+
+    /// Fetches the list of all relation requests for a user.
+    /// - Parameters:
+    ///   - userId: The ID of the user whose relation requests are being fetched.
+    /// - Returns: An array of `RelationRequest` objects.
+    @available(iOS 14.0, macOS 10.15, *)
+    public func fetchRelationRequests(userId: String) async throws -> [RelationRequest] {
+        guard let relationRequestsService = relationRequestsService else {
+            throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
+        }
+
+        return try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<[RelationRequest], Error>) in
+            relationRequestsService.fetchDocuments(collectionPath: "users/\(userId)/\(relationRequestsCollection)", constraints: nil) { (result: Result<[RelationRequest], Error>) in
+                print(result)
                 continuation.resume(with: result)
             }
         }

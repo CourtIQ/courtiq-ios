@@ -7,38 +7,67 @@
 
 import Foundation
 
-/// Protocol that defines the operations for a friendship service.
+/// Protocol that defines the operations for a relationship service.
 @available(iOS 14.0, *)
+@MainActor
 public protocol RelationshipServiceProtocol: ObservableObject {
 
-    /// Sends a friend request from one user to another.
-    /// - Parameters:
-    ///   - from: The ID of the user sending the friend request.
-    ///   - to: The ID of the user receiving the friend request.
-    func sendFriendRequest(from: String, to: String) async throws
+    // MARK: - Published Properties
     
-    /// Accepts a friend request from one user to another.
-    /// - Parameters:
-    ///   - currentUserId: The ID of the user accepting the friend request.
-    ///   - friendUserId: The ID of the user whose friend request is being accepted.
+    /// An array of `Relation` objects representing the friends.
+    var friends: [Relation] { get }
+    
+    /// An array of `Relation` objects representing the clubs.
+    var clubs: [Relation] { get }
+    
+    /// An array of `Relation` objects representing the coaches.
+    var coaches: [Relation] { get }
+    
+    /// An array of `RelationRequest` objects representing the friend requests.
+    var friendRequests: [RelationRequest] { get }
+    
+    /// An array of `RelationRequest` objects representing the group requests.
+    var clubRequests: [RelationRequest] { get }
+    
+    /// An array of `RelationRequest` objects representing the coach requests.
+    var coachRequests: [RelationRequest] { get }
+
+    // MARK: - Methods
+    
+    /// Sends a friend request.
+    /// - Parameter request: The `RelationRequest` object representing the friend request to be sent.
+    func sendFriendRequest(request: RelationRequest) async throws
+    
+    /// Accepts a friend request.
+    /// - Parameter request: The `RelationRequest` object representing the friend request to be accepted.
     func acceptFriendRequest(request: RelationRequest) async throws
     
     /// Fetches the list of friends for a user.
     /// - Parameters:
     ///   - userId: The ID of the user whose friends are being fetched.
-    /// - Returns: An array of `Relationship` objects.
+    /// - Returns: An array of `Relation` objects.
     func fetchFriends(userId: String) async throws -> [Relation]
     
     /// Finds mutual friends between two users.
     /// - Parameters:
     ///   - userId1: The ID of the first user.
     ///   - userId2: The ID of the second user.
-    /// - Returns: An array of mutual friend `Relationship` objects.
+    /// - Returns: An array of mutual friend `Relation` objects.
     func fetchMutualFriends(userId1: String, userId2: String) async throws -> [Relation]
     
     /// Removes a friend from a user's friend list.
+    /// - Parameter relation: The `Relation` object representing the friendship to be removed.
+    func removeFriend(relation: Relation) async throws
+    
+    /// Fetches the list of all relations for a user.
     /// - Parameters:
-    ///   - currentUserId: The ID of the user removing the friend.
-    ///   - friendUserId: The ID of the friend being removed.
-    func removeFriend(currentUserId: String, friendUserId: String) async throws
+    ///   - userId: The ID of the user whose relations are being fetched.
+    /// - Returns: An array of `Relation` objects.
+    func fetchRelations(userId: String) async throws -> [Relation]
+    
+    /// Fetches the list of all relation requests for a user.
+    /// - Parameters:
+    ///   - userId: The ID of the user whose relation requests are being fetched.
+    /// - Returns: An array of `RelationRequest` objects.
+    func fetchRelationRequests(userId: String) async throws -> [RelationRequest]
 }

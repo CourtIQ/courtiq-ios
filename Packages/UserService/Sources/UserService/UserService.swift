@@ -17,13 +17,7 @@ public class UserService: UserServiceProtocol, ObservableObject {
     
     // MARK: - Properties
     
-    @AppStorage("currentUserUID") private var currentUserUIDStorage: String? {
-        didSet {
-            Task {
-                await self.loadCurrentUser()
-            }
-        }
-    }
+    @AppStorage("currentUserUID") private var currentUserUIDStorage: String?
     
     @Published private(set) public var currentUser: User?
     private let dataService: DataServiceProtocol
@@ -34,17 +28,6 @@ public class UserService: UserServiceProtocol, ObservableObject {
     /// - Parameter dataService: The data service to be used for fetching and updating user data.
     public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collectionPath: "users"))) {
         self.dataService = dataService
-        Task {
-            await self.loadCurrentUser()
-        }
-        
-        // Observe changes to the currentUserUID key
-        NotificationCenter.default.addObserver(self, selector: #selector(userDefaultsDidChange), name: UserDefaults.didChangeNotification, object: nil)
-    }
-    
-    // MARK: - Notification Handler
-    
-    @objc private func userDefaultsDidChange() {
         Task {
             await self.loadCurrentUser()
         }
@@ -79,8 +62,6 @@ public class UserService: UserServiceProtocol, ObservableObject {
             dataService.fetchDocument(documentID: userID) { (result: Result<User, Error>) in
                 switch result {
                 case .success(let user):
-                    print(user)
-                    self.currentUser = user
                     continuation.resume(returning: user)
                 case .failure(let error):
                     continuation.resume(throwing: error)
