@@ -45,5 +45,6 @@ struct MarqueeView<Header: View, Content: View, Footer: View>: View {
             }
         }
         .background(Color.TokenColor.Semantic.Background.default)
+        .navigationBarBackButtonHidden()
     }
 }

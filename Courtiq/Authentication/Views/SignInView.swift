@@ -46,7 +46,7 @@ struct SignInView: View {
                 RDTextField(textFieldType: .primary,
                             placeholder: "Enter email",
                             icon: (leadingIcon: Image.Token.Icons.envelope, trailingIcon: nil),
-                            value: $vm.email,
+                            value: Binding(get: { vm.user.email ?? "" }, set: { vm.user.email = $0 }),
                             state: $emailState)
                 
                 RDTextField(textFieldType: .password,
@@ -67,7 +67,7 @@ struct SignInView: View {
             }
             
             RDButtonView(.extraLarge, .primary, "Sign in",
-                         disable: vm.email.isEmpty || vm.password.isEmpty) {
+                         disable: vm.user.email == nil || vm.password.isEmpty) {
                 vm.handle(action: .signInBtn)
             }
         }

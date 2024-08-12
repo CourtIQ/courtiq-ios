@@ -40,10 +40,8 @@ final class AuthenticationVM: ViewModel {
     
     // MARK: - Internal
     
-    @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
-    @Published var yearOfBirth: String = ""
     @Published var user: User = User(uid: "")
     @Published var selectedItem: PhotosPickerItem? = nil {
         didSet {
@@ -94,11 +92,11 @@ final class AuthenticationVM: ViewModel {
             router.handle(action: .push(view))
         case .signInBtn:
             Task {
-                await signIn(email: self.email, password: self.password)
+                await signIn(email: self.user.email ?? "", password: self.password)
             }
         case .signUpBtn:
             Task {
-                await signUp(email: self.email, password: self.password)
+                await signUp(email: self.user.email ?? "", password: self.password)
             }
         case .updateAddInfoBtn:
             Task {
@@ -161,6 +159,7 @@ final class AuthenticationVM: ViewModel {
         do {
             let currentUser = try await userService.fetchCurrentUser(userID: userID)
             await MainActor.run {
+                print("Current User: \n\(currentUser)")
                 self.user = currentUser
                 self.router.handle(action: .popToRoot)
             }
@@ -196,7 +195,7 @@ final class AuthenticationVM: ViewModel {
             }
 
             user.uid = userID
-            user.nationality = CountryManager.shared.getCountryCode(fromName: user.nationality) ?? ""
+            user.nationality = CountryManager.shared.getCountryCode(fromName: user.nationality ?? "") ?? ""
             try await userService.updateCurrentUser(userID: userID, data: user)
             await authService.setAdditionalInfoProvided()
             await MainActor.run {

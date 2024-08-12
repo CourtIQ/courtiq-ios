@@ -51,7 +51,7 @@ struct SignUpView: View {
                 RDTextField(textFieldType: .primary,
                             placeholder: "Enter email",
                             icon: (leadingIcon: Image.Token.Icons.envelope, trailingIcon: nil),
-                            value: $vm.email,
+                            value: Binding(get: { vm.user.email ?? "" }, set: { vm.user.email = $0 }),
                             state: $emailStatus)
                 
                 RDTextField(textFieldType: .password,

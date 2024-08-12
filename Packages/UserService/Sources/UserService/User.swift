@@ -12,10 +12,10 @@ public struct User: Identifiable, Codable {
     public var id: String?
     public var uid: String
     public var username: String
-    public var displayName: String
-    public var email: String
-    public var gender: String
-    public var nationality: String
+    public var displayName: String?
+    public var email: String?
+    public var gender: String?
+    public var nationality: String?
     public var dob: Date?
     public var imageUrls: [ImageSize: ImageURL]?
     public var createdAt: Date
@@ -38,10 +38,10 @@ public struct User: Identifiable, Codable {
     public init(id: String? = nil,
                 uid: String,
                 username: String = "",
-                displayName: String = "",
-                email: String = "",
-                gender: String = "",
-                nationality: String = "",
+                displayName: String? = nil,
+                email: String? = nil,
+                gender: String? = nil,
+                nationality: String? = nil,
                 dob: Date? = nil,
                 imageUrls: [ImageSize: ImageURL]? = nil,
                 createdAt: Date = Date(),

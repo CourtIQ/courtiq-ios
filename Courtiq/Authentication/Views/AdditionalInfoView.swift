@@ -68,7 +68,7 @@ struct AdditionalInfoView: View {
             RDTextField(textFieldType: .primary,
                         placeholder: "Full name",
                         icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
-                        value: $vm.user.displayName)
+                        value: Binding(get: { vm.user.displayName ?? "" }, set: { vm.user.displayName = $0 }))
             
             
             HStack(alignment: .top) {
@@ -81,7 +81,7 @@ struct AdditionalInfoView: View {
                 )
                 RDTextField(textFieldType: .dropdown,
                             placeholder: "Gender",
-                            value: $vm.user.gender,
+                            value: Binding(get: { vm.user.gender ?? "" }, set: { vm.user.gender = $0 }),
                             dropdownItems: [DropdownItem(image: Image.Token.Icons.person, title: "Male"),
                                             DropdownItem(image: Image.Token.Icons.person, title: "Female"),
                                             DropdownItem(image: Image.Token.Icons.person, title: "Non Binary")])
@@ -90,7 +90,7 @@ struct AdditionalInfoView: View {
             RDTextField(
                 textFieldType: .dropdown,
                 placeholder: "Nationality",
-                value: $vm.user.nationality,
+                value: Binding(get: { vm.user.nationality ?? "" }, set: { vm.user.nationality = $0 }),
                 dropdownItems: vm.countriesMenuList
             )
         } footer: {

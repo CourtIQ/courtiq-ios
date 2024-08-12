@@ -68,7 +68,7 @@ final class SearchVM: ViewModel {
     }
     
     @MainActor private func searchItemTapped(user: User) {
-        let view = Text("\(user.displayName)")
+        let view = SearchProfileDetailView(user: user)
         router.handle(action: .push(AnyView(view)))
     }
 }

@@ -25,7 +25,7 @@ public struct RDToggleRow: View {
     public var body: some View {
         HStack {
             Text(title)
-                .font(.body)
+                .rdBody()
                 .foregroundColor(Color.TokenColor.Semantic.Text.primary)
             
             Spacer()

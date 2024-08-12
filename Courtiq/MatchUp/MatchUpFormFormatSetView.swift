@@ -15,8 +15,10 @@ struct MatchUpFormFormatSetView: View {
     
     // MARK: - Lifecycle
     
-    init(vm: MatchUpVM) {
+    init(vm: MatchUpVM, setFormat: Binding<SetFormat>, title: String) {
         self.vm = vm
+        self._setFormat = setFormat
+        self.titleText = title
     }
     
     // MARK: - Internal
@@ -32,7 +34,7 @@ struct MatchUpFormFormatSetView: View {
                 
                 mustWinByTwoGamesToggle()
                 
-                if !vm.matchUpFormat.setFormat.mustWinByTwo {
+                if !setFormat.mustWinByTwo {
                     tiebreakToggle()
                 }
             }
@@ -45,7 +47,7 @@ struct MatchUpFormFormatSetView: View {
     private var title: some View {
         HStack{
             Spacer()
-            Text("Set Format")
+            Text(titleText)
                 .rdBodyBold()
                 .foregroundColor(Color.TokenColor.Semantic.Text.primary)
             Spacer()
@@ -57,10 +59,10 @@ struct MatchUpFormFormatSetView: View {
         RDNumberInput(
             placeholder: "No. of Games",
             value: Binding(
-                get: { vm.matchUpFormat.setFormat.numberOfGames.rawValue },
+                get: { setFormat.numberOfGames.rawValue },
                 set: { newValue in
                     if let numberOfGames = NumberOfGames(rawValue: newValue) {
-                        vm.matchUpFormat.setFormat.numberOfGames = numberOfGames
+                        setFormat.numberOfGames = numberOfGames
                     }}),
             range: NumberOfGames.one.rawValue...NumberOfGames.ten.rawValue,
             fixedWidth: false)
@@ -68,32 +70,32 @@ struct MatchUpFormFormatSetView: View {
     
     @ViewBuilder
     private func deuceTypeView() -> some View {
-        RDSegmentControl(DeuceType.allCases, selection: vm.matchUpFormat.setFormat.deuceType) { item in
+        RDSegmentControl(DeuceType.allCases, selection: setFormat.deuceType) { item in
             Text(item.description)
                 .rdBody()
-                .foregroundColor(vm.matchUpFormat.setFormat.deuceType == item ? Color.TokenColor.Semantic.Text.inverted : Color.TokenColor.Semantic.Text.primary)
+                .foregroundColor(setFormat.deuceType == item ? Color.TokenColor.Semantic.Text.inverted : Color.TokenColor.Semantic.Text.primary)
                 .frame(maxWidth: .infinity)
                 .onTapGesture {
                     withAnimation {
-                        vm.matchUpFormat.setFormat.deuceType = item
+                        setFormat.deuceType = item
                     }
                 }
         }
     }
     
     private func mustWinByTwoGamesToggle() -> some View {
-        RDToggleRow(title: "Must win set by 2 games?", isOn: $vm.matchUpFormat.setFormat.mustWinByTwo)
-            .disabled(vm.matchUpFormat.setFormat.tiebreakFormat != nil)
+        RDToggleRow(title: "Must win set by 2 games?", isOn: $setFormat.mustWinByTwo)
+            .disabled(setFormat.tiebreakFormat != nil)
     }
     
     private func tiebreakToggle() -> some View {
         RDToggleRow(title: "Tiebreak?", isOn: Binding(
-            get: { vm.matchUpFormat.setFormat.tiebreakFormat != nil },
+            get: { setFormat.tiebreakFormat != nil },
             set: { newValue in
                 if newValue {
-                    vm.matchUpFormat.setFormat.tiebreakFormat = TiebreakFormat()
+                    setFormat.tiebreakFormat = TiebreakFormat()
                 } else {
-                    vm.matchUpFormat.setFormat.tiebreakFormat = nil
+                    setFormat.tiebreakFormat = nil
                 }
             })
         )
@@ -102,8 +104,10 @@ struct MatchUpFormFormatSetView: View {
     // MARK: - Private Properties
     
     @ObservedObject private var vm: MatchUpVM
+    @Binding private var setFormat: SetFormat
+    private let titleText: String
 }
 
 #Preview {
-    MatchUpFormFormatSetView(vm: MatchUpVM())
+    MatchUpFormFormatSetView(vm: MatchUpVM(router: AppRouter()), setFormat: .constant(SetFormat()), title: "Set Format")
 }

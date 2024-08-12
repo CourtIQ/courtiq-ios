@@ -79,6 +79,8 @@ public class UserService: UserServiceProtocol, ObservableObject {
             dataService.fetchDocument(documentID: userID) { (result: Result<User, Error>) in
                 switch result {
                 case .success(let user):
+                    print(user)
+                    self.currentUser = user
                     continuation.resume(returning: user)
                 case .failure(let error):
                     continuation.resume(throwing: error)

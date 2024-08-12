@@ -5,17 +5,23 @@
 //  Created by Pranav Suri on 2024-07-31.
 //
 
-import SwiftUI
+import MatchUpService
 import RDDesignSystem
 import RelationshipService
-import MatchUpService
+import SwiftUI
+
+// MARK: - MatchUpFormInfoView
 
 struct MatchUpFormInfoView: View {
-    @ObservedObject var router: AppRouter
-    @State private var player1: String = ""
-    @State private var player2: String = ""
-    @State private var selectedInt: Int = 0
-    @State private var selectedMatchUpType: MatchUpType? = .singles
+    
+    // MARK: - Lifecycle
+    
+    init(vm: MatchUpVM) 
+    {
+        self._vm = StateObject(wrappedValue: vm)
+    }
+    
+    // MARK: - Internal
 
     @EnvironmentObject private var relationsService: RelationshipService
     var body: some View {
@@ -23,7 +29,7 @@ struct MatchUpFormInfoView: View {
             RDNavigationBar(.primary, title: "Track a new match", leading: {}, trailing: {
                 Image.Token.Icons.close
                     .rdActionIcon {
-                        router.handle(action: .dismiss)
+                        vm.handle(action: .dismissTapped)
                     }
             })
         } content: {
@@ -51,24 +57,36 @@ struct MatchUpFormInfoView: View {
                         icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
                         value: $player1,
                         dropdownItems: [DropdownItem(image: Image.Token.Icons.envelope, title: "Hello"),
-                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Hello"),
-                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Hello"),
-                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Hello"),
-                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Hello")])
+                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Pranav"),
+                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Suri"),
+                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Jake"),
+                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Paul")])
             
             RDTextField(textFieldType: .dropdown,
                         placeholder: "Player 2",
                         icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
-                        value: $player1,
+                        value: $player2,
                         dropdownItems: [DropdownItem(image: Image.Token.Icons.envelope, title: "Hello"),
-                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Hello"),
-                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Hello"),
-                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Hello"),
-                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Hello")])
+                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Pranav"),
+                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Suri"),
+                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Jake"),
+                                        DropdownItem(image: Image.Token.Icons.envelope, title: "Paul")])
         } footer: {
-            RDButtonView(.extraLarge, .ghost, "Next") {
-                router.handle(action: .push(AnyView(Text("Hello"))))
-            }
+            RDButtonView(.large, .primary, "Next", disable: isNextButtonDisabled, action: {
+                vm.handle(action: .goToMatchFormatForm)
+            })
         }
+    }
+    
+    // MARK: - Private
+    
+    @StateObject private var vm: MatchUpVM
+    @State private var player1: String = ""
+    @State private var player2: String = ""
+    @State private var selectedInt: Int = 0
+    @State private var selectedMatchUpType: MatchUpType? = .singles
+    
+    private var isNextButtonDisabled: Bool {
+        player1.isEmpty || player2.isEmpty
     }
 }

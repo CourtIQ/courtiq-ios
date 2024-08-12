@@ -19,8 +19,7 @@ struct ProfileView: View {
     
     @Binding var showSideMenu: Bool
     @StateObject private var vm: ProfileVM
-    @EnvironmentObject var storagService: StorageService
-    
+
     init(showSideMenu: Binding<Bool>,
          userService: UserService,
          authService: AuthService,
@@ -53,6 +52,7 @@ struct ProfileView: View {
                 
                 // Add a groups list
                 ProfileClubsListView()
+                
                 
                 // Ad
             }

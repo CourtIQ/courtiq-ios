@@ -72,7 +72,8 @@ public class RelationshipService: RelationshipServiceProtocol {
                                           requestType: .friend,
                                           createdAt: Date())
 
-        // TODO: Fix the id of the document
+        // TODO: Fix the id of the document as right now the
+        // TODO: id var in the struct is no consistent with the actual document id
 
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             let dispatchGroup = DispatchGroup()

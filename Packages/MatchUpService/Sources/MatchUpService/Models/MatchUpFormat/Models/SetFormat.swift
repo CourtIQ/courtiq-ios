@@ -54,7 +54,12 @@ public struct SetFormat: Codable {
     ///   - mustWinByTwo: Indicates whether a player must win by a margin of two games.
     ///   - tiebreakFormat: The format of the tiebreak in the set.
     ///   - tiebreakAt: The number of games required before a tiebreak is played.
-    public init(numberOfGames: NumberOfGames, deuceType: DeuceType, mustWinByTwo: Bool, tiebreakFormat: TiebreakFormat? = nil, tiebreakAt: Int? = nil) {
+    public init(numberOfGames: NumberOfGames  = .six,
+                deuceType: DeuceType = .normalDeuce,
+                mustWinByTwo: Bool = true,
+                tiebreakFormat: TiebreakFormat? = nil,
+                tiebreakAt: Int? = nil) 
+    {
         self.numberOfGames = numberOfGames
         self.deuceType = deuceType
         self.mustWinByTwo = mustWinByTwo

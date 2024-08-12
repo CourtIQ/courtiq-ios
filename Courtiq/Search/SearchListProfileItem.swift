@@ -27,7 +27,7 @@ struct SearchListProfileItem: View {
                         .rdBodyBold()
                         .foregroundStyle(Color.TokenColor.Semantic.Text.default)
                     HStack(spacing: 4) {
-                        Text(CountryManager.shared.getCountryFlag(fromName: country) ?? "🏳️")
+                        Text(CountryManager.shared.getCountryFlag(fromCode: country) ?? "🏳️")
                             .rdSmallBody()
                         
                         Text(gender)

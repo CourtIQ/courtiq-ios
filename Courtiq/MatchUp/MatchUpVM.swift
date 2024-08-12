@@ -7,7 +7,9 @@
 
 import Foundation
 import MatchUpService
+import SwiftUI
 
+@MainActor
 final class MatchUpVM: ViewModel {
     
     // MARK: - Internal Properties
@@ -17,21 +19,31 @@ final class MatchUpVM: ViewModel {
                                                     numberOfGames: .six,
                                                     deuceType: .normalDeuce,
                                                     mustWinByTwo: true))
-    @Published var asa = MatchUpFormat()
-
+    
     // MARK: - Private Properties
     
+    private var router: AppRouter
     
     // MARK: - Initializer
-    init() {
+    
+    init(router: AppRouter)
+    {
+        self.router = router
     }
     
     // MARK: - Internal Methods
     
     func handle(action: MatchUpVM.Actions) {
         switch action {
-        case .show:
-            return
+        case .dismissTapped:
+            router.handle(action: .dismiss)
+        case .backTapped:
+            router.handle(action: .pop)
+        case .startMatch:
+            break
+        case .goToMatchFormatForm:
+            let view = MatchUpFormFormatView(vm: self)
+            router.handle(action: .push(AnyView(view)))
         }
     }
     func onAppear() {
@@ -49,6 +61,9 @@ extension MatchUpVM {
     
     // MARK: Actions
     enum Actions {
-        case show
+        case dismissTapped
+        case backTapped
+        case startMatch
+        case goToMatchFormatForm
     }
 }

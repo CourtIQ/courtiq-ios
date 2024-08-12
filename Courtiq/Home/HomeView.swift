@@ -7,12 +7,13 @@
 
 import SwiftUI
 import RDDesignSystem
+import RelationshipService
 import UserService
 
 struct HomeView: View {
     @Binding var showSideMenu: Bool
     @EnvironmentObject var userService: UserService
-    
+    @EnvironmentObject var relationshipService: RelationshipService
     var body: some View {
         BaseTabPageView {
             RDNavigationBar(.primary, title: "CourtIQ", leading: {
@@ -38,6 +39,11 @@ struct HomeView: View {
             .listStyle(.plain)
             .cornerRadius(12)
             .border(Color.TokenColor.Semantic.Border.default, width: 1 )
+        }
+        .onAppear {
+            Task {
+                try await relationshipService.fetchFriends(userId: userService.currentUser?.id ?? "")
+            }
         }
     }
 }
