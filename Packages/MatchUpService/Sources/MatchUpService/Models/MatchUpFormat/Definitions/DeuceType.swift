@@ -40,7 +40,7 @@ public enum DeuceType: String, CustomStringConvertible, Codable, CaseIterable {
         case .suddenDeath:
             return "Sudden Death"
         case .normalDeuce:
-            return "Normal Deuce"
+            return "Deuce"
         case .oneDeuce:
             return "One Deuce"
         }

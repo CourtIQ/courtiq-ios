@@ -62,17 +62,13 @@ struct AdditionalInfoView: View {
             RDTextField(textFieldType: .primary,
                         placeholder: "Username",
                         icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
-                        value: Binding(
-                            get: { vm.user.username ?? "" },
-                            set: { vm.user.username = $0.isEmpty ? nil : $0 }))
+                        value: $vm.user.username)
             .autocapitalization(.none)
             
             RDTextField(textFieldType: .primary,
                         placeholder: "Full name",
                         icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
-                        value: Binding(
-                            get: { vm.user.displayName ?? "" },
-                            set: { vm.user.displayName = $0.isEmpty ? nil : $0 }))
+                        value: $vm.user.displayName)
             
             
             HStack(alignment: .top) {
@@ -85,9 +81,7 @@ struct AdditionalInfoView: View {
                 )
                 RDTextField(textFieldType: .dropdown,
                             placeholder: "Gender",
-                            value: Binding(
-                                get: { vm.user.gender ?? "" },
-                                set: { vm.user.gender = $0.isEmpty ? nil : $0 }),
+                            value: $vm.user.gender,
                             dropdownItems: [DropdownItem(image: Image.Token.Icons.person, title: "Male"),
                                             DropdownItem(image: Image.Token.Icons.person, title: "Female"),
                                             DropdownItem(image: Image.Token.Icons.person, title: "Non Binary")])
@@ -96,14 +90,7 @@ struct AdditionalInfoView: View {
             RDTextField(
                 textFieldType: .dropdown,
                 placeholder: "Nationality",
-                value: Binding(
-                    get: {
-                        vm.user.nationality ?? ""
-                    },
-                    set: { selectedCountry in
-                        vm.user.nationality = selectedCountry.isEmpty ? nil : selectedCountry
-                    }
-                ),
+                value: $vm.user.nationality,
                 dropdownItems: vm.countriesMenuList
             )
         } footer: {

@@ -15,7 +15,7 @@ public struct RDSegmentControl<Data, Content>: View where Data: Hashable, Conten
     public let selection: Data?
     private let itemBuilder: (Data) -> Content
     
-    @State private var backgroundColor: Color = Color.Token.platinum950
+    @State private var backgroundColor: Color = Color.TokenColor.Semantic.Background.secondary
     
     func pickerBackgroundColor(_ color: Color) -> RDSegmentControl {
         var view = self
@@ -62,7 +62,7 @@ public struct RDSegmentControl<Data, Content>: View where Data: Hashable, Conten
             if let selection = selection, let selectedIdx = sources.firstIndex(of: selection) {
                 GeometryReader { geo in
                     RoundedRectangle(cornerRadius: cornerRadius ?? 6.0)
-                        .foregroundColor(.white)
+                        .foregroundColor(Color.TokenColor.Semantic.Background.primary)
                         .cornerRadius(6.0)
                         .padding(4)
                         .frame(width: geo.size.width / CGFloat(sources.count))
@@ -75,6 +75,7 @@ public struct RDSegmentControl<Data, Content>: View where Data: Hashable, Conten
             HStack(spacing: 0) {
                 ForEach(sources, id: \.self) { item in
                     itemBuilder(item)
+                    
                 }
             }
         }

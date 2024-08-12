@@ -41,9 +41,9 @@ final class TennisVM: ViewModel {
         switch action {
         case .showAddString:
             let view = AddStringView(vm: self)
-            router.handle(action: .showHalfSheet(AnyView(view), detents: [.medium]))
+            router.handle(action: .showHalfSheet(AnyView(view), detents: [.large]))
         case .showAddMatch:
-            let view = MatchUpFormView(router: router)
+            let view = MatchUpFormFormatView(vm: MatchUpVM())
             router.handle(action: .showScreen(AnyView(view)))
         case .dismissAddString:
             router.handle(action: .dismiss)

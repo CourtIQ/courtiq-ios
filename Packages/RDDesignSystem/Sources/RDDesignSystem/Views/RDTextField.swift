@@ -470,11 +470,12 @@ extension RDTextField.RDTextFieldState {
 }
 
 public struct DropdownItem: Identifiable {
-    public let id = UUID()
+    public var id = UUID()
     public var image: Image
     public var title: String
 
-    public init(image: Image, title: String) {
+    public init(id: UUID = UUID() ,image: Image, title: String) {
+        self.id = id
         self.image = image
         self.title = title
     }

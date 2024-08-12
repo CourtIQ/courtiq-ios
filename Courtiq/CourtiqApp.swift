@@ -25,6 +25,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        UILabel.appearance().textColor = UIColor(Color.TokenColor.Semantic.Text.default)
+
         InstantSearchTelemetry.shared.isEnabled = false
 
         return true

@@ -14,7 +14,7 @@ struct MarqueeView<Header: View, Content: View, Footer: View>: View {
     let footer: Footer
     
     private let verticalPadding: CGFloat = 8
-    private let verticalSpacing: CGFloat = 8
+    private let verticalSpacing: CGFloat = 12
     private let horizontalPadding: CGFloat = 16
     
     init(

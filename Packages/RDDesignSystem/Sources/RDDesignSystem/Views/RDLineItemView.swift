@@ -91,7 +91,7 @@ public struct RDLineItemView: View {
                     onAddPressed?()
                 }
             case .trailingToggle:
-                RDToggleView(isOn: $isOn)
+                RDToggle(isOn: $isOn)
             default:
                 EmptyView()
             }

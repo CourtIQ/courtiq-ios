@@ -23,7 +23,7 @@ public enum CardType {
         case .primary, .warning, .success, .error:
             Color.TokenColor.Semantic.Background.default
         case .secondary:
-            Color.Token.greyWhite
+            Color.TokenColor.Semantic.Background.tertiary
         }
     }
 
@@ -60,7 +60,7 @@ public struct RDCardView<Content: View>: View {
 
     public var body: some View {
         content
-            .padding(8)
+            .padding(10)
             .background(type.backgroundColor)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .overlay(

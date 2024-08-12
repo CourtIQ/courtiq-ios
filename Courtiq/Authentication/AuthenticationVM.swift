@@ -146,10 +146,12 @@ final class AuthenticationVM: ViewModel {
             await fetchCurrentUserAndUpdate(userID: user.uid)
             await MainActor.run {
                 router.handle(action: .stopLoading)
+                router.handle(action: .popToRoot)
             }
         } catch {
             await MainActor.run {
                 router.handle(action: .stopLoading)
+                router.handle(action: .popToRoot)
                 print(error.localizedDescription)
             }
         }
@@ -194,7 +196,7 @@ final class AuthenticationVM: ViewModel {
             }
 
             user.uid = userID
-            user.nationality = CountryManager.shared.getCountryCode(fromName: user.nationality ?? "")
+            user.nationality = CountryManager.shared.getCountryCode(fromName: user.nationality) ?? ""
             try await userService.updateCurrentUser(userID: userID, data: user)
             await authService.setAdditionalInfoProvided()
             await MainActor.run {

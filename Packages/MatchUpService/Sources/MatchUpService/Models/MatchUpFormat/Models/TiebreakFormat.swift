@@ -34,7 +34,7 @@ public struct TiebreakFormat: Codable {
     /// - Parameters:
     ///   - tiebreakPoints: The number of points required to win a tiebreak.
     ///   - mustWinByTwo: Indicates whether a player must win by a margin of two points.
-    public init(tiebreakPoints: TiebreakPoints, mustWinByTwo: Bool) {
+    public init(tiebreakPoints: TiebreakPoints = .seven, mustWinByTwo: Bool = true) {
         self.tiebreakPoints = tiebreakPoints
         self.mustWinByTwo = mustWinByTwo
     }

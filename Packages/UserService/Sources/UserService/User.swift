@@ -11,13 +11,12 @@ import FirebaseFirestore
 public struct User: Identifiable, Codable {
     public var id: String?
     public var uid: String
-    public var username: String?
-    public var displayName: String?
-    public var email: String?
-    public var gender: String?
-    public var nationality: String?
+    public var username: String
+    public var displayName: String
+    public var email: String
+    public var gender: String
+    public var nationality: String
     public var dob: Date?
-    public var phoneNumber: String?
     public var imageUrls: [ImageSize: ImageURL]?
     public var createdAt: Date
     public var lastUpdated: Date?
@@ -31,21 +30,19 @@ public struct User: Identifiable, Codable {
         case gender
         case nationality
         case dob
-        case phoneNumber
         case imageUrls
         case createdAt
         case lastUpdated
     }
-
+    
     public init(id: String? = nil,
                 uid: String,
-                username: String? = nil,
-                displayName: String? = nil,
-                email: String? = nil,
-                gender: String? = nil,
-                nationality: String? = nil,
+                username: String = "",
+                displayName: String = "",
+                email: String = "",
+                gender: String = "",
+                nationality: String = "",
                 dob: Date? = nil,
-                phoneNumber: String? = nil,
                 imageUrls: [ImageSize: ImageURL]? = nil,
                 createdAt: Date = Date(),
                 lastUpdated: Date? = nil) {
@@ -57,7 +54,6 @@ public struct User: Identifiable, Codable {
         self.gender = gender
         self.nationality = nationality
         self.dob = dob
-        self.phoneNumber = phoneNumber
         self.imageUrls = imageUrls
         self.createdAt = createdAt
         self.lastUpdated = lastUpdated

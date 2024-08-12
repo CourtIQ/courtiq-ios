@@ -25,9 +25,9 @@ public extension Color.TokenColor.Semantic {
             Color(light: Color.Token.platinum100, dark: Color.Token.platinum900)
         }
         public static var tertiary: Color {
-            Color(light: Color.Token.greyWhite, dark: Color.Token.greyWhite)
+            Color(light: Color.Token.greyWhite, dark: Color.Token.grey800)
         }
-        public static var color: Color {  // Assuming "Color" is an additional category
+        public static var color: Color {
             Color(light: Color.Token.greyWhite, dark: Color.Token.greyWhite)
         }
         public static var disabled: Color {
@@ -111,11 +111,3 @@ public extension Color.TokenColor.Semantic {
         }
     }
 }
-// TODO: Update to do this structure
-/*
- -> Semantic
-        -> Background
-        -> Text
-        -> Border
-        -> Icon
- */

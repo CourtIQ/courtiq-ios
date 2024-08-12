@@ -27,7 +27,7 @@ struct ProfileCardView: View {
                     AvatarImage(size: .large,
                                 url: vm.mediumImageUrl?.absoluteString)
                     
-                    VStack(spacing: 2) {
+                    VStack(alignment: .leading, spacing: 2) {
                         profileTextContent()
                         
                         Group {

@@ -7,7 +7,6 @@
 
 import Foundation
 import MatchUpService
-import UserService
 
 final class MatchUpVM: ViewModel {
     
@@ -18,14 +17,13 @@ final class MatchUpVM: ViewModel {
                                                     numberOfGames: .six,
                                                     deuceType: .normalDeuce,
                                                     mustWinByTwo: true))
+    @Published var asa = MatchUpFormat()
 
     // MARK: - Private Properties
     
-    private var userService: any UserServiceProtocol
     
     // MARK: - Initializer
-    init(userService: any UserServiceProtocol) {
-        self.userService = userService
+    init() {
     }
     
     // MARK: - Internal Methods
