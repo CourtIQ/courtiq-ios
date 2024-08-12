@@ -77,8 +77,19 @@ public extension Image {
                 Image("filter", bundle: .module)
             }
 
-            public static var dataPicker: Image {
+            public static var dropdown: Image {
                 Image("chevrons-up-down", bundle: .module)
+            }
+
+            public static var cross: Image {
+                Image("cross", bundle: .module)
+            }
+
+            public static var upload: Image {
+                Image("upload", bundle: .module)
+            }
+            public static var flag: Image {
+                Image("flag", bundle: .module)
             }
         }
     }

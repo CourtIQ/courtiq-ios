@@ -60,16 +60,15 @@ public struct RDCardView<Content: View>: View {
 
     public var body: some View {
         content
-            .padding(12)
+            .padding(8)
             .background(type.backgroundColor)
-            .cornerRadius(12)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .overlay(
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(type.borderColor, lineWidth: 1)
             )
             .padding(1)
-            .fixedSize(horizontal: false, vertical: false)
+//            .fixedSize(horizontal: false, vertical: false)
     }
 }
 

@@ -60,15 +60,19 @@ struct SearchView: View {
         } content: {
             VStack {
                 HitsList(vm.hitsController) { hit, _ in
-                    ProfileRowView(imageUrl: hit?.imageUrls?[.small]?.url ?? "", name: hit?.displayName ?? "--", gender: "M", country: "IND", age: "22") {
+                    SearchListProfileItem(imageUrl: hit?.imageUrls?[.small]?.url,
+                                   name: hit?.displayName ?? "--", 
+                                   gender: hit?.gender ?? "--",
+                                   country: hit?.nationality ?? "--",
+                                   age: self.calculateAge(from: hit?.dob))
+                    {
+                        // TODO: Fix the age that is not being displayed
                         vm.handle(action: .userSearchItemTapped(user: hit!))
                     }
                 } noResults: {
                     Text("No Results")
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-
-                
             }
         }
     }
@@ -76,6 +80,24 @@ struct SearchView: View {
     // MARK: - Private
     
     @StateObject private var vm: SearchVM
+    
+    private func calculateAge(from dateOfBirth: Date?) -> String {
+        guard let dateOfBirth = dateOfBirth else {
+            return "--"
+        }
+
+        let calendar = Calendar.current
+        let birthYear = calendar.component(.year, from: dateOfBirth)
+        let currentYear = calendar.component(.year, from: Date())
+        let age = currentYear - birthYear
+
+        if age >= 0 && age < 150 {
+            return String(age)
+        } else {
+            return "--"
+        }
+    }
+
 }
 // MARK: - FullWidthSeparatorModifier
 

@@ -11,8 +11,9 @@ import Foundation
 import SwiftUI
 import PhotosUI
 import StorageService
+import RDDesignSystem
 
-// MARK: AuthenticationVM
+// MARK: - AuthenticationVM
 
 final class AuthenticationVM: ViewModel {
     
@@ -27,6 +28,14 @@ final class AuthenticationVM: ViewModel {
         self.userService = userService
         self.router = router
         self.storageService = storageService
+        self.countriesMenuList = CountryManager.shared.getAllCountries().compactMap { country in
+            if let image = CountryManager.shared.getCountryFlagImage(fromCode: country.code) {
+                return DropdownItem(image: image, title: country.name)
+            } else {
+                return nil
+            }
+        }
+
     }
     
     // MARK: - Internal
@@ -46,6 +55,7 @@ final class AuthenticationVM: ViewModel {
         }
     }
     @Published var selectedImage: Image? = nil
+    var countriesMenuList: [DropdownItem] = []
 
     var router: AppRouter
     
@@ -184,6 +194,7 @@ final class AuthenticationVM: ViewModel {
             }
 
             user.uid = userID
+            user.nationality = CountryManager.shared.getCountryCode(fromName: user.nationality ?? "")
             try await userService.updateCurrentUser(userID: userID, data: user)
             await authService.setAdditionalInfoProvided()
             await MainActor.run {

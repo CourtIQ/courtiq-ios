@@ -199,7 +199,7 @@ public struct RDTextField: View {
                                 .frame(height: 24)
                                 .padding(.leading, 4)
                                 .offset(y: isActive || textFieldType == .date ? -12 : 0)
-                                .offset(y: textFieldType == .date ? -2 : 0)
+                                .offset(y: textFieldType == .date ? -4 : 0)
                                 .animation(.default, value: isActive)
                             
                             if textFieldType == .date {
@@ -256,6 +256,7 @@ public struct RDTextField: View {
                     
                     trailingIconView(currentState: currentState)
                 }
+                .padding(.top, textFieldType == .dropdown && focused && !filteredItems.isEmpty ? 12 : 0)
                 
                 if textFieldType == .dropdown && focused == true && !filteredItems.isEmpty {
                     ScrollView(.vertical) {
@@ -265,13 +266,14 @@ public struct RDTextField: View {
                                     .resizable()
                                     .frame(width: 20, height: 20)
                                 Text(item.title)
+                                    .rdBody()
                                     .foregroundColor(currentState.valueColor)
                                 Spacer()
                             }
                             .background(currentState.backgroundColor)
                             .onTapGesture {
                                 value = item.title
-                                isEditing = false
+                                focused = false
                             }
                             Divider()
                         }
@@ -330,6 +332,29 @@ public struct RDTextField: View {
                     .scaledToFit()
                     .frame(width: 20)
                     .foregroundColor(externalState?.wrappedValue.actionIconColor ?? currentState.actionIconColor)
+                }
+            } else if textFieldType == .dropdown {
+                if focused {
+                    Button {
+                        self.value = ""
+                    } label: {
+                        Image.Token.Icons.cross
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                            .foregroundColor(externalState?.wrappedValue.actionIconColor ?? currentState.actionIconColor)
+                    }
+                } else {
+                    Button {
+                        focused = true
+
+                    } label: {
+                        Image.Token.Icons.dropdown
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 20)
+                            .foregroundColor(externalState?.wrappedValue.actionIconColor ?? currentState.actionIconColor)
+                    }
                 }
             } else if let trailingIcon = icon?.trailingIcon {
                 if let trailingAction = trailingAction {

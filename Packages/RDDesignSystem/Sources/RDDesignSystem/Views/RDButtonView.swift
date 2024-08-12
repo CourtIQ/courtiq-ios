@@ -197,5 +197,11 @@ public struct RDButtonView: View {
             }
         }
         .disabled(disable)
+        .overlay {
+            if disable {
+                Color.black.opacity(0.4)
+                    .clipShape(Capsule())
+            }
+        }
     }
 }

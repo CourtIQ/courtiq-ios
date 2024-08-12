@@ -33,16 +33,18 @@ struct AdditionalInfoView: View {
                         .clipShape(Circle())
                         .overlay(
                             Circle()
-                                .stroke(Color.black, lineWidth: 4)
+                                .stroke(Color.TokenColor.Semantic.Border.primary, lineWidth: 3)
                         )
                     
                 } else {
                     Circle()
-                        .stroke(Color.black, lineWidth: 4)
+                        .stroke(Color.TokenColor.Semantic.Border.primary, lineWidth: 3)
                         .frame(width: 120, height: 120)
                         .overlay {
-                            Image("photo-camera")
+                            Image.Token.Icons.upload
+                                .resizable()
                                 .frame(width: 48, height: 48)
+                                .foregroundColor(Color.TokenColor.Semantic.Icon.default)
                         }
                 }
             }
@@ -72,7 +74,8 @@ struct AdditionalInfoView: View {
                             get: { vm.user.displayName ?? "" },
                             set: { vm.user.displayName = $0.isEmpty ? nil : $0 }))
             
-            HStack {
+            
+            HStack(alignment: .top) {
                 RDTextField(
                     textFieldType: .date,
                     placeholder: "Date of birth",
@@ -87,9 +90,22 @@ struct AdditionalInfoView: View {
                                 set: { vm.user.gender = $0.isEmpty ? nil : $0 }),
                             dropdownItems: [DropdownItem(image: Image.Token.Icons.person, title: "Male"),
                                             DropdownItem(image: Image.Token.Icons.person, title: "Female"),
-                                            DropdownItem(image: Image.Token.Icons.person, title: "Male"),
-                                            DropdownItem(image: Image.Token.Icons.person, title: "Female")])
+                                            DropdownItem(image: Image.Token.Icons.person, title: "Non Binary")])
             }
+            
+            RDTextField(
+                textFieldType: .dropdown,
+                placeholder: "Nationality",
+                value: Binding(
+                    get: {
+                        vm.user.nationality ?? ""
+                    },
+                    set: { selectedCountry in
+                        vm.user.nationality = selectedCountry.isEmpty ? nil : selectedCountry
+                    }
+                ),
+                dropdownItems: vm.countriesMenuList
+            )
         } footer: {
             RDButtonView(.large, .primary, "Create account") {
                 vm.handle(action: .updateAddInfoBtn)

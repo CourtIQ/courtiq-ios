@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C01BFBF72C68293300184E1B /* ProfileClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */; };
+		C01BFBF92C698C5000184E1B /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF82C698C5000184E1B /* CountryManager.swift */; };
 		C02692392C62CFBE00B34F42 /* RelationshipService in Frameworks */ = {isa = PBXBuildFile; productRef = C02692382C62CFBE00B34F42 /* RelationshipService */; };
 		C02E71F62C2CA95300830E2B /* HomeRootFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F52C2CA95300830E2B /* HomeRootFlowView.swift */; };
 		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
@@ -63,7 +64,7 @@
 		C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */ = {isa = PBXBuildFile; productRef = C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */; };
 		C0C9FBAF2C65676200E913DD /* InstantSearchSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C0C9FBAE2C65676200E913DD /* InstantSearchSwiftUI */; };
 		C0C9FBB12C65688800E913DD /* AlgoliaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB02C65688800E913DD /* AlgoliaController.swift */; };
-		C0C9FBB32C65793100E913DD /* ProfileRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB22C65793100E913DD /* ProfileRowView.swift */; };
+		C0C9FBB32C65793100E913DD /* SearchListProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB22C65793100E913DD /* SearchListProfileItem.swift */; };
 		C0C9FBB52C65B6FE00E913DD /* SideMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB42C65B6FE00E913DD /* SideMenuVM.swift */; };
 		C0C9FBB72C65BBEE00E913DD /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */; };
 		C0C9FBBA2C65E86000E913DD /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB92C65E86000E913DD /* ProfileCardView.swift */; };
@@ -93,6 +94,7 @@
 
 /* Begin PBXFileReference section */
 		C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileClubsListView.swift; sourceTree = "<group>"; };
+		C01BFBF82C698C5000184E1B /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
 		C026923B2C62D01300B34F42 /* RelationshipService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RelationshipService; sourceTree = "<group>"; };
 		C02E71F52C2CA95300830E2B /* HomeRootFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRootFlowView.swift; sourceTree = "<group>"; };
 		C0495D7D2C1E430400E6D023 /* AuthenticationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthenticationService; sourceTree = "<group>"; };
@@ -149,7 +151,7 @@
 		C0B0C6FF2C61A07D00D56577 /* DataService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataService; sourceTree = "<group>"; };
 		C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		C0C9FBB02C65688800E913DD /* AlgoliaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoliaController.swift; sourceTree = "<group>"; };
-		C0C9FBB22C65793100E913DD /* ProfileRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRowView.swift; sourceTree = "<group>"; };
+		C0C9FBB22C65793100E913DD /* SearchListProfileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListProfileItem.swift; sourceTree = "<group>"; };
 		C0C9FBB42C65B6FE00E913DD /* SideMenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVM.swift; sourceTree = "<group>"; };
 		C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
 		C0C9FBB92C65E86000E913DD /* ProfileCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCardView.swift; sourceTree = "<group>"; };
@@ -337,7 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				C07A2DB82C297FE0006DDF6F /* SearchView.swift */,
-				C0C9FBB22C65793100E913DD /* ProfileRowView.swift */,
+				C0C9FBB22C65793100E913DD /* SearchListProfileItem.swift */,
 				C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */,
 			);
 			path = Search;
@@ -390,6 +392,7 @@
 				C0889DE12C2BFA4D0081BF59 /* Extensions.swift */,
 				C0B0C6F92C61933C00D56577 /* LoadingView.swift */,
 				C0C9FBB02C65688800E913DD /* AlgoliaController.swift */,
+				C01BFBF82C698C5000184E1B /* CountryManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				C09138222C64AB0F00598535 /* XelaChartLineShape.swift in Sources */,
 				C0904D712C297489008B7B2E /* HomeBaseVM.swift in Sources */,
 				C0C9FBB72C65BBEE00E913DD /* SearchVM.swift in Sources */,
+				C01BFBF92C698C5000184E1B /* CountryManager.swift in Sources */,
 				C01BFBF72C68293300184E1B /* ProfileClubsListView.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
 				C0BA4ED42C5C146C00C6F3F6 /* SideMenuView.swift in Sources */,
@@ -628,7 +632,7 @@
 				C062D2CA2C3BEFBC00ABF5A8 /* BaseTabPageView.swift in Sources */,
 				C062D2C42C3BEB9400ABF5A8 /* ProfileView.swift in Sources */,
 				C0C9FBBA2C65E86000E913DD /* ProfileCardView.swift in Sources */,
-				C0C9FBB32C65793100E913DD /* ProfileRowView.swift in Sources */,
+				C0C9FBB32C65793100E913DD /* SearchListProfileItem.swift in Sources */,
 				C09138202C64AB0F00598535 /* XelaBarDatasets.swift in Sources */,
 				C0889DDD2C2BA5700081BF59 /* AppRouter.swift in Sources */,
 				C09138252C64AB0F00598535 /* XelaDoughnutChartBody.swift in Sources */,
