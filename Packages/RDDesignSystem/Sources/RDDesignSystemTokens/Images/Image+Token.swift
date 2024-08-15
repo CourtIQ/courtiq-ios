@@ -88,8 +88,13 @@ public extension Image {
             public static var upload: Image {
                 Image("upload", bundle: .module)
             }
+            
             public static var flag: Image {
                 Image("flag", bundle: .module)
+            }
+            
+            public static var arrowUp: Image {
+                Image("arrow-up", bundle: .module)
             }
         }
     }

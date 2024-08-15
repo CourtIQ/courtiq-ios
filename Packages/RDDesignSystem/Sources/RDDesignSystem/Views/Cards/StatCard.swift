@@ -32,8 +32,32 @@ public struct StatCard: View {
     // MARK: - Internal
     
     public var body: some View {
-        
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .rdSubheadline()
+                    .foregroundColor(Color.TokenColor.Semantic.Text.default)
+                HStack(spacing: 8) {
+                    Text("\(count)")
+                        .rdTitle3()
+                        .foregroundStyle(Color.TokenColor.Semantic.Text.default)
+                    icon
+                        .resizable()
+                        .frame(width: 32, height: 32)
+                        .foregroundColor(Color.TokenColor.Semantic.Icon.default)
+                }
+            }
+            Spacer()
+        }
+        .padding(20)
+        .background(content: {
+            Color.TokenColor.Semantic.Background.tertiary
+        })
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .overlay {
+            RoundedRectangle(cornerSize: .init(width: 12, height: 12))
+                .strokeBorder(Color.TokenColor.Semantic.Border.default)
+        }
     }
     
     // MARK: - Private
@@ -45,6 +69,22 @@ public struct StatCard: View {
     
 }
 
-//#Preview {
-//    StatCard()
+#Preview {
+    HStack {
+        StatCard(title: "Wins", count: 1, icon: Image.Token.Icons.arrowUp)
+
+        StatCard(title: "Losses", count: 1, icon: Image.Token.Icons.arrowUp)
+
+    }
+}
+//
+//extension StatCard.StatCardType {
+//    var backgroundColor: Color {
+//        switch self {
+//        case .primary:
+//            <#code#>
+//        case .secondary:
+//            <#code#>
+//        }
+//    }
 //}
