@@ -87,7 +87,6 @@ public class FirestoreProvider: DataServiceProviderProtocol {
                     completion(.success(()))
                 }
             }
-        } catch {
             completion(.failure(error))
         }
     }

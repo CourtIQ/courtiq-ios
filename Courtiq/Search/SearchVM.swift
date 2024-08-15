@@ -9,8 +9,9 @@
 import AuthenticationService
 import Foundation
 import InstantSearchSwiftUI
-import UserService
+import RelationshipService
 import SwiftUI
+import UserService
 
 
 final class SearchVM: ViewModel {
@@ -27,10 +28,18 @@ final class SearchVM: ViewModel {
     // MARK: - Private Properties
     
     private var router: AppRouter
+    private var userService: any UserServiceProtocol
+    private var relationsService: any RelationshipServiceProtocol
+    
     
     // MARK: - Initializer
-    init(router: AppRouter) {
+    init(router: AppRouter,
+         userService: any UserServiceProtocol,
+         relationsService: any RelationshipServiceProtocol)
+    {
         self.router = router
+        self.userService = userService
+        self.relationsService = relationsService
         self.searchBoxController = algoliaController.searchBoxController
         self.hitsController = algoliaController.hitsController
         self.statsController = algoliaController.statsController
@@ -68,7 +77,8 @@ final class SearchVM: ViewModel {
     }
     
     @MainActor private func searchItemTapped(user: User) {
-        let view = SearchProfileDetailView(user: user)
+        let view = SearchProfileDetailView(user: user,
+                                           relationsService: relationsService as! RelationshipService)
         router.handle(action: .push(AnyView(view)))
     }
 }

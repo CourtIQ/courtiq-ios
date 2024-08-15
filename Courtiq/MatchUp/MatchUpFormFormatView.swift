@@ -23,13 +23,12 @@ struct MatchUpFormFormatView: View {
     
     var body: some View {
         MarqueeView {
-            RDNavigationBar(.primary, title: "Match Up Format", leading: {},
-                            trailing: {
-                Image.Token.Icons.close
-                    .rdActionIcon {
-                        appRouter.handle(action: .dismiss)
-                    }
-            })
+            RDNavigationBar(
+                .primary, title: "Match Up Format",
+                leading: {
+                    Image.Token.Icons.back
+                        .rdActionIcon { appRouter.handle(action: .pop) }
+                }, trailing: { })
         } content: {
             ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: 8) {
@@ -57,7 +56,7 @@ struct MatchUpFormFormatView: View {
                     ),
                     title: "Set Format"
                 )
-
+                
                 MatchUpFormFormatTiebreakView(
                     vm: vm,
                     setFormat: Binding(
@@ -66,7 +65,7 @@ struct MatchUpFormFormatView: View {
                     ),
                     title: "Tiebreak Format"
                 )
-
+                
                 if vm.matchUpFormat.numberOfSets != .one {
                     RDToggleRow(title: "Custom final set format?", isOn: Binding(
                         get: { vm.matchUpFormat.finalSetFormat != nil },
@@ -91,7 +90,7 @@ struct MatchUpFormFormatView: View {
                         title: "Final Set Format"
                     )
                 }
-
+                
                 if let finalSetFormat = vm.matchUpFormat.finalSetFormat {
                     MatchUpFormFormatTiebreakView(
                         vm: vm,

@@ -26,7 +26,7 @@ public protocol RelationshipServiceProtocol: ObservableObject {
     /// An array of `RelationRequest` objects representing the friend requests.
     var friendRequests: [RelationRequest] { get }
     
-    /// An array of `RelationRequest` objects representing the group requests.
+    /// An array of `RelationRequest` objects representing the club requests.
     var clubRequests: [RelationRequest] { get }
     
     /// An array of `RelationRequest` objects representing the coach requests.
@@ -70,4 +70,14 @@ public protocol RelationshipServiceProtocol: ObservableObject {
     ///   - userId: The ID of the user whose relation requests are being fetched.
     /// - Returns: An array of `RelationRequest` objects.
     func fetchRelationRequests(userId: String) async throws -> [RelationRequest]
+    
+    /// Gets the count of friends for the specified user.
+    /// - Parameter userId: The ID of the user whose friend count is being retrieved.
+    /// - Returns: The number of friends.
+    func getFriendCount(for userId: String) async throws -> Int
+    
+    /// Gets the count of clubs for the specified user.
+    /// - Parameter userId: The ID of the user whose club count is being retrieved.
+    /// - Returns: The number of clubs.
+    func getClubCount(for userId: String) async throws -> Int
 }

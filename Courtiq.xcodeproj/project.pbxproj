@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C013926E2C6D6DD900CD1329 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = C013926D2C6D6DD900CD1329 /* FirebaseMessaging */; };
 		C01BFBF72C68293300184E1B /* ProfileClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */; };
 		C01BFBF92C698C5000184E1B /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF82C698C5000184E1B /* CountryManager.swift */; };
 		C01BFBFB2C69BEEF00184E1B /* MatchUpFormFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBFA2C69BEEF00184E1B /* MatchUpFormFormatView.swift */; };
@@ -178,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C013926E2C6D6DD900CD1329 /* FirebaseMessaging in Frameworks */,
 				C0BA4ECE2C5B116D00C6F3F6 /* StorageService in Frameworks */,
 				C067FEC32C5B11210089C7E9 /* AuthenticationService in Frameworks */,
 				C067FEBD2C5B10B80089C7E9 /* RDDesignSystem in Frameworks */,
@@ -487,6 +489,7 @@
 				C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */,
 				C02692382C62CFBE00B34F42 /* RelationshipService */,
 				C0C9FBAE2C65676200E913DD /* InstantSearchSwiftUI */,
+				C013926D2C6D6DD900CD1329 /* FirebaseMessaging */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -567,6 +570,7 @@
 				C0B0C6FC2C61A03300D56577 /* XCLocalSwiftPackageReference "Packages/DataService" */,
 				C02692372C62CFBE00B34F42 /* XCLocalSwiftPackageReference "Packages/RelationshipService" */,
 				C0C9FBA72C6565CD00E913DD /* XCRemoteSwiftPackageReference "instantsearch-ios" */,
+				C013926A2C6D6C0500CD1329 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = C060AF2E2C1974D100D160A5 /* Products */;
 			projectDirPath = "";
@@ -851,7 +855,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "pranav-suri.com.Courtiq";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pranav-suri.Courtiq";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -894,7 +898,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "pranav-suri.com.Courtiq";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.pranav-suri.Courtiq";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1060,6 +1064,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C013926A2C6D6C0500CD1329 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.0.0;
+			};
+		};
 		C0C9FBA72C6565CD00E913DD /* XCRemoteSwiftPackageReference "instantsearch-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/algolia/instantsearch-ios";
@@ -1071,6 +1083,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C013926D2C6D6DD900CD1329 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C013926A2C6D6C0500CD1329 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		C02692382C62CFBE00B34F42 /* RelationshipService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RelationshipService;
