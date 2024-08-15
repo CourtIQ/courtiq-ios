@@ -1,13 +1,6 @@
-//
-//  RelationRequest.swift
-//
-//
-//  Created by Pranav Suri on 2024-08-14.
-//
-
 import Foundation
 
-// MARK: - RelationRequest Struct
+// MARK: - RelationshipRequest Struct
 
 /// Represents a relationship request between two users.
 ///
@@ -44,12 +37,6 @@ public struct RelationRequest: Codable, Identifiable {
     /// Timestamp of when the request was created.
     public var createdAt: Date
     
-    /// The FCM notification tokens for the user who sent the request (optional).
-    public var senderNotificationTokens: [String]?
-    
-    /// The FCM notification tokens for the user who received the request (optional).
-    public var receiverNotificationTokens: [String]?
-    
     // MARK: - Initializer
     
     /// Initializes a new relationship request between two users.
@@ -62,9 +49,7 @@ public struct RelationRequest: Codable, Identifiable {
     ///   - receiverName: The name of the user who received the request (optional).
     ///   - receiverProfilePicture: The profile picture URL of the user who received the request (optional).
     ///   - createdAt: The timestamp of when the request was created (defaults to the current date and time).
-    ///   - senderNotificationTokens: An optional array containing FCM tokens for the sender (optional, defaults to `nil`).
-    ///   - receiverNotificationTokens: An optional array containing FCM tokens for the receiver (optional, defaults to `nil`).
-    public init(senderID: String, receiverID: String, requestType: RelationType, senderName: String? = nil, senderProfilePicture: URL? = nil, receiverName: String? = nil, receiverProfilePicture: URL? = nil, createdAt: Date = Date(), senderNotificationTokens: [String]? = nil, receiverNotificationTokens: [String]? = nil) {
+    public init(senderID: String, receiverID: String, requestType: RelationType, senderName: String? = nil, senderProfilePicture: URL? = nil, receiverName: String? = nil, receiverProfilePicture: URL? = nil, createdAt: Date = Date()) {
         self.id = UUID().uuidString
         self.senderID = senderID
         self.receiverID = receiverID
@@ -74,7 +59,5 @@ public struct RelationRequest: Codable, Identifiable {
         self.receiverName = receiverName
         self.receiverProfilePicture = receiverProfilePicture
         self.createdAt = createdAt
-        self.senderNotificationTokens = senderNotificationTokens
-        self.receiverNotificationTokens = receiverNotificationTokens
     }
 }

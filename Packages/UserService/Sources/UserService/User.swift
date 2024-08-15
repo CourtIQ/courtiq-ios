@@ -20,7 +20,6 @@ public struct User: Identifiable, Codable {
     public var imageUrls: [ImageSize: ImageURL]?
     public var createdAt: Date
     public var lastUpdated: Date?
-    public var notificationTokens: [String]?
 
     enum CodingKeys: String, CodingKey {
         case id = "objectID"
@@ -34,7 +33,6 @@ public struct User: Identifiable, Codable {
         case imageUrls
         case createdAt
         case lastUpdated
-        case notificationTokens
     }
     
     public init(id: String? = nil,
@@ -47,8 +45,7 @@ public struct User: Identifiable, Codable {
                 dob: Date? = nil,
                 imageUrls: [ImageSize: ImageURL]? = nil,
                 createdAt: Date = Date(),
-                lastUpdated: Date? = nil,
-                notificationTokens: [String]? = nil) {
+                lastUpdated: Date? = nil) {
         self.id = id
         self.uid = uid
         self.username = username
@@ -60,7 +57,6 @@ public struct User: Identifiable, Codable {
         self.imageUrls = imageUrls
         self.createdAt = createdAt
         self.lastUpdated = lastUpdated
-        self.notificationTokens = notificationTokens
     }
 }
 

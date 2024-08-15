@@ -103,7 +103,6 @@ struct AdditionalInfoView: View {
     
     // MARK: - Private
     
-    @AppStorage("notificationToken") private var notificationTokens: String?
     @State private var dateString: String = ""
     @ObservedObject private var vm: AuthenticationVM
 }

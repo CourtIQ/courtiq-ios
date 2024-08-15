@@ -14,53 +14,24 @@ import StorageService
 import SwiftUI
 import SwiftData
 import UserService
-import UserNotifications
-import FirebaseMessaging
+
 
 // MARK: - AppDelegate
 
-class AppDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
-    
-    @AppStorage("notificationToken") var notificationToken: String?
+class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         
         FirebaseApp.configure()
         
+        UILabel.appearance().textColor = UIColor(Color.TokenColor.Semantic.Text.default)
+
         InstantSearchTelemetry.shared.isEnabled = false
 
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
-            print("Permission granted: \(granted)")
-        }
-        
-        UNUserNotificationCenter.current().delegate = self
-        
-        Messaging.messaging().delegate = self
-        
-        application.registerForRemoteNotifications()
-        
         return true
     }
-    
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .sound, .badge, .list])
-    }
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withcompletionHandler completionHandler: @escaping () -> Void) {
-        let userInfo = response.notification.request.content.userInfo
-        NotificationCenter.default.post(name: Notification.Name("didReceiveRemoteNotification"), object: nil, userInfo: userInfo)
-        completionHandler()
-    }
-    
-    @objc func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        notificationToken = fcmToken
-    }
 }
-
 
 // MARK: - CourtiqApp
 

@@ -18,6 +18,7 @@ public class UserService: UserServiceProtocol, ObservableObject {
     // MARK: - Properties
     
     @AppStorage("currentUserUID") private var currentUserUIDStorage: String?
+    
     @Published private(set) public var currentUser: User?
     private let dataService: DataServiceProtocol
 

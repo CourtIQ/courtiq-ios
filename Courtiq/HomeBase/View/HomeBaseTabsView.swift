@@ -10,14 +10,11 @@ import RDDesignSystem
 import AuthenticationService
 import StringEntryService
 import UserService
-import RelationshipService
 
 struct HomeBaseTabsView: View {
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var appRouter: AppRouter
     @EnvironmentObject var userService: UserService
-    @EnvironmentObject var relationsService: RelationshipService
-
     @ObservedObject var vm: HomeBaseVM
     var body: some View {
         VStack(spacing: 0) {
@@ -26,12 +23,8 @@ struct HomeBaseTabsView: View {
                 case 0:
                     HomeView(showSideMenu: $vm.sideMenuShowing)
                 case 1:
-                    let vm = SearchVM(router: appRouter,
-                                      userService: userService,
-                                      relationsService: relationsService)
-                    SearchView(vm: vm,
+                    SearchView(vm: SearchVM(router: appRouter),
                                showSideMenu: $vm.sideMenuShowing)
-                    .environmentObject(relationsService)
                 case 2:
                     TennisView(showSideMenu: $vm.sideMenuShowing,
                                vm: TennisVM(router: appRouter,
