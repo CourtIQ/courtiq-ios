@@ -91,62 +91,37 @@ public class RelationshipService: RelationshipServiceProtocol {
     }
     
     // MARK: - RelationshipServiceProtocol Methods
-    
+
     /// Sends a friend request from one user to another.
-    /// - Parameters:
-    ///   - from: The ID of the user sending the friend request.
-    ///   - to: The ID of the user receiving the friend request.
+    /// - Parameter request: The `RelationRequest` object containing details of the friend request, including sender and receiver IDs.
     ///
     /// This method performs the following operations in the database:
-    /// 1. Creates a friend request document with the details of the request.
-    /// 2. Adds the friend request document to the sender's `relationshipRequests` collection.
-    /// 3. Adds the friend request document to the receiver's `relationshipRequests` collection.
+    /// 1. Adds the friend request document to the receiver's `relationshipRequests` collection.
     ///
-    /// If either operation fails, the method will throw an error. If both operations succeed,
-    /// the method will complete successfully.
+    /// If adding the document fails, the method will throw an error. If it succeeds, the method will complete successfully.
     @available(iOS 14.0, macOS 10.15, *)
-    public func sendFriendRequest(from: String, to: String) async throws {
+    public func sendFriendRequest(request: RelationRequest) async throws {
+        // Ensure that the relation requests service is properly initialized
         guard let relationRequestsService = relationRequestsService else {
-            throw NSError(domain: "Services not initialized", code: 500, userInfo: nil)
+            throw NSError(domain: "Services not initialized", code: 500, userInfo: [NSLocalizedDescriptionKey: "Relation requests service is not initialized."])
         }
 
-        let request = RelationRequest(senderID: from,
-                                      receiverID: to,
-                                      requestType: .friend,
-                                      createdAt: Date())
-
-        // TODO: Fix the id of the document as right now the
-        // TODO: id var in the struct is not consistent with the actual document id
-
-        try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
-            let dispatchGroup = DispatchGroup()
-            var error: Error?
-
-            dispatchGroup.enter()
-            relationRequestsService.addDocument(collectionPath: "users/\(from)/\(relationRequestsCollection)", document: request) { result in
-                if case .failure(let err) = result {
-                    error = err
-                }
-                dispatchGroup.leave()
-            }
-
-            dispatchGroup.enter()
-            relationRequestsService.addDocument(collectionPath: "users/\(to)/\(relationRequestsCollection)", document: request) { result in
-                if case .failure(let err) = result {
-                    error = err
-                }
-                dispatchGroup.leave()
-            }
-
-            dispatchGroup.notify(queue: .main) {
-                if let error = error {
-                    continuation.resume(throwing: error)
-                } else {
+        // Perform the operation to add the friend request document
+        try await withCheckedThrowingContinuation { continuation in
+            relationRequestsService.addDocument(
+                collectionPath: "users/\(request.receiverID)/\(relationRequestsCollection)",
+                document: request
+            ) { result in
+                switch result {
+                case .success:
                     continuation.resume(returning: ())
+                case .failure(let error):
+                    continuation.resume(throwing: error)
                 }
             }
         }
     }
+
     
     /// Accepts a friend request.
     /// - Parameter request: The `RelationshipRequest` object representing the friend request to be accepted.
@@ -291,7 +266,7 @@ public class RelationshipService: RelationshipServiceProtocol {
     ///   - currentUserId: The ID of the user removing the friend.
     ///   - friendUserId: The ID of the friend being removed.
     @available(iOS 14.0, macOS 10.15, *)
-    public func removeFriend(currentUserId: String, friendUserId: String) async throws {
+    public func removeFriend(relation: Relation) async throws {
         throw NSError(domain: "Function not working", code: 500, userInfo: nil)
     }
 }

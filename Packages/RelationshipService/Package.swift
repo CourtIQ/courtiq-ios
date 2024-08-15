@@ -12,7 +12,6 @@ let package = Package(
             targets: ["RelationshipService"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.3.0"),
         .package(path: "../DataService")
     ],
     targets: [

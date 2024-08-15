@@ -40,10 +40,7 @@ struct SearchProfileDetailView: View {
             Text("")
         } footer: {
             RDButtonView(.extraLarge, .primary, "Send Friend Request") {
-                Task {
-                    try await relationshipService.sendFriendRequest(from: currentUserID ?? "",
-                                                                    to: user.uid)
-                }
+                print("Send Friend Request tapped")
             }
         }
         .navigationBarBackButtonHidden()
