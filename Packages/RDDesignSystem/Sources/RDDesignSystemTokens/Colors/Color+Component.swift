@@ -19,4 +19,10 @@ public extension Color.TokenColor.Component {
             Color(light: Color.Token.platinum100, dark: Color.Token.platinum900)
         }
     }
+    
+    struct StatCard {
+        public static var secondaryBackground: Color {
+            Color(light: Color.Token.purple500, dark: Color.Token.purple700)
+        }
+    }
 }
