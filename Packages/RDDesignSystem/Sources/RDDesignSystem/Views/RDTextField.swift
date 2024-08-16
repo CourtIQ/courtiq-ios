@@ -60,6 +60,7 @@ public struct RDTextField: View {
     public init(
         textFieldType: RDTextFieldType,
         placeholder: String,
+        helperText: String? = nil,
         icon: (leadingIcon: Image?, trailingIcon: Image?)? = nil,
         onSubmit: @escaping () -> Void = {},
         value: Binding<String>,
@@ -71,6 +72,7 @@ public struct RDTextField: View {
     ) {
         self.textFieldType = textFieldType
         self.placeholder = placeholder
+        self.helperText = helperText
         self.icon = icon
         self.onSubmit = onSubmit
         self._value = value

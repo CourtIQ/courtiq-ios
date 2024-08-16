@@ -27,6 +27,7 @@ struct MatchUpFormFormatView: View {
                             trailing: {
                 Image.Token.Icons.close
                     .rdActionIcon {
+                        appRouter.handle(action: .popToRoot)
                         appRouter.handle(action: .dismiss)
                     }
             })

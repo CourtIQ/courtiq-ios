@@ -53,6 +53,8 @@ final class AuthenticationVM: ViewModel {
         }
     }
     @Published var selectedImage: Image? = nil
+    @Published var isUsernameAvailable: Bool = false
+    @Published var isUsernameAvailableText: String? = nil
     var countriesMenuList: [DropdownItem] = []
 
     var router: AppRouter
@@ -112,6 +114,8 @@ final class AuthenticationVM: ViewModel {
             router.handle(action: .popToRoot)
             let view = AnyView(SignUpView(vm: self))
             router.handle(action: .push(view))
+        case .usernameValueChanged(let username):
+            handleUsernameChanged(username)
         }
     }
     
@@ -226,6 +230,27 @@ final class AuthenticationVM: ViewModel {
         return imageUrls
     }
 
+    private func handleUsernameChanged(_ username: String) {
+        Task {
+            do {
+                let isAvailable = try await userService.isUsernameAvailable(username: username)
+                await MainActor.run {
+                    if isAvailable {
+                        self.isUsernameAvailableText = "Username is available"
+                        self.isUsernameAvailable = true
+                        print("Username is available")
+                    } else {
+                        print("Username not available")
+                        self.isUsernameAvailableText = "Username is not available. Choose a different one."
+                        self.isUsernameAvailable = false
+                    }
+                }
+            } catch {
+                print("Error checking username availability: \(error.localizedDescription)")
+            }
+        }
+    }
+
     private func resetPassword(email: String) {
     }
     
@@ -252,5 +277,6 @@ extension AuthenticationVM {
         case frgtPswdBtn
         case signInFromSignUp
         case signUpFromSignIn
+        case usernameValueChanged(String)
     }
 }

@@ -122,6 +122,29 @@ public class UserService: UserServiceProtocol, ObservableObject {
             }
         }
     }
+    
+    // MARK: - Check Username Availability
+
+    /// Checks if the given username is available.
+    /// - Parameter username: The username to be checked.
+    /// - Returns: A boolean indicating whether the username is available.
+    /// - Throws: An error if the query fails.
+    public func isUsernameAvailable(username: String) async throws -> Bool {
+        return try await withCheckedThrowingContinuation { continuation in
+            // Use the countDocuments method to check if any document exists with the given username
+            let constraints: [QueryConstraint] = [.equalTo(field: "username", value: username)]
+            
+            dataService.countDocuments(constraints: constraints) { result in
+                switch result {
+                case .success(let count):
+                    // If the count is zero, the username is available
+                    continuation.resume(returning: count == 0)
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
 
     // MARK: - Start Listening for Current User
     

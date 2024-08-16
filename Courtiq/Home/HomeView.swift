@@ -24,8 +24,10 @@ struct HomeView: View {
                         }
                     }
             }, trailing: {
-                AvatarImage(size: .small,
-                            url: userService.currentUser?.imageUrls?[.small]?.url ?? "")
+                Image.Token.Icons.bell
+                    .rdActionIcon {
+                        print("notificationtapped")
+                    }
             })
         } content: {
             List {

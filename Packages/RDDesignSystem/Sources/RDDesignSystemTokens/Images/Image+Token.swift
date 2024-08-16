@@ -96,6 +96,10 @@ public extension Image {
             public static var arrowUp: Image {
                 Image("arrow-up", bundle: .module)
             }
+            
+            public static var bell: Image {
+                Image("bell", bundle: .module)
+            }
         }
     }
 }

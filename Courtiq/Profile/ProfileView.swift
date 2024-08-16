@@ -59,9 +59,11 @@ struct ProfileView: View {
                     Text("no friends")
                 } else {
                     // Friends List View
-                    ForEach(relationsService.friendRequests) { request in
-                        Text(request.senderID ?? "")
-                    }
+//                    ForEach(relationsService.friendRequests) { request in
+//                        Text(request.senderID ?? "")
+//                    }
+                    Text("no friends")
+
                 }
             }
         }

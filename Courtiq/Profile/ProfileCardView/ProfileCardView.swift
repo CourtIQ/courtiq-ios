@@ -29,23 +29,20 @@ struct ProfileCardView: View {
                     
                     VStack(alignment: .leading, spacing: 2) {
                         profileTextContent()
-                        
-                        Group {
-                            ActionItemRowView(items: [
-                                (title: "Friends", count: 311, action: {
-                                    vm.handle(action: .actionRowItemTapped(0))
-                                }),
-                                (title: "Matches", count: 12, action: {
-                                    vm.handle(action: .actionRowItemTapped(1))
-                                }),
-                                (title: "Wins", count: 15, action: {
-                                    vm.handle(action: .actionRowItemTapped(2))
-                                }),
-                                (title: "Losses", count: 7, action: {
-                                    vm.handle(action: .actionRowItemTapped(3))
-                                })
-                            ])
-                        }
+                        ActionItemRowView(items: [
+                            (title: "TennisIQ", count: 311, action: {
+                                vm.handle(action: .actionRowItemTapped(0))
+                            }),
+                            (title: "Friends", count: 12, action: {
+                                vm.handle(action: .actionRowItemTapped(1))
+                            }),
+                            (title: "Matches", count: 15, action: {
+                                vm.handle(action: .actionRowItemTapped(2))
+                            }),
+                            (title: "Wins", count: 7, action: {
+                                vm.handle(action: .actionRowItemTapped(3))
+                            })
+                        ])
                     }
                 }
             }
