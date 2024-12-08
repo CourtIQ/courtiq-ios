@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B503B3AF2D05D3180047310A /* CourtIQAPI in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3AE2D05D3180047310A /* CourtIQAPI */; };
+		B503B3B12D05D3180047310A /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3B02D05D3180047310A /* Models */; };
+		B5B116EF2D05CEEE0080D123 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5B116EE2D05CEEE0080D123 /* GoogleService-Info.plist */; };
 		C01BFBF72C68293300184E1B /* ProfileClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */; };
 		C01BFBF92C698C5000184E1B /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF82C698C5000184E1B /* CountryManager.swift */; };
 		C01BFBFB2C69BEEF00184E1B /* MatchUpFormFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBFA2C69BEEF00184E1B /* MatchUpFormFormatView.swift */; };
@@ -15,7 +18,6 @@
 		C01BFC0B2C6A0BDC00184E1B /* SearchProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFC0A2C6A0BDC00184E1B /* SearchProfileDetailView.swift */; };
 		C02692392C62CFBE00B34F42 /* RelationshipService in Frameworks */ = {isa = PBXBuildFile; productRef = C02692382C62CFBE00B34F42 /* RelationshipService */; };
 		C02E71F62C2CA95300830E2B /* HomeRootFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F52C2CA95300830E2B /* HomeRootFlowView.swift */; };
-		C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */; };
 		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
 		C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D902C1E54C700E6D023 /* SignUpView.swift */; };
 		C0495D932C1E54D100E6D023 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D922C1E54D100E6D023 /* ForgotPasswordView.swift */; };
@@ -99,6 +101,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B5B116EE2D05CEEE0080D123 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B5B116F02D05D0C10080D123 /* CourtIQAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CourtIQAPI; sourceTree = "<group>"; };
 		C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileClubsListView.swift; sourceTree = "<group>"; };
 		C01BFBF82C698C5000184E1B /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
 		C01BFBFA2C69BEEF00184E1B /* MatchUpFormFormatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUpFormFormatView.swift; sourceTree = "<group>"; };
@@ -108,7 +112,6 @@
 		C026923B2C62D01300B34F42 /* RelationshipService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RelationshipService; sourceTree = "<group>"; };
 		C02E71F52C2CA95300830E2B /* HomeRootFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRootFlowView.swift; sourceTree = "<group>"; };
 		C0495D7D2C1E430400E6D023 /* AuthenticationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthenticationService; sourceTree = "<group>"; };
-		C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C0495D8B2C1E546800E6D023 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		C0495D902C1E54C700E6D023 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		C0495D922C1E54D100E6D023 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				C067FEBD2C5B10B80089C7E9 /* RDDesignSystem in Frameworks */,
 				C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */,
 				C067FEBF2C5B10B80089C7E9 /* StringEntryService in Frameworks */,
+				B503B3B12D05D3180047310A /* Models in Frameworks */,
+				B503B3AF2D05D3180047310A /* CourtIQAPI in Frameworks */,
 				C0D8AEFE2C6DF48F0027BA35 /* StorageService in Frameworks */,
 				C067FEC12C5B10B80089C7E9 /* UserService in Frameworks */,
 				C0C9FBAF2C65676200E913DD /* InstantSearchSwiftUI in Frameworks */,
@@ -292,7 +297,7 @@
 				C062D2C02C3BEB3300ABF5A8 /* Search */,
 				C062D2C22C3BEB4200ABF5A8 /* Tennis */,
 				C0889DDE2C2BEC930081BF59 /* Utils */,
-				C0495D812C1E4FB800E6D023 /* GoogleService-Info.plist */,
+				B5B116EE2D05CEEE0080D123 /* GoogleService-Info.plist */,
 				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
 				C067FEB02C5AF37A0089C7E9 /* NunitoSans.ttf */,
@@ -330,6 +335,7 @@
 		C060AF5D2C19752F00D160A5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				B5B116F02D05D0C10080D123 /* CourtIQAPI */,
 				C0495D7D2C1E430400E6D023 /* AuthenticationService */,
 				C0B0C6FF2C61A07D00D56577 /* DataService */,
 				C0CECA542C3F8625000F2032 /* MatchUpService */,
@@ -493,6 +499,8 @@
 				C0C9FBAE2C65676200E913DD /* InstantSearchSwiftUI */,
 				C0D8AEFB2C6DF4740027BA35 /* StringEntryService */,
 				C0D8AEFD2C6DF48F0027BA35 /* StorageService */,
+				B503B3AE2D05D3180047310A /* CourtIQAPI */,
+				B503B3B02D05D3180047310A /* Models */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -593,8 +601,8 @@
 			files = (
 				C05FC2A72C662CFF00818A49 /* RDDesignSystem in Resources */,
 				C067FEB12C5AF45A0089C7E9 /* NunitoSans.ttf in Resources */,
+				B5B116EF2D05CEEE0080D123 /* GoogleService-Info.plist in Resources */,
 				C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */,
-				C0495D822C1E4FB800E6D023 /* GoogleService-Info.plist in Resources */,
 				C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -860,7 +868,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pranav-suri.Courtiq";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.court-iq.Courtiq";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -906,7 +914,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.pranav-suri.Courtiq";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.court-iq.Courtiq";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -1092,6 +1100,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B503B3AE2D05D3180047310A /* CourtIQAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CourtIQAPI;
+		};
+		B503B3B02D05D3180047310A /* Models */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Models;
+		};
 		C02692382C62CFBE00B34F42 /* RelationshipService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RelationshipService;

@@ -1,0 +1,12 @@
+query Friendship($friendshipId: ID!) {
+  friendship(id: $friendshipId) {
+    id
+    participantIds
+    type
+    status
+    createdAt
+    updatedAt
+    requesterId
+    receiverId
+  }
+}

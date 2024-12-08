@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "Apollo",
+        "repositoryURL": "https://github.com/apollographql/apollo-ios.git",
+        "state": {
+          "branch": null,
+          "revision": "c3f48d45ec1300bc95243bf19f67284f9dc0d14a",
+          "version": "1.15.3"
+        }
+      },
+      {
         "package": "AppCheck",
         "repositoryURL": "https://github.com/google/app-check.git",
         "state": {
@@ -134,6 +143,15 @@
           "branch": null,
           "revision": "540318ecedd63d883069ae7f1ed811a2df00b6ac",
           "version": "2.4.0"
+        }
+      },
+      {
+        "package": "SQLite.swift",
+        "repositoryURL": "https://github.com/stephencelis/SQLite.swift.git",
+        "state": {
+          "branch": null,
+          "revision": "a95fc6df17d108bd99210db5e8a9bac90fe984b8",
+          "version": "0.15.3"
         }
       },
       {

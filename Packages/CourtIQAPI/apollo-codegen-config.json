@@ -1,0 +1,30 @@
+{
+  "schemaNamespace" : "API",
+  "input" : {
+    "operationSearchPaths" : [
+      "Queries/**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "Schema/*.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {
+      }
+    },
+    "schemaTypes" : {
+      "path" : "./Sources/Models",
+      "moduleType" : {
+        "embeddedInTarget" : {
+          "accessModifier": "public",
+          "name" : "CourtIqAPI"
+        }
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {
+      }
+    }
+  }
+}

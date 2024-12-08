@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>834892306518-l445cirodupmmb191s41d0ur85a8s89d.apps.googleusercontent.com</string>
+	<string>18985681240-ljfpok5144lvg5bnp3onveg219a9bgp9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.834892306518-l445cirodupmmb191s41d0ur85a8s89d</string>
+	<string>com.googleusercontent.apps.18985681240-ljfpok5144lvg5bnp3onveg219a9bgp9</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAkgYkY6qVG_gYA-V9A3odfvLqVFdGJ1hk</string>
+	<string>AIzaSyC1Wl-n3UPsylUqYdzUTSwtzy8RGJhKzlU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>834892306518</string>
+	<string>18985681240</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>pranav-suri.com.Courtiq</string>
+	<string>com.court-iq.CourtIQ</string>
 	<key>PROJECT_ID</key>
-	<string>courtiq-aa5f4</string>
+	<string>courtiq-auth</string>
 	<key>STORAGE_BUCKET</key>
-	<string>courtiq-aa5f4.appspot.com</string>
+	<string>courtiq-auth.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:834892306518:ios:5ac70425078776ce5283f7</string>
+	<string>1:18985681240:ios:550c1596698c476847652d</string>
 </dict>
 </plist>

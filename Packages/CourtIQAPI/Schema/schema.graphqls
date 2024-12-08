@@ -1,0 +1,589 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+scalar DateTime
+scalar Time
+"""
+Represents a coaching relationship between a coach and a coachee.
+Implements the Relationship interface.
+"""
+type Coachship implements Relationship {
+  "Unique identifier for the coaching relationship"
+  id: ID!
+  "List of IDs for all participants in this relationship (coach and coachee)"
+  participantIds: [ID!]!
+  "Type of relationship (always COACHING for Coachship)"
+  type: RelationshipType!
+  "Current status of the coaching relationship"
+  status: RelationshipStatus!
+  "ISO-8601 formatted timestamp when the coaching relationship was created"
+  createdAt: String!
+  "ISO-8601 formatted timestamp when the coaching relationship was last updated"
+  updatedAt: String
+  "ID of the user who is the coach in this relationship"
+  coachId: ID!
+  "ID of the user who is being coached in this relationship"
+  coacheeId: ID!
+}
+"""
+Represents a friendship between two users.
+Implements the Relationship interface and can be referenced across services using its ID.
+"""
+type Friendship implements Relationship {
+  "Unique identifier for the friendship"
+  id: ID!
+  "List of IDs for both users in the friendship"
+  participantIds: [ID!]!
+  "Type of relationship (always FRIENDSHIP for Friendship)"
+  type: RelationshipType!
+  "Current status of the friendship"
+  status: RelationshipStatus!
+  "ISO-8601 formatted timestamp when the friendship was created"
+  createdAt: String!
+  "ISO-8601 formatted timestamp when the friendship was last updated"
+  updatedAt: String
+  "ID of the user who initiated the friendship request"
+  requesterId: ID!
+  "ID of the user who received the friendship request"
+  receiverId: ID!
+}
+type Location {
+  "Name of the city."
+  city: String
+  "Name of the state or province."
+  state: String
+  "Name of the country."
+  country: String
+  "Geographical latitude coordinate."
+  latitude: Float
+  "Geographical longitude coordinate."
+  longitude: Float
+}
+type MatchUp {
+  id: ID!
+  matchUpFormat: MatchUpFormat!
+  matchUpStatus: MatchUpStatus!
+  matchUpType: MatchUpType!
+  participants: [Participant!]!
+  currentSetIndex: Int
+  currentSetGameIndex: Int
+  currentScore: Score
+  currentServer: PlayingSide!
+  points: [Point!]!
+  pointsSequence: [[[Point!]!]!]!
+  startTime: DateTime!
+  endTime: DateTime
+  lastUpdated: DateTime!
+}
+type MatchUpFormat {
+  id: ID!
+  numberOfSets: NumberOfSets!
+  setFormat: SetFormat!
+  finalSetFormat: SetFormat
+  initialServer: PlayingSide!
+}
+type Mutation {
+  addTennisRacket(input: TennisRacketInput!): TennisRacket
+  updateTennisRacket(id: ID!, input: TennisRacketInput!): TennisRacket
+  deleteTennisRacket(id: ID!): Boolean
+  setCurrentRacket(id: ID!): TennisRacket!
+  addTennisString(input: TennisStringInput!): TennisString
+  updateTennisString(id: ID!, input: TennisStringInput!): TennisString
+  deleteTennisString(id: ID!): Boolean
+  assignStringToRacket(racketId: ID!, stringId: ID!): TennisRacket
+  _empty: String
+  """
+  Send a coaching request to another user, offering to be their coach.
+  The userId parameter is the ID of the user you want to coach.
+  Returns the created Coachship object.
+  """
+  sendCoachRequest(userId: ID!): Coachship
+  """
+  Send a coaching request to another user, asking them to be your coach.
+  The userId parameter is the ID of the user you want to be your coach.
+  Returns the created Coachship object.
+  """
+  sendCoacheeRequest(userId: ID!): Coachship
+  """
+  Accept a pending coaching request as the coach.
+  The coachshipId parameter is the ID of the Coachship object to accept.
+  Returns the updated Coachship object.
+  """
+  acceptCoachRequest(coachshipId: ID!): Coachship
+  """
+  Accept a pending coaching request as the coachee.
+  The coachshipId parameter is the ID of the Coachship object to accept.
+  Returns the updated Coachship object.
+  """
+  acceptCoacheeRequest(coachshipId: ID!): Coachship
+  """
+  Decline a pending coaching request as the coach.
+  The coachshipId parameter is the ID of the Coachship object to decline.
+  Returns a success indicator.
+  """
+  declineCoachRequest(coachshipId: ID!): Boolean
+  """
+  Decline a pending coaching request as the coachee.
+  The coachshipId parameter is the ID of the Coachship object to decline.
+  Returns a success indicator.
+  """
+  declineCoacheeRequest(coachshipId: ID!): Boolean
+  """
+  Cancel a sent coaching request as the coach.
+  The coachshipId parameter is the ID of the Coachship object to cancel.
+  Returns a success indicator.
+  """
+  cancelCoachRequest(coachshipId: ID!): Boolean
+  """
+  Cancel a sent coaching request as the coachee.
+  The coachshipId parameter is the ID of the Coachship object to cancel.
+  Returns a success indicator.
+  """
+  cancelCoacheeRequest(coachshipId: ID!): Boolean
+  """
+  End an active coaching relationship.
+  The coachshipId parameter is the ID of the Coachship object to end.
+  Returns a success indicator.
+  """
+  endCoachship(coachshipId: ID!): Boolean
+  """
+  Send a friend request to another user.
+  The userId parameter is the ID of the user to send the friend request to.
+  Returns the created Friendship object.
+  """
+  sendFriendRequest(receiverId: ID!): Boolean!
+  """
+  Accept a pending friend request.
+  The friendshipId parameter is the ID of the Friendship object to accept.
+  Returns the updated Friendship object.
+  """
+  acceptFriendRequest(friendshipId: ID!): Boolean!
+  """
+  Reject a pending friend request.
+  The friendshipId parameter is the ID of the Friendship object to reject.
+  Returns a success indicator.
+  """
+  rejectFriendRequest(friendshipId: ID!): Boolean!
+  """
+  Cancel a sent friend request.
+  The friendshipId parameter is the ID of the Friendship object to cancel.
+  Returns a success indicator.
+  """
+  cancelFriendRequest(friendshipId: ID!): Boolean!
+  """
+  Remove a user from your friends list.
+  The friendshipId parameter is the ID of the Friendship object to unfriend.
+  Returns a success indicator.
+  """
+  endFriendship(friendshipId: ID!): Boolean!
+  "Returns the updated `User` object."
+  updateUser(input: UpdateUserInput!): User
+}
+type Participant {
+  id: ID!
+  playingSide: PlayingSide!
+}
+type Point {
+  id: ID!
+  matchUpId: ID!
+  setIndex: Int!
+  gameIndex: Int!
+  pointIndex: Int!
+  servingSide: PlayingSide!
+  winningSide: PlayingSide!
+  timestamp: DateTime!
+  metadata: PointMetadata!
+}
+type PointMetadata {
+  isBreakPoint: Boolean!
+  isGamePoint: Boolean!
+  isSetPoint: Boolean!
+  isMatchPoint: Boolean!
+  isTiebreak: Boolean!
+  tiebreakPoint: Int
+  isDecidingPoint: Boolean!
+  duration: Int
+  rallyLength: Int!
+}
+type Query {
+  myRackets: [TennisRacket!]!
+  getRacket(id: ID!): TennisRacket
+  myCurrentRacket: TennisRacket
+  myTennisString: [TennisString!]!
+  getTennisString(id: ID!): TennisString
+  _empty: String
+  "Retrieve a specific coaching relationship by ID"
+  coachship(id: ID!): Coachship
+  """
+  List coaching relationships where the authenticated user is the coach.
+  Returns paginated results of accepted coaching relationships.
+  """
+  coaches(limit: Int, offset: Int): [Coachship!]!
+  """
+  List coaching relationships where the authenticated user is the coachee.
+  Returns paginated results of accepted coaching relationships.
+  """
+  students(limit: Int, offset: Int): [Coachship!]!
+  "List pending requests where authenticated user has asked others to be their coach"
+  sentCoacheeRequests: [Coachship!]!
+  "List pending requests where others have asked authenticated user to be their coach"
+  receivedCoachRequests: [Coachship!]!
+  "List pending requests where authenticated user has offered to coach others"
+  sentCoachRequests: [Coachship!]!
+  "List pending requests where others have offered to coach authenticated user"
+  receivedCoacheeRequests: [Coachship!]!
+  "Check coaching relationship status between authenticated user and specified user"
+  coachshipStatus(otherUserId: ID!): RelationshipStatus
+  "Retrieve a specific friendship by ID"
+  friendship(id: ID!): Friendship
+  """
+  List friends for the authenticated user.
+  Returns paginated results of accepted friendships.
+  """
+  friends(limit: Int, offset: Int): [Friendship!]!
+  "List pending friend requests for the authenticated user"
+  pendingFriendRequests: [Friendship!]!
+  "List friend requests sent by the authenticated user"
+  sentFriendRequests: [Friendship!]!
+  """
+  Check friendship status with another user.
+  Returns the current relationship status between the authenticated user and the specified user.
+  """
+  friendshipStatus(otherUserId: ID!): RelationshipStatus
+  me: User
+  """
+  Retrieves a user's profile by their unique ID.
+  
+  - **id**: The unique identifier of the user to retrieve.
+  """
+  getUser(id: ID!): User
+}
+type Score {
+  sideA: SideScore!
+  sideB: SideScore!
+  lastUpdated: DateTime!
+}
+type SetFormat {
+  numberOfGames: NumberOfGames!
+  deuceType: DeuceType!
+  mustWinByTwo: Boolean!
+  tiebreakFormat: TiebreakFormat
+  tiebreakAt: Int
+}
+type SideScore {
+  currentPointScore: GameScore!
+  currentGameScore: Int!
+  currentSetScore: Int!
+  currentTiebreakScore: Int
+}
+type StringTension {
+  mains: Int
+  crosses: Int
+}
+type TennisRacket implements Equipment {
+  id: ID!
+  userId: ID!
+  name: String!
+  type: EquipmentType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  brand: String!
+  model: String!
+  headSize: Float!
+  weight: Float!
+  currentString: TennisString
+}
+type TennisString implements Equipment {
+  id: ID!
+  userId: ID!
+  name: String!
+  type: EquipmentType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  brand: String
+  model: String
+  gauge: StringGauge
+  tension: StringTension
+  stringingDate: DateTime
+  burstDate: DateTime
+}
+type TiebreakFormat {
+  points: TiebreakPoints!
+  mustWinByTwo: Boolean!
+}
+type User {
+  "Unique identifier for the user."
+  id: ID!
+  equipments: [Equipment]
+  "User's email address. Accessible only by the user themselves."
+  email: String!
+  "User's first name."
+  firstName: String
+  "User's last name."
+  lastName: String
+  "User's chosen display name or username."
+  displayName: String
+  "URL to the user's profile picture."
+  profilePicture: String
+  "User's date of birth."
+  dateOfBirth: Time
+  "User's geographical location."
+  location: Location
+  "Short biography or description provided by the user."
+  bio: String
+  "User's rating within the app."
+  rating: Int
+  "Timestamp when the user account was created."
+  createdAt: Time
+  "Timestamp when the user account was last updated."
+  updatedAt: Time
+}
+interface Equipment {
+  id: ID!
+  userId: ID!
+  name: String!
+  type: EquipmentType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+"""
+Represents a relationship between two users in the system.
+This interface is implemented by specific relationship types like Friendship and Coachship.
+"""
+interface Relationship {
+  "Unique identifier for the relationship"
+  id: ID!
+  "Array of user IDs who are part of this relationship"
+  participantIds: [ID!]!
+  "The type of relationship (e.g., FRIENDSHIP, COACHING)"
+  type: RelationshipType!
+  "Current status of the relationship (e.g., PENDING, ACTIVE, REJECTED, ENDED)"
+  status: RelationshipStatus!
+  "ISO-8601 formatted timestamp when the relationship was created"
+  createdAt: String!
+  "ISO-8601 formatted timestamp when the relationship was last updated"
+  updatedAt: String
+}
+enum DeuceType {
+  SUDDEN_DEATH
+  NORMAL_DEUCE
+  ONE_DEUCE
+}
+enum EquipmentType {
+  TENNIS_RACKET
+  TENNIS_STRING
+}
+enum GameScore {
+  LOVE
+  FIFTEEN
+  THIRTY
+  FORTY
+  ADVANTAGE
+}
+"Represents the style of a ground stroke shot in tennis."
+enum GroundStrokeStyle {
+  "A slice ground stroke."
+  SLICE
+  "A topspin ground stroke."
+  TOPSPIN
+  "A flat ground stroke."
+  FLAT
+  "A lob ground stroke."
+  LOB
+  "A drop shot ground stroke."
+  DROP_SHOT
+  "A passing shot ground stroke."
+  PASSING_SHOT
+}
+"Represents the base type of a ground stroke shot in tennis."
+enum GroundStrokeType {
+  "A forehand ground stroke."
+  FOREHAND
+  "A backhand ground stroke."
+  BACKHAND
+}
+enum MatchUpStatus {
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  SUSPENDED
+  CANCELLED
+  ABANDONED
+  RETIRED
+  WALKOVER
+  NOT_PLAYED
+  REQUESTED
+}
+enum MatchUpType {
+  SINGLES
+  DOUBLES
+}
+enum NumberOfGames {
+  ONE
+  TWO
+  THREE
+  FOUR
+  FIVE
+  SIX
+  SEVEN
+  EIGHT
+  NINE
+  TEN
+}
+enum NumberOfSets {
+  ONE
+  THREE
+  FIVE
+}
+enum PlayingSide {
+  A
+  B
+}
+"""
+Represents the reason for winning a point in tennis.
+
+The reasons can include ace, winner, forced error, unforced error, error, and double fault.
+"""
+enum PointWinReason {
+  "An ace."
+  ACE
+  "A winner."
+  WINNER
+  "A forced error."
+  FORCED_ERROR
+  "An unforced error."
+  UNFORCED_ERROR
+  "An error."
+  ERROR
+  "A double fault."
+  DOUBLE_FAULT
+}
+"Represents the possible status of a relationship between users."
+enum RelationshipStatus {
+  "The relationship is in a pending state, meaning a request has been sent but not yet accepted."
+  PENDING
+  "The relationship is active, meaning the request has been accepted and the relationship is established."
+  ACTIVE
+}
+"Represents the different types of relationships that can exist between users."
+enum RelationshipType {
+  "A friendship relationship between two users."
+  FRIENDSHIP
+  "A coaching relationship between a coach and a coachee."
+  COACHSHIP
+}
+"""
+Represents the style of a tennis serve.
+
+The style can be flat, kick, slice, or other.
+"""
+enum ServeStyle {
+  "A flat serve."
+  FLAT
+  "A kick serve."
+  KICK
+  "A slice serve."
+  SLICE
+  "Any other type of serve."
+  OTHER
+}
+"Represents the base type of a shot in tennis."
+enum ShotType {
+  "A serve shot."
+  SERVE
+  "A ground stroke shot."
+  GROUND_STROKE
+  "A volley shot."
+  VOLLEY
+}
+enum StringGauge {
+  GAUGE_15
+  GAUGE_15L
+  GAUGE_16
+  GAUGE_16L
+  GAUGE_17
+  GAUGE_18
+  GAUGE_19
+}
+enum TiebreakPoints {
+  FIVE
+  SIX
+  SEVEN
+  EIGHT
+  NINE
+  TEN
+}
+input LocationInput {
+  "Name of the city."
+  city: String
+  "Name of the state or province."
+  state: String
+  "Name of the country."
+  country: String
+  "Geographical latitude coordinate."
+  latitude: Float
+  "Geographical longitude coordinate."
+  longitude: Float
+}
+input MatchUpFormatInput {
+  numberOfSets: NumberOfSets!
+  setFormat: SetFormatInput!
+  finalSetFormat: SetFormatInput
+}
+input SetFormatInput {
+  numberOfGames: NumberOfGames!
+  deuceType: DeuceType!
+  mustWinByTwo: Boolean!
+  tiebreakFormat: TiebreakFormatInput
+  tiebreakAt: Int
+}
+input StringTensionInput {
+  mains: Int
+  crosses: Int
+}
+input TennisRacketInput {
+  name: String!
+  headSize: Int
+  balance: String
+  stringPattern: String
+  weight: Int
+  length: Float
+}
+input TennisStringInput {
+  name: String!
+  gauge: StringGauge
+  stringingDate: DateTime
+  burstDate: DateTime
+  tension: StringTensionInput
+}
+input TiebreakFormatInput {
+  points: TiebreakPoints!
+  mustWinByTwo: Boolean!
+}
+input UpdateUserInput {
+  "User's first name."
+  firstName: String
+  "User's last name."
+  lastName: String
+  "User's chosen display name or username."
+  displayName: String
+  "URL to the user's profile picture."
+  profilePicture: String
+  "User's date of birth."
+  dateOfBirth: Time
+  "Short biography or description provided by the user."
+  bio: String
+  "User's rating within the app."
+  rating: Int
+  "User's geographical location."
+  location: LocationInput
+}
+"Exposes a URL that specifies the behavior of this scalar."
+directive @specifiedBy(
+    "The URL that specifies the behavior of this scalar."
+    url: String!
+  ) on SCALAR
+"Indicates exactly one field must be supplied and this field must not be `null`."
+directive @oneOf on INPUT_OBJECT
+
