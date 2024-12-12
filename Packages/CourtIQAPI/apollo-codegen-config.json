@@ -2,10 +2,11 @@
   "schemaNamespace" : "API",
   "input" : {
     "operationSearchPaths" : [
-      "Queries/**/*.graphql"
+      "GraphQL/Queries/**/*.graphql",
+      "GraphQL/Mutations/**/*.graphql"
     ],
     "schemaSearchPaths" : [
-      "Schema/*.graphqls"
+      "GraphQL/Schema/*.graphqls"
     ]
   },
   "output" : {
@@ -14,7 +15,7 @@
       }
     },
     "schemaTypes" : {
-      "path" : "./Sources/Models",
+      "path" : "./Sources/Generated",
       "moduleType" : {
         "embeddedInTarget" : {
           "accessModifier": "public",

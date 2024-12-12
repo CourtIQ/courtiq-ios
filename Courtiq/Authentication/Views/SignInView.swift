@@ -45,13 +45,13 @@ struct SignInView: View {
                 
                 RDTextField(textFieldType: .primary,
                             placeholder: "Enter email",
-                            icon: (leadingIcon: Image.Token.Icons.envelope, trailingIcon: nil),
+                            leadingIcon: Image.Token.Icons.envelope,
                             value: Binding(get: { vm.user.email ?? "" }, set: { vm.user.email = $0 }),
                             state: $emailState)
                 
                 RDTextField(textFieldType: .password,
                             placeholder: "Enter password",
-                            icon: (leadingIcon: Image.Token.Icons.locked, trailingIcon: nil),
+                            leadingIcon: Image.Token.Icons.locked,
                             value: $vm.password,
                             state: $passwordState)
                 

@@ -1,19 +1,17 @@
 //
-//  AuthServiceProtocol.swift
+//  AuthProviderProtocol.swift
 //
 //
 //  Created by Pranav Suri on 2024-06-15.
 //
 
-import SwiftUI
 import FirebaseAuth
 
-// MARK: - AuthServiceProtocol
+// MARK: - AuthProviderProtocol
 
-/// A protocol defining the required properties and methods for an authentication service.
-@available(iOS 14.0, *)
-@MainActor
-public protocol AuthServiceProtocol: ObservableObject {
+/// A protocol defining the required properties and methods for an authentication provider.
+@available(iOS 13.0.0, *)
+public protocol AuthProviderProtocol: AnyObject {
     
     // MARK: - Properties
     
@@ -61,8 +59,14 @@ public protocol AuthServiceProtocol: ObservableObject {
     /// - Throws: An error if the update fails.
     func updateUserProfile(displayName: String?, photoURL: String?) async throws
     
-    // MARK: - State Management
+    /// Retrieves an ID token for the currently authenticated user.
+    ///
+    /// This method provides an ID token that can be used to authenticate requests to back-end services,
+    /// integrate with other authentication systems, or verify the user's identity on your server.
+    /// - Returns: A `String` representing the user's ID token.
+    /// - Throws: An error if the token cannot be retrieved (for example, if the user is not signed in or the request fails).
+    func getIDToken() async throws -> String
     
-    /// Sets the additionalInfoNeeded state of the user.
-    func setAdditionalInfoProvided()
+    // TODO: Remove
+    func getCustomClaims() async throws -> [String: Any]
 }

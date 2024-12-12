@@ -33,7 +33,7 @@ struct ForgotPasswordView: View {
             RDTextField(
                 textFieldType: .primary,
                 placeholder: "Enter email",
-                icon: (leadingIcon: Image(systemName: "envelope"), trailingIcon: nil),
+                leadingIcon: Image(systemName: "envelope"),
                 value: $email,
                 state: $emailState
             )

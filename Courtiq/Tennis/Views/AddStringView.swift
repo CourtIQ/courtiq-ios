@@ -33,13 +33,14 @@ struct AddStringView: View {
             RDTextField(
                 textFieldType: .primary,
                 placeholder: "String name",
-                icon: (leadingIcon: Image(systemName: "number"), trailingIcon: nil),
+                leadingIcon: Image.Token.Icons.envelope,
+                trailingIcon: Image(systemName: "number"),
                 value: $vm.newStringEntry.stringName)
             
             RDTextField(
                 textFieldType: .primary,
                 placeholder: "Racket name",
-                icon: (leadingIcon: Image.Token.Icons.tennisBall, trailingIcon: nil),
+                leadingIcon: Image.Token.Icons.tennisBall,
                 value: $vm.newStringEntry.racketName)
             
             HStack(alignment: .top, spacing: 12) {

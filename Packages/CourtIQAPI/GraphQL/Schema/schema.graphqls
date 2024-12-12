@@ -1,0 +1,438 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+scalar DateTime
+scalar ObjectID
+scalar Time
+type Coachship implements Relationship {
+  id: ObjectID!
+  participants: [ObjectID!]!
+  type: RelationshipType!
+  status: RelationshipStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  coachId: ObjectID!
+  studentId: ObjectID!
+}
+type Friendship implements Relationship {
+  id: ObjectID!
+  participants: [ObjectID!]!
+  type: RelationshipType!
+  status: RelationshipStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  senderId: ObjectID!
+  receiverId: ObjectID!
+}
+"""
+Provides structured geographical details about a user's location.
+All fields are optional and can be omitted if unknown.
+"""
+type Location {
+  city: String
+  state: String
+  country: String
+  latitude: Float
+  longitude: Float
+}
+type MatchUp {
+  id: ObjectID!
+  matchUpFormat: MatchUpFormat!
+  matchUpStatus: MatchUpStatus!
+  matchUpType: MatchUpType!
+  participantIds: [ObjectID!]!
+  participants: ParticipantsMap!
+  currentSetIndex: Int
+  currentGameIndexWithinSet: Int
+  currentPointIndexWithinGame: Int
+  currentScore: Score
+  currentServer: ObjectID!
+  pointsSequence: [ObjectID!]!
+  startTime: DateTime!
+  endTime: DateTime
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+type MatchUpFormat {
+  id: ObjectID!
+  tracker: ObjectID!
+  numberOfSets: NumberOfSets!
+  setFormat: SetFormat!
+  finalSetFormat: SetFormat
+  initialServer: PlayingSide!
+}
+type Mutation {
+  createTennisRacket(input: CreateTennisRacketInput!): TennisRacket!
+  updateMyTennisRacket(id: ObjectID!, input: UpdateTennisRacketInput!): TennisRacket!
+  deleteMyTennisRacket(id: ObjectID!): TennisRacket!
+  createTennisString(input: CreateTennisStringInput!): TennisString!
+  updateMyTennisString(id: ObjectID!, input: UpdateTennisStringInput!): TennisString!
+  deleteMyTennisString(id: ObjectID!): TennisString!
+  assignStringToMyRacket(racketId: ObjectID!, stringId: ObjectID!): TennisRacket!
+  removeStringFromMyRacket(racketId: ObjectID!): TennisRacket!
+  markMyStringAsBurst(stringId: ObjectID!, burstDate: DateTime!): TennisString!
+  updateMyStringTension(stringId: ObjectID!, tension: StringTensionInput!): TennisString!
+  createMatchUp(matchUpFormat: MatchUpFormatInput!, matchUpType: MatchUpType!, participants: [ObjectID!]!): MatchUp!
+  updateMatchUpStatus(status: MatchUpStatus!, matchUpId: ObjectID!): MatchUp!
+  addPointToMatchUp(matchUpId: ObjectID!): MatchUp!
+  undoShotFromMatchUp(matchUpId: ObjectID!): MatchUp!
+  undoPointFromMatchUp(matchUpId: ObjectID!): MatchUp!
+  deleteMatchUp(matchUpId: ObjectID!): MatchUp!
+  sendFriendRequest(receiverId: ObjectID!): Friendship!
+  acceptFriendRequest(friendshipId: ObjectID!): Friendship!
+  rejectFriendRequest(friendshipId: ObjectID!): Friendship!
+  cancelFriendRequest(friendshipId: ObjectID!): Friendship!
+  endFriendship(friendshipId: ObjectID!): Friendship!
+  requestToBeStudent(ofUserId: ObjectID!): Coachship!
+  acceptStudentRequest(coachshipId: ObjectID!): Coachship!
+  rejectStudentRequest(coachshipId: ObjectID!): Coachship!
+  cancelRequestToBeStudent(coachshipId: ObjectID!): Coachship!
+  removeStudent(coachshipId: ObjectID!): Coachship!
+  requestToBeCoach(ofUserId: ObjectID!): Coachship!
+  acceptCoachRequest(coachshipId: ObjectID!): Coachship!
+  rejectCoachRequest(coachshipId: ObjectID!): Coachship!
+  cancelCoachRequest(coachshipId: ObjectID!): Coachship!
+  removeCoach(coachshipId: ObjectID!): Coachship!
+  updateUser(input: UpdateUserInput!): User
+}
+type ParticipantsMap {
+  A: ObjectID!
+  B: ObjectID!
+}
+type Point {
+  id: ObjectID!
+  setIndex: Int!
+  gameIndexWithinSet: Int!
+  pointIndexWithinGame: Int!
+  isTiebreak: Boolean!
+  tiebreakPointNumber: Int
+  pointWinner: ObjectID!
+  pointServer: ObjectID!
+  pointWinReason: PointWinReason
+  playingSide: PlayingSide!
+  courtSide: CourtSide!
+  scoreBefore: Score!
+  scoreAfter: Score!
+  shots: [Shot!]!
+  isBreakPoint: Boolean!
+  isGamePoint: Boolean!
+  isSetPoint: Boolean!
+  isMatchPoint: Boolean!
+  playedAt: DateTime
+}
+type Query {
+  myTennisRackets(limit: Int = 10, offset: Int = 0): [TennisRacket!]!
+  myTennisRacket(id: ObjectID!): TennisRacket
+  myTennisStrings(limit: Int = 10, offset: Int = 0): [TennisString!]!
+  myTennisString(id: ObjectID!): TennisString
+  myEquipment(limit: Int = 10, offset: Int = 0): [Equipment!]!
+  getMatchUp(id: ObjectID!): MatchUp!
+  friendship(id: ObjectID!): Friendship
+  myFriends(limit: Int = 10, offset: Int = 0): [Friendship!]!
+  friends(ofUserID: ObjectID!, limit: Int = 10, offset: Int = 0): [Friendship!]!
+  myFriendRequests: [Friendship!]!
+  sentFriendRequests: [Friendship!]!
+  friendshipStatus(otherUserId: ObjectID!): RelationshipStatus
+  coachship(id: ObjectID!): Coachship
+  myCoaches(limit: Int = 10, offset: Int = 0): [Coachship!]!
+  myStudents(limit: Int = 10, offset: Int = 0): [Coachship!]!
+  myStudentRequests: [Coachship!]!
+  myCoachRequests: [Coachship!]!
+  sentCoachRequests: [Coachship!]!
+  sentStudentRequests: [Coachship!]!
+  isStudent(studentId: ObjectID!): RelationshipStatus
+  isCoach(coachId: ObjectID!): RelationshipStatus
+  me: User
+  getUser(id: ID!): User
+  isUsernamesAvailable(username: String!): Boolean
+}
+type Score {
+  a: SideScore!
+  b: SideScore!
+}
+type SetFormat {
+  numberOfGames: NumberOfGames!
+  deuceType: DeuceType!
+  mustWinByTwo: Boolean!
+  tiebreakFormat: TiebreakFormat
+  tiebreakAt: Int
+}
+type Shot {
+  playerId: ObjectID!
+  shotType: ShotType!
+  serveStyle: ServeStyle
+  groundStrokeType: GroundStrokeType
+  groundStrokeStyle: GroundStrokeStyle
+  playedAt: DateTime
+}
+type SideScore {
+  player: ObjectID!
+  currentPointScore: GameScore!
+  currentGameScore: Int!
+  currentSetScore: Int!
+  currentTiebreakScore: Int
+}
+type StringTension {
+  mains: Int
+  crosses: Int
+}
+type TennisRacket implements Equipment {
+  id: ObjectID!
+  ownerId: ObjectID!
+  owner: User!
+  name: String!
+  type: EquipmentType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  brand: String
+  model: String
+  headSize: Float
+  weight: Float
+  currentString: TennisString
+}
+type TennisString implements Equipment {
+  id: ObjectID!
+  ownerId: ObjectID!
+  owner: User!
+  name: String!
+  type: EquipmentType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  brand: String
+  model: String
+  gauge: StringGauge
+  tension: StringTension
+  stringingDate: DateTime
+  burstDate: DateTime
+}
+type TiebreakFormat {
+  points: TiebreakPoints!
+  mustWinByTwo: Boolean!
+}
+"""
+Represents an individual user within the application.
+Implements a federated key for cross-service references.
+"""
+type User {
+  id: ObjectID!
+  firebaseId: String!
+  email: String!
+  firstName: String
+  lastName: String
+  displayName: String
+  username: String
+  profilePicture: String
+  dateOfBirth: Time
+  location: Location
+  bio: String
+  rating: Int
+  createdAt: Time
+  updatedAt: Time
+}
+interface Equipment {
+  id: ObjectID!
+  ownerId: ObjectID!
+  owner: User!
+  name: String!
+  type: EquipmentType!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+interface Relationship {
+  id: ObjectID!
+  participants: [ObjectID!]!
+  type: RelationshipType!
+  status: RelationshipStatus!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+enum CourtSide {
+  LEFT
+  RIGHT
+}
+enum DeuceType {
+  SUDDEN_DEATH
+  NORMAL_DEUCE
+  ONE_DEUCE
+}
+enum EquipmentType {
+  TENNIS_RACKET
+  TENNIS_STRING
+}
+enum GameScore {
+  LOVE
+  FIFTEEN
+  THIRTY
+  FORTY
+  ADVANTAGE
+}
+enum GroundStrokeStyle {
+  SLICE
+  TOPSPIN
+  FLAT
+  LOB
+  DROP_SHOT
+  CROSSCOURT
+  DOWN_THE_LINE
+  SMASH
+}
+enum GroundStrokeType {
+  FOREHAND
+  BACKHAND
+}
+enum MatchUpStatus {
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  SUSPENDED
+  CANCELLED
+  ABANDONED
+  RETIRED
+  REQUESTED
+}
+enum MatchUpType {
+  SINGLES
+  DOUBLES
+}
+enum NumberOfGames {
+  ONE
+  THREE
+  FOUR
+  FIVE
+  SIX
+  TEN
+}
+enum NumberOfSets {
+  ONE
+  THREE
+  FIVE
+}
+enum PlayingSide {
+  DEUCE
+  AD
+}
+enum PointWinReason {
+  ACE
+  WINNER
+  FORCED_ERROR
+  UNFORCED_ERROR
+  DOUBLE_FAULT
+}
+"Represents the possible status of a relationship between users."
+enum RelationshipStatus {
+  "The relationship is in a pending state, meaning a request has been sent but not yet accepted."
+  PENDING
+  "The relationship is active, meaning the request has been accepted and the relationship is established."
+  ACTIVE
+}
+"Represents the different types of relationships that can exist between users."
+enum RelationshipType {
+  "A friendship relationship between two users."
+  FRIENDSHIP
+  "A coaching relationship between a coach and a coachee."
+  COACHSHIP
+}
+enum ServeStyle {
+  FLAT
+  KICK
+  SLICE
+  OTHER
+}
+enum ShotType {
+  SERVE
+  GROUND_STROKE
+  VOLLEY
+}
+enum StringGauge {
+  GAUGE_15
+  GAUGE_15L
+  GAUGE_16
+  GAUGE_16L
+  GAUGE_17
+  GAUGE_18
+  GAUGE_19
+}
+enum TiebreakPoints {
+  FIVE
+  SIX
+  SEVEN
+  EIGHT
+  NINE
+  TEN
+}
+input CreateTennisRacketInput {
+  name: String!
+  brand: String
+  model: String
+  headSize: Float
+  weight: Float
+}
+input CreateTennisStringInput {
+  name: String!
+  brand: String
+  model: String
+  gauge: StringGauge
+  tension: StringTensionInput
+  stringingDate: DateTime
+}
+input LocationInput {
+  city: String
+  state: String
+  country: String
+  latitude: Float
+  longitude: Float
+}
+input MatchUpFormatInput {
+  tracker: ObjectID!
+  numberOfSets: NumberOfSets!
+  setFormat: SetFormatInput!
+  finalSetFormat: SetFormatInput
+}
+input SetFormatInput {
+  numberOfGames: NumberOfGames!
+  deuceType: DeuceType!
+  mustWinByTwo: Boolean!
+  tiebreakFormat: TiebreakFormatInput
+  tiebreakAt: Int
+}
+input StringTensionInput {
+  mains: Int
+  crosses: Int
+}
+input TiebreakFormatInput {
+  points: TiebreakPoints!
+  mustWinByTwo: Boolean!
+}
+input UpdateTennisRacketInput {
+  name: String
+  brand: String
+  model: String
+  headSize: Float
+  weight: Float
+  currentString: ObjectID
+}
+input UpdateTennisStringInput {
+  name: String
+  brand: String
+  model: String
+  gauge: StringGauge
+  tension: StringTensionInput
+  stringingDate: DateTime
+  burstDate: DateTime
+}
+input UpdateUserInput {
+  firstName: String
+  lastName: String
+  dateOfBirth: Time
+  bio: String
+  location: LocationInput
+}
+"Exposes a URL that specifies the behavior of this scalar."
+directive @specifiedBy(
+    "The URL that specifies the behavior of this scalar."
+    url: String!
+  ) on SCALAR
+"Indicates exactly one field must be supplied and this field must not be `null`."
+directive @oneOf on INPUT_OBJECT
+

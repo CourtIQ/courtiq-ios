@@ -63,7 +63,7 @@ struct AdditionalInfoView: View {
                 RDTextField(textFieldType: .primary,
                             placeholder: "Username",
                             helperText: vm.isUsernameAvailableText,
-                            icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
+                            leadingIcon: Image.Token.Icons.person,
                             value: $vm.user.username)
                 .autocapitalization(.none)
                 .onChange(of: vm.user.username, perform: { value in
@@ -72,7 +72,7 @@ struct AdditionalInfoView: View {
                 
                 RDTextField(textFieldType: .primary,
                             placeholder: "Full name",
-                            icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
+                            leadingIcon: Image.Token.Icons.person,
                             value: Binding(get: { vm.user.displayName ?? "" }, set: { vm.user.displayName = $0 }))
                 
                 
@@ -98,6 +98,11 @@ struct AdditionalInfoView: View {
                     value: Binding(get: { vm.user.nationality ?? "" }, set: { vm.user.nationality = $0 }),
                     dropdownItems: vm.countriesMenuList
                 )
+            }
+            .onAppear() {
+                Task {
+                    await vm.printIDToken()
+                }
             }
 
         } footer: {

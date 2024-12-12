@@ -54,7 +54,7 @@ struct MatchUpFormInfoView: View {
             
             RDTextField(textFieldType: .dropdown,
                         placeholder: "Player 1",
-                        icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
+                        leadingIcon: Image.Token.Icons.person,
                         value: $player1,
                         dropdownItems: [DropdownItem(image: Image.Token.Icons.envelope, title: "Hello"),
                                         DropdownItem(image: Image.Token.Icons.envelope, title: "Pranav"),
@@ -64,7 +64,7 @@ struct MatchUpFormInfoView: View {
             
             RDTextField(textFieldType: .dropdown,
                         placeholder: "Player 2",
-                        icon: (leadingIcon: Image.Token.Icons.person, trailingIcon: nil),
+                        leadingIcon: Image.Token.Icons.person,
                         value: $player2,
                         dropdownItems: [DropdownItem(image: Image.Token.Icons.envelope, title: "Hello"),
                                         DropdownItem(image: Image.Token.Icons.envelope, title: "Pranav"),

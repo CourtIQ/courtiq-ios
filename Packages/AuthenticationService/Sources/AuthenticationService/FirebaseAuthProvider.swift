@@ -12,6 +12,8 @@ import SwiftUI
 
 @available(iOS 14.0, *)
 public class FirebaseAuthProvider: AuthProviderProtocol {
+
+    
     
     // MARK: - Properties
     
@@ -159,6 +161,53 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
 
         try await changeRequest.commitChanges()
     }
+    
+    /// Retrieves an ID token for the currently authenticated user.
+    ///
+    /// This method provides an ID token that can be used to authenticate requests to back-end services,
+    /// integrate with other authentication systems, or verify the user's identity on your server.
+    /// - Returns: A `String` representing the user's ID token.
+    /// - Throws: An error if the token cannot be retrieved (for example, if the user is not signed in or the request fails).
+    public func getIDToken() async throws -> String {
+        guard let user = Auth.auth().currentUser else {
+            throw NSError(domain: "No user signed in", code: 0, userInfo: nil)
+        }
+        return try await withCheckedThrowingContinuation { continuation in
+            user.getIDToken { token, error in
+                if let error = error {
+                    continuation.resume(throwing: error)
+                } else if let token = token {
+                    continuation.resume(returning: token)
+                } else {
+                    continuation.resume(throwing: NSError(domain: "Unknown error retrieving token", code: -1, userInfo: nil))
+                }
+            }
+        }
+    }
+
+    public func getCustomClaims() async throws -> [String: Any] {
+        // Ensure a user is signed in
+        guard let user = Auth.auth().currentUser else {
+            throw NSError(domain: "FirebaseAuthProvider", code: -1, userInfo: [NSLocalizedDescriptionKey: "No user is currently signed in."])
+        }
+
+        // Wait for 5 seconds to ensure the latest claims have propagated
+        try await Task.sleep(nanoseconds: 5 * 1_000_000_000) // 5 seconds in nanoseconds
+
+        // Refresh the token once after waiting
+        return try await withCheckedThrowingContinuation { continuation in
+            user.getIDTokenResult(forcingRefresh: true) { idTokenResult, error in
+                if let error = error {
+                    continuation.resume(throwing: error) // Handle any error that occurs during token refresh
+                } else if let idTokenResult = idTokenResult {
+                    continuation.resume(returning: idTokenResult.claims) // Return all custom claims
+                } else {
+                    continuation.resume(throwing: NSError(domain: "Unknown error retrieving custom claims", code: -1, userInfo: nil))
+                }
+            }
+        }
+    }
+
 }
 
 // MARK: - FirebaseUser

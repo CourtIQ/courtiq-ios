@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B503B3AF2D05D3180047310A /* CourtIQAPI in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3AE2D05D3180047310A /* CourtIQAPI */; };
 		B503B3B12D05D3180047310A /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3B02D05D3180047310A /* Models */; };
-		B5B116EF2D05CEEE0080D123 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5B116EE2D05CEEE0080D123 /* GoogleService-Info.plist */; };
+		B503B3B32D08F95B0047310A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B503B3B22D08F95B0047310A /* GoogleService-Info.plist */; };
 		C01BFBF72C68293300184E1B /* ProfileClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */; };
 		C01BFBF92C698C5000184E1B /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF82C698C5000184E1B /* CountryManager.swift */; };
 		C01BFBFB2C69BEEF00184E1B /* MatchUpFormFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBFA2C69BEEF00184E1B /* MatchUpFormFormatView.swift */; };
@@ -101,7 +101,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B5B116EE2D05CEEE0080D123 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B503B3B22D08F95B0047310A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B5B116F02D05D0C10080D123 /* CourtIQAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CourtIQAPI; sourceTree = "<group>"; };
 		C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileClubsListView.swift; sourceTree = "<group>"; };
 		C01BFBF82C698C5000184E1B /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
@@ -297,9 +297,9 @@
 				C062D2C02C3BEB3300ABF5A8 /* Search */,
 				C062D2C22C3BEB4200ABF5A8 /* Tennis */,
 				C0889DDE2C2BEC930081BF59 /* Utils */,
-				B5B116EE2D05CEEE0080D123 /* GoogleService-Info.plist */,
 				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
+				B503B3B22D08F95B0047310A /* GoogleService-Info.plist */,
 				C067FEB02C5AF37A0089C7E9 /* NunitoSans.ttf */,
 				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
 				C060AF392C1974D200D160A5 /* Preview Content */,
@@ -601,8 +601,8 @@
 			files = (
 				C05FC2A72C662CFF00818A49 /* RDDesignSystem in Resources */,
 				C067FEB12C5AF45A0089C7E9 /* NunitoSans.ttf in Resources */,
-				B5B116EF2D05CEEE0080D123 /* GoogleService-Info.plist in Resources */,
 				C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */,
+				B503B3B32D08F95B0047310A /* GoogleService-Info.plist in Resources */,
 				C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

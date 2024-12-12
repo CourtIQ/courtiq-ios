@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>18985681240-ljfpok5144lvg5bnp3onveg219a9bgp9.apps.googleusercontent.com</string>
+	<string>1080781728713-bn3o7upemv5lijt3oetquis5t0kbmjdl.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.18985681240-ljfpok5144lvg5bnp3onveg219a9bgp9</string>
+	<string>com.googleusercontent.apps.1080781728713-bn3o7upemv5lijt3oetquis5t0kbmjdl</string>
 	<key>API_KEY</key>
-	<string>AIzaSyC1Wl-n3UPsylUqYdzUTSwtzy8RGJhKzlU</string>
+	<string>AIzaSyA9OVp1TYDCkLcJElnEMZWCG3A9VzzPpP0</string>
 	<key>GCM_SENDER_ID</key>
-	<string>18985681240</string>
+	<string>1080781728713</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.court-iq.CourtIQ</string>
+	<string>com.court-iq.Courtiq</string>
 	<key>PROJECT_ID</key>
-	<string>courtiq-auth</string>
+	<string>courtiq-backend</string>
 	<key>STORAGE_BUCKET</key>
-	<string>courtiq-auth.firebasestorage.app</string>
+	<string>courtiq-backend.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:18985681240:ios:550c1596698c476847652d</string>
+	<string>1:1080781728713:ios:4264f8b3431ffd1a2ed618</string>
 </dict>
 </plist>

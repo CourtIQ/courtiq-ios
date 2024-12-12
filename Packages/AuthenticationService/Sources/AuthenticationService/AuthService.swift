@@ -1,6 +1,5 @@
 //
-//  AuthManager.swift
-//
+//  AuthService.swift
 //
 //  Created by Pranav Suri on 2024-06-15.
 //
@@ -9,23 +8,40 @@ import SwiftUI
 
 // MARK: - AuthService
 
+/// A main authentication service class that implements `AuthServiceProtocol`.
+///
+/// `AuthService` is responsible for coordinating with a provided `AuthProviderProtocol`
+/// implementation to perform user sign-up, sign-in, sign-out, and profile updates. It also
+/// maintains stateful properties (`currentUser`, `isUserLoggedIn`, `additionalInfoNeeded`)
+/// and uses `@AppStorage` for persistence across app launches.
+///
+/// Since this class is `@MainActor` and an `ObservableObject`, UI updates in SwiftUI
+/// can automatically respond to changes in published properties.
 @available(iOS 14.0, *)
 @MainActor
 public class AuthService: AuthServiceProtocol {
 
     // MARK: - Properties
 
+    /// The underlying authentication provider responsible for actual authentication logic.
     private let authProvider: AuthProviderProtocol
     
+    /// The currently authenticated user, if any. `@Published` so UI can react to changes.
     @Published public private(set) var currentUser: AuthUser?
+    
+    /// Indicates whether a user is logged in. Stored in `@AppStorage` to persist across app restarts.
     @AppStorage("isUserLoggedIn") public var isUserLoggedIn: Bool = false
+    
+    /// Indicates if the user needs to provide additional information (e.g., after sign-up).
     @AppStorage("additionalInfoNeeded") public var additionalInfoNeeded: Bool = false
+    
+    /// Stores the currently authenticated user's UID. `@AppStorage` for persistence.
     @AppStorage("currentUserUID") public var currentUserUID: String?
 
     // MARK: - Initializer
     
     /// Initializes the AuthService with a specified AuthProvider.
-    /// - Parameter provider: The authentication provider to be used.
+    /// - Parameter provider: The authentication provider to be used for all auth operations.
     public init(provider: AuthProviderProtocol) {
         self.authProvider = provider
         self.currentUser = provider.currentUser
@@ -34,11 +50,13 @@ public class AuthService: AuthServiceProtocol {
     // MARK: - Authentication Methods
     
     /// Signs up a user with the provided email and password.
+    ///
     /// - Parameters:
     ///   - email: The email of the user.
     ///   - password: The password of the user.
-    /// - Returns: The authenticated user.
-    /// - Throws: An error if sign up fails.
+    /// - Returns: The authenticated user if sign-up is successful.
+    /// - Throws: An error if sign-up fails (e.g., invalid credentials, network issues).
+    /// - Note: On successful sign-up, `currentUser` is updated and `additionalInfoNeeded` is set to `true`.
     public func signUp(email: String, password: String) async throws -> AuthUser {
         let user = try await authProvider.signUp(email: email, password: password)
         await MainActor.run {
@@ -49,11 +67,13 @@ public class AuthService: AuthServiceProtocol {
     }
     
     /// Signs in a user with the provided email and password.
+    ///
     /// - Parameters:
     ///   - email: The email of the user.
     ///   - password: The password of the user.
-    /// - Returns: The authenticated user.
-    /// - Throws: An error if sign in fails.
+    /// - Returns: The authenticated user if sign-in is successful.
+    /// - Throws: An error if sign-in fails (e.g., invalid credentials).
+    /// - Note: On successful sign-in, `currentUser` is updated.
     public func signIn(email: String, password: String) async throws -> AuthUser {
         let user = try await authProvider.signIn(email: email, password: password)
         await MainActor.run {
@@ -63,8 +83,10 @@ public class AuthService: AuthServiceProtocol {
     }
     
     /// Signs in a user with Google authentication.
-    /// - Returns: The authenticated user.
-    /// - Throws: An error if sign in with Google fails.
+    ///
+    /// - Returns: The authenticated user if sign-in is successful.
+    /// - Throws: An error if sign-in with Google fails.
+    /// - Note: On successful sign-in, `currentUser` is updated.
     public func signInWithGoogle() async throws -> AuthUser {
         let user = try await authProvider.signInWithGoogle()
         await MainActor.run {
@@ -74,7 +96,9 @@ public class AuthService: AuthServiceProtocol {
     }
     
     /// Signs out the currently authenticated user.
+    ///
     /// - Throws: An error if sign out fails.
+    /// - Note: On successful sign-out, `currentUser` is set to `nil` and `isUserLoggedIn` becomes `false`.
     public func signOut() async throws {
         try await authProvider.signOut()
         await MainActor.run {
@@ -83,7 +107,9 @@ public class AuthService: AuthServiceProtocol {
     }
     
     /// Deletes the currently authenticated user's account.
+    ///
     /// - Throws: An error if account deletion fails.
+    /// - Note: On successful deletion, `currentUser` is set to `nil` and `isUserLoggedIn` becomes `false`.
     public func deleteAccount() async throws {
         try await authProvider.deleteAccount()
         await MainActor.run {
@@ -92,19 +118,37 @@ public class AuthService: AuthServiceProtocol {
     }
     
     /// Updates the authenticated user's profile information.
+    ///
     /// - Parameters:
-    ///   - displayName: The display name of the user (optional).
-    ///   - photoURL: The URL of the user's profile picture as a string (optional).
-    /// - Throws: An error if the update fails.
+    ///   - displayName: The new display name of the user (optional). If `nil`, this field is not changed.
+    ///   - photoURL: The URL of the user's profile picture as a string (optional). If `nil`, this field is not changed.
+    /// - Throws: An error if the update fails (e.g., user not logged in, invalid data).
     public func updateUserProfile(displayName: String?, photoURL: String?) async throws {
         try await authProvider.updateUserProfile(displayName: displayName, photoURL: photoURL)
+    }
+
+    // MARK: - Token Retrieval
+
+    /// Retrieves an ID token for the currently authenticated user.
+    ///
+    /// - Returns: A `String` representing the user's ID token if available.
+    /// - Throws: An error if the token cannot be retrieved (for example, if the user is not signed in).
+    /// - Note: You can use this token for authenticated requests to a back-end or for other security-related workflows.
+    public func getIDToken() async throws -> String {
+        return try await authProvider.getIDToken()
     }
     
     // MARK: - State Management
     
-    /// Sets the additional information provided flag to false.
+    /// Sets the additional information needed state to false, indicating that the user has provided any necessary additional info.
+    ///
+    /// - Note: After calling this method, the UI may no longer need to show onboarding screens or prompts for extra user details.
     @MainActor
     public func setAdditionalInfoProvided() {
         self.additionalInfoNeeded = false
+    }
+    
+    public func getCustomClaims() async throws -> [String: Any] {
+        return try await authProvider.getCustomClaims()
     }
 }

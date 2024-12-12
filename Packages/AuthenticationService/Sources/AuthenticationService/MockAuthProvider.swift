@@ -10,6 +10,12 @@ import Foundation
 // MARK: - MockAuthProvider
 
 /// A mock authentication provider for testing purposes.
+///
+/// This class simulates the behavior of an authentication provider without contacting real servers.
+/// It's useful for writing unit tests or prototyping UI without relying on a live back-end.
+///
+/// The mock maintains simple internal state and can return a mock user and token. Errors can be simulated
+/// by modifying the logic if you want to test failure cases.
 @available(iOS 13.0.0, *)
 final class MockAuthProvider: AuthProviderProtocol {
     
@@ -28,7 +34,7 @@ final class MockAuthProvider: AuthProviderProtocol {
     ///   - email: The email of the user.
     ///   - password: The password of the user.
     /// - Returns: The authenticated user.
-    /// - Throws: An error if sign up fails.
+    /// - Throws: An error if sign-up fails.
     func signUp(email: String, password: String) async throws -> AuthUser {
         let mockUser = MockUser(uid: UUID().uuidString)
         self.currentUser = mockUser
@@ -41,7 +47,7 @@ final class MockAuthProvider: AuthProviderProtocol {
     ///   - email: The email of the user.
     ///   - password: The password of the user.
     /// - Returns: The authenticated user.
-    /// - Throws: An error if sign in fails.
+    /// - Throws: An error if sign-in fails.
     func signIn(email: String, password: String) async throws -> AuthUser {
         let mockUser = MockUser(uid: UUID().uuidString)
         self.currentUser = mockUser
@@ -51,7 +57,7 @@ final class MockAuthProvider: AuthProviderProtocol {
     
     /// Signs in a user with Google authentication.
     /// - Returns: The authenticated user.
-    /// - Throws: An error if sign in with Google fails.
+    /// - Throws: An error if sign-in with Google fails.
     func signInWithGoogle() async throws -> AuthUser {
         let mockUser = MockUser(uid: UUID().uuidString)
         self.currentUser = mockUser
@@ -79,11 +85,11 @@ final class MockAuthProvider: AuthProviderProtocol {
     ///   - photoURL: The URL of the user's profile picture as a string (optional).
     /// - Throws: An error if the update fails.
     func updateUserProfile(displayName: String?, photoURL: String?) async throws {
-        guard let mockUser = currentUser as? MockUser else {
+        guard let _ = currentUser as? MockUser else {
             throw NSError(domain: "MockAuthProvider", code: -1, userInfo: [NSLocalizedDescriptionKey: "No user is currently signed in."])
         }
 
-        // Update mock user's properties (if needed)
+        // For a mock, just print out what would have changed.
         if let displayName = displayName {
             print("Mock: Updated displayName to \(displayName)")
         }
@@ -92,11 +98,39 @@ final class MockAuthProvider: AuthProviderProtocol {
             print("Mock: Updated photoURL to \(photoURL)")
         }
     }
+    
+    // MARK: - Token Retrieval
+    
+    /// Retrieves an ID token for the currently authenticated user.
+    ///
+    /// In this mock implementation, the token is a fake string. It's useful for tests that need a token
+    /// but don't require actual token validation.
+    /// - Returns: A `String` representing a mock ID token.
+    /// - Throws: An error if no user is currently signed in.
+    func getIDToken() async throws -> String {
+        guard isUserLoggedIn, let currentUser = currentUser else {
+            throw NSError(
+                domain: "MockAuthProvider",
+                code: -1,
+                userInfo: [NSLocalizedDescriptionKey: "No user is currently signed in."]
+            )
+        }
+        
+        // Return a mock token that includes the user's UID, for traceability in tests.
+        return "mock_id_token_for_\(currentUser.uid)"
+    }
+    
+    public func getCustomClaims() async throws -> [String: Any] {
+        return ["test": "claim"]
+    }
 }
 
 // MARK: - MockUser
 
 /// A mock user for testing purposes.
+///
+/// This class represents a simplified authenticated user model, identified by a `uid`.
+/// It's used by `MockAuthProvider` to simulate authentication scenarios in a controlled environment.
 class MockUser: AuthUser {
     
     /// The unique identifier for the user.

@@ -125,6 +125,17 @@ final class AuthenticationVM: ViewModel {
     private var userService: any UserServiceProtocol
     private var storageService: any StorageServiceProtocol
     
+    func printIDToken() async {
+        do {
+            let token = try await authService.getIDToken()
+            print(token)
+        } catch {
+            await MainActor.run {
+                router.handle(action: .stopLoading)
+                print(error.localizedDescription)
+            }
+        }
+    }
     private func signIn(email: String, password: String) async {
         await router.handle(action: .isLoading)
         do {
@@ -145,7 +156,8 @@ final class AuthenticationVM: ViewModel {
         await router.handle(action: .isLoading)
         do {
             let user = try await authService.signUp(email: email, password: password)
-            await fetchCurrentUserAndUpdate(userID: user.uid)
+            let claims = try await authService.getCustomClaims()
+            print(claims)
             await MainActor.run {
                 router.handle(action: .stopLoading)
                 router.handle(action: .popToRoot)

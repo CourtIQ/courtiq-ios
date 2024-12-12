@@ -1,12 +1,10 @@
-query Friendship($friendshipId: ID!) {
+query Friendship($friendshipId: ObjectID!) {
   friendship(id: $friendshipId) {
     id
-    participantIds
     type
     status
     createdAt
     updatedAt
-    requesterId
     receiverId
   }
 }
