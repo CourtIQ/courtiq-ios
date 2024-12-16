@@ -3,6 +3,9 @@ import PackageDescription
 
 let package = Package(
     name: "AuthenticationService",
+    platforms: [
+        .iOS(.v15)
+    ],
     products: [
         .library(
             name: "AuthenticationService",

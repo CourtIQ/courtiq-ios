@@ -42,7 +42,9 @@ struct HomeRootFlowView: View {
                          selectedIndex: $selectingIndex,
                          authService: authService,
                          userService: userService)
-
+        }
+        .onAppear {
+            vm.onAppear()
         }
 
     }

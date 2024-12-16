@@ -68,8 +68,9 @@ final class SearchVM: ViewModel {
     }
     
     @MainActor private func searchItemTapped(user: User) {
-        let view = SearchProfileDetailView(user: user)
-        router.handle(action: .push(AnyView(view)))
+//        let view = SearchProfileDetailView(user: user)
+//        router.handle(action: .push(AnyView(view)))
+        print(searchItemTapped)
     }
 }
 

@@ -5,19 +5,21 @@ import PackageDescription
 
 let package = Package(
     name: "UserService",
+    platforms: [
+        .iOS(.v15)
+    ],
     products: [
         .library(
             name: "UserService",
             targets: ["UserService"]),
     ],
     dependencies: [
-        .package(path: "../DataService"),
-        .package(path: "../AuthenticationService"),
+        .package(path: "../CourtIQAPI"),
     ],
     targets: [
         .target(
             name: "UserService",
-            dependencies: ["DataService", "AuthenticationService"]),
+            dependencies: ["CourtIQAPI"]),
         .testTarget(
             name: "UserServiceTests",
             dependencies: ["UserService"]),

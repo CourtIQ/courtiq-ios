@@ -8,7 +8,7 @@ public protocol GraphQLClient {
 }
 
 public final class ApolloGraphQLClient: GraphQLClient {
-    private let apollo: ApolloClient  // Changed from ApolloGraphQLClient to ApolloClient
+    private let apollo: ApolloClient
 
     public init(apollo: ApolloClient) {  // Changed parameter type
         self.apollo = apollo

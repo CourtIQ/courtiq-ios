@@ -46,6 +46,7 @@ final class AuthInterceptor: ApolloInterceptor {
             chain.proceedAsync(
                 request: request,
                 response: response,
+                interceptor: self,
                 completion: completion
             )
         }

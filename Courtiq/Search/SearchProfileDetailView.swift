@@ -17,10 +17,10 @@ struct SearchProfileDetailView: View {
     
     // MARK: - Lifecycle
     
-    init(user: User) {
-        self.user = user
-    }
-    
+//    init(user: User) {
+//        self.user = user
+//    }
+//    
     // MARK: - Internal
     
     var body: some View {
@@ -52,12 +52,12 @@ struct SearchProfileDetailView: View {
 
     @AppStorage("currentUserUID") private var currentUserID: String?
 
-    private var user: User
+//    private var user: User
 }
-
-#Preview {
-    SearchProfileDetailView(user: User(uid: ""))
-        .environmentObject(AppRouter())
-        .environmentObject(RelationshipService())
-        .previewLayout(.sizeThatFits)
-}
+//
+//#Preview {
+//    SearchProfileDetailView(user: User(uid: ""))
+//        .environmentObject(AppRouter())
+//        .environmentObject(RelationshipService())
+//        .previewLayout(.sizeThatFits)
+//}

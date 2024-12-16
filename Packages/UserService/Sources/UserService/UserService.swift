@@ -5,160 +5,58 @@
 //  Created by Pranav Suri on 07/04/2024.
 //
 
-import DataService
-import SwiftUI
+import Foundation
+import Models
+import CourtIQAPI
 
-// MARK: - UserService
-
-/// A service responsible for managing user data.
-@available(iOS 14.0, *)
 @MainActor
-public class UserService: UserServiceProtocol, ObservableObject {
+public final class UserService: @preconcurrency UserServiceProtocol {
     
-    // MARK: - Properties
+    @Published public private(set) var currentUser: API.UserFields?
     
-    @AppStorage("currentUserUID") private var currentUserUIDStorage: String?
+    private let graphQLClient: GraphQLClient
     
-    @Published private(set) public var currentUser: User?
-    private let dataService: DataServiceProtocol
-
-    // MARK: - Initializer
-    
-    /// Initializes the UserService with a specified DataService.
-    /// - Parameter dataService: The data service to be used for fetching and updating user data.
-    public init(dataService: DataServiceProtocol = DataService(provider: FirestoreProvider(collectionPath: "users"))) {
-        self.dataService = dataService
-        Task {
-            await self.loadCurrentUser()
-        }
+    /// Initializes the user service with a given GraphQL client.
+    /// - Parameter graphQLClient: A `GraphQLClient` to make GraphQL requests.
+    public init(graphQLClient: GraphQLClient) {
+        self.graphQLClient = graphQLClient
     }
-    
-    // MARK: - Load Current User
-    
-    /// Loads the current user from local storage or fetches from the data service if not available locally.
-    @MainActor
-    private func loadCurrentUser() async {
-        guard let userID = currentUserUIDStorage else {
-            self.currentUser = nil
-            return
+
+    public func fetchCurrentUser() async throws {
+        let query = API.MeQuery()
+        let data = try await graphQLClient.fetch(query)
+        
+        guard let fetchedUser = data.me else {
+            throw NSError(domain: "UserService", code: -1, userInfo: [NSLocalizedDescriptionKey: "No user returned from server"])
         }
         
-        do {
-            let user = try await fetchCurrentUser(userID: userID)
-            self.currentUser = user
-        } catch {
-            self.currentUser = nil
+        // If userFields is non-optional, no need for guard
+        let userFields = fetchedUser.fragments.userFields
+        self.currentUser = userFields
+    }
+    
+    public func completeRegistration(_ registrationInfo: CompleteRegistrationUser) async throws {
+        let input = registrationInfo.asInput
+        try await updateUser(input)
+    }
+
+    public func updateUser(_ userInfo: API.UpdateUserInput) async throws {
+        let input = userInfo
+
+        let mutation = API.UpdateUserMutation(input: input)
+        let mutationData = try await graphQLClient.perform(mutation)
+
+        guard let updatedUser = mutationData.updateUser else {
+            throw NSError(domain: "UserService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to update user"])
         }
+
+        // After update, refresh currentUser directly with the updated fragment:
+        self.currentUser = updatedUser.fragments.userFields
     }
 
-    // MARK: - Fetch Current User
-    
-    /// Fetches the current user from the data service.
-    /// - Parameter userID: The ID of the user to be fetched.
-    /// - Returns: The fetched user.
-    /// - Throws: An error if fetching the user fails.
-    public func fetchCurrentUser(userID: String) async throws -> User {
-        return try await withCheckedThrowingContinuation { continuation in
-            dataService.fetchDocument(documentID: userID) { (result: Result<User, Error>) in
-                switch result {
-                case .success(let user):
-                    continuation.resume(returning: user)
-                case .failure(let error):
-                    continuation.resume(throwing: error)
-                }
-            }
-        }
-    }
-
-    // MARK: - Update Current User
-    
-    /// Updates the current user's data in the data service.
-    /// - Parameters:
-    ///   - userID: The ID of the user to be updated.
-    ///   - data: The new user data to be updated.
-    /// - Throws: An error if updating the user data fails.
-    public func updateCurrentUser(userID: String, data: User) async throws {
-        try await withCheckedThrowingContinuation { [weak self] (continuation: CheckedContinuation<Void, Error>) in
-            guard let self = self else {
-                continuation.resume(throwing: NSError(domain: "UserService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Self is nil"]))
-                return
-            }
-
-            self.dataService.updateDocument(documentID: userID, document: data) { result in
-                switch result {
-                case .success:
-                    Task {
-                        do {
-                            let user = try await self.fetchCurrentUser(userID: userID)
-                            self.currentUser = user
-                            self.currentUserUIDStorage = userID
-                            continuation.resume(returning: ())
-                        } catch {
-                            continuation.resume(throwing: error)
-                        }
-                    }
-                case .failure(let error):
-                    continuation.resume(throwing: error)
-                }
-            }
-        }
-    }
-
-    // MARK: - Fetch User by ID
-    
-    /// Fetches a user by ID from the data service.
-    /// - Parameter userID: The ID of the user to be fetched.
-    /// - Returns: The fetched user.
-    /// - Throws: An error if fetching the user fails.
-    public func fetchUser(byID userID: String) async throws -> User {
-        return try await withCheckedThrowingContinuation { continuation in
-            dataService.fetchDocument(documentID: userID) { (result: Result<User, Error>) in
-                switch result {
-                case .success(let user):
-                    continuation.resume(returning: user)
-                case .failure(let error):
-                    continuation.resume(throwing: error)
-                }
-            }
-        }
-    }
-    
-    // MARK: - Check Username Availability
-
-    /// Checks if the given username is available.
-    /// - Parameter username: The username to be checked.
-    /// - Returns: A boolean indicating whether the username is available.
-    /// - Throws: An error if the query fails.
-    public func isUsernameAvailable(username: String) async throws -> Bool {
-        return try await withCheckedThrowingContinuation { continuation in
-            // Use the countDocuments method to check if any document exists with the given username
-            let constraints: [QueryConstraint] = [.equalTo(field: "username", value: username)]
-            
-            dataService.countDocuments(constraints: constraints) { result in
-                switch result {
-                case .success(let count):
-                    // If the count is zero, the username is available
-                    continuation.resume(returning: count == 0)
-                case .failure(let error):
-                    continuation.resume(throwing: error)
-                }
-            }
-        }
-    }
-
-    // MARK: - Start Listening for Current User
-    
-    /// Starts listening for changes to the current user.
-    /// - Parameter userID: The ID of the user to listen for changes.
-    /// - Parameter onChange: A closure to be called when the user data changes.
-    public func startListeningForCurrentUser(userID: String, onChange: @escaping (Result<User, Error>) -> Void) {
-        // Implementation to start listening for user changes
-    }
-
-    // MARK: - Stop Listening
-    
-    /// Stops listening for changes to the current user.
-    public func stopListening() {
-        // Implementation to stop listening for user changes
+    public func isUsernameAvailable(_ username: String) async throws -> Bool {
+        let query = API.IsUsernameAvailableQuery(username: username)
+        let data = try await graphQLClient.fetch(query)
+        return data.isUsernameAvailable
     }
 }

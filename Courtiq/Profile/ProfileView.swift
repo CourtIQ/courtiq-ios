@@ -46,26 +46,24 @@ struct ProfileView: View {
                     }
             })
         } content: {
-            ScrollView
-            {
-                // Profile Card View
-                ProfileCardView(vm: vm)
-                
-                // Add a groups list
-                ProfileClubsListView()
-                
-                if relationsService.friendRequests.isEmpty {
-                    // Empty Friends View
-                    Text("no friends")
-                } else {
-                    // Friends List View
-//                    ForEach(relationsService.friendRequests) { request in
-//                        Text(request.senderID ?? "")
-//                    }
-                    Text("no friends")
-
-                }
-            }
+//            ScrollView
+//            {
+//                // Profile Card View
+//                ProfileCardView(vm: vm)
+//                
+//                // Add a groups list
+//                ProfileClubsListView()
+//                
+//                if relationsService.friendRequests.isEmpty {
+//                    // Empty Friends View
+//                    Text("no friends")
+//                } else {
+//
+//                    Text("no friends")
+//
+//                }
+//            }
+            Text("\($vm.userService)")
         }
         .onAppear {
             print(relationsService.friendRequests)
@@ -75,12 +73,12 @@ struct ProfileView: View {
 
 // MARK: - Preview
 
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        let userService = UserService()
-        let authService = AuthService(provider: FirebaseAuthProvider())
-        let router = AppRouter()
-        
-        ProfileView(showSideMenu: .constant(false), userService: userService, authService: authService, router: router)
-    }
-}
+//struct ProfileView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let userService = UserService()
+//        let authService = AuthService(provider: FirebaseAuthProvider())
+//        let router = AppRouter()
+//        
+//        ProfileView(showSideMenu: .constant(false), userService: userService, authService: authService, router: router)
+//    }
+//}

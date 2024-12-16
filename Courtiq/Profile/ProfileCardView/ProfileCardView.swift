@@ -24,8 +24,6 @@ struct ProfileCardView: View {
         RDCardView(type: .primary) {
             Group {
                 HStack(alignment: .top, spacing: 12) {
-                    AvatarImage(size: .large,
-                                url: vm.mediumImageUrl?.absoluteString)
                     
                     VStack(alignment: .leading, spacing: 2) {
                         profileTextContent()
@@ -51,12 +49,7 @@ struct ProfileCardView: View {
     
     // MARK: - Private
     
-    private var title: String {
-        if let name = vm.currentUser?.displayName{
-            return name
-        }
-        return ""
-    }
+    private var title: String  = ""
     
     private var subtitle: String { return "🇮🇳 India  |  Male  |  22" }
     
@@ -76,6 +69,6 @@ struct ProfileCardView: View {
     }
 }
 
-#Preview {
-    ProfileCardView(vm: ProfileVM(userService: UserService(), authService: AuthService(provider: FirebaseAuthProvider()), router: AppRouter()))
-}
+//#Preview {
+//    ProfileCardView(vm: ProfileVM(userService: UserService(), authService: AuthService(provider: FirebaseAuthProvider()), router: AppRouter()))
+//}

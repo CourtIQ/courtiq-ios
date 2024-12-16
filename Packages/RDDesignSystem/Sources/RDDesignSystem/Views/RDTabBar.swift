@@ -36,9 +36,10 @@ public struct RDTabBar: View {
                 }
             }
         }
-        .padding(.top, 6)
+        .padding(.horizontal, 6)
         .background(Color.TokenColor.Semantic.Background.default)
         .border(width: 1, edges: [.top], color: Color.TokenColor.Semantic.Border.default)
+        .animation(.default, value: selectedIndex) // Apply default animation to selection changes
     }
     
     // MARK: - TabItem
@@ -46,7 +47,7 @@ public struct RDTabBar: View {
         Group {
             if isSelected {
                 VStack(alignment: .center, spacing: 4) {
-                    HStack(alignment: .center, spacing: 4) {
+                    VStack(alignment: .center, spacing: 2) {
                         item.icon
                             .resizable()
                             .frame(width: 24, height: 24)
@@ -55,17 +56,14 @@ public struct RDTabBar: View {
                             .rdCaption()
                             .foregroundColor(Color.TokenColor.Semantic.Text.primary)
                     }
-                    .padding(.vertical, 8)
-                    .padding(.horizontal, 10)
-                    .background(Color.TokenColor.Semantic.Background.secondary)
-                    .clipShape(.capsule)
+                    .padding(.horizontal, 8)
                     
                     Circle()
                         .fill(Color.TokenColor.Semantic.Background.primary)
                         .frame(width: 4, height: 4)
+                        .padding(.bottom, 4)
                 }
-                .padding(.top, 4)
-
+                .padding(.top, 8)
             } else {
                 VStack(alignment: .center) {
                     item.icon
@@ -74,9 +72,7 @@ public struct RDTabBar: View {
                         .foregroundColor(Color.TokenColor.Semantic.Icon.secondary)
                 }
                 .onTapGesture {
-                    withAnimation {
-                        action()
-                    }
+                    action() // No need for explicit withAnimation, it's handled by the parent view
                 }
             }
         }

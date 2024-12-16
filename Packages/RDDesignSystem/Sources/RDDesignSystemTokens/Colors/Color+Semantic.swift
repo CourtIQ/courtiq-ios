@@ -33,6 +33,15 @@ public extension Color.TokenColor.Semantic {
         public static var disabled: Color {
             Color(light: Color.Token.platinum200, dark: Color.Token.platinum700)
         }
+        public static var success: Color {
+            Color(light: Color.Token.green100, dark: Color.Token.green600)
+        }
+        public static var warning: Color {
+            Color(light: Color.Token.orange200, dark: Color.Token.orange600)
+        }
+        public static var error: Color {
+            Color(light: Color.Token.red100, dark: Color.Token.red500)
+        }
     }
     
     struct Icon {
@@ -104,10 +113,13 @@ public extension Color.TokenColor.Semantic {
             Color(light: Color.Token.greyWhite, dark: Color.Token.greyWhite)
         }
         public static var error: Color {
-            Color(light: Color.Token.greyWhite, dark: Color.Token.greyWhite)
+            Color(light: Color.Token.red600, dark: Color.Token.red100)
         }
         public static var success: Color {
-            Color(light: Color.Token.greyWhite, dark: Color.Token.greyWhite)
+            Color(light: Color.Token.green700, dark: Color.Token.green50)
+        }
+        public static var warning: Color {
+            Color(light: Color.Token.orange700, dark: Color.Token.orange100)
         }
     }
 }

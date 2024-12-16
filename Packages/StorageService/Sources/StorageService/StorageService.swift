@@ -21,10 +21,10 @@ public class StorageService: StorageServiceProtocol {
     ///   - userId: The ID of the user to whom this profile picture belongs.
     /// - Returns: The URL of the uploaded profile picture.
     /// - Throws: An error if the upload fails or if the image cannot be converted to PNG data.
-    public func uploadProfilePicture(_ imageData: Data, for userId: String) async throws -> URL {
+    public func uploadProfilePicture(_ imageData: Data, for id: String) async throws -> URL {
         
         let fileName = "profile_picture.png"
-        let path = "users/\(userId)/profilePictures/\(fileName)"
+        let path = "profilePictures/\(id)/profilePictures/\(fileName)"
         
         let metadata = StorageMetadata()
         metadata.contentType = "image/png"

@@ -15,25 +15,25 @@ import SwiftUI
 final class ProfileVM: ViewModel {
     
     // MARK: - Internal
-    var currentUser: User? {
-        return userService.currentUser
-    }
-    
-    var smallImageUrl: URL? {
-        guard let urlString = currentUser?.imageUrls?[.small]?.url else { return nil }
-        return URL(string: urlString)
-    }
-    
-    var mediumImageUrl: URL? {
-        guard let urlString = currentUser?.imageUrls?[.medium]?.url else { return nil }
-        return URL(string: urlString)
-    }
-    
-    var largeImageUrl: URL? {
-        guard let urlString = currentUser?.imageUrls?[.large]?.url else { return nil }
-        return URL(string: urlString)
-    }
-    
+//    var currentUser: User? {
+//        return userService.currentUser
+//    }
+//    
+//    var smallImageUrl: URL? {
+//        guard let urlString = currentUser?.imageUrls?[.small]?.url else { return nil }
+//        return URL(string: urlString)
+//    }
+//    
+//    var mediumImageUrl: URL? {
+//        guard let urlString = currentUser?.imageUrls?[.medium]?.url else { return nil }
+//        return URL(string: urlString)
+//    }
+//    
+//    var largeImageUrl: URL? {
+//        guard let urlString = currentUser?.imageUrls?[.large]?.url else { return nil }
+//        return URL(string: urlString)
+//    }
+//    
     var statsActionItems: [String : Int] {
         ["Friends": 123,
          "Matches": 22,
@@ -43,7 +43,7 @@ final class ProfileVM: ViewModel {
     
     // MARK: - Private Properties
     
-    private var userService: any UserServiceProtocol
+    public var userService: any UserServiceProtocol
     private var authService: any AuthServiceProtocol
     private var router: AppRouter
     

@@ -13,10 +13,12 @@ public struct AvatarImage: View {
     
     // MARK: - Enums
     public enum AvatarSize {
-        case small, medium, large, extraLarge
+        case extraSmall, small, medium, large, extraLarge
         
         public var value: CGFloat {
             switch self {
+            case .extraSmall:
+                return 24
             case .small:
                 return 32
             case .medium:

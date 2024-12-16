@@ -1,0 +1,6 @@
+mutation SendFriendRequest($receiverId: ObjectID!) {
+  sendFriendRequest(receiverId: $receiverId) {
+    receiverId
+    senderId
+  }
+}

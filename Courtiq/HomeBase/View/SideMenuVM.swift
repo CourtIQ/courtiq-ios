@@ -21,10 +21,7 @@ final class SideMenuVM: ViewModel {
     ]
     
     @MainActor
-    var mediumImageUrl: URL? {
-        guard let urlString = userService.currentUser?.imageUrls?[.medium]?.url else { return nil }
-        return URL(string: urlString)
-    }
+    var mediumImageUrl: URL? = URL(string: "https://picsum.photos/200/200")
     
     // MARK: - Private Properties
     

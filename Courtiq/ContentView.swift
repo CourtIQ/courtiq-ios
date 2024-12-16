@@ -16,23 +16,14 @@ import StorageService
 struct ContentView: View {
     // MARK: Internal
     @AppStorage("isUserLoggedIn") public var isUserLoggedIn: Bool = false
-    @AppStorage("additionalInfoNeeded") public var additionalInfoNeeded: Bool = false
-    @AppStorage("currentUserUID") public var currentUserUID: String?
+    @AppStorage("additionalInfoRequired") public var additionalInfoRequired: Bool = false
     
     var body: some View {
         Group {
             NavigationStack(path: $router.navigationPath) {
-                if authService.isUserLoggedIn && !authService.additionalInfoNeeded {
+                if authService.isUserLoggedIn && !authService.additionalInfoRequired {
                     HomeRootFlowView(authService: authService,
                                      router: router)
-                    .navigationDestination(for: ViewWrapper.self) { view in
-                        view.view
-                    }
-                } else if authService.isUserLoggedIn && authService.additionalInfoNeeded {
-                    AdditionalInfoView(vm: AuthenticationVM(authService: authService,
-                                                            userService: userService,
-                                                            router: router,
-                                                            storageService: StorageService()))
                     .navigationDestination(for: ViewWrapper.self) { view in
                         view.view
                     }

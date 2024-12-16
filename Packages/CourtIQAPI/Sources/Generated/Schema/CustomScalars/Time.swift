@@ -8,6 +8,6 @@
 import ApolloAPI
 
 public extension API {
-  typealias DateTime = String
+  typealias Time = String
 
 }

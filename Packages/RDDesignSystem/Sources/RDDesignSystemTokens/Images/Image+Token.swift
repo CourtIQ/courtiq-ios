@@ -100,6 +100,10 @@ public extension Image {
             public static var bell: Image {
                 Image("bell", bundle: .module)
             }
+            
+            public static var chat: Image {
+                Image("chat", bundle: .module)
+            }
         }
     }
 }

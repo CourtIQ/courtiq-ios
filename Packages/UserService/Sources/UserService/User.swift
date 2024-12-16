@@ -1,88 +1,126 @@
 //
 //  User.swift
+//  UserService
 //
-//
-//  Created by Pranav Suri on 2024-07-04.
+//  Created by Pranav Suri on 2024-12-15.
 //
 
 import Foundation
-import FirebaseFirestore
+import Models
 
 public struct User: Identifiable, Codable {
-    public var id: String?
-    public var uid: String
+    public let id: String
+    public let firebaseId: String
+    public let email: String
+    public var firstName: String
+    public var lastName: String
+    public var displayName: String
     public var username: String
-    public var displayName: String?
-    public var email: String?
-    public var gender: String?
-    public var nationality: String?
-    public var dob: Date?
-    public var imageUrls: [ImageSize: ImageURL]?
-    public var createdAt: Date
-    public var lastUpdated: Date?
-
-    enum CodingKeys: String, CodingKey {
-        case id = "objectID"
-        case uid
-        case username
-        case displayName
-        case email
-        case gender
-        case nationality
-        case dob
-        case imageUrls
-        case createdAt
-        case lastUpdated
-    }
+    public var profilePicture: String?
+    public var dateOfBirth: Date?
+    public var bio: String?
+    public var location: Location?
+    public var rating: Double
+    public let createdAt: Date
+    public let lastUpdated: Date
     
-    public init(id: String? = nil,
-                uid: String,
-                username: String = "",
-                displayName: String? = nil,
-                email: String? = nil,
-                gender: String? = nil,
-                nationality: String? = nil,
-                dob: Date? = nil,
-                imageUrls: [ImageSize: ImageURL]? = nil,
-                createdAt: Date = Date(),
-                lastUpdated: Date? = nil) {
+    // Add public initializer
+    public init(
+        id: String,
+        firebaseId: String,
+        email: String,
+        firstName: String,
+        lastName: String,
+        displayName: String,
+        username: String,
+        profilePicture: String?,
+        dateOfBirth: Date?,
+        bio: String?,
+        location: Location?,
+        rating: Double,
+        createdAt: Date,
+        lastUpdated: Date
+    ) {
         self.id = id
-        self.uid = uid
-        self.username = username
-        self.displayName = displayName
+        self.firebaseId = firebaseId
         self.email = email
-        self.gender = gender
-        self.nationality = nationality
-        self.dob = dob
-        self.imageUrls = imageUrls
+        self.firstName = firstName
+        self.lastName = lastName
+        self.displayName = displayName
+        self.username = username
+        self.profilePicture = profilePicture
+        self.dateOfBirth = dateOfBirth
+        self.bio = bio
+        self.location = location
+        self.rating = rating
         self.createdAt = createdAt
         self.lastUpdated = lastUpdated
     }
-}
-
-public struct ImageURL: Codable {
-    public var url: String
-    public var size: ImageSize
     
-    public init(url: String, size: ImageSize) {
-        self.url = url
-        self.size = size
+    public struct Location: Codable {
+        public var city: String?
+        public var state: String?
+        public var country: String?
+        public var latitude: Double?
+        public var longitude: Double?
+        
+        public init(
+            city: String? = nil,
+            state: String? = nil,
+            country: String? = nil,
+            latitude: Double? = nil,
+            longitude: Double? = nil
+        ) {
+            self.city = city
+            self.state = state
+            self.country = country
+            self.latitude = latitude
+            self.longitude = longitude
+        }
     }
 }
 
-public enum ImageSize: String, Codable {
-    case small
-    case medium
-    case large
-    
-    public var dimensions: (width: Int, height: Int) {
-        switch self {
-        case .small:
-            return (100, 100)
-        case .medium:
-            return (200, 200)
-        case .large:
-            return (400, 400)
+extension User {
+    public init(from graphQLUser: API.UserFields) {
+        self.id = String(graphQLUser.id)  // Convert ObjectID to String
+        self.firebaseId = graphQLUser.firebaseId
+        self.email = graphQLUser.email
+        self.firstName = graphQLUser.firstName ?? ""
+        self.lastName = graphQLUser.lastName ?? ""
+        self.displayName = graphQLUser.displayName ?? ""
+        self.username = graphQLUser.username ?? ""
+        self.profilePicture = graphQLUser.profilePicture
+        self.rating = Double(graphQLUser.rating ?? 0)  // Convert Int? to Double
+        
+        // Date conversions
+        let formatter = ISO8601DateFormatter()
+        self.dateOfBirth = graphQLUser.dateOfBirth.flatMap {
+            String($0)  // Convert API.Time to String first
+        }.flatMap {
+            formatter.date(from: $0)
+        }
+        
+        self.createdAt = graphQLUser.createdAt.flatMap {
+            formatter.date(from: String($0))
+        } ?? Date()
+        
+        self.lastUpdated = graphQLUser.lastUpdated.flatMap {
+            formatter.date(from: String($0))
+        } ?? Date()
+        
+        self.bio = graphQLUser.bio
+        
+        // Location
+        if let graphQLLocation = graphQLUser.location {
+            self.location = Location(
+                city: graphQLLocation.city,
+                state: graphQLLocation.state,
+                country: graphQLLocation.country,
+                latitude: graphQLLocation.latitude,
+                longitude: graphQLLocation.longitude
+            )
+        } else {
+            self.location = nil
         }
     }
 }

@@ -37,10 +37,17 @@ struct AuthenticationWelcomeView: View {
             }
         }
         .background(Color.TokenColor.Semantic.Background.default)
+        .onAppear() {
+            if additionalInfoRequired && isUserLoggedIn {
+                vm.handle(action: .goToAddInfo)
+            }
+        }
     }
     
     // MARK: - Private
     
+    @AppStorage("additionalInfoRequired") private var additionalInfoRequired: Bool = false
+    @AppStorage("isUserLoggedIn") private var isUserLoggedIn: Bool = false
     @StateObject private var vm: AuthenticationVM
 }
 

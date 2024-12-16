@@ -30,17 +30,7 @@ struct HomeView: View {
                     }
             })
         } content: {
-            List {
-                ForEach(0..<8) { index in
-                    HStack {
-                        Text("Hello")
-                        Spacer()
-                    }
-                }
-            }
-            .listStyle(.plain)
-            .cornerRadius(12)
-            .border(Color.TokenColor.Semantic.Border.default, width: 1 )
+            RDScoreCardView()
         }
         .onAppear {
             Task {

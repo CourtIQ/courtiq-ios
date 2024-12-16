@@ -43,7 +43,7 @@ struct SideMenuView: View {
             
             HStack {
                 MarqueeView {
-                    AvatarImage(size: .medium, 
+                    AvatarImage(size: .small,
                                 url: vm.mediumImageUrl?.absoluteString)
                 } content: {
                     Text("Content")

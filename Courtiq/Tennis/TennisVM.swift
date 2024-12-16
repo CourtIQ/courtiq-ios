@@ -56,12 +56,7 @@ final class TennisVM: ViewModel {
 
     @MainActor
     private func addStringEntry() {
-        Task {
-            if let currentUserID = await authService.currentUser?.uid {
-                newStringEntry.userID = currentUserID
-                try await stringEntryService.createStringEntry(newStringEntry)
-            }
-        }
+        print("addStringEntry")
     }
     
     // MARK: - Private Properties

@@ -31,9 +31,12 @@ public extension API {
 
     public static func objectType(forTypename typename: String) -> Object? {
       switch typename {
-      case "Query": return API.Objects.Query
+      case "Mutation": return API.Objects.Mutation
+      case "User": return API.Objects.User
+      case "Location": return API.Objects.Location
       case "Friendship": return API.Objects.Friendship
       case "Coachship": return API.Objects.Coachship
+      case "Query": return API.Objects.Query
       default: return nil
       }
     }

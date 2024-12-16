@@ -42,7 +42,8 @@ final class HomeBaseVM: HomeBaseViewModelProvider {
         RDTabBarItem(title: "Home", icon: Image.Token.Icons.home),
         RDTabBarItem(title: "Search", icon: Image.Token.Icons.search),
         RDTabBarItem(title: "Tennis", icon: Image.Token.Icons.tennisBall),
-        RDTabBarItem(title: "Profile", icon: Image.Token.Icons.person)
+        RDTabBarItem(title: "Chat", icon: Image.Token.Icons.chat),
+        RDTabBarItem(title: "Profile", icon: Image.Token.Icons.person),
     ]
 
     func handle(action: HomeBaseVM.Actions) {
@@ -60,6 +61,10 @@ final class HomeBaseVM: HomeBaseViewModelProvider {
     private let router: AppRouter
 
     func onAppear() {
+        Task {
+            let token = try await authService.getIDToken()
+            print(token)
+        }
         print("Hello")
     }
     

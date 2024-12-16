@@ -10,6 +10,7 @@
 		B503B3AF2D05D3180047310A /* CourtIQAPI in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3AE2D05D3180047310A /* CourtIQAPI */; };
 		B503B3B12D05D3180047310A /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3B02D05D3180047310A /* Models */; };
 		B503B3B32D08F95B0047310A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B503B3B22D08F95B0047310A /* GoogleService-Info.plist */; };
+		B59FA2CD2D0F20F900C67BB3 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */; };
 		C01BFBF72C68293300184E1B /* ProfileClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */; };
 		C01BFBF92C698C5000184E1B /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF82C698C5000184E1B /* CountryManager.swift */; };
 		C01BFBFB2C69BEEF00184E1B /* MatchUpFormFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBFA2C69BEEF00184E1B /* MatchUpFormFormatView.swift */; };
@@ -102,6 +103,8 @@
 
 /* Begin PBXFileReference section */
 		B503B3B22D08F95B0047310A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B59FA2C92D0CC75E00C67BB3 /* EquipmentService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = EquipmentService; sourceTree = "<group>"; };
+		B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		B5B116F02D05D0C10080D123 /* CourtIQAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CourtIQAPI; sourceTree = "<group>"; };
 		C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileClubsListView.swift; sourceTree = "<group>"; };
 		C01BFBF82C698C5000184E1B /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
@@ -215,6 +218,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B59FA2CE2D0F211400C67BB3 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		C04935EB2C41C217002E68B5 /* MatchUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,8 +296,9 @@
 			isa = PBXGroup;
 			children = (
 				C0889DDC2C2BA5700081BF59 /* AppRouter.swift */,
-				C060AF322C1974D100D160A5 /* ContentView.swift */,
 				C060AF302C1974D100D160A5 /* CourtiqApp.swift */,
+				C060AF322C1974D100D160A5 /* ContentView.swift */,
+				B59FA2CE2D0F211400C67BB3 /* Chat */,
 				C0495D892C1E544E00E6D023 /* Authentication */,
 				C091381E2C64AB0F00598535 /* Chart */,
 				C062D2BF2C3BEB2C00ABF5A8 /* Home */,
@@ -296,7 +308,6 @@
 				C0DA7F1E2C640CC1005966C1 /* Settings */,
 				C062D2C02C3BEB3300ABF5A8 /* Search */,
 				C062D2C22C3BEB4200ABF5A8 /* Tennis */,
-				C0889DDE2C2BEC930081BF59 /* Utils */,
 				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
 				B503B3B22D08F95B0047310A /* GoogleService-Info.plist */,
@@ -336,6 +347,8 @@
 			isa = PBXGroup;
 			children = (
 				B5B116F02D05D0C10080D123 /* CourtIQAPI */,
+				C0AD6C412C373D990088E2B0 /* UserService */,
+				B59FA2C92D0CC75E00C67BB3 /* EquipmentService */,
 				C0495D7D2C1E430400E6D023 /* AuthenticationService */,
 				C0B0C6FF2C61A07D00D56577 /* DataService */,
 				C0CECA542C3F8625000F2032 /* MatchUpService */,
@@ -343,7 +356,6 @@
 				C026923B2C62D01300B34F42 /* RelationshipService */,
 				C067FEB52C5B071C0089C7E9 /* StringEntryService */,
 				C0FB31CF2C3CE64C0004D153 /* StorageService */,
-				C0AD6C412C373D990088E2B0 /* UserService */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -383,6 +395,7 @@
 			children = (
 				C067FEAA2C5AEE3F0089C7E9 /* TennisVM.swift */,
 				C067FEB42C5B02B70089C7E9 /* Views */,
+				C0889DDE2C2BEC930081BF59 /* Utils */,
 			);
 			path = Tennis;
 			sourceTree = "<group>";
@@ -665,6 +678,7 @@
 				C0C9FBB32C65793100E913DD /* SearchListProfileItem.swift in Sources */,
 				C09138202C64AB0F00598535 /* XelaBarDatasets.swift in Sources */,
 				C0889DDD2C2BA5700081BF59 /* AppRouter.swift in Sources */,
+				B59FA2CD2D0F20F900C67BB3 /* ChatView.swift in Sources */,
 				C09138252C64AB0F00598535 /* XelaDoughnutChartBody.swift in Sources */,
 				C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */,
 				C01BFC0B2C6A0BDC00184E1B /* SearchProfileDetailView.swift in Sources */,

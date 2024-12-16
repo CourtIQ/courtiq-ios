@@ -2,17 +2,18 @@
   "schemaNamespace" : "API",
   "input" : {
     "operationSearchPaths" : [
-      "GraphQL/Queries/**/*.graphql",
-      "GraphQL/Mutations/**/*.graphql"
+      "GraphQL/**/**/*.graphql",
     ],
     "schemaSearchPaths" : [
       "GraphQL/Schema/*.graphqls"
     ]
   },
   "output" : {
-    "testMocks" : {
-      "none" : {
-      }
+      "testMocks" : {
+        "absolute": {
+          "path": "./Tests/CourtIqAPITests/Mocks",
+          "accessModifier": "internal"
+        }
     },
     "schemaTypes" : {
       "path" : "./Sources/Generated",

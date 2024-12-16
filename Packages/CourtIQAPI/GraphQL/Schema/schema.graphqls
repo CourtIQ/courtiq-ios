@@ -144,8 +144,8 @@ type Query {
   isStudent(studentId: ObjectID!): RelationshipStatus
   isCoach(coachId: ObjectID!): RelationshipStatus
   me: User
-  getUser(id: ID!): User
-  isUsernamesAvailable(username: String!): Boolean
+  getUser(id: ObjectID!): User
+  isUsernameAvailable(username: String!): Boolean!
 }
 type Score {
   a: SideScore!
@@ -180,7 +180,6 @@ type StringTension {
 type TennisRacket implements Equipment {
   id: ObjectID!
   ownerId: ObjectID!
-  owner: User!
   name: String!
   type: EquipmentType!
   createdAt: DateTime!
@@ -194,7 +193,6 @@ type TennisRacket implements Equipment {
 type TennisString implements Equipment {
   id: ObjectID!
   ownerId: ObjectID!
-  owner: User!
   name: String!
   type: EquipmentType!
   createdAt: DateTime!
@@ -222,18 +220,18 @@ type User {
   lastName: String
   displayName: String
   username: String
+  gender: Gender
   profilePicture: String
   dateOfBirth: Time
-  location: Location
   bio: String
+  location: Location
   rating: Int
   createdAt: Time
-  updatedAt: Time
+  lastUpdated: Time
 }
 interface Equipment {
   id: ObjectID!
   ownerId: ObjectID!
-  owner: User!
   name: String!
   type: EquipmentType!
   createdAt: DateTime!
@@ -266,6 +264,11 @@ enum GameScore {
   THIRTY
   FORTY
   ADVANTAGE
+}
+enum Gender {
+  MALE
+  FEMALE
+  NON_BINARY
 }
 enum GroundStrokeStyle {
   SLICE
@@ -422,8 +425,10 @@ input UpdateTennisStringInput {
   burstDate: DateTime
 }
 input UpdateUserInput {
+  username: String
   firstName: String
   lastName: String
+  gender: Gender
   dateOfBirth: Time
   bio: String
   location: LocationInput

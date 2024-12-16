@@ -5,6 +5,7 @@
 //  Created by Pranav Suri on 2024-06-24.
 //
 
+import Models
 import AuthenticationService
 import UserService
 import Foundation
@@ -35,14 +36,13 @@ final class AuthenticationVM: ViewModel {
                 return nil
             }
         }
-
     }
     
     // MARK: - Internal
     
+    @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
-    @Published var user: User = User(uid: "")
     @Published var selectedItem: PhotosPickerItem? = nil {
         didSet {
             if let selectedItem = selectedItem {
@@ -55,6 +55,8 @@ final class AuthenticationVM: ViewModel {
     @Published var selectedImage: Image? = nil
     @Published var isUsernameAvailable: Bool = false
     @Published var isUsernameAvailableText: String? = nil
+    @Published var updateUser = CompleteRegistrationUser()
+    
     var countriesMenuList: [DropdownItem] = []
 
     var router: AppRouter
@@ -78,6 +80,8 @@ final class AuthenticationVM: ViewModel {
         }
     }
     
+    // MARK: Action Handler
+    
     @MainActor func handle(action: AuthenticationVM.Actions) {
         switch action {
         case .goToSignIn:
@@ -90,15 +94,17 @@ final class AuthenticationVM: ViewModel {
             let view = AnyView(ForgotPasswordView(vm: self))
             router.handle(action: .showHalfSheet(view, detents: [.medium]))
         case .goToAddInfo:
-            let view = AnyView(AdditionalInfoView(vm: self))
-            router.handle(action: .push(view))
+            if authService.isUserLoggedIn && authService.additionalInfoRequired {
+                let view = AnyView(AdditionalInfoView(vm: self))
+                router.handle(action: .push(view))
+            }
         case .signInBtn:
             Task {
-                await signIn(email: self.user.email ?? "", password: self.password)
+                await signIn(email: self.email, password: self.password)
             }
         case .signUpBtn:
             Task {
-                await signUp(email: self.user.email ?? "", password: self.password)
+                await signUp(email: self.email, password: self.password)
             }
         case .updateAddInfoBtn:
             Task {
@@ -156,11 +162,9 @@ final class AuthenticationVM: ViewModel {
         await router.handle(action: .isLoading)
         do {
             let user = try await authService.signUp(email: email, password: password)
-            let claims = try await authService.getCustomClaims()
-            print(claims)
             await MainActor.run {
                 router.handle(action: .stopLoading)
-                router.handle(action: .popToRoot)
+                self.handle(action: .goToAddInfo)
             }
         } catch {
             await MainActor.run {
@@ -172,80 +176,32 @@ final class AuthenticationVM: ViewModel {
     }
 
     private func fetchCurrentUserAndUpdate(userID: String) async {
-        do {
-            let currentUser = try await userService.fetchCurrentUser(userID: userID)
-            await MainActor.run {
-                print("Current User: \n\(currentUser)")
-                self.user = currentUser
-                self.router.handle(action: .popToRoot)
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
+        print("fetchCurrentUserAndUpdate")
     }
 
     private func updateAdditionalInfo() async {
-        await router.handle(action: .isLoading)
-        guard let userID = await authService.currentUser?.uid else {
-            await MainActor.run {
-                print("No user")
-                router.handle(action: .stopLoading)
-            }
-            return
-        }
-
-        do {
-            if let selectedItem = selectedItem {
-                if let data = try await selectedItem.loadTransferable(type: Data.self) {
-                    do {
-                        let url = try await storageService.uploadProfilePicture(data, for: userID).absoluteString
-                        let imageUrls = constructImageUrls(baseUrl: url)
-
-                        await MainActor.run {
-                            self.user.imageUrls = imageUrls
-                        }
-                    } catch {
-                        print("Error uploading image: \(error.localizedDescription)")
-                    }
+        Task {
+            await router.handle(action: .isLoading)
+            do {
+                print(self.updateUser)
+                try await userService.completeRegistration(self.updateUser)
+                await authService.setAdditionalInfoProvided()
+                await MainActor.run {
+                    router.handle(action: .popToRoot)
+                    router.handle(action: .stopLoading)
                 }
+            } catch {
+                print("Error updating document: \(error.localizedDescription)")
             }
-
-            user.uid = userID
-            user.nationality = CountryManager.shared.getCountryCode(fromName: user.nationality ?? "") ?? ""
-            try await userService.updateCurrentUser(userID: userID, data: user)
-            await authService.setAdditionalInfoProvided()
-            await MainActor.run {
-                router.handle(action: .stopLoading)
-                router.handle(action: .popToRoot)
-            }
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    private func constructImageUrls(baseUrl: String) -> [ImageSize: ImageURL] {
-        // Define the sizes and corresponding suffixes
-        let sizes: [ImageSize: String] = [
-            .small: "100x100",
-            .medium: "200x200",
-            .large: "400x400"
-        ]
-
-        // Construct URLs for each size
-        var imageUrls: [ImageSize: ImageURL] = [:]
-
-        for (size, suffix) in sizes {
-            let newUrl = baseUrl.replacingOccurrences(of: "profile_picture.png", with: "profile_picture_\(suffix).png")
-            imageUrls[size] = ImageURL(url: newUrl, size: size)
+            
         }
 
-        return imageUrls
     }
 
     private func handleUsernameChanged(_ username: String) {
         Task {
             do {
-                let isAvailable = try await userService.isUsernameAvailable(username: username)
+                let isAvailable = try await userService.isUsernameAvailable(username)
                 await MainActor.run {
                     if isAvailable {
                         self.isUsernameAvailableText = "Username is available"

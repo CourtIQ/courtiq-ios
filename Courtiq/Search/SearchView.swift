@@ -58,22 +58,23 @@ struct SearchView: View {
             }
             
         } content: {
-            VStack {
-                HitsList(vm.hitsController) { hit, _ in
-                    SearchListProfileItem(imageUrl: hit?.imageUrls?[.small]?.url,
-                                   name: hit?.displayName ?? "--", 
-                                   gender: hit?.gender ?? "--",
-                                   country: hit?.nationality ?? "--",
-                                   age: self.calculateAge(from: hit?.dob))
-                    {
-                        // TODO: Fix the age that is not being displayed
-                        vm.handle(action: .userSearchItemTapped(user: hit!))
-                    }
-                } noResults: {
-                    Text("No Results")
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                }
-            }
+//            VStack {
+//                HitsList(vm.hitsController) { hit, _ in
+//                    SearchListProfileItem(imageUrl: hit?.imageUrls?[.small]?.url,
+//                                   name: hit?.displayName ?? "--", 
+//                                   gender: hit?.gender ?? "--",
+//                                   country: hit?.nationality ?? "--",
+//                                   age: self.calculateAge(from: hit?.dob))
+//                    {
+//                        // TODO: Fix the age that is not being displayed
+//                        vm.handle(action: .userSearchItemTapped(user: hit!))
+//                    }
+//                } noResults: {
+//                    Text("No Results")
+//                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+//                }
+//            }
+            EmptyView()
         }
     }
     

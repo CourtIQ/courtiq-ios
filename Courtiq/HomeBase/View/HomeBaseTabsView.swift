@@ -30,6 +30,8 @@ struct HomeBaseTabsView: View {
                                vm: TennisVM(router: appRouter,
                                             authService: authService))
                 case 3:
+                    ChatView(showSideMenu: $vm.sideMenuShowing)
+                case 4:
                     ProfileView(showSideMenu: $vm.sideMenuShowing,
                                 userService: userService,
                                 authService: authService,
