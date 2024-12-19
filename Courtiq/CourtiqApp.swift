@@ -48,7 +48,7 @@ struct CourtiqApp: App {
     @StateObject var authService: AuthService
     @StateObject var userService: UserService
 
-    let config = APIConfiguration(graphQLURLString: "http://localhost:3000")
+    let config = APIConfiguration(graphQLURLString: "https://api-gateway.court-iq.com/")
 
     init() {
         // Initialize authService
