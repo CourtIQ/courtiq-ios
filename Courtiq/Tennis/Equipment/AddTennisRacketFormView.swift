@@ -22,7 +22,9 @@ struct AddTennisRacketFormView: View {
                             title: "Add new racket", leading: {},
                             trailing: {
                 Image.Token.Icons.cross
-                    .rdActionIcon { print("Hello world")}
+                    .rdActionIcon {
+                        vm.handle(action: .dismiss)
+                    }
             })
         } content: {
             RDTextField(textFieldType: .primary,

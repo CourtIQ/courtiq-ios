@@ -67,6 +67,8 @@ final class EquipmentVM: ViewModel {
         switch action {
         case .addNewTennisRacket: addNewTennisRacket()
         case .addNewTennisString: addNewTennisString()
+        case .validateAddNewTennisRacketForm: validateAddNewTennisRacketForm()
+        case .validateAddNewTennisStringForm: validateAddNewTennisStringForm()
         case .updateTennisRacket: updateTennisRacket()
         case .updateTennisString: updateTennisString()
         case .deleteTennisRacket: deleteTennisRacket()
@@ -127,6 +129,14 @@ final class EquipmentVM: ViewModel {
         print(#function)
     }
     
+    private func validateAddNewTennisRacketForm() {
+        print(#function)
+    }
+    
+    private func validateAddNewTennisStringForm() {
+        print(#function)
+    }
+    
     @MainActor private func dismiss() {
         router.handle(action: .dismiss)
     }
@@ -140,6 +150,8 @@ extension EquipmentVM {
     enum Actions {
         case addNewTennisRacket
         case addNewTennisString
+        case validateAddNewTennisRacketForm
+        case validateAddNewTennisStringForm
         case updateTennisRacket
         case updateTennisString
         case deleteTennisRacket

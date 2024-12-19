@@ -258,6 +258,20 @@
 			path = Equipment;
 			sourceTree = "<group>";
 		};
+		B543F3982D1425CF00EFDB90 /* Matches */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Matches;
+			sourceTree = "<group>";
+		};
+		B543F3992D1425D500EFDB90 /* Clubs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Clubs;
+			sourceTree = "<group>";
+		};
 		B59FA2CE2D0F211400C67BB3 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -452,6 +466,8 @@
 		C062D2C22C3BEB4200ABF5A8 /* Tennis */ = {
 			isa = PBXGroup;
 			children = (
+				B543F3982D1425CF00EFDB90 /* Matches */,
+				B543F3992D1425D500EFDB90 /* Clubs */,
 				B543F38C2D12C6A100EFDB90 /* Equipment */,
 				C067FEAA2C5AEE3F0089C7E9 /* TennisVM.swift */,
 				C067FEB42C5B02B70089C7E9 /* Views */,
