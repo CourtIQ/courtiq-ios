@@ -21,8 +21,9 @@ public struct RDScoreCardView: View {
                         
                     Spacer()
                     RDBadgeView(label: "WIN", rdBadgeType: .success)
-                    RDActionIcon(image: Image.Token.Icons.chevronRight) {
+                    RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.chevronRight) {
                         print("Action")
+
                     }
                 }
 

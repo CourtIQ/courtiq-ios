@@ -35,15 +35,13 @@ struct ProfileView: View {
         
         BaseTabPageView {
             RDNavigationBar(.primary, title: "Profile", leading: {
-                Image.Token.Icons.menu
-                    .rdActionIcon {
-                        showSideMenu.toggle()
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.menu) {
+                    showSideMenu.toggle()
+                }
             }, trailing: {
-                Image.Token.Icons.settings
-                    .rdActionIcon {
-                        vm.handle(action: .settingsIconTapped)
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.settings) {
+                    vm.handle(action: .settingsIconTapped)
+                }
             })
         } content: {
 //            ScrollView

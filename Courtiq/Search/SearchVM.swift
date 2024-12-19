@@ -17,12 +17,8 @@ final class SearchVM: ViewModel {
     
     // MARK: - Internal Properties
     
-    let algoliaController = AlgoliaController()
-    
+
     @Published var searchFieldIsEditing: Bool = false
-    @Published var searchBoxController: SearchBoxObservableController
-    @Published var hitsController: HitsObservableController<User>
-    @Published var statsController: StatsTextObservableController
     
     // MARK: - Private Properties
     
@@ -31,9 +27,6 @@ final class SearchVM: ViewModel {
     // MARK: - Initializer
     init(router: AppRouter) {
         self.router = router
-        self.searchBoxController = algoliaController.searchBoxController
-        self.hitsController = algoliaController.hitsController
-        self.statsController = algoliaController.statsController
     }
     
     // MARK: - Internal Methods

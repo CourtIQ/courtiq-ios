@@ -1,5 +1,5 @@
 //
-//  RDIconButton.swift
+//  RDActionIcon.swift
 //
 //
 //  Created by Pranav Suri on 06/12/2024.
@@ -7,14 +7,9 @@
 
 import SwiftUI
 
-// MARK: - RDIconButton
-
-/// A customizable icon button for different types and sizes.
 @available(iOS 15.0.0, *)
-public struct RDIconButton: View {
+public struct RDActionIcon: View {
     // MARK: - Properties
-    
-    /// The type of the icon button.
     public enum IconButtonType {
         case primary
         case secondary
@@ -22,7 +17,6 @@ public struct RDIconButton: View {
         case ghost
     }
     
-    /// The size of the icon button.
     public enum IconButtonSize {
         case extraLarge
         case large
@@ -30,49 +24,41 @@ public struct RDIconButton: View {
         case small
     }
     
-    var type: IconButtonType
-    var size: IconButtonSize
-    let icon: Image
-    var disable: Bool
-    var action: (() -> ())?
+    let type: IconButtonType
+    let size: IconButtonSize
+    let image: Image
+    let action: () -> Void
     
     // MARK: - Initializer
-    
-    /// Initializes a new `RDIconButton`.
+    /// Initializes a new `RDActionIcon`.
     ///
     /// - Parameters:
-    ///   - type: The type of the icon button.
-    ///   - size: The size of the icon button.
-    ///   - icon: The icon image to display.
-    ///   - disable: A boolean indicating whether the button is disabled.
-    ///   - action: An optional closure to execute when the button is pressed.
+    ///   - type: The type of the icon (primary, secondary, tertiary, ghost).
+    ///   - size: The size of the icon (optional, default is `.extraLarge`).
+    ///   - image: The image to display (required).
+    ///   - action: The closure to execute when tapped (required).
     public init(
-        _ type: IconButtonType = .primary,
-        _ size: IconButtonSize = .extraLarge,
-        _ icon: Image,
-        _ disable: Bool = false,
-        action: (() -> ())? = nil
+        type: IconButtonType = .ghost,
+        size: IconButtonSize = .extraLarge,
+        image: Image,
+        action: @escaping () -> Void
     ) {
         self.type = type
         self.size = size
-        self.icon = icon
-        self.disable = disable
+        self.image = image
         self.action = action
     }
     
     // MARK: - Body
-    
     public var body: some View {
-        Button {
-            action?()
-        } label: {
-            icon
+        Button(action: action) {
+            image
                 .resizable()
                 .scaledToFit()
-                .frame(width: 24, height: 24)
+                .frame(width: size.iconSize, height: size.iconSize)
                 .padding(8)
-                .foregroundColor(disable ? type.disabledIconColor : type.iconColor)
-                .background(disable ? type.disabledBgColor : type.bgColor)
+                .foregroundColor(type.iconColor)
+                .background(type.bgColor)
                 .cornerRadius(size.cornerRadius)
                 .overlay {
                     if type != .ghost {
@@ -82,14 +68,11 @@ public struct RDIconButton: View {
                 }
         }
         .frame(width: size.size, height: size.size)
-        .disabled(disable)
     }
 }
 
 // MARK: - Extensions for IconButtonSize
-
-@available(iOS 13.0, *)
-extension RDIconButton.IconButtonSize {
+extension RDActionIcon.IconButtonSize {
     var size: CGFloat {
         switch self {
         case .extraLarge:
@@ -103,25 +86,27 @@ extension RDIconButton.IconButtonSize {
         }
     }
     
+    var iconSize: CGFloat {
+        return size * 0.8
+    }
+    
     var cornerRadius: CGFloat {
         return 8
     }
 }
 
 // MARK: - Extensions for IconButtonType
-
-@available(iOS 13.0, *)
-extension RDIconButton.IconButtonType {
+extension RDActionIcon.IconButtonType {
     var iconColor: Color {
         switch self {
         case .primary:
             return Color.TokenColor.Semantic.Icon.inverted
         case .secondary:
-            return Color.TokenColor.Semantic.Icon.primary
+            return Color.TokenColor.Semantic.Icon.secondary
         case .tertiary:
             return Color.TokenColor.Semantic.Icon.default
         case .ghost:
-            return Color.TokenColor.Semantic.Icon.secondary
+            return Color.TokenColor.Semantic.Icon.primary
         }
     }
     
@@ -132,45 +117,6 @@ extension RDIconButton.IconButtonType {
         case .secondary:
             return Color.TokenColor.Semantic.Background.secondary
         case .tertiary, .ghost:
-            return Color.TokenColor.Semantic.Background.default
-        }
-    }
-    
-    var pressedIconColor: Color {
-        switch self {
-        case .primary:
-            return Color.TokenColor.Semantic.Icon.inverted
-        case .secondary:
-            return Color.TokenColor.Semantic.Icon.primary
-        case .tertiary:
-            return Color.TokenColor.Semantic.Icon.default
-        case .ghost:
-            return Color.TokenColor.Semantic.Icon.secondary
-        }
-    }
-    
-    var pressedBgColor: Color {
-        switch self {
-        case .primary:
-            return Color.TokenColor.Semantic.Background.primary
-        case .secondary:
-            return Color.TokenColor.Semantic.Background.secondary
-        case .tertiary:
-            return Color.TokenColor.Semantic.Background.default
-        case .ghost:
-            return .clear
-        }
-    }
-    
-    var disabledIconColor: Color {
-        return Color.TokenColor.Semantic.Background.disabled
-    }
-    
-    var disabledBgColor: Color {
-        switch self {
-        case .primary, .secondary:
-            return Color.TokenColor.Semantic.Background.disabled
-        case .tertiary, .ghost:
             return .clear
         }
     }
@@ -180,40 +126,9 @@ extension RDIconButton.IconButtonType {
         case .primary, .ghost:
             return .clear
         case .secondary:
-            return Color.TokenColor.Semantic.Border.primary
+            return Color.TokenColor.Semantic.Border.default
         case .tertiary:
             return Color.TokenColor.Semantic.Border.emphasis
         }
     }
 }
-
-// MARK: - RDActionIcon View
-
-public struct RDActionIcon: View {
-    let image: Image
-    let action: () -> Void
-
-    public init(image: Image, action: @escaping () -> Void) {
-        self.image = image
-        self.action = action
-    }
-
-    public var body: some View {
-        Button(action: action) {
-            image
-                .resizable()
-                .scaledToFit()
-                .frame(width: 24)
-                .foregroundColor(Color.TokenColor.Semantic.Icon.secondary)
-        }
-    }
-}
-
-// MARK: - Image Extension
-
-public extension Image {
-    func rdActionIcon(action: @escaping () -> Void) -> some View {
-        RDActionIcon(image: self, action: action)
-    }
-}
-

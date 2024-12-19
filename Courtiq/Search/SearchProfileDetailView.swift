@@ -26,15 +26,13 @@ struct SearchProfileDetailView: View {
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "", leading: {
-                Image.Token.Icons.back
-                    .rdActionIcon {
-                        router.handle(action: .pop)
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.back) {
+                    router.handle(action: .pop)
+                }
             }, trailing: {
-                Image.Token.Icons.filter
-                    .rdActionIcon {
-                        print("Filter tapped")
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.filter) {
+                    print("Filter tapped")
+                }
             })
         } content: {
             Text("")

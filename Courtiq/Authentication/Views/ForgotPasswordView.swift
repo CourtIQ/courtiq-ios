@@ -18,10 +18,10 @@ struct ForgotPasswordView: View {
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "Reset password", leading: {}, trailing: {
-                Image.Token.Icons.close
-                    .rdActionIcon {
-                        vm.router.handle(action: .dismiss)
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.close) {
+                    vm.router.handle(action: .dismiss)
+
+                }
             })
         } content: {
             Image("forgotPassword")

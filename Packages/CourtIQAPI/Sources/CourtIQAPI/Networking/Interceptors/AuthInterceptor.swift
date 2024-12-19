@@ -32,6 +32,7 @@ final class AuthInterceptor: ApolloInterceptor {
             do {
                 // Try to get the token
                 let token = try await authService.getIDToken()
+                print(token)
                 
                 // If we get here, token retrieval succeeded
                 request.addHeader(name: "Authorization", value: "Bearer \(token)")

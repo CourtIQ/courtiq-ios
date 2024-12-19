@@ -107,7 +107,9 @@ public extension Image {
             public static var world: Image {
                 Image("world", bundle: .module)
             }
-
+            public static var courtIq: Image {
+                Image("court-iq", bundle: .module)
+            }
         }
     }
 }

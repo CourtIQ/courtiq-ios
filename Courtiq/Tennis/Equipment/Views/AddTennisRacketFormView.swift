@@ -21,10 +21,10 @@ struct AddTennisRacketFormView: View {
             RDNavigationBar(.primary,
                             title: "Add new racket", leading: {},
                             trailing: {
-                Image.Token.Icons.cross
-                    .rdActionIcon {
-                        vm.handle(action: .dismiss)
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.cross, action: {
+                    vm.handle(action: .dismiss)
+
+                })
             })
         } content: {
             RDTextField(textFieldType: .primary,

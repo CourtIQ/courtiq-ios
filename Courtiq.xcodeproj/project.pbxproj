@@ -14,6 +14,7 @@
 		B543F3912D12E20000EFDB90 /* EquipmentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F3902D12E1FA00EFDB90 /* EquipmentVM.swift */; };
 		B543F3932D12E3A700EFDB90 /* EquipmentListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */; };
 		B543F3972D13F69C00EFDB90 /* AddTennisRacketFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F3962D13F69C00EFDB90 /* AddTennisRacketFormModel.swift */; };
+		B543F39F2D143F0F00EFDB90 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B543F39E2D143F0F00EFDB90 /* Launch Screen.storyboard */; };
 		B59FA2CD2D0F20F900C67BB3 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */; };
 		B59FA2D02D1019D400C67BB3 /* TennisMatchesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2CF2D1019D100C67BB3 /* TennisMatchesListView.swift */; };
 		B59FA2D22D1019DD00C67BB3 /* TennisAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2D12D1019DD00C67BB3 /* TennisAllView.swift */; };
@@ -85,7 +86,6 @@
 		C0BA4ED42C5C146C00C6F3F6 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */; };
 		C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */ = {isa = PBXBuildFile; productRef = C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */; };
 		C0C9FBAF2C65676200E913DD /* InstantSearchSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C0C9FBAE2C65676200E913DD /* InstantSearchSwiftUI */; };
-		C0C9FBB12C65688800E913DD /* AlgoliaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB02C65688800E913DD /* AlgoliaController.swift */; };
 		C0C9FBB32C65793100E913DD /* SearchListProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB22C65793100E913DD /* SearchListProfileItem.swift */; };
 		C0C9FBB52C65B6FE00E913DD /* SideMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB42C65B6FE00E913DD /* SideMenuVM.swift */; };
 		C0C9FBB72C65BBEE00E913DD /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */; };
@@ -120,6 +120,7 @@
 		B543F3902D12E1FA00EFDB90 /* EquipmentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentVM.swift; sourceTree = "<group>"; };
 		B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentListCellView.swift; sourceTree = "<group>"; };
 		B543F3962D13F69C00EFDB90 /* AddTennisRacketFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTennisRacketFormModel.swift; sourceTree = "<group>"; };
+		B543F39E2D143F0F00EFDB90 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B59FA2C92D0CC75E00C67BB3 /* EquipmentService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = EquipmentService; sourceTree = "<group>"; };
 		B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		B59FA2CF2D1019D100C67BB3 /* TennisMatchesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMatchesListView.swift; sourceTree = "<group>"; };
@@ -193,7 +194,6 @@
 		C0B0C6F92C61933C00D56577 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		C0B0C6FF2C61A07D00D56577 /* DataService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DataService; sourceTree = "<group>"; };
 		C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
-		C0C9FBB02C65688800E913DD /* AlgoliaController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgoliaController.swift; sourceTree = "<group>"; };
 		C0C9FBB22C65793100E913DD /* SearchListProfileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListProfileItem.swift; sourceTree = "<group>"; };
 		C0C9FBB42C65B6FE00E913DD /* SideMenuVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVM.swift; sourceTree = "<group>"; };
 		C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
@@ -248,12 +248,9 @@
 		B543F38C2D12C6A100EFDB90 /* Equipment */ = {
 			isa = PBXGroup;
 			children = (
+				B543F39A2D14319800EFDB90 /* Views */,
 				B59FA2EA2D12376A00C67BB3 /* Models */,
-				B59FA2D72D1019DD00C67BB3 /* EquipmentListView.swift */,
 				B543F3902D12E1FA00EFDB90 /* EquipmentVM.swift */,
-				B59FA2E42D10AD2100C67BB3 /* AddTennisRacketFormView.swift */,
-				C067FEAC2C5AF0E70089C7E9 /* AddTennisStringFormView.swift */,
-				B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */,
 			);
 			path = Equipment;
 			sourceTree = "<group>";
@@ -261,6 +258,9 @@
 		B543F3982D1425CF00EFDB90 /* Matches */ = {
 			isa = PBXGroup;
 			children = (
+				B59FA2CF2D1019D100C67BB3 /* TennisMatchesListView.swift */,
+				B59FA2D92D10353A00C67BB3 /* TennisMatchesListCell.swift */,
+				B59FA2DC2D10395600C67BB3 /* MatchesFilterView.swift */,
 			);
 			path = Matches;
 			sourceTree = "<group>";
@@ -268,8 +268,30 @@
 		B543F3992D1425D500EFDB90 /* Clubs */ = {
 			isa = PBXGroup;
 			children = (
+				B59FA2E62D10AD5900C67BB3 /* CreateClubView.swift */,
+				B59FA2D32D1019DD00C67BB3 /* TennisClubsListView.swift */,
 			);
 			path = Clubs;
+			sourceTree = "<group>";
+		};
+		B543F39A2D14319800EFDB90 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B59FA2DE2D1039CC00C67BB3 /* EquipmentFilterView.swift */,
+				B59FA2D72D1019DD00C67BB3 /* EquipmentListView.swift */,
+				B59FA2E42D10AD2100C67BB3 /* AddTennisRacketFormView.swift */,
+				C067FEAC2C5AF0E70089C7E9 /* AddTennisStringFormView.swift */,
+				B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B543F39B2D1431B700EFDB90 /* Coaches */ = {
+			isa = PBXGroup;
+			children = (
+				B59FA2D52D1019DD00C67BB3 /* TennisCoachesListView.swift */,
+			);
+			path = Coaches;
 			sourceTree = "<group>";
 		};
 		B59FA2CE2D0F211400C67BB3 /* Chat */ = {
@@ -278,17 +300,6 @@
 				B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */,
 			);
 			path = Chat;
-			sourceTree = "<group>";
-		};
-		B59FA2DB2D10359F00C67BB3 /* MatchesListView */ = {
-			isa = PBXGroup;
-			children = (
-				B59FA2CF2D1019D100C67BB3 /* TennisMatchesListView.swift */,
-				B59FA2D92D10353A00C67BB3 /* TennisMatchesListCell.swift */,
-				B59FA2DC2D10395600C67BB3 /* MatchesFilterView.swift */,
-				B59FA2DE2D1039CC00C67BB3 /* EquipmentFilterView.swift */,
-			);
-			path = MatchesListView;
 			sourceTree = "<group>";
 		};
 		B59FA2EA2D12376A00C67BB3 /* Models */ = {
@@ -388,6 +399,7 @@
 				C067FEB02C5AF37A0089C7E9 /* NunitoSans.ttf */,
 				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
 				C060AF392C1974D200D160A5 /* Preview Content */,
+				B543F39E2D143F0F00EFDB90 /* Launch Screen.storyboard */,
 			);
 			path = Courtiq;
 			sourceTree = "<group>";
@@ -466,6 +478,7 @@
 		C062D2C22C3BEB4200ABF5A8 /* Tennis */ = {
 			isa = PBXGroup;
 			children = (
+				B543F39B2D1431B700EFDB90 /* Coaches */,
 				B543F3982D1425CF00EFDB90 /* Matches */,
 				B543F3992D1425D500EFDB90 /* Clubs */,
 				B543F38C2D12C6A100EFDB90 /* Equipment */,
@@ -479,12 +492,8 @@
 		C067FEB42C5B02B70089C7E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B59FA2DB2D10359F00C67BB3 /* MatchesListView */,
-				B59FA2D52D1019DD00C67BB3 /* TennisCoachesListView.swift */,
-				B59FA2D32D1019DD00C67BB3 /* TennisClubsListView.swift */,
 				B59FA2D12D1019DD00C67BB3 /* TennisAllView.swift */,
 				C062D2C52C3BEB9B00ABF5A8 /* TennisView.swift */,
-				B59FA2E62D10AD5900C67BB3 /* CreateClubView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -506,7 +515,6 @@
 				C0889DDF2C2BEC9E0081BF59 /* ViewModel.swift */,
 				C0889DE12C2BFA4D0081BF59 /* Extensions.swift */,
 				C0B0C6F92C61933C00D56577 /* LoadingView.swift */,
-				C0C9FBB02C65688800E913DD /* AlgoliaController.swift */,
 				C01BFBF82C698C5000184E1B /* CountryManager.swift */,
 			);
 			path = Utils;
@@ -692,6 +700,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B543F39F2D143F0F00EFDB90 /* Launch Screen.storyboard in Resources */,
 				C05FC2A72C662CFF00818A49 /* RDDesignSystem in Resources */,
 				C067FEB12C5AF45A0089C7E9 /* NunitoSans.ttf in Resources */,
 				C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */,
@@ -782,7 +791,6 @@
 				C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */,
 				C067FEAD2C5AF0E70089C7E9 /* AddTennisStringFormView.swift in Sources */,
 				C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */,
-				C0C9FBB12C65688800E913DD /* AlgoliaController.swift in Sources */,
 				C067FEB32C5B001E0089C7E9 /* MatchUpFormInfoView.swift in Sources */,
 				B543F3932D12E3A700EFDB90 /* EquipmentListCellView.swift in Sources */,
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
@@ -965,7 +973,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.swift;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
@@ -1011,7 +1019,7 @@
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = "";
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.swift;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;

@@ -17,17 +17,15 @@ struct HomeView: View {
     var body: some View {
         BaseTabPageView {
             RDNavigationBar(.primary, title: "CourtIQ", leading: {
-                Image.Token.Icons.menu
-                    .rdActionIcon {
-                        withAnimation {
-                            showSideMenu.toggle()
-                        }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.menu) {
+                    withAnimation {
+                        showSideMenu.toggle()
                     }
+                }
             }, trailing: {
-                Image.Token.Icons.bell
-                    .rdActionIcon {
-                        print("notificationtapped")
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.bell) {
+                    print("notificationtapped")
+                }
             })
         } content: {
             RDScoreCardView()

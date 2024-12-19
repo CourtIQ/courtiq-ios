@@ -23,13 +23,11 @@ struct MatchUpFormFormatView: View {
     
     var body: some View {
         MarqueeView {
-            RDNavigationBar(.primary, title: "Match Up Format", leading: {},
-                            trailing: {
-                Image.Token.Icons.close
-                    .rdActionIcon {
-                        appRouter.handle(action: .popToRoot)
-                        appRouter.handle(action: .dismiss)
-                    }
+            RDNavigationBar(.primary, title: "Match Up Format", leading: {}, trailing: {
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.close) {
+                    appRouter.handle(action: .popToRoot)
+                    appRouter.handle(action: .dismiss)
+                }
             })
         } content: {
             ScrollView(.vertical) {

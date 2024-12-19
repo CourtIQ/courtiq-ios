@@ -13,10 +13,9 @@ struct SettingsView: View {
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "Settings", leading: {}, trailing: {
-                Image.Token.Icons.close
-                    .rdActionIcon {
-                        router.handle(action: .dismiss)
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.close) {
+                    router.handle(action: .dismiss)
+                }
             })
         } content: {
             Text("Settings")

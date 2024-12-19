@@ -27,10 +27,9 @@ struct MatchUpFormInfoView: View {
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "Track a new match", leading: {}, trailing: {
-                Image.Token.Icons.close
-                    .rdActionIcon {
-                        vm.handle(action: .dismissTapped)
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.close) {
+                    vm.handle(action: .dismissTapped)
+                }
             })
         } content: {
             // TODO: Allow selection of players from friends list or just a custom name

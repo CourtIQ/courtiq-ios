@@ -17,11 +17,10 @@ struct MatchesFilterView: View {
 
     var body: some View {
         MarqueeView {
-            RDNavigationBar(.primary, title: "Add new string entry", leading: {}, trailing: {
-                Image.Token.Icons.close
-                    .rdActionIcon {
-                        print("Add new string entry")
-                    }
+            RDNavigationBar(.primary, title: "MatchesFilterView", leading: {}, trailing: {
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.close) {
+                    print("MatchesFilterView")
+                }
             })
         } content: {
             Text("Matches Filter View")

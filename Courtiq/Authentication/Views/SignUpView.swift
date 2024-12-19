@@ -37,10 +37,9 @@ struct SignUpView: View {
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "Sign Up", leading: {
-                Image.Token.Icons.back
-                    .rdActionIcon {
-                        vm.router.handle(action: .pop)
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.back, action: {
+                    vm.router.handle(action: .pop)
+                })
             }, trailing: {})
         } content: {
             VStack(spacing: 16) {

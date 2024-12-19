@@ -56,21 +56,13 @@ private extension TennisView {
     }
 
     var leadingContent: some View {
-        Image.Token.Icons.menu
-            .resizable()
-            .frame(width: 24, height: 24)
-//            .rdActionIcon { showSideMenu.toggle() }
+        RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.menu) {
+            showSideMenu.toggle()
+        }
     }
 
     var trailingContent: some View {
-        HStack(spacing: 16) {
-            if selectedTab == 1 || selectedTab == 4 {
-                Image.Token.Icons.filter
-                    .resizable()
-                    .frame(width: 24, height: 24)
-            }
-            menuButton
-        }
+        menuButton
     }
     
     var menuButton: some View {
@@ -84,6 +76,7 @@ private extension TennisView {
             Image.Token.Icons.add
                 .resizable()
                 .frame(width: 24, height: 24)
+                .foregroundStyle(Color.TokenColor.Semantic.Icon.primary)
         }
     }
     

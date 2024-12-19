@@ -215,6 +215,8 @@ Implements a federated key for cross-service references.
 """
 type User {
   id: ObjectID!
+  myTennisRackets(limit: Int = 10, offset: Int = 0): [TennisRacket!]!
+  myTennisStrings(limit: Int = 10, offset: Int = 0): [TennisString!]!
   firebaseId: String!
   email: String!
   firstName: String

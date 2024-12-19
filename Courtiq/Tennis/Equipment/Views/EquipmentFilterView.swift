@@ -18,10 +18,10 @@ struct EquipmentFilterView: View {
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "Equipment Filters", leading: {}, trailing: {
-                Image.Token.Icons.close
-                    .rdActionIcon {
-                        print("Add new string entry")
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.close, action: {
+                    print("Add new string entry")
+
+                })
             })
         } content: {
             Text("EquipmentFilterView")

@@ -28,34 +28,24 @@ struct SearchView: View {
     var body: some View {
         BaseTabPageView {
             RDNavigationBar(.primary, title: "Search", leading: {
-                Image.Token.Icons.menu
-                    .rdActionIcon {
-                        showSideMenu.toggle()
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.menu) {
+                    showSideMenu.toggle()
+                }
             }, trailing: {
-                Image.Token.Icons.filter
-                    .rdActionIcon {
-                        vm.handle(action: .filterButtonTapped)
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.filter) {
+                    vm.handle(action: .filterButtonTapped)
+                }
             })
             
             RDTextField(
                 textFieldType: .search,
-                placeholder: "Search for players or matches...",
-                onSubmit: {
-                    if !vm.searchBoxController.query.isEmpty {
-                        vm.searchBoxController.submit()
-                    }
-                },
-                value: $vm.searchBoxController.query,
-                state: .constant(.normal),
-                isEditing: $vm.searchFieldIsEditing)
+                placeholder: "Search...",
+                onSubmit: { print("Search Pressed") },
+                value: $searchText,
+                state: .constant(.normal)
+            )
             .padding(.horizontal, 12)
-            .onChange(of: vm.searchBoxController.query) { query in
-                if query.isEmpty {
-                    vm.hitsController.hits = []
-                }
-            }
+            .padding(.bottom, 4)
             
         } content: {
 //            VStack {
@@ -81,7 +71,7 @@ struct SearchView: View {
     // MARK: - Private
     
     @StateObject private var vm: SearchVM
-    
+    @State private var searchText: String = ""
     private func calculateAge(from dateOfBirth: Date?) -> String {
         guard let dateOfBirth = dateOfBirth else {
             return "--"

@@ -44,10 +44,6 @@ struct SearchListProfileItem: View {
                 }
                 Spacer()
             }
-            Image.Token.Icons.chevronRight
-                .rdActionIcon {
-                    action()
-                }
         }
         .frame(maxWidth: .infinity)
         .padding(8)

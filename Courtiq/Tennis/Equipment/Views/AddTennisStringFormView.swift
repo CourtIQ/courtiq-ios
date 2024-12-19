@@ -23,10 +23,9 @@ struct AddTennisStringFormView: View {
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "Add new string entry", leading: {}, trailing: {
-                Image.Token.Icons.close
-                    .rdActionIcon {
-                        print("Add new string entry")
-                    }
+                RDActionIcon(type: .ghost, size: .medium, image: Image.Token.Icons.close) {
+                    print("Add new string entry")
+                }
             })
         } content: {
             RDTextField(
