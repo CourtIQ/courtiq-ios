@@ -25,7 +25,7 @@ struct MatchUpFormFormatTiebreakView: View {
     
     var body: some View {
         if setFormat.tiebreakFormat != nil {
-            RDCardView(type: .secondary) {
+            RDCard(type: .secondary) {
                 VStack(alignment: .leading, spacing: 8) {
                     title
                     numberOfPointsView()

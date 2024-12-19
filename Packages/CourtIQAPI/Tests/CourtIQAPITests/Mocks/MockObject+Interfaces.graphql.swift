@@ -5,5 +5,6 @@ import ApolloTestSupport
 import CourtIqAPI
 
 extension MockObject {
+  typealias Equipment = Interface
   typealias Relationship = Interface
 }

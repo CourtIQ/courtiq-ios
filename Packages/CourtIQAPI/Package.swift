@@ -29,7 +29,8 @@ let package = Package(
               "Models",
               .product(name: "Apollo", package: "apollo-ios"),
               "AuthenticationService",
-            ]
+            ],
+            path: "Sources/CourtIQAPI"
         ),
         .testTarget(
             name: "CourtIqAPITests",

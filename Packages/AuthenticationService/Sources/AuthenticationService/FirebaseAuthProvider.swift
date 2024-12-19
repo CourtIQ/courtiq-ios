@@ -128,6 +128,8 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
             throw NSError(domain: "No user signed in", code: 0, userInfo: nil)
         }
         
+        print(user.email)
+        
         return try await withCheckedThrowingContinuation { continuation in
             user.getIDTokenForcingRefresh(true) { token, error in
                 if let error = error {

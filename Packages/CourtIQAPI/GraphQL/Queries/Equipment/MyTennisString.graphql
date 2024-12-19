@@ -1,0 +1,5 @@
+query MyTennisString($id: ObjectID!) {
+  myTennisString(id: $id) {
+    ...TennisStringFields
+  }
+}

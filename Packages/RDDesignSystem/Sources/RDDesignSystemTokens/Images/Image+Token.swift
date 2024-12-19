@@ -104,6 +104,10 @@ public extension Image {
             public static var chat: Image {
                 Image("chat", bundle: .module)
             }
+            public static var world: Image {
+                Image("world", bundle: .module)
+            }
+
         }
     }
 }

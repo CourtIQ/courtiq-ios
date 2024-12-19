@@ -1,0 +1,9 @@
+fragment FullEquipmentFields on Equipment {
+  ...EquipmentFields
+  ... on TennisRacket {
+    ...TennisRacketFields
+  }
+  ... on TennisString {
+    ...TennisStringFields
+  }
+}

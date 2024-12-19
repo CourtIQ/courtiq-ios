@@ -8,13 +8,14 @@
 import SwiftUI
 import RDDesignSystem
 import AuthenticationService
-import StringEntryService
+import EquipmentService
 import UserService
 
 struct HomeBaseTabsView: View {
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var appRouter: AppRouter
     @EnvironmentObject var userService: UserService
+    @EnvironmentObject var equipmentService: EquipmentService
     @ObservedObject var vm: HomeBaseVM
     var body: some View {
         VStack(spacing: 0) {
@@ -28,7 +29,7 @@ struct HomeBaseTabsView: View {
                 case 2:
                     TennisView(showSideMenu: $vm.sideMenuShowing,
                                vm: TennisVM(router: appRouter,
-                                            authService: authService))
+                                            equipmentService: equipmentService))
                 case 3:
                     ChatView(showSideMenu: $vm.sideMenuShowing)
                 case 4:

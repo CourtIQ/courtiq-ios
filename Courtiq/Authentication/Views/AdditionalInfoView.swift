@@ -27,7 +27,7 @@ struct AdditionalInfoView: View {
         } content: {
 
             ScrollView(.vertical) {
-                PhotosPicker(selection: $vm.selectedItem, matching: .images) {
+                PhotosPicker(selection: $vm.selectedProfileImage, matching: .images) {
                     if let image = vm.selectedImage {
                         image
                             .resizable()
@@ -51,9 +51,9 @@ struct AdditionalInfoView: View {
                             }
                     }
                 }
-                .onChange(of: vm.selectedItem, perform: { value in
+                .onChange(of: vm.selectedProfileImage, perform: { value in
                     Task {
-                        if let loaded = try? await vm.selectedItem?.loadTransferable(type: Image.self) {
+                        if let loaded = try? await vm.selectedProfileImage?.loadTransferable(type: Image.self) {
                             vm.selectedImage = loaded
                         } else {
                             print("Failed")
@@ -62,6 +62,16 @@ struct AdditionalInfoView: View {
                 })
                 .padding()
 
+                RDTextField(textFieldType: .primary,
+                            placeholder: "Username",
+                            helperText: vm.isUsernameAvailableText,
+                            leadingIcon: Image.Token.Icons.person,
+                            value: $vm.updateUser.username)
+                .autocapitalization(.none)
+                .onChange(of: vm.updateUser.username, perform: { value in
+                    vm.handle(action: .usernameValueChanged(value))
+                })
+                
                 HStack {
                     RDTextField(textFieldType: .primary,
                                 placeholder: "First name",
@@ -73,15 +83,7 @@ struct AdditionalInfoView: View {
                                 value: $vm.updateUser.lastName)
                 }
                 
-                RDTextField(textFieldType: .primary,
-                            placeholder: "Username",
-                            helperText: vm.isUsernameAvailableText,
-                            leadingIcon: Image.Token.Icons.person,
-                            value: $vm.updateUser.firstName)
-                .autocapitalization(.none)
-                .onChange(of: vm.updateUser.username, perform: { value in
-                    vm.handle(action: .usernameValueChanged(value))
-                })
+
                 
                 RDTextField(textFieldType: .primary,
                             placeholder: "Bio",
@@ -102,27 +104,27 @@ struct AdditionalInfoView: View {
                         placeholder: "Gender",
                         value: Binding(
                             get: {
-                                // Add debug print to see what's being returned
-                                let value = vm.updateUser.gender?.displayName ?? ""
-                                print("Getting gender display value: \(value)")
-                                return value
+                                if let gender = vm.updateUser.gender {
+                                    genderString = gender.displayName
+                                    return genderString
+                                } else {
+                                    return genderString
+                                }
                             },
                             set: { newValue in
-                                // Add debug print to see what value we're receiving
-                                print("Attempting to set gender with value: \(newValue)")
                                 if let newGender = API.Gender.from(displayString: newValue) {
-                                    print("Successfully parsed to gender: \(newGender)")
+                                    genderString = newValue
                                     vm.updateUser.gender = newGender
                                 } else {
-                                    print("Failed to parse gender from: \(newValue)")
+                                    genderString = newValue
+
+                                    vm.updateUser.gender = nil
                                 }
                             }
                         ),
-                        dropdownItems: [
-                            DropdownItem(image: Image.Token.Icons.person, title: "Male"),
-                            DropdownItem(image: Image.Token.Icons.person, title: "Female"),
-                            DropdownItem(image: Image.Token.Icons.person, title: "Non Binary")
-                        ]
+                        dropdownItems: API.Gender.allCases.map { gender in
+                            DropdownItem(image: Image.Token.Icons.person, title: gender.displayName)
+                        }
                     )
                 }
                 
@@ -146,5 +148,6 @@ struct AdditionalInfoView: View {
     // MARK: - Private
     
     @State private var dateString: String = ""
+    @State private var genderString: String = ""
     @ObservedObject private var vm: AuthenticationVM
 }

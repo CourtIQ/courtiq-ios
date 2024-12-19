@@ -35,7 +35,7 @@ class AppRouter: ObservableObject {
     @Published var currentSheet: ViewWrapper? = nil
     @Published var currentScreenCover: ViewWrapper? = nil
     @Published var currentHalfSheet: ViewWrapper? = nil
-    @Published var halfSheetDetents: [UISheetPresentationController.Detent] = []
+    @Published var halfSheetDetents: [PresentationDetent] = []
     @Published var currentAlert: Alert? = nil
     @Published var currentToast: ViewWrapper? = nil
     @Published var isLoading: Bool = false
@@ -88,14 +88,14 @@ enum CustomDetent {
     case medium
     case large
 
-    var value: UISheetPresentationController.Detent {
+    var value: PresentationDetent {
         switch self {
         case .small:
-            return .custom { context in context.maximumDetentValue * 0.3 }
+            return .fraction(0.3)
         case .medium:
-            return .custom { context in context.maximumDetentValue * 0.5 }
+            return .fraction(0.5)
         case .large:
-            return .custom { context in context.maximumDetentValue * 0.7 }
+            return .fraction(0.7)
         }
     }
 }

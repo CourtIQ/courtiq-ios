@@ -34,7 +34,7 @@ struct HomeView: View {
         }
         .onAppear {
             Task {
-                try await relationshipService.fetchFriends(userId: userService.currentUser?.id ?? "")
+                try await userService.fetchCurrentUser()
             }
         }
     }

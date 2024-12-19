@@ -18,7 +18,7 @@ public enum RDNavigationBarType {
         case .primary:
             return Color.TokenColor.Semantic.Background.default
         case .secondary:
-            return Color.Token.greyWhite
+            return Color.TokenColor.Semantic.Background.secondary
         }
     }
     

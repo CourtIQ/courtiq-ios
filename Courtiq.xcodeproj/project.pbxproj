@@ -10,7 +10,23 @@
 		B503B3AF2D05D3180047310A /* CourtIQAPI in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3AE2D05D3180047310A /* CourtIQAPI */; };
 		B503B3B12D05D3180047310A /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3B02D05D3180047310A /* Models */; };
 		B503B3B32D08F95B0047310A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B503B3B22D08F95B0047310A /* GoogleService-Info.plist */; };
+		B543F38F2D12CBE800EFDB90 /* EquipmentService in Frameworks */ = {isa = PBXBuildFile; productRef = B543F38E2D12CBE800EFDB90 /* EquipmentService */; };
+		B543F3912D12E20000EFDB90 /* EquipmentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F3902D12E1FA00EFDB90 /* EquipmentVM.swift */; };
+		B543F3932D12E3A700EFDB90 /* EquipmentListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */; };
+		B543F3972D13F69C00EFDB90 /* AddTennisRacketFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F3962D13F69C00EFDB90 /* AddTennisRacketFormModel.swift */; };
 		B59FA2CD2D0F20F900C67BB3 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */; };
+		B59FA2D02D1019D400C67BB3 /* TennisMatchesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2CF2D1019D100C67BB3 /* TennisMatchesListView.swift */; };
+		B59FA2D22D1019DD00C67BB3 /* TennisAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2D12D1019DD00C67BB3 /* TennisAllView.swift */; };
+		B59FA2D42D1019DD00C67BB3 /* TennisClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2D32D1019DD00C67BB3 /* TennisClubsListView.swift */; };
+		B59FA2D62D1019DD00C67BB3 /* TennisCoachesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2D52D1019DD00C67BB3 /* TennisCoachesListView.swift */; };
+		B59FA2D82D1019DD00C67BB3 /* EquipmentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2D72D1019DD00C67BB3 /* EquipmentListView.swift */; };
+		B59FA2DA2D10353A00C67BB3 /* TennisMatchesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2D92D10353A00C67BB3 /* TennisMatchesListCell.swift */; };
+		B59FA2DD2D10396300C67BB3 /* MatchesFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2DC2D10395600C67BB3 /* MatchesFilterView.swift */; };
+		B59FA2DF2D1039CC00C67BB3 /* EquipmentFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2DE2D1039CC00C67BB3 /* EquipmentFilterView.swift */; };
+		B59FA2E52D10AD2100C67BB3 /* AddTennisRacketFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2E42D10AD2100C67BB3 /* AddTennisRacketFormView.swift */; };
+		B59FA2E72D10AD5900C67BB3 /* CreateClubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2E62D10AD5900C67BB3 /* CreateClubView.swift */; };
+		B59FA2E92D12350600C67BB3 /* EquipmentService in Frameworks */ = {isa = PBXBuildFile; productRef = B59FA2E82D12350600C67BB3 /* EquipmentService */; };
+		B59FA2EC2D12377700C67BB3 /* AddTennisStringFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2EB2D12377000C67BB3 /* AddTennisStringFormModel.swift */; };
 		C01BFBF72C68293300184E1B /* ProfileClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */; };
 		C01BFBF92C698C5000184E1B /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF82C698C5000184E1B /* CountryManager.swift */; };
 		C01BFBFB2C69BEEF00184E1B /* MatchUpFormFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBFA2C69BEEF00184E1B /* MatchUpFormFormatView.swift */; };
@@ -36,11 +52,10 @@
 		C062D2C82C3BEEEC00ABF5A8 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062D2C72C3BEEEC00ABF5A8 /* HomeView.swift */; };
 		C062D2CA2C3BEFBC00ABF5A8 /* BaseTabPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C062D2C92C3BEFBC00ABF5A8 /* BaseTabPageView.swift */; };
 		C067FEAB2C5AEE3F0089C7E9 /* TennisVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067FEAA2C5AEE3F0089C7E9 /* TennisVM.swift */; };
-		C067FEAD2C5AF0E70089C7E9 /* AddStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067FEAC2C5AF0E70089C7E9 /* AddStringView.swift */; };
+		C067FEAD2C5AF0E70089C7E9 /* AddTennisStringFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067FEAC2C5AF0E70089C7E9 /* AddTennisStringFormView.swift */; };
 		C067FEB12C5AF45A0089C7E9 /* NunitoSans.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C067FEB02C5AF37A0089C7E9 /* NunitoSans.ttf */; };
 		C067FEB32C5B001E0089C7E9 /* MatchUpFormInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C067FEB22C5B001E0089C7E9 /* MatchUpFormInfoView.swift */; };
 		C067FEBD2C5B10B80089C7E9 /* RDDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = C067FEBC2C5B10B80089C7E9 /* RDDesignSystem */; };
-		C067FEBF2C5B10B80089C7E9 /* StringEntryService in Frameworks */ = {isa = PBXBuildFile; productRef = C067FEBE2C5B10B80089C7E9 /* StringEntryService */; };
 		C067FEC12C5B10B80089C7E9 /* UserService in Frameworks */ = {isa = PBXBuildFile; productRef = C067FEC02C5B10B80089C7E9 /* UserService */; };
 		C067FEC32C5B11210089C7E9 /* AuthenticationService in Frameworks */ = {isa = PBXBuildFile; productRef = C067FEC22C5B11210089C7E9 /* AuthenticationService */; };
 		C07A2DBC2C297FE0006DDF6F /* HomeBaseTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07A2DB72C297FE0006DDF6F /* HomeBaseTabsView.swift */; };
@@ -76,7 +91,6 @@
 		C0C9FBB72C65BBEE00E913DD /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */; };
 		C0C9FBBA2C65E86000E913DD /* ProfileCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB92C65E86000E913DD /* ProfileCardView.swift */; };
 		C0C9FBBC2C65EB9700E913DD /* ActionItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBBB2C65EB9700E913DD /* ActionItemRowView.swift */; };
-		C0D8AEFC2C6DF4740027BA35 /* StringEntryService in Frameworks */ = {isa = PBXBuildFile; productRef = C0D8AEFB2C6DF4740027BA35 /* StringEntryService */; };
 		C0D8AEFE2C6DF48F0027BA35 /* StorageService in Frameworks */ = {isa = PBXBuildFile; productRef = C0D8AEFD2C6DF48F0027BA35 /* StorageService */; };
 		C0DA7F1D2C633F18005966C1 /* StatActionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA7F1C2C633F18005966C1 /* StatActionItemView.swift */; };
 		C0DA7F202C640CE5005966C1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DA7F1F2C640CE5005966C1 /* SettingsView.swift */; };
@@ -103,8 +117,22 @@
 
 /* Begin PBXFileReference section */
 		B503B3B22D08F95B0047310A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B543F3902D12E1FA00EFDB90 /* EquipmentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentVM.swift; sourceTree = "<group>"; };
+		B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentListCellView.swift; sourceTree = "<group>"; };
+		B543F3962D13F69C00EFDB90 /* AddTennisRacketFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTennisRacketFormModel.swift; sourceTree = "<group>"; };
 		B59FA2C92D0CC75E00C67BB3 /* EquipmentService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = EquipmentService; sourceTree = "<group>"; };
 		B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		B59FA2CF2D1019D100C67BB3 /* TennisMatchesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMatchesListView.swift; sourceTree = "<group>"; };
+		B59FA2D12D1019DD00C67BB3 /* TennisAllView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisAllView.swift; sourceTree = "<group>"; };
+		B59FA2D32D1019DD00C67BB3 /* TennisClubsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisClubsListView.swift; sourceTree = "<group>"; };
+		B59FA2D52D1019DD00C67BB3 /* TennisCoachesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisCoachesListView.swift; sourceTree = "<group>"; };
+		B59FA2D72D1019DD00C67BB3 /* EquipmentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentListView.swift; sourceTree = "<group>"; };
+		B59FA2D92D10353A00C67BB3 /* TennisMatchesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMatchesListCell.swift; sourceTree = "<group>"; };
+		B59FA2DC2D10395600C67BB3 /* MatchesFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchesFilterView.swift; sourceTree = "<group>"; };
+		B59FA2DE2D1039CC00C67BB3 /* EquipmentFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentFilterView.swift; sourceTree = "<group>"; };
+		B59FA2E42D10AD2100C67BB3 /* AddTennisRacketFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTennisRacketFormView.swift; sourceTree = "<group>"; };
+		B59FA2E62D10AD5900C67BB3 /* CreateClubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClubView.swift; sourceTree = "<group>"; };
+		B59FA2EB2D12377000C67BB3 /* AddTennisStringFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTennisStringFormModel.swift; sourceTree = "<group>"; };
 		B5B116F02D05D0C10080D123 /* CourtIQAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CourtIQAPI; sourceTree = "<group>"; };
 		C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileClubsListView.swift; sourceTree = "<group>"; };
 		C01BFBF82C698C5000184E1B /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
@@ -136,10 +164,9 @@
 		C062D2C72C3BEEEC00ABF5A8 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C062D2C92C3BEFBC00ABF5A8 /* BaseTabPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabPageView.swift; sourceTree = "<group>"; };
 		C067FEAA2C5AEE3F0089C7E9 /* TennisVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisVM.swift; sourceTree = "<group>"; };
-		C067FEAC2C5AF0E70089C7E9 /* AddStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStringView.swift; sourceTree = "<group>"; };
+		C067FEAC2C5AF0E70089C7E9 /* AddTennisStringFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTennisStringFormView.swift; sourceTree = "<group>"; };
 		C067FEB02C5AF37A0089C7E9 /* NunitoSans.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NunitoSans.ttf; sourceTree = "<group>"; };
 		C067FEB22C5B001E0089C7E9 /* MatchUpFormInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUpFormInfoView.swift; sourceTree = "<group>"; };
-		C067FEB52C5B071C0089C7E9 /* StringEntryService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = StringEntryService; sourceTree = "<group>"; };
 		C07A2DB72C297FE0006DDF6F /* HomeBaseTabsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeBaseTabsView.swift; sourceTree = "<group>"; };
 		C07A2DB82C297FE0006DDF6F /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		C0889DDC2C2BA5700081BF59 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
@@ -186,12 +213,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B59FA2E92D12350600C67BB3 /* EquipmentService in Frameworks */,
 				C0BA4ECE2C5B116D00C6F3F6 /* StorageService in Frameworks */,
 				C067FEC32C5B11210089C7E9 /* AuthenticationService in Frameworks */,
-				C0D8AEFC2C6DF4740027BA35 /* StringEntryService in Frameworks */,
 				C067FEBD2C5B10B80089C7E9 /* RDDesignSystem in Frameworks */,
 				C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */,
-				C067FEBF2C5B10B80089C7E9 /* StringEntryService in Frameworks */,
+				B543F38F2D12CBE800EFDB90 /* EquipmentService in Frameworks */,
 				B503B3B12D05D3180047310A /* Models in Frameworks */,
 				B503B3AF2D05D3180047310A /* CourtIQAPI in Frameworks */,
 				C0D8AEFE2C6DF48F0027BA35 /* StorageService in Frameworks */,
@@ -218,12 +245,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B543F38C2D12C6A100EFDB90 /* Equipment */ = {
+			isa = PBXGroup;
+			children = (
+				B59FA2EA2D12376A00C67BB3 /* Models */,
+				B59FA2D72D1019DD00C67BB3 /* EquipmentListView.swift */,
+				B543F3902D12E1FA00EFDB90 /* EquipmentVM.swift */,
+				B59FA2E42D10AD2100C67BB3 /* AddTennisRacketFormView.swift */,
+				C067FEAC2C5AF0E70089C7E9 /* AddTennisStringFormView.swift */,
+				B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */,
+			);
+			path = Equipment;
+			sourceTree = "<group>";
+		};
 		B59FA2CE2D0F211400C67BB3 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
 				B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */,
 			);
 			path = Chat;
+			sourceTree = "<group>";
+		};
+		B59FA2DB2D10359F00C67BB3 /* MatchesListView */ = {
+			isa = PBXGroup;
+			children = (
+				B59FA2CF2D1019D100C67BB3 /* TennisMatchesListView.swift */,
+				B59FA2D92D10353A00C67BB3 /* TennisMatchesListCell.swift */,
+				B59FA2DC2D10395600C67BB3 /* MatchesFilterView.swift */,
+				B59FA2DE2D1039CC00C67BB3 /* EquipmentFilterView.swift */,
+			);
+			path = MatchesListView;
+			sourceTree = "<group>";
+		};
+		B59FA2EA2D12376A00C67BB3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B543F3962D13F69C00EFDB90 /* AddTennisRacketFormModel.swift */,
+				B59FA2EB2D12377000C67BB3 /* AddTennisStringFormModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C04935EB2C41C217002E68B5 /* MatchUp */ = {
@@ -354,7 +414,6 @@
 				C0CECA542C3F8625000F2032 /* MatchUpService */,
 				C0495DA12C1E606700E6D023 /* RDDesignSystem */,
 				C026923B2C62D01300B34F42 /* RelationshipService */,
-				C067FEB52C5B071C0089C7E9 /* StringEntryService */,
 				C0FB31CF2C3CE64C0004D153 /* StorageService */,
 			);
 			path = Packages;
@@ -393,6 +452,7 @@
 		C062D2C22C3BEB4200ABF5A8 /* Tennis */ = {
 			isa = PBXGroup;
 			children = (
+				B543F38C2D12C6A100EFDB90 /* Equipment */,
 				C067FEAA2C5AEE3F0089C7E9 /* TennisVM.swift */,
 				C067FEB42C5B02B70089C7E9 /* Views */,
 				C0889DDE2C2BEC930081BF59 /* Utils */,
@@ -403,8 +463,12 @@
 		C067FEB42C5B02B70089C7E9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C067FEAC2C5AF0E70089C7E9 /* AddStringView.swift */,
+				B59FA2DB2D10359F00C67BB3 /* MatchesListView */,
+				B59FA2D52D1019DD00C67BB3 /* TennisCoachesListView.swift */,
+				B59FA2D32D1019DD00C67BB3 /* TennisClubsListView.swift */,
+				B59FA2D12D1019DD00C67BB3 /* TennisAllView.swift */,
 				C062D2C52C3BEB9B00ABF5A8 /* TennisView.swift */,
+				B59FA2E62D10AD5900C67BB3 /* CreateClubView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -503,17 +567,17 @@
 			name = Courtiq;
 			packageProductDependencies = (
 				C067FEBC2C5B10B80089C7E9 /* RDDesignSystem */,
-				C067FEBE2C5B10B80089C7E9 /* StringEntryService */,
 				C067FEC02C5B10B80089C7E9 /* UserService */,
 				C067FEC22C5B11210089C7E9 /* AuthenticationService */,
 				C0BA4ECD2C5B116D00C6F3F6 /* StorageService */,
 				C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */,
 				C02692382C62CFBE00B34F42 /* RelationshipService */,
 				C0C9FBAE2C65676200E913DD /* InstantSearchSwiftUI */,
-				C0D8AEFB2C6DF4740027BA35 /* StringEntryService */,
 				C0D8AEFD2C6DF48F0027BA35 /* StorageService */,
 				B503B3AE2D05D3180047310A /* CourtIQAPI */,
 				B503B3B02D05D3180047310A /* Models */,
+				B59FA2E82D12350600C67BB3 /* EquipmentService */,
+				B543F38E2D12CBE800EFDB90 /* EquipmentService */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -594,7 +658,7 @@
 				C0B0C6FC2C61A03300D56577 /* XCLocalSwiftPackageReference "Packages/DataService" */,
 				C02692372C62CFBE00B34F42 /* XCLocalSwiftPackageReference "Packages/RelationshipService" */,
 				C0C9FBA72C6565CD00E913DD /* XCRemoteSwiftPackageReference "instantsearch-ios" */,
-				C0D8AEFA2C6DF4740027BA35 /* XCLocalSwiftPackageReference "Packages/StringEntryService" */,
+				B543F38D2D12CBE800EFDB90 /* XCLocalSwiftPackageReference "Packages/EquipmentService" */,
 			);
 			productRefGroup = C060AF2E2C1974D100D160A5 /* Products */;
 			projectDirPath = "";
@@ -651,6 +715,7 @@
 				C07A2DBC2C297FE0006DDF6F /* HomeBaseTabsView.swift in Sources */,
 				C09138232C64AB0F00598535 /* XelaChartPieItemShape.swift in Sources */,
 				C091381F2C64AB0F00598535 /* XelaBarChartBody.swift in Sources */,
+				B543F3972D13F69C00EFDB90 /* AddTennisRacketFormModel.swift in Sources */,
 				C09138112C64AAFD00598535 /* XelaChart.swift in Sources */,
 				C0B0C6FA2C61933C00D56577 /* LoadingView.swift in Sources */,
 				C062D2C82C3BEEEC00ABF5A8 /* HomeView.swift in Sources */,
@@ -659,9 +724,13 @@
 				C0B0C6F32C6062F800D56577 /* MatchUpVM.swift in Sources */,
 				C09138222C64AB0F00598535 /* XelaChartLineShape.swift in Sources */,
 				C0904D712C297489008B7B2E /* HomeBaseVM.swift in Sources */,
+				B59FA2DA2D10353A00C67BB3 /* TennisMatchesListCell.swift in Sources */,
 				C0C9FBB72C65BBEE00E913DD /* SearchVM.swift in Sources */,
+				B59FA2D02D1019D400C67BB3 /* TennisMatchesListView.swift in Sources */,
 				C01BFBF92C698C5000184E1B /* CountryManager.swift in Sources */,
 				C01BFBF72C68293300184E1B /* ProfileClubsListView.swift in Sources */,
+				B59FA2D42D1019DD00C67BB3 /* TennisClubsListView.swift in Sources */,
+				B59FA2DD2D10396300C67BB3 /* MatchesFilterView.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
 				C01BFC092C6A039800184E1B /* MatchUpFormFormatTiebreakView.swift in Sources */,
 				C0BA4ED42C5C146C00C6F3F6 /* SideMenuView.swift in Sources */,
@@ -669,6 +738,7 @@
 				C01BFBFB2C69BEEF00184E1B /* MatchUpFormFormatView.swift in Sources */,
 				C091382A2C64AB0F00598535 /* XelaPieDatasets.swift in Sources */,
 				C0889DEA2C2C0A770081BF59 /* AdditionalInfoView.swift in Sources */,
+				B59FA2E72D10AD5900C67BB3 /* CreateClubView.swift in Sources */,
 				C0DA7F1D2C633F18005966C1 /* StatActionItemView.swift in Sources */,
 				C0889DE02C2BEC9E0081BF59 /* ViewModel.swift in Sources */,
 				C07A2DBD2C297FE0006DDF6F /* SearchView.swift in Sources */,
@@ -677,20 +747,28 @@
 				C0C9FBBA2C65E86000E913DD /* ProfileCardView.swift in Sources */,
 				C0C9FBB32C65793100E913DD /* SearchListProfileItem.swift in Sources */,
 				C09138202C64AB0F00598535 /* XelaBarDatasets.swift in Sources */,
+				B59FA2D82D1019DD00C67BB3 /* EquipmentListView.swift in Sources */,
+				B59FA2EC2D12377700C67BB3 /* AddTennisStringFormModel.swift in Sources */,
 				C0889DDD2C2BA5700081BF59 /* AppRouter.swift in Sources */,
 				B59FA2CD2D0F20F900C67BB3 /* ChatView.swift in Sources */,
+				B59FA2DF2D1039CC00C67BB3 /* EquipmentFilterView.swift in Sources */,
+				B59FA2E52D10AD2100C67BB3 /* AddTennisRacketFormView.swift in Sources */,
 				C09138252C64AB0F00598535 /* XelaDoughnutChartBody.swift in Sources */,
 				C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */,
 				C01BFC0B2C6A0BDC00184E1B /* SearchProfileDetailView.swift in Sources */,
+				B543F3912D12E20000EFDB90 /* EquipmentVM.swift in Sources */,
 				C09138282C64AB0F00598535 /* XelaLineDatasets.swift in Sources */,
+				B59FA2D62D1019DD00C67BB3 /* TennisCoachesListView.swift in Sources */,
 				C09138262C64AB0F00598535 /* XelaDoughnutDatasets.swift in Sources */,
+				B59FA2D22D1019DD00C67BB3 /* TennisAllView.swift in Sources */,
 				C0B0C6F12C6055C800D56577 /* ProfileVM.swift in Sources */,
 				C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */,
 				C0F58BBF2C29021000930364 /* AuthenticationWelcomeView.swift in Sources */,
-				C067FEAD2C5AF0E70089C7E9 /* AddStringView.swift in Sources */,
+				C067FEAD2C5AF0E70089C7E9 /* AddTennisStringFormView.swift in Sources */,
 				C0F58BD42C29525200930364 /* AuthenticationVM.swift in Sources */,
 				C0C9FBB12C65688800E913DD /* AlgoliaController.swift in Sources */,
 				C067FEB32C5B001E0089C7E9 /* MatchUpFormInfoView.swift in Sources */,
+				B543F3932D12E3A700EFDB90 /* EquipmentListCellView.swift in Sources */,
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
 				C0DA7F202C640CE5005966C1 /* SettingsView.swift in Sources */,
 				C0495D9A2C1E5C3A00E6D023 /* MarqueeView.swift in Sources */,
@@ -1076,6 +1154,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		B543F38D2D12CBE800EFDB90 /* XCLocalSwiftPackageReference "Packages/EquipmentService" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/EquipmentService;
+		};
 		C02692372C62CFBE00B34F42 /* XCLocalSwiftPackageReference "Packages/RelationshipService" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/RelationshipService;
@@ -1095,10 +1177,6 @@
 		C0BA4ECC2C5B116D00C6F3F6 /* XCLocalSwiftPackageReference "Packages/StorageService" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/StorageService;
-		};
-		C0D8AEFA2C6DF4740027BA35 /* XCLocalSwiftPackageReference "Packages/StringEntryService" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/StringEntryService;
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -1122,6 +1200,14 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Models;
 		};
+		B543F38E2D12CBE800EFDB90 /* EquipmentService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EquipmentService;
+		};
+		B59FA2E82D12350600C67BB3 /* EquipmentService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EquipmentService;
+		};
 		C02692382C62CFBE00B34F42 /* RelationshipService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RelationshipService;
@@ -1129,10 +1215,6 @@
 		C067FEBC2C5B10B80089C7E9 /* RDDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RDDesignSystem;
-		};
-		C067FEBE2C5B10B80089C7E9 /* StringEntryService */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StringEntryService;
 		};
 		C067FEC02C5B10B80089C7E9 /* UserService */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1154,10 +1236,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C0C9FBA72C6565CD00E913DD /* XCRemoteSwiftPackageReference "instantsearch-ios" */;
 			productName = InstantSearchSwiftUI;
-		};
-		C0D8AEFB2C6DF4740027BA35 /* StringEntryService */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = StringEntryService;
 		};
 		C0D8AEFD2C6DF48F0027BA35 /* StorageService */ = {
 			isa = XCSwiftPackageProductDependency;

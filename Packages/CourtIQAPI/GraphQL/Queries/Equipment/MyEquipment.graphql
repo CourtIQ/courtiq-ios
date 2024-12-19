@@ -1,0 +1,5 @@
+query MyEquipment($limit: Int = 10, $offset: Int = 0) {
+  myEquipment(limit: $limit, offset: $offset) {
+    ...FullEquipmentFields
+  }
+}

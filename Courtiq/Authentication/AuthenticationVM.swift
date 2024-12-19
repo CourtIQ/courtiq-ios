@@ -43,9 +43,9 @@ final class AuthenticationVM: ViewModel {
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
-    @Published var selectedItem: PhotosPickerItem? = nil {
+    @Published var selectedProfileImage: PhotosPickerItem? = nil {
         didSet {
-            if let selectedItem = selectedItem {
+            if let selectedItem = selectedProfileImage {
                 Task {
                     await loadTransferable(from: selectedItem)
                 }
@@ -134,7 +134,6 @@ final class AuthenticationVM: ViewModel {
     func printIDToken() async {
         do {
             let token = try await authService.getIDToken()
-            print(token)
         } catch {
             await MainActor.run {
                 router.handle(action: .stopLoading)

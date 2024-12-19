@@ -1,0 +1,3 @@
+mutation DeleteMyTennisString($deleteMyTennisStringId: ObjectID!) {
+  deleteMyTennisString(id: $deleteMyTennisStringId)
+}

@@ -1,0 +1,3376 @@
+[
+    {
+        "brand_id": 0,
+        "brand": "Alien",
+        "models": [
+            {
+                "model_id": 0,
+                "model": "Black Diamond 16"
+            }
+        ]
+    },
+    {
+        "brand_id": 1,
+        "brand": "Alpha",
+        "models": [
+            {
+                "model_id": 1,
+                "model": "Gut 2000 16"
+            }
+        ]
+    },
+    {
+        "brand_id": 2,
+        "brand": "Ashaway",
+        "models": [
+            {
+                "model_id": 2,
+                "model": "Dynamite 17"
+            },
+            {
+                "model_id": 3,
+                "model": "Dynamite Soft 17"
+            },
+            {
+                "model_id": 4,
+                "model": "Dynamite Soft 18"
+            },
+            {
+                "model_id": 5,
+                "model": "Dynamite WB 16"
+            },
+            {
+                "model_id": 6,
+                "model": "Liberty 16"
+            },
+            {
+                "model_id": 7,
+                "model": "MonoGut 16L"
+            },
+            {
+                "model_id": 8,
+                "model": "MonoGut 17"
+            },
+            {
+                "model_id": 9,
+                "model": "MonoGut ZX 16"
+            },
+            {
+                "model_id": 10,
+                "model": "Synthetic Gut 16"
+            },
+            {
+                "model_id": 776,
+                "model": "Crossfire 18"
+            },
+            {
+                "model_id": 777,
+                "model": "Crossfire Plus"
+            }
+        ]
+    },
+    {
+        "brand_id": 3,
+        "brand": "Babolat",
+        "models": [
+            {
+                "model_id": 11,
+                "model": "Addiction 16"
+            },
+            {
+                "model_id": 12,
+                "model": "Addiction 17"
+            },
+            {
+                "model_id": 13,
+                "model": "Attraction 16"
+            },
+            {
+                "model_id": 14,
+                "model": "Ballistic Polymono 16"
+            },
+            {
+                "model_id": 15,
+                "model": "Conquest 16"
+            },
+            {
+                "model_id": 16,
+                "model": "Duralast 16"
+            },
+            {
+                "model_id": 17,
+                "model": "Duralast 17"
+            },
+            {
+                "model_id": 18,
+                "model": "FiberTour 16"
+            },
+            {
+                "model_id": 19,
+                "model": "Hurricane Feel 16"
+            },
+            {
+                "model_id": 20,
+                "model": "Hurricane Feel 17"
+            },
+            {
+                "model_id": 21,
+                "model": "M7 16 (1.30)"
+            },
+            {
+                "model_id": 22,
+                "model": "Origin 16 (1.30)"
+            },
+            {
+                "model_id": 23,
+                "model": "Origin 17"
+            },
+            {
+                "model_id": 24,
+                "model": "Pro Hurricane 16"
+            },
+            {
+                "model_id": 25,
+                "model": "Pro Hurricane 17"
+            },
+            {
+                "model_id": 26,
+                "model": "Pro Hurricane 18"
+            },
+            {
+                "model_id": 27,
+                "model": "Pro Hurricane Tour 16"
+            },
+            {
+                "model_id": 28,
+                "model": "Pro Hurricane Tour 17"
+            },
+            {
+                "model_id": 29,
+                "model": "Revenge 16"
+            },
+            {
+                "model_id": 30,
+                "model": "Revenge 17"
+            },
+            {
+                "model_id": 31,
+                "model": "RPM Blast 15L (1.35)"
+            },
+            {
+                "model_id": 32,
+                "model": "RPM Blast 16"
+            },
+            {
+                "model_id": 33,
+                "model": "RPM Blast 17/1.25"
+            },
+            {
+                "model_id": 34,
+                "model": "RPM Blast 18 (1.20)"
+            },
+            {
+                "model_id": 35,
+                "model": "RPM Blast Orange 16 (1.30)"
+            },
+            {
+                "model_id": 36,
+                "model": "RPM Blast Rough 15L"
+            },
+            {
+                "model_id": 37,
+                "model": "RPM Blast Rough 16"
+            },
+            {
+                "model_id": 38,
+                "model": "RPM Blast Rough 17"
+            },
+            {
+                "model_id": 39,
+                "model": "RPM Dual 16"
+            },
+            {
+                "model_id": 40,
+                "model": "RPM Soft 16 (1.30)"
+            },
+            {
+                "model_id": 41,
+                "model": "RPM Team 16 Black"
+            },
+            {
+                "model_id": 42,
+                "model": "RPM Team 17 (1.25)"
+            },
+            {
+                "model_id": 43,
+                "model": "SG SpiralTek 16"
+            },
+            {
+                "model_id": 44,
+                "model": "SpiralTek 17"
+            },
+            {
+                "model_id": 45,
+                "model": "Super Fine Play 16"
+            },
+            {
+                "model_id": 46,
+                "model": "Synthetic Gut 16 (1.30)"
+            },
+            {
+                "model_id": 47,
+                "model": "Synthetic Gut 17 (1.25)"
+            },
+            {
+                "model_id": 48,
+                "model": "Tonic + Natural Gut 16"
+            },
+            {
+                "model_id": 49,
+                "model": "VS Natural Team Gut 17 (1.25)"
+            },
+            {
+                "model_id": 50,
+                "model": "VS Natural ThermoGut 16 Touch"
+            },
+            {
+                "model_id": 51,
+                "model": "VS Touch 15L (1.35)"
+            },
+            {
+                "model_id": 52,
+                "model": "Xalt 16 (1.30)"
+            },
+            {
+                "model_id": 53,
+                "model": "Xcel 16"
+            },
+            {
+                "model_id": 54,
+                "model": "Xcel French Open Black 16"
+            },
+            {
+                "model_id": 55,
+                "model": "Xcel Power 16"
+            },
+            {
+                "model_id": 56,
+                "model": "Xcel Power 17"
+            },
+            {
+                "model_id": 57,
+                "model": "Xcel Premium 17"
+            }
+        ]
+    },
+    {
+        "brand_id": 4,
+        "brand": "Boris Becker",
+        "models": [
+            {
+                "model_id": 58,
+                "model": "Bomber 16"
+            },
+            {
+                "model_id": 59,
+                "model": "Bomber 17"
+            },
+            {
+                "model_id": 60,
+                "model": "Bomber NYC 16 (1.28)"
+            },
+            {
+                "model_id": 61,
+                "model": "Bomber NYC 17 (1.23)"
+            },
+            {
+                "model_id": 62,
+                "model": "Pulse 16 (1.32)"
+            }
+        ]
+    },
+    {
+        "brand_id": 5,
+        "brand": "Diadem",
+        "models": [
+            {
+                "model_id": 63,
+                "model": "Elite XT 16"
+            },
+            {
+                "model_id": 64,
+                "model": "Elite XT 17"
+            },
+            {
+                "model_id": 65,
+                "model": "Impulse 16 (1.32)"
+            },
+            {
+                "model_id": 66,
+                "model": "Impulse 17 (1.25)"
+            },
+            {
+                "model_id": 67,
+                "model": "Solstice Blace 17 (1.20)"
+            },
+            {
+                "model_id": 68,
+                "model": "Solstice Power 15L (1.35)"
+            },
+            {
+                "model_id": 69,
+                "model": "Solstice Power 16 (1.30)"
+            },
+            {
+                "model_id": 70,
+                "model": "Solstice Power 16L (1.25)"
+            },
+            {
+                "model_id": 71,
+                "model": "Solstice Power 17 (1.20)"
+            },
+            {
+                "model_id": 72,
+                "model": "Solstice Pro 15L (1.35)"
+            },
+            {
+                "model_id": 73,
+                "model": "Solstice Pro 16L (1.25)"
+            },
+            {
+                "model_id": 74,
+                "model": "Solstice Pro 16L (1.25)"
+            },
+            {
+                "model_id": 772,
+                "model": "Solstice Power 18ga"
+            }
+        ]
+    },
+    {
+        "brand_id": 6,
+        "brand": "Double AR",
+        "models": [
+            {
+                "model_id": 75,
+                "model": "666 (1.30)"
+            },
+            {
+                "model_id": 76,
+                "model": "Diablo (1.24)"
+            },
+            {
+                "model_id": 77,
+                "model": "Diablo (1.31)"
+            },
+            {
+                "model_id": 78,
+                "model": "Raptor 1.27"
+            },
+            {
+                "model_id": 79,
+                "model": "Twice Dragon(1.30)"
+            },
+            {
+                "model_id": 80,
+                "model": "Twice Shark (1.25)"
+            },
+            {
+                "model_id": 81,
+                "model": "WTS 25 (1.25)"
+            }
+        ]
+    },
+    {
+        "brand_id": 7,
+        "brand": "Dunlop",
+        "models": [
+            {
+                "model_id": 82,
+                "model": "Black Widow 16"
+            },
+            {
+                "model_id": 83,
+                "model": "Black Widow 17"
+            },
+            {
+                "model_id": 84,
+                "model": "Black Widow 18 (1.21)"
+            },
+            {
+                "model_id": 85,
+                "model": "Comfort Poly 17"
+            },
+            {
+                "model_id": 86,
+                "model": "Comfort Synthetic 16"
+            },
+            {
+                "model_id": 87,
+                "model": "Comfort Synthetic 17"
+            },
+            {
+                "model_id": 88,
+                "model": "DNA 16 (1.30)"
+            },
+            {
+                "model_id": 89,
+                "model": "DNA 17 (1.22)"
+            },
+            {
+                "model_id": 90,
+                "model": "Explosive 16"
+            },
+            {
+                "model_id": 91,
+                "model": "Explosive 17 (1.26)"
+            },
+            {
+                "model_id": 92,
+                "model": "Explosive 18 (1.20)"
+            },
+            {
+                "model_id": 93,
+                "model": "Explosive Bite 17 (1.27)"
+            },
+            {
+                "model_id": 94,
+                "model": "Explosive Poly Max 16"
+            },
+            {
+                "model_id": 95,
+                "model": "Explosive Speed 17 (1.25)"
+            },
+            {
+                "model_id": 96,
+                "model": "Explosive Synthetic 16"
+            },
+            {
+                "model_id": 97,
+                "model": "Explosive Synthetic Gut 17"
+            },
+            {
+                "model_id": 98,
+                "model": "Explosive Tour 16 (1.30)"
+            },
+            {
+                "model_id": 99,
+                "model": "Hexy Fiber 16"
+            },
+            {
+                "model_id": 100,
+                "model": "Hexy Fiber 17"
+            },
+            {
+                "model_id": 101,
+                "model": "Ice 16 (1.30)"
+            },
+            {
+                "model_id": 102,
+                "model": "Ice 17 (1.25)"
+            },
+            {
+                "model_id": 103,
+                "model": "Iconic All 17 (1.25)"
+            },
+            {
+                "model_id": 104,
+                "model": "Iconic Speed 17 (1.25)"
+            },
+            {
+                "model_id": 105,
+                "model": "Iconic Touch 17 (1.25)"
+            },
+            {
+                "model_id": 106,
+                "model": "Juice 16 (1.31)"
+            },
+            {
+                "model_id": 107,
+                "model": "Juice 17 (1.26)"
+            },
+            {
+                "model_id": 108,
+                "model": "M-Fil Tour 16"
+            },
+            {
+                "model_id": 109,
+                "model": "Pearl 16 (1.30)"
+            },
+            {
+                "model_id": 110,
+                "model": "Pearl 17 (1.25)"
+            },
+            {
+                "model_id": 111,
+                "model": "S-Gut 16 (1.32)"
+            },
+            {
+                "model_id": 112,
+                "model": "S-Gut 17"
+            },
+            {
+                "model_id": 113,
+                "model": "S-Gut 18 (1.19)"
+            },
+            {
+                "model_id": 114,
+                "model": "Silk 16 (1.30)"
+            },
+            {
+                "model_id": 115,
+                "model": "Silk 17"
+            },
+            {
+                "model_id": 116,
+                "model": "Synthetic Gut 16"
+            },
+            {
+                "model_id": 117,
+                "model": "Tour Performance 16"
+            },
+            {
+                "model_id": 118,
+                "model": "X-Life Synthetic 15L"
+            }
+        ]
+    },
+    {
+        "brand_id": 8,
+        "brand": "Forten",
+        "models": [
+            {
+                "model_id": 119,
+                "model": "Sweet 16"
+            }
+        ]
+    },
+    {
+        "brand_id": 9,
+        "brand": "Gamma",
+        "models": [
+            {
+                "model_id": 120,
+                "model": "Asterisk 16"
+            },
+            {
+                "model_id": 121,
+                "model": "Asterisk Spin 16"
+            },
+            {
+                "model_id": 122,
+                "model": "Asterisk Tour 16"
+            },
+            {
+                "model_id": 123,
+                "model": "ESP 16"
+            },
+            {
+                "model_id": 124,
+                "model": "FXT 16 (1.30)"
+            },
+            {
+                "model_id": 125,
+                "model": "FXT 17 (1.24)"
+            },
+            {
+                "model_id": 126,
+                "model": "Glide Cross String 16"
+            },
+            {
+                "model_id": 127,
+                "model": "IO 17 (1.23)"
+            },
+            {
+                "model_id": 128,
+                "model": "IO 18 (1.18)"
+            },
+            {
+                "model_id": 129,
+                "model": "IO Soft 15L (1.40)"
+            },
+            {
+                "model_id": 130,
+                "model": "IO Soft 16 (1.28)"
+            },
+            {
+                "model_id": 131,
+                "model": "IO Soft 17 (1.23)"
+            },
+            {
+                "model_id": 132,
+                "model": "Jet 16L (1.28)"
+            },
+            {
+                "model_id": 133,
+                "model": "Live Wire 16"
+            },
+            {
+                "model_id": 134,
+                "model": "Live Wire 17 (1.27)"
+            },
+            {
+                "model_id": 135,
+                "model": "Live Wire XP 16"
+            },
+            {
+                "model_id": 136,
+                "model": "Live Wire XP 17 (1.27)"
+            },
+            {
+                "model_id": 137,
+                "model": "Marathon DPC 15 (1.40)"
+            },
+            {
+                "model_id": 138,
+                "model": "Marathon DPC 16 (1.32)"
+            },
+            {
+                "model_id": 139,
+                "model": "Monoblast 16"
+            },
+            {
+                "model_id": 140,
+                "model": "Moto 16"
+            },
+            {
+                "model_id": 141,
+                "model": "Moto 17 (1.24)"
+            },
+            {
+                "model_id": 142,
+                "model": "Moto Soft 16 (1.29)"
+            },
+            {
+                "model_id": 143,
+                "model": "Moto Soft 17 (1.24)"
+            },
+            {
+                "model_id": 144,
+                "model": "Ocho 16 (1.30)"
+            },
+            {
+                "model_id": 145,
+                "model": "Ocho 17 (1.25)"
+            },
+            {
+                "model_id": 146,
+                "model": "Ocho TNT 16 (1.30)"
+            },
+            {
+                "model_id": 147,
+                "model": "Ocho TNT 17 (1.25)"
+            },
+            {
+                "model_id": 148,
+                "model": "Ocho XP 16 (1.32)"
+            },
+            {
+                "model_id": 149,
+                "model": "Ocho XP 17 (1.27)"
+            },
+            {
+                "model_id": 150,
+                "model": "Poly Z 16"
+            },
+            {
+                "model_id": 151,
+                "model": "Prodigy 16"
+            },
+            {
+                "model_id": 152,
+                "model": "Professional 16"
+            },
+            {
+                "model_id": 153,
+                "model": "Professional 17"
+            },
+            {
+                "model_id": 154,
+                "model": "Professional 18 (1.22)"
+            },
+            {
+                "model_id": 155,
+                "model": "Professional Spin 16"
+            },
+            {
+                "model_id": 156,
+                "model": "Revelation 16"
+            },
+            {
+                "model_id": 157,
+                "model": "Revelation 17 (1.27)"
+            },
+            {
+                "model_id": 158,
+                "model": "RZR Rx 16"
+            },
+            {
+                "model_id": 159,
+                "model": "RZR Rx 17"
+            },
+            {
+                "model_id": 160,
+                "model": "Solace 16 (1.32)"
+            },
+            {
+                "model_id": 161,
+                "model": "Solace 17 (1.27)"
+            },
+            {
+                "model_id": 162,
+                "model": "Synthetic Gut 16"
+            },
+            {
+                "model_id": 163,
+                "model": "Synthetic Gut 17 (1.25)"
+            },
+            {
+                "model_id": 164,
+                "model": "Synthetic Gut 17 W/wearguard (1.22)"
+            },
+            {
+                "model_id": 165,
+                "model": "Synthetic Gut 18 (1.18)"
+            },
+            {
+                "model_id": 166,
+                "model": "Synthtic Gut 15L W/wearguard (1.38)"
+            },
+            {
+                "model_id": 167,
+                "model": "TNT2 15L (1.40)"
+            },
+            {
+                "model_id": 168,
+                "model": "TNT2 16"
+            },
+            {
+                "model_id": 169,
+                "model": "TNT2 17 (1.27)"
+            },
+            {
+                "model_id": 170,
+                "model": "TNT2 18 (1.17)"
+            },
+            {
+                "model_id": 171,
+                "model": "TNT2 Pro Plus 16"
+            },
+            {
+                "model_id": 172,
+                "model": "TNT2 Pro Plus 17L (1.24)"
+            },
+            {
+                "model_id": 173,
+                "model": "TNT2 Rx 16"
+            },
+            {
+                "model_id": 174,
+                "model": "TNT2 Rx 17 (1.25)"
+            },
+            {
+                "model_id": 175,
+                "model": "TNT2 Touch 16"
+            },
+            {
+                "model_id": 176,
+                "model": "TNT2 Touch 17 (1.27)"
+            },
+            {
+                "model_id": 177,
+                "model": "TNT2 Tour 16 (1.32)"
+            },
+            {
+                "model_id": 178,
+                "model": "TNT2 Tour 17 (1.27)"
+            },
+            {
+                "model_id": 179,
+                "model": "WearGuard Synthetic Gut 16"
+            },
+            {
+                "model_id": 180,
+                "model": "Zo Black Ice 17 (1.23)"
+            },
+            {
+                "model_id": 181,
+                "model": "Zo Black Ice 18 (1.18)"
+            },
+            {
+                "model_id": 182,
+                "model": "Zo Dart 17 (1.25)"
+            },
+            {
+                "model_id": 183,
+                "model": "Zo Ice 16"
+            },
+            {
+                "model_id": 184,
+                "model": "Zo Magic 16"
+            },
+            {
+                "model_id": 185,
+                "model": "Zo Power 16L"
+            },
+            {
+                "model_id": 186,
+                "model": "Zo Tour 16"
+            },
+            {
+                "model_id": 187,
+                "model": "Zo Tour 17 (1.25)"
+            },
+            {
+                "model_id": 188,
+                "model": "Zo Tour Rough 16"
+            },
+            {
+                "model_id": 189,
+                "model": "Zo Twist 16"
+            },
+            {
+                "model_id": 190,
+                "model": "Zo Verve 16 (1.32)"
+            },
+            {
+                "model_id": 191,
+                "model": "Zo Verve 17"
+            }
+        ]
+    },
+    {
+        "brand_id": 10,
+        "brand": "Genesis",
+        "models": [
+            {
+                "model_id": 192,
+                "model": "Black Magic 16 (1.29)"
+            },
+            {
+                "model_id": 778,
+                "model": "Trionic 18ga"
+            }
+        ]
+    },
+    {
+        "brand_id": 11,
+        "brand": "Gosen",
+        "models": [
+            {
+                "model_id": 193,
+                "model": "A.K. Control 16"
+            },
+            {
+                "model_id": 194,
+                "model": "AK Control 17 (1.24)"
+            },
+            {
+                "model_id": 195,
+                "model": "AK Pro 16"
+            },
+            {
+                "model_id": 196,
+                "model": "AK Pro 17"
+            },
+            {
+                "model_id": 197,
+                "model": "AK Pro CX 16 (1.30)"
+            },
+            {
+                "model_id": 198,
+                "model": "AK Pro CX 17 (1.24)"
+            },
+            {
+                "model_id": 199,
+                "model": "AK Pro Spin 15L (1.38)"
+            },
+            {
+                "model_id": 200,
+                "model": "Compositemaster I 16"
+            },
+            {
+                "model_id": 201,
+                "model": "Compositemaster II 16"
+            },
+            {
+                "model_id": 202,
+                "model": "G-Tour 16 (1.30)"
+            },
+            {
+                "model_id": 203,
+                "model": "Lumina Spin 16L (1.26)"
+            },
+            {
+                "model_id": 204,
+                "model": "Multi CX 16 (1.30)"
+            },
+            {
+                "model_id": 205,
+                "model": "Multi CX 17 (1.24)"
+            },
+            {
+                "model_id": 206,
+                "model": "Nanoblend 17"
+            },
+            {
+                "model_id": 207,
+                "model": "Nanocubic 16"
+            },
+            {
+                "model_id": 208,
+                "model": "Nanosilver 17"
+            },
+            {
+                "model_id": 209,
+                "model": "OG Sheep Micro 17"
+            },
+            {
+                "model_id": 210,
+                "model": "OG Sheep Micro 18"
+            },
+            {
+                "model_id": 211,
+                "model": "OG Sheep Micro Super 16L"
+            },
+            {
+                "model_id": 212,
+                "model": "OG-Sheep Micro 16"
+            },
+            {
+                "model_id": 213,
+                "model": "Poly Professional 16 (1.29)"
+            },
+            {
+                "model_id": 214,
+                "model": "Poly Professional 17 (1.24)"
+            },
+            {
+                "model_id": 215,
+                "model": "Polylon 16"
+            },
+            {
+                "model_id": 216,
+                "model": "Polylon 17 (1.24)"
+            },
+            {
+                "model_id": 217,
+                "model": "Polylon Comfort 16"
+            },
+            {
+                "model_id": 218,
+                "model": "Polylon PolyBreak 17 (1.24)"
+            },
+            {
+                "model_id": 219,
+                "model": "Polylon PolyBreak 18 (1.20)"
+            },
+            {
+                "model_id": 220,
+                "model": "Polylon Premium 16 (1.32)"
+            },
+            {
+                "model_id": 221,
+                "model": "Polylon Premium 16L (1.27)"
+            },
+            {
+                "model_id": 222,
+                "model": "Polylon SP 16 (1.30)"
+            },
+            {
+                "model_id": 223,
+                "model": "Polylon SP 17 (1.24)"
+            },
+            {
+                "model_id": 224,
+                "model": "Polymaster I 16"
+            },
+            {
+                "model_id": 225,
+                "model": "Polymaster II 16"
+            },
+            {
+                "model_id": 226,
+                "model": "Powermaster I 16"
+            },
+            {
+                "model_id": 227,
+                "model": "Powermaster II 16"
+            },
+            {
+                "model_id": 228,
+                "model": "Sidewinder 16 (1.31)"
+            },
+            {
+                "model_id": 229,
+                "model": "Sidewinder 17"
+            },
+            {
+                "model_id": 230,
+                "model": "Tecflex 16 (1.30)"
+            },
+            {
+                "model_id": 231,
+                "model": "TecGut Remplir 16"
+            }
+        ]
+    },
+    {
+        "brand_id": 12,
+        "brand": "Head",
+        "models": [
+            {
+                "model_id": 232,
+                "model": "ETS 16"
+            },
+            {
+                "model_id": 233,
+                "model": "ETS 17"
+            },
+            {
+                "model_id": 234,
+                "model": "Fibergel Power 16"
+            },
+            {
+                "model_id": 235,
+                "model": "Fibergel Power 17"
+            },
+            {
+                "model_id": 236,
+                "model": "Fibergel Spin 16"
+            },
+            {
+                "model_id": 237,
+                "model": "FXP 16"
+            },
+            {
+                "model_id": 238,
+                "model": "FXP 17"
+            },
+            {
+                "model_id": 239,
+                "model": "FXP Power 16"
+            },
+            {
+                "model_id": 240,
+                "model": "FXP Power 17"
+            },
+            {
+                "model_id": 241,
+                "model": "FXP Tour 16"
+            },
+            {
+                "model_id": 242,
+                "model": "Hawk 16 (1.30)"
+            },
+            {
+                "model_id": 243,
+                "model": "Hawk 17 (1.25)"
+            },
+            {
+                "model_id": 244,
+                "model": "Hawk 18 (1.20)"
+            },
+            {
+                "model_id": 245,
+                "model": "Hawk Power 17 (1.25)"
+            },
+            {
+                "model_id": 246,
+                "model": "Hawk Rough 17"
+            },
+            {
+                "model_id": 247,
+                "model": "Hawk Touch 18 (1.20)"
+            },
+            {
+                "model_id": 248,
+                "model": "Hawk Touch 19 (1.15)"
+            },
+            {
+                "model_id": 249,
+                "model": "Lynx 16 (1.30)"
+            },
+            {
+                "model_id": 250,
+                "model": "Lynx 17 (1.25)"
+            },
+            {
+                "model_id": 251,
+                "model": "Lynx 18 (1.20)"
+            },
+            {
+                "model_id": 252,
+                "model": "Lynx Touch 16g (1.30)"
+            },
+            {
+                "model_id": 253,
+                "model": "Lynx Tour 16 (1.30)"
+            },
+            {
+                "model_id": 254,
+                "model": "Lynx Tour 17 (1.25)"
+            },
+            {
+                "model_id": 255,
+                "model": "PerfectControl 16"
+            },
+            {
+                "model_id": 256,
+                "model": "Reflex MLT 16 (1.30)"
+            },
+            {
+                "model_id": 257,
+                "model": "Reflex MLT 17 (1.25)"
+            },
+            {
+                "model_id": 258,
+                "model": "RIP Control 16"
+            },
+            {
+                "model_id": 259,
+                "model": "Rip Control 17 (1.25)"
+            },
+            {
+                "model_id": 260,
+                "model": "RIP PerfectPower 16"
+            },
+            {
+                "model_id": 261,
+                "model": "Sonic Pro 16"
+            },
+            {
+                "model_id": 262,
+                "model": "Sonic Pro 17"
+            },
+            {
+                "model_id": 263,
+                "model": "Sonic Pro Edge 16"
+            },
+            {
+                "model_id": 264,
+                "model": "Synthetic Gut 16"
+            },
+            {
+                "model_id": 265,
+                "model": "Synthetic Gut PPS 16"
+            },
+            {
+                "model_id": 266,
+                "model": "Synthetic Gut PPS 17 (1.25)"
+            },
+            {
+                "model_id": 267,
+                "model": "Ultra Tour 16"
+            },
+            {
+                "model_id": 268,
+                "model": "Ultratour 17"
+            },
+            {
+                "model_id": 269,
+                "model": "Velocity MLT 17 (1.25)"
+            },
+            {
+                "model_id": 775,
+                "model": "Hawk Touch 17ga"
+            }
+        ]
+    },
+    {
+        "brand_id": 13,
+        "brand": "IsoSpeed",
+        "models": [
+            {
+                "model_id": 270,
+                "model": "Axon Mono 16L"
+            },
+            {
+                "model_id": 271,
+                "model": "Axon Multi 16L"
+            },
+            {
+                "model_id": 272,
+                "model": "Black Fire 17"
+            },
+            {
+                "model_id": 273,
+                "model": "Control 16"
+            },
+            {
+                "model_id": 274,
+                "model": "Control Classic 16"
+            },
+            {
+                "model_id": 275,
+                "model": "Cream 17 (1.28)"
+            },
+            {
+                "model_id": 276,
+                "model": "Energetic 17"
+            },
+            {
+                "model_id": 277,
+                "model": "Energetic Plus 16"
+            },
+            {
+                "model_id": 278,
+                "model": "Professional Classic 17"
+            },
+            {
+                "model_id": 279,
+                "model": "Pulse 16"
+            },
+            {
+                "model_id": 280,
+                "model": "Pulse 17"
+            },
+            {
+                "model_id": 281,
+                "model": "Pyramid 16"
+            },
+            {
+                "model_id": 282,
+                "model": "V18 19 (1.12)"
+            }
+        ]
+    },
+    {
+        "brand_id": 14,
+        "brand": "Kirschbaum",
+        "models": [
+            {
+                "model_id": 283,
+                "model": "Black Shark 16 (1.30)"
+            },
+            {
+                "model_id": 284,
+                "model": "Black Shark 17 (1.25)"
+            },
+            {
+                "model_id": 285,
+                "model": "Competition 16/1.30"
+            },
+            {
+                "model_id": 286,
+                "model": "Competition 17 (1.25)"
+            },
+            {
+                "model_id": 287,
+                "model": "Competition 17L (1.20)"
+            },
+            {
+                "model_id": 288,
+                "model": "Flash 16 (1.30)"
+            },
+            {
+                "model_id": 289,
+                "model": "Helix 16"
+            },
+            {
+                "model_id": 290,
+                "model": "Helix 17"
+            },
+            {
+                "model_id": 291,
+                "model": "Long Life 15"
+            },
+            {
+                "model_id": 292,
+                "model": "Max Power 16 (1.30)"
+            },
+            {
+                "model_id": 293,
+                "model": "Max Power 17 (1.25)"
+            },
+            {
+                "model_id": 294,
+                "model": "Max Power 18 (1.20)"
+            },
+            {
+                "model_id": 295,
+                "model": "Max Power Rough 16 (1.30)"
+            },
+            {
+                "model_id": 296,
+                "model": "Max Power Rough 17 (1.25)"
+            },
+            {
+                "model_id": 297,
+                "model": "Max Power Rough 18 (1.20)"
+            },
+            {
+                "model_id": 298,
+                "model": "P2 16/1.30"
+            },
+            {
+                "model_id": 299,
+                "model": "P2 17 (1.25)"
+            },
+            {
+                "model_id": 300,
+                "model": "P2 17L (1.20)"
+            },
+            {
+                "model_id": 301,
+                "model": "Pro Line Evolution 17 (1.25)"
+            },
+            {
+                "model_id": 302,
+                "model": "Pro Line I 1.30"
+            },
+            {
+                "model_id": 303,
+                "model": "Pro Line I 17 (1.25)"
+            },
+            {
+                "model_id": 304,
+                "model": "Pro Line I 17L (1.20)"
+            },
+            {
+                "model_id": 305,
+                "model": "Pro Line I 18L (1.15)"
+            },
+            {
+                "model_id": 306,
+                "model": "Pro Line II 1.30"
+            },
+            {
+                "model_id": 307,
+                "model": "Pro Line II 17 (1.25)"
+            },
+            {
+                "model_id": 308,
+                "model": "Pro Line II 17L (1.20)"
+            },
+            {
+                "model_id": 309,
+                "model": "Pro Line II 18 (1.15)"
+            },
+            {
+                "model_id": 310,
+                "model": "Pro Line X 16 (1.30)"
+            },
+            {
+                "model_id": 311,
+                "model": "Pro Line X 17 (1.25)"
+            },
+            {
+                "model_id": 312,
+                "model": "Spiky Shark 16"
+            },
+            {
+                "model_id": 313,
+                "model": "Spiky Shark 17"
+            },
+            {
+                "model_id": 314,
+                "model": "Super Smash 16/1.30"
+            },
+            {
+                "model_id": 315,
+                "model": "Super Smash 17 (1.25)"
+            },
+            {
+                "model_id": 316,
+                "model": "Super Smash Spiky 1.20"
+            },
+            {
+                "model_id": 317,
+                "model": "Super Smash Spiky 16/1.30"
+            },
+            {
+                "model_id": 318,
+                "model": "Super Smash Spiky 17 (1.25)"
+            },
+            {
+                "model_id": 319,
+                "model": "Touch Multifibre 16"
+            },
+            {
+                "model_id": 320,
+                "model": "Touch Multifibre 17 (1.25)"
+            },
+            {
+                "model_id": 321,
+                "model": "Touch Turbo 1.30"
+            },
+            {
+                "model_id": 322,
+                "model": "Touch Turbo 16L (1.275)"
+            },
+            {
+                "model_id": 323,
+                "model": "Touch Turbo 17 (1.25)"
+            },
+            {
+                "model_id": 324,
+                "model": "Xplosive Speed 1.25"
+            },
+            {
+                "model_id": 325,
+                "model": "Xplosive Speed 1.30"
+            }
+        ]
+    },
+    {
+        "brand_id": 15,
+        "brand": "Klip",
+        "models": [
+            {
+                "model_id": 326,
+                "model": "Armour Pro 16/1.30"
+            },
+            {
+                "model_id": 327,
+                "model": "Excellerator 16/1.30"
+            },
+            {
+                "model_id": 328,
+                "model": "Hardcore 16/1.30"
+            },
+            {
+                "model_id": 329,
+                "model": "K-Boom 16/1.30"
+            },
+            {
+                "model_id": 330,
+                "model": "K-Boom 18 (1.20)"
+            },
+            {
+                "model_id": 331,
+                "model": "Kicker 16"
+            },
+            {
+                "model_id": 332,
+                "model": "Legend 16 Uncoated"
+            },
+            {
+                "model_id": 333,
+                "model": "Legend 17 (1.25)"
+            },
+            {
+                "model_id": 334,
+                "model": "Scorcher 16/1.30"
+            },
+            {
+                "model_id": 335,
+                "model": "Scorcher 17 (1.27)"
+            },
+            {
+                "model_id": 336,
+                "model": "Synthetic Gut 16"
+            },
+            {
+                "model_id": 337,
+                "model": "Venom 16/1.30"
+            }
+        ]
+    },
+    {
+        "brand_id": 16,
+        "brand": "LaserFibre",
+        "models": [
+            {
+                "model_id": 338,
+                "model": "1200 16 (1.30)"
+            },
+            {
+                "model_id": 339,
+                "model": "JB Tour 100 17g (1.25)"
+            },
+            {
+                "model_id": 340,
+                "model": "Native Tour 17 (1.25)"
+            },
+            {
+                "model_id": 341,
+                "model": "Supernatural Gut Pro Stock 16"
+            },
+            {
+                "model_id": 342,
+                "model": "Supreme 2.0 16 (1.30)"
+            },
+            {
+                "model_id": 343,
+                "model": "Supreme 2.0 17 (1.25)"
+            },
+            {
+                "model_id": 344,
+                "model": "Vorso 16 (1.28)"
+            },
+            {
+                "model_id": 345,
+                "model": "Vorso 17 (1.23)"
+            }
+        ]
+    },
+    {
+        "brand_id": 17,
+        "brand": "Leopard",
+        "models": [
+            {
+                "model_id": 346,
+                "model": "Plus Control 16"
+            }
+        ]
+    },
+    {
+        "brand_id": 18,
+        "brand": "L-Tec",
+        "models": [
+            {
+                "model_id": 347,
+                "model": "Premium 3S 16L (1.25)"
+            },
+            {
+                "model_id": 348,
+                "model": "Premium 4S 16L (1.25)"
+            },
+            {
+                "model_id": 349,
+                "model": "Premium 5S 16L (1.25)"
+            },
+            {
+                "model_id": 350,
+                "model": "Premium OS 17 (1.23)"
+            },
+            {
+                "model_id": 351,
+                "model": "Premium Pro OS 16L"
+            }
+        ]
+    },
+    {
+        "brand_id": 19,
+        "brand": "Luxilon",
+        "models": [
+            {
+                "model_id": 352,
+                "model": "4G 16 (1.30)"
+            },
+            {
+                "model_id": 353,
+                "model": "4G 16L (1.25)"
+            },
+            {
+                "model_id": 354,
+                "model": "4G Rough 16L"
+            },
+            {
+                "model_id": 355,
+                "model": "4G S 15"
+            },
+            {
+                "model_id": 356,
+                "model": "4G Soft 1.25"
+            },
+            {
+                "model_id": 357,
+                "model": "Adrenaline 16"
+            },
+            {
+                "model_id": 358,
+                "model": "Adrenaline 16L/1.25"
+            },
+            {
+                "model_id": 359,
+                "model": "Adrenaline 17/1.20"
+            },
+            {
+                "model_id": 360,
+                "model": "Adrenaline Rough 16L/1.25"
+            },
+            {
+                "model_id": 361,
+                "model": "ALU Power 125/16L"
+            },
+            {
+                "model_id": 362,
+                "model": "ALU Power Feel 18/1.20"
+            },
+            {
+                "model_id": 363,
+                "model": "ALU Power Rough 16L (1.25)"
+            },
+            {
+                "model_id": 364,
+                "model": "Alu Power Soft 1.25"
+            },
+            {
+                "model_id": 365,
+                "model": "Alu Power Vibe 16 (1.25)"
+            },
+            {
+                "model_id": 366,
+                "model": "Big Banger Ace 18 (1.12)"
+            },
+            {
+                "model_id": 367,
+                "model": "Big Banger ALU Power Fluoro 17"
+            },
+            {
+                "model_id": 368,
+                "model": "Big Banger ALU Power Spin 127/16"
+            },
+            {
+                "model_id": 369,
+                "model": "Big Banger Original 130/16"
+            },
+            {
+                "model_id": 370,
+                "model": "Big Banger Rough 130/16"
+            },
+            {
+                "model_id": 371,
+                "model": "Big Banger Timo 17 (1.22)"
+            },
+            {
+                "model_id": 372,
+                "model": "Big Banger TiMO 17L (1.17)"
+            },
+            {
+                "model_id": 373,
+                "model": "Big Banger Timo 18 (1.10)"
+            },
+            {
+                "model_id": 374,
+                "model": "Big Banger XP 125/16L"
+            },
+            {
+                "model_id": 375,
+                "model": "Big Banger XP 15L (1.38)"
+            },
+            {
+                "model_id": 376,
+                "model": "ECO Power 17 (1.25)"
+            },
+            {
+                "model_id": 377,
+                "model": "Element 1.30"
+            },
+            {
+                "model_id": 378,
+                "model": "Element 16L (1.25)"
+            },
+            {
+                "model_id": 379,
+                "model": "Element Rough 16 (1.30)"
+            },
+            {
+                "model_id": 380,
+                "model": "LXN Smart 16 (1.30)"
+            },
+            {
+                "model_id": 381,
+                "model": "LXN Smart 16L (1.25)"
+            },
+            {
+                "model_id": 382,
+                "model": "M2 Plus 130/16"
+            },
+            {
+                "model_id": 383,
+                "model": "M2 Pro 125/16"
+            },
+            {
+                "model_id": 384,
+                "model": "Monotec Super Poly 1.25/16L"
+            },
+            {
+                "model_id": 385,
+                "model": "Monotec Supersense 16L/1.25"
+            },
+            {
+                "model_id": 386,
+                "model": "Monotec Zolo 125/16"
+            },
+            {
+                "model_id": 387,
+                "model": "Monotec Zolo 15L"
+            },
+            {
+                "model_id": 388,
+                "model": "Natural Gut 1.25"
+            },
+            {
+                "model_id": 389,
+                "model": "Savage 16/1.27"
+            },
+            {
+                "model_id": 773,
+                "model": "Alu power 17ga"
+            }
+        ]
+    },
+    {
+        "brand_id": 20,
+        "brand": "Mantis",
+        "models": [
+            {
+                "model_id": 390,
+                "model": "Comfort Poly 16"
+            },
+            {
+                "model_id": 391,
+                "model": "Comfort Synthetic 16"
+            },
+            {
+                "model_id": 392,
+                "model": "Power Poly 17"
+            }
+        ]
+    },
+    {
+        "brand_id": 21,
+        "brand": "MSV",
+        "models": [
+            {
+                "model_id": 393,
+                "model": "Co.-Focus 16L"
+            },
+            {
+                "model_id": 394,
+                "model": "Co-Focus 17L (1.18)"
+            },
+            {
+                "model_id": 395,
+                "model": "Focus Evo 16"
+            },
+            {
+                "model_id": 396,
+                "model": "Focus Evo 17"
+            },
+            {
+                "model_id": 397,
+                "model": "Focus Hex 17L (1.18)"
+            },
+            {
+                "model_id": 398,
+                "model": "Focus Hex Soft  17 (1.25)"
+            },
+            {
+                "model_id": 399,
+                "model": "Focus Hex Soft 17L (1.20)"
+            },
+            {
+                "model_id": 400,
+                "model": "Focus-Hex +38 16L (1.25)"
+            },
+            {
+                "model_id": 401,
+                "model": "Focus-Hex 16 (1.23)"
+            },
+            {
+                "model_id": 402,
+                "model": "Focus-Hex 16 (1.27)"
+            },
+            {
+                "model_id": 403,
+                "model": "Hepta-Twist 16"
+            },
+            {
+                "model_id": 404,
+                "model": "Hepta-Twist 17"
+            }
+        ]
+    },
+    {
+        "brand_id": 22,
+        "brand": "One Strings",
+        "models": [
+            {
+                "model_id": 405,
+                "model": "Carbon NRG 16"
+            },
+            {
+                "model_id": 406,
+                "model": "Carbon Tour 17 (1.25)"
+            }
+        ]
+    },
+    {
+        "brand_id": 23,
+        "brand": "Pacific",
+        "models": [
+            {
+                "model_id": 407,
+                "model": "ATP Poly Power Pro 16L"
+            },
+            {
+                "model_id": 408,
+                "model": "Classic Natural Gut 16"
+            },
+            {
+                "model_id": 409,
+                "model": "PMX 16L"
+            },
+            {
+                "model_id": 410,
+                "model": "PMX 17"
+            },
+            {
+                "model_id": 411,
+                "model": "Poly Force 16L"
+            },
+            {
+                "model_id": 412,
+                "model": "Poly Force 17"
+            },
+            {
+                "model_id": 413,
+                "model": "Poly Force Xtreme 16L"
+            },
+            {
+                "model_id": 414,
+                "model": "Poly Power Pro 16 (1.30)"
+            },
+            {
+                "model_id": 415,
+                "model": "Poly Power Pro 16L (1.25)"
+            },
+            {
+                "model_id": 416,
+                "model": "Power Line 16L"
+            },
+            {
+                "model_id": 417,
+                "model": "Power Line 17"
+            },
+            {
+                "model_id": 418,
+                "model": "Power Twist 16L"
+            },
+            {
+                "model_id": 419,
+                "model": "Premium Power X 16L"
+            },
+            {
+                "model_id": 420,
+                "model": "Prime Gut Orange Bull 16 (1.30)"
+            },
+            {
+                "model_id": 421,
+                "model": "Prime Gut Orange Bull 16L (1.25)"
+            },
+            {
+                "model_id": 422,
+                "model": "Prime Natural Gut 16"
+            },
+            {
+                "model_id": 423,
+                "model": "Prime Natural Gut 16L"
+            },
+            {
+                "model_id": 424,
+                "model": "Tough Gut 16"
+            },
+            {
+                "model_id": 425,
+                "model": "Tough Gut 16L"
+            },
+            {
+                "model_id": 426,
+                "model": "X Force 16L (1.29)"
+            },
+            {
+                "model_id": 427,
+                "model": "X Force 17"
+            },
+            {
+                "model_id": 428,
+                "model": "X Force 18"
+            },
+            {
+                "model_id": 429,
+                "model": "XCite 16 (1.30)"
+            },
+            {
+                "model_id": 430,
+                "model": "XCite 16L (1.25)"
+            }
+        ]
+    },
+    {
+        "brand_id": 24,
+        "brand": "Poly Star",
+        "models": [
+            {
+                "model_id": 431,
+                "model": "Classic 16 (1.30)"
+            },
+            {
+                "model_id": 432,
+                "model": "Classic 16L (1.25)"
+            },
+            {
+                "model_id": 433,
+                "model": "Classic 17 (1.20)"
+            },
+            {
+                "model_id": 434,
+                "model": "Energy 16 (1.30)"
+            },
+            {
+                "model_id": 435,
+                "model": "Energy 16L (1.25)"
+            },
+            {
+                "model_id": 436,
+                "model": "Energy 17 (1.20)"
+            },
+            {
+                "model_id": 437,
+                "model": "Strike 16 (1.30)"
+            },
+            {
+                "model_id": 438,
+                "model": "Strike 16L (1.25)"
+            },
+            {
+                "model_id": 439,
+                "model": "Turbo 16 (1.30)"
+            },
+            {
+                "model_id": 440,
+                "model": "Turbo 16L (1.25)"
+            }
+        ]
+    },
+    {
+        "brand_id": 25,
+        "brand": "Polyfibre",
+        "models": [
+            {
+                "model_id": 441,
+                "model": "Black Venom 16 (1.30)"
+            },
+            {
+                "model_id": 442,
+                "model": "Black Venom 16L (1.25)"
+            },
+            {
+                "model_id": 443,
+                "model": "Black Venom Rough 16L (1.25)"
+            },
+            {
+                "model_id": 444,
+                "model": "Cobra 17/1.20"
+            },
+            {
+                "model_id": 445,
+                "model": "Hexablade 16L (1.25)"
+            },
+            {
+                "model_id": 446,
+                "model": "Hexablade 17L (1.18)"
+            },
+            {
+                "model_id": 447,
+                "model": "Hightec Premium 16/1.30"
+            },
+            {
+                "model_id": 448,
+                "model": "Hightec Premium 16L"
+            },
+            {
+                "model_id": 449,
+                "model": "Hightec Premium 17"
+            },
+            {
+                "model_id": 450,
+                "model": "Panthera 16 (1.30)"
+            },
+            {
+                "model_id": 451,
+                "model": "Poly Hightec 16/1.30"
+            },
+            {
+                "model_id": 452,
+                "model": "Poly Hightec 16L"
+            },
+            {
+                "model_id": 453,
+                "model": "Poly Hightec 17"
+            },
+            {
+                "model_id": 454,
+                "model": "Poly Hightec 18"
+            },
+            {
+                "model_id": 455,
+                "model": "TCS 16/1.30"
+            },
+            {
+                "model_id": 456,
+                "model": "TCS 16L"
+            },
+            {
+                "model_id": 457,
+                "model": "TCS 17"
+            },
+            {
+                "model_id": 458,
+                "model": "TCS 18 (1.15)"
+            },
+            {
+                "model_id": 459,
+                "model": "TCS Rapid 16L/1.25"
+            },
+            {
+                "model_id": 460,
+                "model": "Viper 16L/1.25"
+            },
+            {
+                "model_id": 461,
+                "model": "Viper 17/1.20"
+            }
+        ]
+    },
+    {
+        "brand_id": 26,
+        "brand": "Prince",
+        "models": [
+            {
+                "model_id": 462,
+                "model": "Beast XP 16"
+            },
+            {
+                "model_id": 463,
+                "model": "Diablo Prism 17"
+            },
+            {
+                "model_id": 464,
+                "model": "Lightning Pro 16 (1.30)"
+            },
+            {
+                "model_id": 465,
+                "model": "Lightning XX 16"
+            },
+            {
+                "model_id": 466,
+                "model": "Lightning XX 17"
+            },
+            {
+                "model_id": 467,
+                "model": "Perfection 16 (1.30)"
+            },
+            {
+                "model_id": 468,
+                "model": "Poly EXP 17"
+            },
+            {
+                "model_id": 469,
+                "model": "Poly Spin 3D"
+            },
+            {
+                "model_id": 470,
+                "model": "Premier Control 15"
+            },
+            {
+                "model_id": 471,
+                "model": "Premier Control 15L"
+            },
+            {
+                "model_id": 472,
+                "model": "Premier Control 16"
+            },
+            {
+                "model_id": 473,
+                "model": "Premier Control 17"
+            },
+            {
+                "model_id": 474,
+                "model": "Premier LT 17"
+            },
+            {
+                "model_id": 475,
+                "model": "Premier LT 18"
+            },
+            {
+                "model_id": 476,
+                "model": "Premier Power 16"
+            },
+            {
+                "model_id": 477,
+                "model": "Premier Power 17"
+            },
+            {
+                "model_id": 478,
+                "model": "Premier Power 18"
+            },
+            {
+                "model_id": 479,
+                "model": "Premier Touch 15L"
+            },
+            {
+                "model_id": 480,
+                "model": "Premier Touch 16"
+            },
+            {
+                "model_id": 481,
+                "model": "Premier Touch 17"
+            },
+            {
+                "model_id": 482,
+                "model": "Premier W/ Softflex 17"
+            },
+            {
+                "model_id": 483,
+                "model": "Premier W/Softflex 16"
+            },
+            {
+                "model_id": 484,
+                "model": "Recoil 16"
+            },
+            {
+                "model_id": 485,
+                "model": "Syn Gut Original 16"
+            },
+            {
+                "model_id": 486,
+                "model": "Syn Gut Original 17"
+            },
+            {
+                "model_id": 487,
+                "model": "Synthetic Gut 16 Duraflex"
+            },
+            {
+                "model_id": 488,
+                "model": "Synthetic Gut 17 Duraflex"
+            },
+            {
+                "model_id": 489,
+                "model": "Synthetic Gut 18 Duraflex"
+            },
+            {
+                "model_id": 490,
+                "model": "Synthetic Gut Multifilament 16"
+            },
+            {
+                "model_id": 491,
+                "model": "Synthetic Gut Multifilament 17"
+            },
+            {
+                "model_id": 492,
+                "model": "Topspin Plus 16"
+            },
+            {
+                "model_id": 493,
+                "model": "Topspin W/ Duraflex 15L"
+            },
+            {
+                "model_id": 494,
+                "model": "Tour 16"
+            },
+            {
+                "model_id": 495,
+                "model": "Tour 17"
+            },
+            {
+                "model_id": 496,
+                "model": "Tour XC 15L"
+            },
+            {
+                "model_id": 497,
+                "model": "Tour XC 16L"
+            },
+            {
+                "model_id": 498,
+                "model": "Tour XC 17L"
+            },
+            {
+                "model_id": 499,
+                "model": "Tour XP 15L"
+            },
+            {
+                "model_id": 500,
+                "model": "Tour XP 16"
+            },
+            {
+                "model_id": 501,
+                "model": "Tour XP 17 (1.25)"
+            },
+            {
+                "model_id": 502,
+                "model": "Tour XR 15L (1.35)"
+            },
+            {
+                "model_id": 503,
+                "model": "Tour XR 16 (1.30)"
+            },
+            {
+                "model_id": 504,
+                "model": "Tour XR 17 (1.25)"
+            },
+            {
+                "model_id": 505,
+                "model": "Tour XS 1.35"
+            },
+            {
+                "model_id": 506,
+                "model": "Tour XS 16"
+            },
+            {
+                "model_id": 507,
+                "model": "Tour XT 18"
+            },
+            {
+                "model_id": 508,
+                "model": "Tournament Nylon 15L"
+            },
+            {
+                "model_id": 509,
+                "model": "Tournament Poly 16"
+            },
+            {
+                "model_id": 510,
+                "model": "Tournament Poly 17"
+            },
+            {
+                "model_id": 511,
+                "model": "Twisted 16L"
+            },
+            {
+                "model_id": 512,
+                "model": "Vortex 16 (1.30)"
+            }
+        ]
+    },
+    {
+        "brand_id": 27,
+        "brand": "RS",
+        "models": [
+            {
+                "model_id": 513,
+                "model": "RS Lyon 17"
+            },
+            {
+                "model_id": 514,
+                "model": "RS Lyon 17L (1.20)"
+            }
+        ]
+    },
+    {
+        "brand_id": 28,
+        "brand": "Signum Pro",
+        "models": [
+            {
+                "model_id": 515,
+                "model": "Firestorm 1.25"
+            },
+            {
+                "model_id": 516,
+                "model": "Firestorm 16 (1.30)"
+            },
+            {
+                "model_id": 517,
+                "model": "Hyperion 16"
+            },
+            {
+                "model_id": 518,
+                "model": "Hyperion 17 (1.24)"
+            },
+            {
+                "model_id": 519,
+                "model": "Hyperion 18 (1.18)"
+            },
+            {
+                "model_id": 520,
+                "model": "Plasma HEXtreme 16 (1.30)"
+            },
+            {
+                "model_id": 521,
+                "model": "Plasma HEXtreme 16L/1.25"
+            },
+            {
+                "model_id": 522,
+                "model": "Poly Megaforce 16"
+            },
+            {
+                "model_id": 523,
+                "model": "Poly Megaforce 17 (1.19)"
+            },
+            {
+                "model_id": 524,
+                "model": "Poly Plasma 17 (1.23)"
+            },
+            {
+                "model_id": 525,
+                "model": "Poly Speed Spin 1.28"
+            },
+            {
+                "model_id": 526,
+                "model": "Poly-Plasma 16L"
+            },
+            {
+                "model_id": 527,
+                "model": "Poly-Plasma 17L (1.18)"
+            },
+            {
+                "model_id": 528,
+                "model": "Poly-Plasma Pure 16L"
+            },
+            {
+                "model_id": 529,
+                "model": "Poly-Plasma Pure 17 (1.23)"
+            },
+            {
+                "model_id": 530,
+                "model": "Poly-Plasma Pure 17L (1.18)"
+            },
+            {
+                "model_id": 531,
+                "model": "Tornado 16"
+            },
+            {
+                "model_id": 532,
+                "model": "Tornado 17 (1.23)"
+            },
+            {
+                "model_id": 533,
+                "model": "Tornado 18 (1.17)"
+            },
+            {
+                "model_id": 534,
+                "model": "X-Perience 17 (1.24)"
+            },
+            {
+                "model_id": 535,
+                "model": "Yellow Jacket 17g (1.22)"
+            }
+        ]
+    },
+    {
+        "brand_id": 29,
+        "brand": "Solinco",
+        "models": [
+            {
+                "model_id": 536,
+                "model": "Barb Wire 16"
+            },
+            {
+                "model_id": 537,
+                "model": "Barb Wire 16L (1.25)"
+            },
+            {
+                "model_id": 538,
+                "model": "Barb Wire 17 (1.20)"
+            },
+            {
+                "model_id": 539,
+                "model": "Confidential 16 (1.30)"
+            },
+            {
+                "model_id": 540,
+                "model": "Hyper-G 16"
+            },
+            {
+                "model_id": 541,
+                "model": "Hyper-G 16 Round (1.30)"
+            },
+            {
+                "model_id": 542,
+                "model": "Hyper-G 16L (1.25)"
+            },
+            {
+                "model_id": 543,
+                "model": "Hyper-G 17 (1.20)"
+            },
+            {
+                "model_id": 544,
+                "model": "Hyper-G 18 (1.15)"
+            },
+            {
+                "model_id": 545,
+                "model": "Hyper-G-Soft 16L (1.25)"
+            },
+            {
+                "model_id": 546,
+                "model": "Outlast 16"
+            },
+            {
+                "model_id": 547,
+                "model": "Outlast 16L (1.25)"
+            },
+            {
+                "model_id": 548,
+                "model": "Outlast 17"
+            },
+            {
+                "model_id": 549,
+                "model": "Outlast 18 (1.15)"
+            },
+            {
+                "model_id": 550,
+                "model": "Revolution 16"
+            },
+            {
+                "model_id": 551,
+                "model": "Revolution 16L (1.25)"
+            },
+            {
+                "model_id": 552,
+                "model": "Revolution 17"
+            },
+            {
+                "model_id": 553,
+                "model": "Revolution 18 (1.16)"
+            },
+            {
+                "model_id": 554,
+                "model": "Tour Bite 15L (1.35)"
+            },
+            {
+                "model_id": 555,
+                "model": "Tour Bite 16"
+            },
+            {
+                "model_id": 556,
+                "model": "Tour Bite 16 Soft"
+            },
+            {
+                "model_id": 557,
+                "model": "Tour Bite 16L (1.25)"
+            },
+            {
+                "model_id": 558,
+                "model": "Tour Bite 17"
+            },
+            {
+                "model_id": 559,
+                "model": "Tour Bite 18 (1.15)"
+            },
+            {
+                "model_id": 560,
+                "model": "Tour Bite 19 (1.10)"
+            },
+            {
+                "model_id": 561,
+                "model": "Tour Bite 20 (1.05)"
+            },
+            {
+                "model_id": 562,
+                "model": "Tour Bite Diamond Rough 16 (1.30)"
+            },
+            {
+                "model_id": 563,
+                "model": "Tour Bite Diamond Rough 16L (1.25)"
+            },
+            {
+                "model_id": 564,
+                "model": "Tour Bite Diamond Rough 17 (1.20)"
+            },
+            {
+                "model_id": 565,
+                "model": "Tour Bite Soft 16L (1.25)"
+            },
+            {
+                "model_id": 566,
+                "model": "Tour Bite Soft 17 (1.20)"
+            },
+            {
+                "model_id": 567,
+                "model": "Tour Bite Soft 18 (1.15)"
+            },
+            {
+                "model_id": 568,
+                "model": "Vanquish 16"
+            },
+            {
+                "model_id": 569,
+                "model": "Vanquish 17 (1.20)"
+            },
+            {
+                "model_id": 570,
+                "model": "X-Natural 16 (1.30)"
+            },
+            {
+                "model_id": 571,
+                "model": "X-Natural 17 (1.20)"
+            },
+            {
+                "model_id": 770,
+                "model": "Hyper-G Soft 18ga"
+            },
+            {
+                "model_id": 771,
+                "model": "Confidential 17ga"
+            }
+        ]
+    },
+    {
+        "brand_id": 30,
+        "brand": "Super String",
+        "models": [
+            {
+                "model_id": 572,
+                "model": "Tour Players V3 17 (1.20)"
+            }
+        ]
+    },
+    {
+        "brand_id": 31,
+        "brand": "SuperString",
+        "models": [
+            {
+                "model_id": 573,
+                "model": "Nikita Original 1.25"
+            },
+            {
+                "model_id": 574,
+                "model": "Nikita Soft 16L"
+            },
+            {
+                "model_id": 575,
+                "model": "Pure Control V8 17"
+            },
+            {
+                "model_id": 576,
+                "model": "Viper V2 Rough 16L"
+            },
+            {
+                "model_id": 577,
+                "model": "VooDoo Tour V9 17"
+            }
+        ]
+    },
+    {
+        "brand_id": 32,
+        "brand": "Tecnifibre",
+        "models": [
+            {
+                "model_id": 578,
+                "model": "Black Code 15L (1.32)"
+            },
+            {
+                "model_id": 579,
+                "model": "Black Code 16"
+            },
+            {
+                "model_id": 580,
+                "model": "Black Code 17"
+            },
+            {
+                "model_id": 581,
+                "model": "Black Code 18"
+            },
+            {
+                "model_id": 582,
+                "model": "Black Code 4S 16 (1.30)"
+            },
+            {
+                "model_id": 583,
+                "model": "Black Code 4S 17 (1.25)"
+            },
+            {
+                "model_id": 584,
+                "model": "Black Code 4S 18 (1.20)"
+            },
+            {
+                "model_id": 585,
+                "model": "Duramix HD 16"
+            },
+            {
+                "model_id": 586,
+                "model": "Duramix HD 17"
+            },
+            {
+                "model_id": 587,
+                "model": "E-Matrix 16"
+            },
+            {
+                "model_id": 588,
+                "model": "E-Matrix 17"
+            },
+            {
+                "model_id": 589,
+                "model": "HDX Tour 16 (1.30)"
+            },
+            {
+                "model_id": 590,
+                "model": "HDX Tour 17 (1.24)"
+            },
+            {
+                "model_id": 591,
+                "model": "Ice Code 16 (1.30)"
+            },
+            {
+                "model_id": 592,
+                "model": "Multi-Feel 16"
+            },
+            {
+                "model_id": 593,
+                "model": "Multifeel 16 Black (1.30)"
+            },
+            {
+                "model_id": 594,
+                "model": "Multi-Feel 17 (1.25)"
+            },
+            {
+                "model_id": 595,
+                "model": "NRG2 16"
+            },
+            {
+                "model_id": 596,
+                "model": "NRG2 17/1.24"
+            },
+            {
+                "model_id": 597,
+                "model": "NRG2 18 (1.18)"
+            },
+            {
+                "model_id": 598,
+                "model": "Polyspin 16L"
+            },
+            {
+                "model_id": 599,
+                "model": "Pro Mix 16"
+            },
+            {
+                "model_id": 600,
+                "model": "Pro Mix 17"
+            },
+            {
+                "model_id": 601,
+                "model": "Pro Red Code 16"
+            },
+            {
+                "model_id": 602,
+                "model": "Pro Red Code 17"
+            },
+            {
+                "model_id": 603,
+                "model": "Pro Red Code 18"
+            },
+            {
+                "model_id": 604,
+                "model": "Pro Red Code Wax 17"
+            },
+            {
+                "model_id": 605,
+                "model": "Razor Code 16 (1.30)"
+            },
+            {
+                "model_id": 606,
+                "model": "Razor Code 17 (1.25)"
+            },
+            {
+                "model_id": 607,
+                "model": "Razor Code 18 (1.20)"
+            },
+            {
+                "model_id": 608,
+                "model": "Razor Soft 17 (1.25)"
+            },
+            {
+                "model_id": 609,
+                "model": "Ruff Code 16 (1.30)"
+            },
+            {
+                "model_id": 610,
+                "model": "Ruff Code 17 (1.25)"
+            },
+            {
+                "model_id": 611,
+                "model": "TGV 16"
+            },
+            {
+                "model_id": 612,
+                "model": "TGV 17/1.25"
+            },
+            {
+                "model_id": 613,
+                "model": "Triax 16 (1.33)"
+            },
+            {
+                "model_id": 614,
+                "model": "X-Code 16"
+            },
+            {
+                "model_id": 615,
+                "model": "X-One Biphase 16"
+            },
+            {
+                "model_id": 616,
+                "model": "X-One Biphase 17"
+            },
+            {
+                "model_id": 617,
+                "model": "X-One Biphase 18"
+            },
+            {
+                "model_id": 618,
+                "model": "XR3 16"
+            },
+            {
+                "model_id": 619,
+                "model": "XR3 17"
+            },
+            {
+                "model_id": 769,
+                "model": "Synthetic Gut 17ga"
+            }
+        ]
+    },
+    {
+        "brand_id": 33,
+        "brand": "Toalson",
+        "models": [
+            {
+                "model_id": 620,
+                "model": "Leoina 77 (1.30)"
+            }
+        ]
+    },
+    {
+        "brand_id": 34,
+        "brand": "Topspin",
+        "models": [
+            {
+                "model_id": 621,
+                "model": "Cyber Blue 16"
+            },
+            {
+                "model_id": 622,
+                "model": "Cyber Blue 17"
+            },
+            {
+                "model_id": 623,
+                "model": "Cyber Blue 17L (1.20)"
+            },
+            {
+                "model_id": 624,
+                "model": "Cyber Delta 17 (1.26)"
+            },
+            {
+                "model_id": 625,
+                "model": "Cyber Flash 16"
+            },
+            {
+                "model_id": 626,
+                "model": "Cyber Flash 17"
+            },
+            {
+                "model_id": 627,
+                "model": "Cyber Flash 17L"
+            },
+            {
+                "model_id": 628,
+                "model": "Cyber Whirl 17 (1.24)"
+            }
+        ]
+    },
+    {
+        "brand_id": 35,
+        "brand": "Tourna",
+        "models": [
+            {
+                "model_id": 629,
+                "model": "Big Hitter 16"
+            },
+            {
+                "model_id": 630,
+                "model": "Big HItter Black 7 16 (1.25)"
+            },
+            {
+                "model_id": 631,
+                "model": "Big Hitter Black 7 17"
+            },
+            {
+                "model_id": 632,
+                "model": "Big Hitter Blue 16"
+            },
+            {
+                "model_id": 633,
+                "model": "Big Hitter Blue 17"
+            },
+            {
+                "model_id": 634,
+                "model": "Big Hitter Blue Rough 16"
+            },
+            {
+                "model_id": 635,
+                "model": "Big Hitter Blue Rough 17"
+            },
+            {
+                "model_id": 636,
+                "model": "Big HItter Silver 16"
+            },
+            {
+                "model_id": 637,
+                "model": "Big Hitter Silver 17"
+            },
+            {
+                "model_id": 638,
+                "model": "Big Hitter Silver 7 Tour 16 (1.30)"
+            },
+            {
+                "model_id": 639,
+                "model": "Big Hitter Silver Rough 16"
+            },
+            {
+                "model_id": 640,
+                "model": "Big Hitter Silver Rough 17"
+            },
+            {
+                "model_id": 641,
+                "model": "Black Zone 16"
+            },
+            {
+                "model_id": 642,
+                "model": "Black Zone 17"
+            },
+            {
+                "model_id": 643,
+                "model": "Irradiated 16"
+            },
+            {
+                "model_id": 644,
+                "model": "Irradiated 17"
+            },
+            {
+                "model_id": 645,
+                "model": "Quasi Gut 17"
+            },
+            {
+                "model_id": 646,
+                "model": "Quasi-Gut 16"
+            },
+            {
+                "model_id": 647,
+                "model": "Quasi-Gut Armor 16"
+            },
+            {
+                "model_id": 648,
+                "model": "Quasi-Gut Armor 17"
+            },
+            {
+                "model_id": 649,
+                "model": "Synthetic Gut Armor 16"
+            },
+            {
+                "model_id": 650,
+                "model": "Synthetic Gut Armor 17"
+            }
+        ]
+    },
+    {
+        "brand_id": 36,
+        "brand": "Volkl",
+        "models": [
+            {
+                "model_id": 651,
+                "model": "Cyclone 16"
+            },
+            {
+                "model_id": 652,
+                "model": "Cyclone 17"
+            },
+            {
+                "model_id": 653,
+                "model": "Cyclone 18"
+            },
+            {
+                "model_id": 654,
+                "model": "Cyclone 18L (1.15)"
+            },
+            {
+                "model_id": 655,
+                "model": "Cyclone 19 (1.10)"
+            },
+            {
+                "model_id": 656,
+                "model": "Cyclone Tour 16 (1.30)"
+            },
+            {
+                "model_id": 657,
+                "model": "Cyclone Tour 17 (1.25)"
+            },
+            {
+                "model_id": 658,
+                "model": "Cyclone Tour 18 (1.20)"
+            },
+            {
+                "model_id": 659,
+                "model": "Gripper 16"
+            },
+            {
+                "model_id": 660,
+                "model": "Gripper 17"
+            },
+            {
+                "model_id": 661,
+                "model": "Power-Fiber II 16"
+            },
+            {
+                "model_id": 662,
+                "model": "Power-Fiber II 17"
+            },
+            {
+                "model_id": 663,
+                "model": "Power-Fiber II 18"
+            },
+            {
+                "model_id": 664,
+                "model": "Synthetic Gut 16"
+            },
+            {
+                "model_id": 665,
+                "model": "Synthetic Gut 17"
+            },
+            {
+                "model_id": 666,
+                "model": "V-Pro 16"
+            },
+            {
+                "model_id": 667,
+                "model": "V-Pro 17"
+            },
+            {
+                "model_id": 668,
+                "model": "V-Pro 18"
+            },
+            {
+                "model_id": 669,
+                "model": "V-Square 16 (1.30)"
+            },
+            {
+                "model_id": 670,
+                "model": "V-Star 16 (1.30)"
+            },
+            {
+                "model_id": 671,
+                "model": "V-Star 18 (1.20)"
+            },
+            {
+                "model_id": 672,
+                "model": "V-Star 18L (1.15)"
+            },
+            {
+                "model_id": 673,
+                "model": "V-Star 19 (1.10)"
+            },
+            {
+                "model_id": 674,
+                "model": "V-Torque 16"
+            },
+            {
+                "model_id": 675,
+                "model": "V-Torque 18 (1.18)"
+            },
+            {
+                "model_id": 676,
+                "model": "V-Torque Tour 16 (1.30)"
+            }
+        ]
+    },
+    {
+        "brand_id": 37,
+        "brand": "Weiss Cannon",
+        "models": [
+            {
+                "model_id": 677,
+                "model": "6 Star 16 (1.30)"
+            },
+            {
+                "model_id": 678,
+                "model": "Black 5 Edge 17 (1.24)"
+            },
+            {
+                "model_id": 679,
+                "model": "Blue Rock N Power"
+            },
+            {
+                "model_id": 680,
+                "model": "Explosiv 1.30"
+            },
+            {
+                "model_id": 681,
+                "model": "MatchPower 1.25"
+            },
+            {
+                "model_id": 682,
+                "model": "Mosquito Bite 18 (1.16)"
+            },
+            {
+                "model_id": 683,
+                "model": "Red Ghost  17L (1.18)"
+            },
+            {
+                "model_id": 684,
+                "model": "Scorpion 1.22"
+            },
+            {
+                "model_id": 685,
+                "model": "Scorpion 1.33"
+            },
+            {
+                "model_id": 686,
+                "model": "Scorpion 16L (1.28)"
+            },
+            {
+                "model_id": 687,
+                "model": "Silverstring 1.25"
+            },
+            {
+                "model_id": 688,
+                "model": "Silverstring 120"
+            },
+            {
+                "model_id": 689,
+                "model": "Turbotwist 17 (1.24)"
+            },
+            {
+                "model_id": 690,
+                "model": "Turbotwist 17L (1.18)"
+            },
+            {
+                "model_id": 691,
+                "model": "Ultra Cable 17 (1.23)"
+            }
+        ]
+    },
+    {
+        "brand_id": 38,
+        "brand": "Wilson",
+        "models": [
+            {
+                "model_id": 692,
+                "model": "Enduro Gold 16"
+            },
+            {
+                "model_id": 693,
+                "model": "Enduro Mono 16L"
+            },
+            {
+                "model_id": 694,
+                "model": "Enduro Pro 16"
+            },
+            {
+                "model_id": 695,
+                "model": "Enduro Pro 17 (1.25)"
+            },
+            {
+                "model_id": 696,
+                "model": "Enduro Tour 16"
+            },
+            {
+                "model_id": 697,
+                "model": "Enduro Tour 17"
+            },
+            {
+                "model_id": 698,
+                "model": "Enduro Tour 18"
+            },
+            {
+                "model_id": 699,
+                "model": "Extreme 16 Synthetic Gut"
+            },
+            {
+                "model_id": 700,
+                "model": "Hollow Core 16"
+            },
+            {
+                "model_id": 701,
+                "model": "Hollow Core Pro 16"
+            },
+            {
+                "model_id": 702,
+                "model": "Hollow Core Pro 17"
+            },
+            {
+                "model_id": 703,
+                "model": "K-Gut 16"
+            },
+            {
+                "model_id": 704,
+                "model": "K-Gut Pro 16"
+            },
+            {
+                "model_id": 705,
+                "model": "Natural Gut 16"
+            },
+            {
+                "model_id": 706,
+                "model": "Natural Gut 16 (1.30)"
+            },
+            {
+                "model_id": 707,
+                "model": "Natural Gut 17"
+            },
+            {
+                "model_id": 708,
+                "model": "NXT 15L (1.35)"
+            },
+            {
+                "model_id": 709,
+                "model": "NXT 16"
+            },
+            {
+                "model_id": 710,
+                "model": "NXT 17"
+            },
+            {
+                "model_id": 711,
+                "model": "NXT Control 16 (1.32)"
+            },
+            {
+                "model_id": 712,
+                "model": "NXT Duramax 15 (1.40)"
+            },
+            {
+                "model_id": 713,
+                "model": "NXT Duramax 16 (1.32)"
+            },
+            {
+                "model_id": 714,
+                "model": "NXT Max 15L (1.35)"
+            },
+            {
+                "model_id": 715,
+                "model": "NXT Max 16"
+            },
+            {
+                "model_id": 716,
+                "model": "NXT OS"
+            },
+            {
+                "model_id": 717,
+                "model": "NXT Power 17 (1.26)"
+            },
+            {
+                "model_id": 718,
+                "model": "NXT Tour 16"
+            },
+            {
+                "model_id": 719,
+                "model": "NXT Tour 17"
+            },
+            {
+                "model_id": 720,
+                "model": "Optimus 16 (1.30)"
+            },
+            {
+                "model_id": 721,
+                "model": "Reaction 16"
+            },
+            {
+                "model_id": 722,
+                "model": "Red Alert 16"
+            },
+            {
+                "model_id": 723,
+                "model": "Revolve 15 (1.35)"
+            },
+            {
+                "model_id": 724,
+                "model": "Revolve 16 (1.30)"
+            },
+            {
+                "model_id": 725,
+                "model": "Revolve 17 (1.25)"
+            },
+            {
+                "model_id": 726,
+                "model": "Revolve Spin 16"
+            },
+            {
+                "model_id": 727,
+                "model": "Ripspin 15"
+            },
+            {
+                "model_id": 728,
+                "model": "Ripspin 16"
+            },
+            {
+                "model_id": 729,
+                "model": "Ripspin 17"
+            },
+            {
+                "model_id": 730,
+                "model": "Sensation 15 (1.35)"
+            },
+            {
+                "model_id": 731,
+                "model": "Sensation 16"
+            },
+            {
+                "model_id": 732,
+                "model": "Sensation 17"
+            },
+            {
+                "model_id": 733,
+                "model": "Sensation Control 16 (1.30)"
+            },
+            {
+                "model_id": 734,
+                "model": "Sensation Supreme 16"
+            },
+            {
+                "model_id": 735,
+                "model": "SGX 16"
+            },
+            {
+                "model_id": 736,
+                "model": "Shock Shield 16"
+            },
+            {
+                "model_id": 737,
+                "model": "Spin Cycle 16L"
+            },
+            {
+                "model_id": 738,
+                "model": "Stamina 16"
+            },
+            {
+                "model_id": 739,
+                "model": "Synthetic Gut Control 17 (1.25)"
+            },
+            {
+                "model_id": 740,
+                "model": "Synthetic Gut Extreme 17"
+            },
+            {
+                "model_id": 741,
+                "model": "Synthetic Gut Power 16 (1.30)"
+            },
+            {
+                "model_id": 742,
+                "model": "Synthetic Gut Power 17 (1.25)"
+            }
+        ]
+    },
+    {
+        "brand_id": 39,
+        "brand": "Yonex",
+        "models": [
+            {
+                "model_id": 743,
+                "model": "Mono Preme 16 (1.30)"
+            },
+            {
+                "model_id": 744,
+                "model": "Poly Tour 130/16"
+            },
+            {
+                "model_id": 745,
+                "model": "Poly Tour Air 16L"
+            },
+            {
+                "model_id": 746,
+                "model": "Poly Tour Drive 16L (1.25)"
+            },
+            {
+                "model_id": 747,
+                "model": "Poly Tour Fire 16L (1.25)"
+            },
+            {
+                "model_id": 748,
+                "model": "Poly Tour HS 16 (1.30)"
+            },
+            {
+                "model_id": 749,
+                "model": "Poly Tour HS 16L (1.25)"
+            },
+            {
+                "model_id": 750,
+                "model": "Poly Tour Pro 17 (1.20)"
+            },
+            {
+                "model_id": 751,
+                "model": "Poly Tour Pro Yellow 16 (1.30)"
+            },
+            {
+                "model_id": 752,
+                "model": "Poly Tour Pro Yellow 16L (1.25)"
+            },
+            {
+                "model_id": 753,
+                "model": "Poly Tour Spin 16L (1.25)"
+            },
+            {
+                "model_id": 754,
+                "model": "Poly Tour Spin G 1.25"
+            },
+            {
+                "model_id": 755,
+                "model": "Poly Tour Strike 16L (1.25)"
+            },
+            {
+                "model_id": 756,
+                "model": "Poly Tour Tough 16L"
+            },
+            {
+                "model_id": 757,
+                "model": "PolyTour REV 16 (1.30)"
+            },
+            {
+                "model_id": 758,
+                "model": "Polytour Rev 16L (1.25)"
+            },
+            {
+                "model_id": 759,
+                "model": "Rexis 16 (1.30)"
+            },
+            {
+                "model_id": 760,
+                "model": "Rexis Comfort 16L (1.25)"
+            },
+            {
+                "model_id": 761,
+                "model": "Rexis Speed 16L (1.25)"
+            },
+            {
+                "model_id": 762,
+                "model": "Tour Super 850 16 (1.30)"
+            },
+            {
+                "model_id": 763,
+                "model": "Tour Super Pro 850 16 (1.32)"
+            },
+            {
+                "model_id": 764,
+                "model": "Tournament 50 16L"
+            },
+            {
+                "model_id": 765,
+                "model": "Tournament 80 Spin 15L-16"
+            },
+            {
+                "model_id": 774,
+                "model": "Poly Tour Rev 17ga"
+            }
+        ]
+    },
+    {
+        "brand_id": 40,
+        "brand": "Y-Tex",
+        "models": [
+            {
+                "model_id": 766,
+                "model": "Quadro Twist 16L"
+            }
+        ]
+    },
+    {
+        "brand_id": 41,
+        "brand": "None",
+        "models": [
+            {
+                "model_id": 768,
+                "model": "None"
+            }
+        ]
+    },
+    {
+        "brand_id": 42,
+        "brand": "Pros Pro",
+        "models": [
+            {
+                "model_id": 779,
+                "model": "Hexaspin Twist 16L "
+            }
+        ]
+    }
+]

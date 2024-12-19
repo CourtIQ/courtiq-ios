@@ -8,6 +8,7 @@
 import AuthenticationService
 import FirebaseCore
 import InstantSearchTelemetry
+import EquipmentService
 import RDDesignSystem
 import RelationshipService
 import StorageService
@@ -43,6 +44,7 @@ struct CourtiqApp: App {
     @StateObject var relationsService = RelationshipService()
     @StateObject var storageService = StorageService()
     
+    @StateObject var equipmentService: EquipmentService
     @StateObject var authService: AuthService
     @StateObject var userService: UserService
 
@@ -62,6 +64,8 @@ struct CourtiqApp: App {
 
         // Initialize userService now that graphQLClient and authService are available
         _userService = StateObject(wrappedValue: UserService(graphQLClient: graphQLClient))
+        _equipmentService = StateObject(wrappedValue: EquipmentService(racketRepo: TennisRacketRepository(client: graphQLClient),
+                                                                  stringRepo: TennisStringRepository(client: graphQLClient)))
     }
     var body: some Scene {
         WindowGroup {
@@ -72,12 +76,13 @@ struct CourtiqApp: App {
                     .environmentObject(userService)
                     .environmentObject(relationsService)
                     .environmentObject(storageService)
+                    .environmentObject(equipmentService)
                     .sheet(item: $router.currentSheet) { sheet in
                         sheet.view
                     }
                     .sheet(item: $router.currentHalfSheet) { sheet in
                         sheet.view
-                            .presentationDetents(Set(arrayLiteral: .medium))
+                            .presentationDetents(Set(router.halfSheetDetents))
                     }
                     .fullScreenCover(item: $router.currentScreenCover) { screen in
                         ScreenCoverView(viewWrapper: screen)

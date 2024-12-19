@@ -67,15 +67,13 @@ struct SignUpView: View {
                             state: $confirmPasswordStatus)
             }
         } footer: {
-            VStack {
-                RDButtonView(.small, .ghost, "Login to existing account.") {
-                    vm.handle(action: .signInFromSignUp)
-                }
-                
-                RDButtonView(.extraLarge, .primary, "Sign up", disable: !isFormValid) {
-                    Task {
-                        vm.handle(action: .signUpBtn)
-                    }
+            RDButtonView(.small, .ghost, "Login to existing account.") {
+                vm.handle(action: .signInFromSignUp)
+            }
+            
+            RDButtonView(.extraLarge, .primary, "Sign up", disable: !isFormValid) {
+                Task {
+                    vm.handle(action: .signUpBtn)
                 }
             }
         }

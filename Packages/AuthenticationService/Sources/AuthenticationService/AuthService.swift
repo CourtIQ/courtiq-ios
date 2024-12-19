@@ -88,7 +88,6 @@ public class AuthService: AuthServiceProtocol {
         do {
             return try await authProvider.getIDToken()
         } catch {
-            // If token retrieval fails, the user might not be logged in anymore.
             isUserLoggedIn = false
             additionalInfoRequired = false
             throw error

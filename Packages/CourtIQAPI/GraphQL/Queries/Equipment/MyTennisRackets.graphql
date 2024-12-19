@@ -1,0 +1,5 @@
+query MyTennisRackets($limit: Int = 10, $offset: Int = 0) {
+  myTennisRackets(limit: $limit, offset: $offset) {
+    ...TennisRacketFields
+  }
+}

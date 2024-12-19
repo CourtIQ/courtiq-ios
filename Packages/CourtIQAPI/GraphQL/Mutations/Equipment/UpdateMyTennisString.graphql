@@ -1,0 +1,5 @@
+mutation UpdateMyTennisString($updateMyTennisStringId: ObjectID!, $input: UpdateTennisStringInput!) {
+  updateMyTennisString(id: $updateMyTennisStringId, input: $input) {
+    ...TennisStringFields
+  }
+}

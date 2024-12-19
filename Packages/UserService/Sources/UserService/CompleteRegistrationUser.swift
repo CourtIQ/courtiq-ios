@@ -11,7 +11,6 @@ import Models
 public struct CompleteRegistrationUser: Equatable {
     public var firstName: String
     public var lastName: String
-    public var displayName: String
     public var username: String
     public var bio: String
     public var dateOfBirth: Date?
@@ -44,7 +43,6 @@ public struct CompleteRegistrationUser: Equatable {
     public init(
         firstName: String = "",
         lastName: String = "",
-        displayName: String = "",
         username: String = "",
         bio: String = "",
         dateOfBirth: Date? = nil,
@@ -53,7 +51,6 @@ public struct CompleteRegistrationUser: Equatable {
     ) {
         self.firstName = firstName
         self.lastName = lastName
-        self.displayName = displayName
         self.username = username
         self.bio = bio
         self.dateOfBirth = dateOfBirth
@@ -65,7 +62,6 @@ public struct CompleteRegistrationUser: Equatable {
     public init(from user: User) {
         self.firstName = user.firstName
         self.lastName = user.lastName
-        self.displayName = user.displayName
         self.username = user.username
         self.bio = user.bio ?? ""
         self.dateOfBirth = user.dateOfBirth
@@ -103,6 +99,7 @@ public struct CompleteRegistrationUser: Equatable {
             genderInput = .null
         }
         
+        print("gender Input: \(genderInput)")
         return API.UpdateUserInput(
             username: .some(username),
             firstName: .some(firstName),
@@ -124,6 +121,10 @@ extension API.Gender {
             return "Female"
         case .nonBinary:
             return "Non Binary"
+        case .preferNotToSay:
+            return "Prefer Not To Say"
+        default:
+            return ""
         }
     }
     

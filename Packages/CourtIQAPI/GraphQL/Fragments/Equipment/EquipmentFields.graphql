@@ -1,0 +1,8 @@
+fragment EquipmentFields on Equipment {
+  id
+  ownerId
+  name
+  type
+  createdAt
+  updatedAt
+}

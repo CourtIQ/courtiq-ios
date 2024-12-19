@@ -14,11 +14,17 @@ let package = Package(
             name: "EquipmentService",
             targets: ["EquipmentService"]),
     ],
+    dependencies: [
+        .package(path: "../CourtIQAPI"),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "EquipmentService"),
+            name: "EquipmentService",
+            dependencies: ["CourtIQAPI"],
+            resources: [.process("Resources")]),
+
         .testTarget(
             name: "EquipmentServiceTests",
             dependencies: ["EquipmentService"]

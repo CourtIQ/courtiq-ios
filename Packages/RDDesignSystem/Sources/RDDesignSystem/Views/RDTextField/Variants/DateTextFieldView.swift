@@ -27,8 +27,7 @@ struct DateTextFieldView: View {
                 ZStack(alignment: .leading) {
                     RDPlaceholderView(placeholder: placeholder, isActive: isActive, isDateType: true, state: currentState)
                     
-                    HStack {
-                        Spacer()
+                    HStack(alignment: .center) {
                         DatePicker(
                             "",
                             selection: Binding(
@@ -48,7 +47,15 @@ struct DateTextFieldView: View {
                         .offset(y: 8)
                         .padding(.leading, 4)
                         .focused($focused)
-                        Spacer()
+                        
+                        // Clear Button (only shown if a date is selected)
+                        if dateValue != nil {
+                            Button(action: clearDate) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundColor(currentState.iconColor)
+                            }
+                            .padding(.trailing, 4)
+                        }
                     }
                 }
             }
@@ -71,5 +78,12 @@ struct DateTextFieldView: View {
         let formatter = DateFormatter()
         formatter.dateStyle = .medium
         return formatter.string(from: date)
+    }
+    
+    private func clearDate() {
+        dateValue = nil
+        value = ""
+        // Unfocus if needed
+        focused = false
     }
 }

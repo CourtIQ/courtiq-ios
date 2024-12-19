@@ -24,7 +24,7 @@ struct MatchUpFormFormatSetView: View {
     // MARK: - Internal
     
     var body: some View {
-        RDCardView(type: .secondary) {
+        RDCard(type: .secondary) {
             VStack(spacing: 12) {
                 title
                 

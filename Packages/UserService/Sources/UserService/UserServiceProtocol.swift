@@ -11,7 +11,7 @@ import Models
 /// A protocol defining the required methods for a user service that interacts with a GraphQL backend.
 public protocol UserServiceProtocol: AnyObject, ObservableObject {
     /// The currently logged-in user, if any. This is a GraphQL-generated type from your `MeQuery` for example.
-    var currentUser: API.UserFields? { get }
+    var currentUser: User? { get }
     
     /// Fetches and updates the current user information from the server.
     /// - Throws: An error if the user could not be fetched.

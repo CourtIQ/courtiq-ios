@@ -1,0 +1,5 @@
+mutation AddNewTennisString($input: CreateTennisStringInput!) {
+  createTennisString(input: $input) {
+    ...TennisStringFields
+  }
+}

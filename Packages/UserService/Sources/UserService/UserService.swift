@@ -12,7 +12,7 @@ import CourtIQAPI
 @MainActor
 public final class UserService: @preconcurrency UserServiceProtocol {
     
-    @Published public private(set) var currentUser: API.UserFields?
+    @Published public private(set) var currentUser: User?
     
     private let graphQLClient: GraphQLClient
     
@@ -32,7 +32,8 @@ public final class UserService: @preconcurrency UserServiceProtocol {
         
         // If userFields is non-optional, no need for guard
         let userFields = fetchedUser.fragments.userFields
-        self.currentUser = userFields
+        self.currentUser = User(from: userFields)
+        print(currentUser)
     }
     
     public func completeRegistration(_ registrationInfo: CompleteRegistrationUser) async throws {
@@ -43,15 +44,14 @@ public final class UserService: @preconcurrency UserServiceProtocol {
     public func updateUser(_ userInfo: API.UpdateUserInput) async throws {
         let input = userInfo
 
-        let mutation = API.UpdateUserMutation(input: input)
+        let mutation = API.CompleteUserRegistrationMutation(input: input)
         let mutationData = try await graphQLClient.perform(mutation)
 
         guard let updatedUser = mutationData.updateUser else {
             throw NSError(domain: "UserService", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to update user"])
         }
-
-        // After update, refresh currentUser directly with the updated fragment:
-        self.currentUser = updatedUser.fragments.userFields
+        self.currentUser = User(from: updatedUser.fragments.userFields)
+        print(currentUser)
     }
 
     public func isUsernameAvailable(_ username: String) async throws -> Bool {

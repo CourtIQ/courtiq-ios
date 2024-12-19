@@ -1,0 +1,5 @@
+mutation UpdateMyTennisRacket($updateMyTennisRacketId: ObjectID!, $input: UpdateTennisRacketInput!) {
+  updateMyTennisRacket(id: $updateMyTennisRacketId, input: $input) {
+    ...TennisRacketFields
+  }
+}

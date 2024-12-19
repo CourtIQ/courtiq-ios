@@ -1,0 +1,5 @@
+mutation AssignRacketToString($racketId: ObjectID!, $stringId: ObjectID!) {
+  assignRacketToString(racketId: $racketId, stringId: $stringId) {
+    ...TennisStringFields
+  }
+}

@@ -47,6 +47,7 @@ struct PrimaryTextFieldView: View {
                 RoundedRectangle(cornerRadius: 12)
                     .stroke(currentState.borderColor, lineWidth: 1)
             )
+            .padding(1)
             
             if let helperText = helperText {
                 RDHelperTextView(text: helperText, color: currentState.helperTextColor)

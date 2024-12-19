@@ -26,12 +26,33 @@ struct BaseTabPageView<Header: View, Content: View>: View {
             VStack(spacing: verticalPadding) {
                 content
             }
-            .padding(.horizontal, horizontalPadding)
             .padding(.top, verticalPadding)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 
             Spacer()
         }
+        .background(Color.TokenColor.Semantic.Background.default)
+        .toolbar(.hidden, for: .navigationBar)
+    }
+}
+
+struct BaseTabPageView2<Content: View>: View {
+    let content: Content
+
+    private let verticalPadding: CGFloat = 8
+    private let horizontalPadding: CGFloat = 16
+
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
+    }
+
+    var body: some View {
+        VStack(spacing: verticalPadding) {
+            content
+        }
+        .padding(.horizontal, horizontalPadding)
+        .padding(.top, verticalPadding)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color.TokenColor.Semantic.Background.default)
         .toolbar(.hidden, for: .navigationBar)
     }

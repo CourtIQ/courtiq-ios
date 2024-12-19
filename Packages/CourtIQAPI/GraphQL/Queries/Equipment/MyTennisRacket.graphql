@@ -1,0 +1,5 @@
+query MyTennisRacket($id: ObjectID!) {
+  myTennisRacket(id: $id) {
+    ...TennisRacketFields
+  }
+}

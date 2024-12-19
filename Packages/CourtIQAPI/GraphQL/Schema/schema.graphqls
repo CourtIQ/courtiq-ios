@@ -65,17 +65,14 @@ type MatchUpFormat {
 type Mutation {
   createTennisRacket(input: CreateTennisRacketInput!): TennisRacket!
   updateMyTennisRacket(id: ObjectID!, input: UpdateTennisRacketInput!): TennisRacket!
-  deleteMyTennisRacket(id: ObjectID!): TennisRacket!
+  deleteMyTennisRacket(id: ObjectID!): Boolean!
   createTennisString(input: CreateTennisStringInput!): TennisString!
   updateMyTennisString(id: ObjectID!, input: UpdateTennisStringInput!): TennisString!
-  deleteMyTennisString(id: ObjectID!): TennisString!
-  assignStringToMyRacket(racketId: ObjectID!, stringId: ObjectID!): TennisRacket!
-  removeStringFromMyRacket(racketId: ObjectID!): TennisRacket!
-  markMyStringAsBurst(stringId: ObjectID!, burstDate: DateTime!): TennisString!
-  updateMyStringTension(stringId: ObjectID!, tension: StringTensionInput!): TennisString!
+  deleteMyTennisString(id: ObjectID!): Boolean!
+  assignRacketToString(racketId: ObjectID!, stringId: ObjectID!): TennisString!
   createMatchUp(matchUpFormat: MatchUpFormatInput!, matchUpType: MatchUpType!, participants: [ObjectID!]!): MatchUp!
   updateMatchUpStatus(status: MatchUpStatus!, matchUpId: ObjectID!): MatchUp!
-  addPointToMatchUp(matchUpId: ObjectID!): MatchUp!
+  addPointToMatchUp(matchupFormat: MatchUpFormatInput!, matchUpId: ObjectID!): MatchUp!
   undoShotFromMatchUp(matchUpId: ObjectID!): MatchUp!
   undoPointFromMatchUp(matchUpId: ObjectID!): MatchUp!
   deleteMatchUp(matchUpId: ObjectID!): MatchUp!
@@ -124,6 +121,7 @@ type Point {
 type Query {
   myTennisRackets(limit: Int = 10, offset: Int = 0): [TennisRacket!]!
   myTennisRacket(id: ObjectID!): TennisRacket
+  myStringHistory(racket: ObjectID!): [TennisString!]!
   myTennisStrings(limit: Int = 10, offset: Int = 0): [TennisString!]!
   myTennisString(id: ObjectID!): TennisString
   myEquipment(limit: Int = 10, offset: Int = 0): [Equipment!]!
@@ -184,11 +182,12 @@ type TennisRacket implements Equipment {
   type: EquipmentType!
   createdAt: DateTime!
   updatedAt: DateTime!
+  currentStringId: ObjectID
   brand: String
+  brandId: Int
   model: String
-  headSize: Float
+  modelId: Int
   weight: Float
-  currentString: TennisString
 }
 type TennisString implements Equipment {
   id: ObjectID!
@@ -197,9 +196,11 @@ type TennisString implements Equipment {
   type: EquipmentType!
   createdAt: DateTime!
   updatedAt: DateTime!
+  racket: ObjectID
   brand: String
+  brandId: Int
   model: String
-  gauge: StringGauge
+  modelId: Int
   tension: StringTension
   stringingDate: DateTime
   burstDate: DateTime
@@ -269,6 +270,7 @@ enum Gender {
   MALE
   FEMALE
   NON_BINARY
+  PREFER_NOT_TO_SAY
 }
 enum GroundStrokeStyle {
   SLICE
@@ -367,17 +369,20 @@ enum TiebreakPoints {
 input CreateTennisRacketInput {
   name: String!
   brand: String
+  brandId: Int
   model: String
-  headSize: Float
+  modelId: Int
   weight: Float
 }
 input CreateTennisStringInput {
   name: String!
   brand: String
+  brandId: Int
   model: String
-  gauge: StringGauge
+  modelId: Int
   tension: StringTensionInput
   stringingDate: DateTime
+  burstDate: DateTime
 }
 input LocationInput {
   city: String
@@ -410,16 +415,17 @@ input TiebreakFormatInput {
 input UpdateTennisRacketInput {
   name: String
   brand: String
+  brandId: Int
   model: String
-  headSize: Float
+  modelId: Int
   weight: Float
-  currentString: ObjectID
 }
 input UpdateTennisStringInput {
   name: String
   brand: String
+  brandId: Int
   model: String
-  gauge: StringGauge
+  modelId: Int
   tension: StringTensionInput
   stringingDate: DateTime
   burstDate: DateTime

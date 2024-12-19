@@ -1,0 +1,5 @@
+mutation CompleteUserRegistration($input: UpdateUserInput!) {
+  updateUser(input: $input) {
+    ...UserFields
+  }
+}

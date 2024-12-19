@@ -1,0 +1,5 @@
+mutation AddNewTennisRacket($input: CreateTennisRacketInput!) {
+  createTennisRacket(input: $input) {
+  ...TennisRacketFields
+}
+}

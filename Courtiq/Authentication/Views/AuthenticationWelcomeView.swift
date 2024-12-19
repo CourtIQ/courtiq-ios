@@ -35,6 +35,7 @@ struct AuthenticationWelcomeView: View {
             RDButtonView(.extraLarge, .secondary, "Log in") {
                 vm.handle(action: .goToSignIn)
             }
+
         }
         .background(Color.TokenColor.Semantic.Background.default)
         .onAppear() {

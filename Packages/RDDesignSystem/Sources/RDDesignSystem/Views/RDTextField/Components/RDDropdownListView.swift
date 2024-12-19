@@ -20,9 +20,9 @@ struct RDDropdownListView: View {
                 HStack {
                     item.image
                         .resizable()
-                        .frame(width: 20, height: 20)
+                        .frame(width: 16, height: 16)
                     Text(item.title)
-                        .rdBody()
+                        .rdSmallBody()
                         .foregroundColor(currentState.valueColor)
                     Spacer()
                 }
@@ -31,8 +31,9 @@ struct RDDropdownListView: View {
                     onSelect(item)
                 }
                 Divider()
+                    .padding(0)
             }
         }
-        .frame(maxHeight: 80)
+        .frame(maxHeight: 120)
     }
 }

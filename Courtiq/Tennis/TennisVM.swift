@@ -6,8 +6,9 @@
 //
 
 import AuthenticationService
-import StringEntryService
+import EquipmentService
 import SwiftUI
+import RDDesignSystem
 
 // MARK: - TennisVM
 
@@ -15,18 +16,22 @@ final class TennisVM: ViewModel {
     
     // MARK: - Internal Properties
 
-    @Published var newStringEntry: StringEntry
+    @Published var selectedTab: Int = 0
+    @Published var newStringEntry = AddTennisStringFormModel()
+    @Published var newRacketEntry = AddTennisRacketFormModel()
+    @Published var equipmentVM: EquipmentVM
+
+
     
     var router: AppRouter
 
     // MARK: - Initializer
     
     init(router: AppRouter,
-         authService: any AuthServiceProtocol,
-         newStringEntry: StringEntry = StringEntry()) {
+         equipmentService: any EquipmentServiceProtocol) {
         self.router = router
-        self.authService = authService
-        self.newStringEntry = newStringEntry
+        self.equipmentService = equipmentService
+        self.equipmentVM = EquipmentVM(equipmentService: equipmentService, router: router)
     }
     
     // MARK: - Internal Methods
@@ -39,30 +44,77 @@ final class TennisVM: ViewModel {
 
     @MainActor func handle(action: TennisVM.Actions) {
         switch action {
-        case .showAddString:
-            let view = AddStringView(vm: self)
-            router.handle(action: .showHalfSheet(AnyView(view), detents: [.large]))
-        case .showAddMatch:
-            let view = MatchUpFormInfoView(vm: MatchUpVM(router: router))
-            router.handle(action: .showScreen(AnyView(view)))
-        case .dismissAddString:
-            router.handle(action: .dismiss)
-        case .addStringEntry:
-            addStringEntry()
+        case .showAddString: showAddStringForm()
+        case .showAddRacket: showAddRacket()
+        case .showCreateClub: showCreateClub()
+        case .showAddMatch: showAddMatch()
+        case .showTrackMatch: showTrackMatch()
+        case .addNewStringEntry: addNewStringEntry()
+        case .addNewRacket: addNewRacketEntry()
         }
     }
 
     // MARK: - Private Methods
 
     @MainActor
-    private func addStringEntry() {
-        print("addStringEntry")
+    private func showAddStringForm() {
+        let vm = EquipmentVM(equipmentService: equipmentService,
+                             router: router)
+        let view = AnyView(AddTennisStringFormView(vm: vm))
+        router.handle(action: .showHalfSheet(view, detents: [.large]))
     }
     
-    // MARK: - Private Properties
+    @MainActor
+    private func showAddRacket() {
+        let vm = EquipmentVM(equipmentService: equipmentService,
+                             router: router)
+        let view = AnyView(AddTennisRacketFormView(vm: vm))
+        router.handle(action: .showHalfSheet(view, detents: [.medium]))
+    }
+    
+    @MainActor
+    private func showCreateClub() {
+        let view = AnyView(CreateClubView())
+        router.handle(action: .showHalfSheet(view, detents: [.medium]))
+    }
+    
+    @MainActor
+    private func showAddMatch() {
+        let vm = MatchUpVM(router: router)
+        let view = AnyView(MatchUpFormInfoView(vm: vm))
+        router.handle(action: .showSheet(view))
+    }
+    
+    @MainActor
+    private func showTrackMatch() {
+        let vm = MatchUpVM(router: router)
+        let view = AnyView(MatchUpFormInfoView(vm: vm))
+        router.handle(action: .showSheet(view))
+    }
+    
+    private func addNewStringEntry() {
+        
 
-    private var authService: any AuthServiceProtocol
-    private var stringEntryService = StringEntryService()
+    }
+    
+    private func addNewRacketEntry() {
+        Task {
+            await router.handle(action: .isLoading)
+            do {
+                try await equipmentService.createTennisRacket(input: newRacketEntry.toCreateInput())
+                await MainActor.run {
+                    router.handle(action: .dismiss)
+                    router.handle(action: .stopLoading)
+                    newRacketEntry = AddTennisRacketFormModel()
+                }
+            } catch {
+                print("Error updating document: \(error.localizedDescription)")
+            }
+        }
+    }
+    // MARK: - Private Properties
+    
+    public var equipmentService: any EquipmentServiceProtocol
 }
 
 // MARK: - TennisVM Actions
@@ -70,8 +122,11 @@ final class TennisVM: ViewModel {
 extension TennisVM {
     enum Actions {
         case showAddString
+        case showAddRacket
+        case showCreateClub
         case showAddMatch
-        case dismissAddString
-        case addStringEntry
+        case showTrackMatch
+        case addNewStringEntry
+        case addNewRacket
     }
 }

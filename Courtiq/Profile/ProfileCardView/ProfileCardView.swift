@@ -21,7 +21,7 @@ struct ProfileCardView: View {
     // MARK: Internal
     
     var body: some View {
-        RDCardView(type: .primary) {
+        RDCard(type: .primary) {
             Group {
                 HStack(alignment: .top, spacing: 12) {
                     

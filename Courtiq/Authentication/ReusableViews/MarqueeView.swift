@@ -14,7 +14,7 @@ struct MarqueeView<Header: View, Content: View, Footer: View>: View {
     let footer: Footer
     
     private let verticalPadding: CGFloat = 8
-    private let verticalSpacing: CGFloat = 12
+    private let verticalSpacing: CGFloat = 8
     private let horizontalPadding: CGFloat = 16
     
     init(
@@ -38,7 +38,7 @@ struct MarqueeView<Header: View, Content: View, Footer: View>: View {
             .padding(.vertical, verticalPadding)
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             
-            VStack(spacing: verticalSpacing) {
+            VStack(spacing: 0) {
                 footer
                     .padding(.horizontal, horizontalPadding)
                     .padding(.vertical, verticalPadding)

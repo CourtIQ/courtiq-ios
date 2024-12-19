@@ -53,7 +53,7 @@ struct DropdownTextFieldView: View {
                         color: currentState.actionIconColor,
                         action: {
                             if focused {
-                                value = ""
+                                self.value = ""
                             } else {
                                 focused = true
                             }
@@ -91,7 +91,7 @@ struct DropdownTextFieldView: View {
     }
     
     private func filterDropdownItems() {
-        if value.isEmpty {
+        if value.isEmpty || value == "" {
             filteredItems = dropdownItems
         } else {
             filteredItems = dropdownItems.filter { $0.title.lowercased().contains(value.lowercased()) }

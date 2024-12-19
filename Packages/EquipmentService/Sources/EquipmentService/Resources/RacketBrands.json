@@ -1,0 +1,5572 @@
+[
+    {
+        "brand_id": 0,
+        "brand": "Adidas",
+        "models": [
+            {
+                "model_id": 0,
+                "model": "Barricade"
+            },
+            {
+                "model_id": 1,
+                "model": "Barricade Tour"
+            },
+            {
+                "model_id": 2,
+                "model": "Feather"
+            },
+            {
+                "model_id": 3,
+                "model": "Response"
+            }
+        ]
+    },
+    {
+        "brand_id": 1,
+        "brand": "Asics",
+        "models": [
+            {
+                "model_id": 4,
+                "model": "Asics 109"
+            },
+            {
+                "model_id": 5,
+                "model": "Asics 116"
+            },
+            {
+                "model_id": 6,
+                "model": "Asics 125"
+            },
+            {
+                "model_id": 7,
+                "model": "BZ 100"
+            }
+        ]
+    },
+    {
+        "brand_id": 2,
+        "brand": "Avery",
+        "models": [
+            {
+                "model_id": 8,
+                "model": "M3 Control"
+            },
+            {
+                "model_id": 9,
+                "model": "M3 Power"
+            },
+            {
+                "model_id": 10,
+                "model": "M5"
+            }
+        ]
+    },
+    {
+        "brand_id": 3,
+        "brand": "Babolat",
+        "models": [
+            {
+                "model_id": 11,
+                "model": "Aero 112"
+            },
+            {
+                "model_id": 12,
+                "model": "Aero Blast"
+            },
+            {
+                "model_id": 13,
+                "model": "Aero Storm"
+            },
+            {
+                "model_id": 14,
+                "model": "Aero Storm GT"
+            },
+            {
+                "model_id": 15,
+                "model": "Aero Storm Tour GT"
+            },
+            {
+                "model_id": 16,
+                "model": "Aero Tour MP"
+            },
+            {
+                "model_id": 17,
+                "model": "Aero Tour OS"
+            },
+            {
+                "model_id": 18,
+                "model": "AeroPro Control Plus"
+            },
+            {
+                "model_id": 19,
+                "model": "AeroPro Drive 2013"
+            },
+            {
+                "model_id": 20,
+                "model": "AeroPro Drive Cortex"
+            },
+            {
+                "model_id": 21,
+                "model": "AeroPro Drive GT"
+            },
+            {
+                "model_id": 22,
+                "model": "AeroPro Drive GT Plus"
+            },
+            {
+                "model_id": 23,
+                "model": "AeroPro Drive GT Plus / 2013"
+            },
+            {
+                "model_id": 24,
+                "model": "AeroPro Drive Plus"
+            },
+            {
+                "model_id": 25,
+                "model": "AeroPro Lite GT"
+            },
+            {
+                "model_id": 26,
+                "model": "AeroPro Lite/2013"
+            },
+            {
+                "model_id": 27,
+                "model": "AeroPro Team GT"
+            },
+            {
+                "model_id": 28,
+                "model": "AeroPro Team GT/2013"
+            },
+            {
+                "model_id": 29,
+                "model": "Drive Z 110"
+            },
+            {
+                "model_id": 30,
+                "model": "Drive Z 110 2009"
+            },
+            {
+                "model_id": 31,
+                "model": "Drive Z 118"
+            },
+            {
+                "model_id": 32,
+                "model": "Drive Z 118 2009"
+            },
+            {
+                "model_id": 33,
+                "model": "Drive Z Lite"
+            },
+            {
+                "model_id": 34,
+                "model": "Play Pure Drive"
+            },
+            {
+                "model_id": 35,
+                "model": "Pure Aero"
+            },
+            {
+                "model_id": 36,
+                "model": "Pure Aero (2019)"
+            },
+            {
+                "model_id": 37,
+                "model": "Pure Aero 2023"
+            },
+            {
+                "model_id": 38,
+                "model": "Pure Aero 98 2023"
+            },
+            {
+                "model_id": 39,
+                "model": "Pure Aero Lite"
+            },
+            {
+                "model_id": 40,
+                "model": "Pure Aero Lite (2019)"
+            },
+            {
+                "model_id": 41,
+                "model": "Pure Aero Lite 2023"
+            },
+            {
+                "model_id": 42,
+                "model": "Pure Aero Plus"
+            },
+            {
+                "model_id": 43,
+                "model": "Pure Aero Plus (2019)"
+            },
+            {
+                "model_id": 44,
+                "model": "Pure Aero Plus 2023"
+            },
+            {
+                "model_id": 45,
+                "model": "Pure Aero Team"
+            },
+            {
+                "model_id": 46,
+                "model": "Pure Aero Team (2019)"
+            },
+            {
+                "model_id": 47,
+                "model": "Pure Aero Team 2023"
+            },
+            {
+                "model_id": 48,
+                "model": "Pure Aero Tour"
+            },
+            {
+                "model_id": 49,
+                "model": "Pure Aero Tour (2019)"
+            },
+            {
+                "model_id": 50,
+                "model": "Pure Aero VS"
+            },
+            {
+                "model_id": 51,
+                "model": "Pure Aero VS Stars and Stripes"
+            },
+            {
+                "model_id": 52,
+                "model": "Pure Aero VS Tour"
+            },
+            {
+                "model_id": 53,
+                "model": "Pure Control"
+            },
+            {
+                "model_id": 54,
+                "model": "Pure Control 95"
+            },
+            {
+                "model_id": 55,
+                "model": "Pure Control 95+"
+            },
+            {
+                "model_id": 56,
+                "model": "Pure Control Tour"
+            },
+            {
+                "model_id": 57,
+                "model": "Pure Control Tour+"
+            },
+            {
+                "model_id": 58,
+                "model": "Pure Drive (2012)"
+            },
+            {
+                "model_id": 59,
+                "model": "Pure Drive (2021)"
+            },
+            {
+                "model_id": 60,
+                "model": "Pure Drive 107"
+            },
+            {
+                "model_id": 61,
+                "model": "Pure Drive 107 (2012)"
+            },
+            {
+                "model_id": 62,
+                "model": "Pure Drive 107 (2018)"
+            },
+            {
+                "model_id": 63,
+                "model": "Pure Drive 107 2021"
+            },
+            {
+                "model_id": 64,
+                "model": "Pure Drive 107 GT 2009"
+            },
+            {
+                "model_id": 65,
+                "model": "Pure Drive 110"
+            },
+            {
+                "model_id": 66,
+                "model": "Pure Drive 110 (2018)"
+            },
+            {
+                "model_id": 67,
+                "model": "Pure Drive 110 2021"
+            },
+            {
+                "model_id": 68,
+                "model": "Pure Drive 2015"
+            },
+            {
+                "model_id": 69,
+                "model": "Pure Drive 2017"
+            },
+            {
+                "model_id": 70,
+                "model": "Pure Drive GT"
+            },
+            {
+                "model_id": 71,
+                "model": "Pure Drive GT Plus"
+            },
+            {
+                "model_id": 72,
+                "model": "Pure Drive Lite"
+            },
+            {
+                "model_id": 73,
+                "model": "Pure Drive Lite"
+            },
+            {
+                "model_id": 74,
+                "model": "Pure Drive Lite (2018)"
+            },
+            {
+                "model_id": 75,
+                "model": "Pure Drive Lite 2021"
+            },
+            {
+                "model_id": 76,
+                "model": "Pure Drive Lite Wimbledon"
+            },
+            {
+                "model_id": 77,
+                "model": "Pure Drive Plus"
+            },
+            {
+                "model_id": 78,
+                "model": "Pure Drive Plus"
+            },
+            {
+                "model_id": 79,
+                "model": "Pure Drive Plus (2018)"
+            },
+            {
+                "model_id": 80,
+                "model": "Pure Drive Plus 2021"
+            },
+            {
+                "model_id": 81,
+                "model": "Pure Drive Roddick"
+            },
+            {
+                "model_id": 82,
+                "model": "Pure Drive Roddick (2012)"
+            },
+            {
+                "model_id": 83,
+                "model": "Pure Drive Roddick GT"
+            },
+            {
+                "model_id": 84,
+                "model": "Pure Drive Roddick GT Plus"
+            },
+            {
+                "model_id": 85,
+                "model": "Pure Drive Roddick Plus"
+            },
+            {
+                "model_id": 86,
+                "model": "Pure Drive Roddick Plus (2012)"
+            },
+            {
+                "model_id": 87,
+                "model": "Pure Drive Team"
+            },
+            {
+                "model_id": 88,
+                "model": "Pure Drive Team 2021"
+            },
+            {
+                "model_id": 89,
+                "model": "Pure Drive Team Plus"
+            },
+            {
+                "model_id": 90,
+                "model": "Pure Drive Tour"
+            },
+            {
+                "model_id": 91,
+                "model": "Pure Drive Tour (2018)"
+            },
+            {
+                "model_id": 92,
+                "model": "Pure Drive Tour 2021"
+            },
+            {
+                "model_id": 93,
+                "model": "Pure Drive Tour Plus"
+            },
+            {
+                "model_id": 94,
+                "model": "Pure Drive Tour Plus (2018)"
+            },
+            {
+                "model_id": 95,
+                "model": "Pure Drive VS"
+            },
+            {
+                "model_id": 96,
+                "model": "Pure Drive Wimbledon"
+            },
+            {
+                "model_id": 97,
+                "model": "Pure Stike 98 18x20 2024"
+            },
+            {
+                "model_id": 98,
+                "model": "Pure Storm"
+            },
+            {
+                "model_id": 99,
+                "model": "Pure Storm GT 2009"
+            },
+            {
+                "model_id": 100,
+                "model": "Pure Storm GT 2011"
+            },
+            {
+                "model_id": 101,
+                "model": "Pure Storm Ltd GT (NEW)"
+            },
+            {
+                "model_id": 102,
+                "model": "Pure Storm Ltd. GT 2009"
+            },
+            {
+                "model_id": 103,
+                "model": "Pure Storm Team GT"
+            },
+            {
+                "model_id": 104,
+                "model": "Pure Storm Tour"
+            },
+            {
+                "model_id": 105,
+                "model": "Pure Storm Tour GT"
+            },
+            {
+                "model_id": 106,
+                "model": "Pure Storm Tour GT 2009"
+            },
+            {
+                "model_id": 107,
+                "model": "Pure Storm Tour Plus"
+            },
+            {
+                "model_id": 108,
+                "model": "Pure Storm Tour Plus GT"
+            },
+            {
+                "model_id": 109,
+                "model": "Pure Storm Tour+ GT 2009"
+            },
+            {
+                "model_id": 110,
+                "model": "Pure Strike (18x20)"
+            },
+            {
+                "model_id": 111,
+                "model": "Pure Strike 100"
+            },
+            {
+                "model_id": 112,
+                "model": "Pure Strike 100 (2016)"
+            },
+            {
+                "model_id": 113,
+                "model": "Pure Strike 100 16x20 2024"
+            },
+            {
+                "model_id": 114,
+                "model": "Pure Strike 100 2024"
+            },
+            {
+                "model_id": 115,
+                "model": "Pure Strike 100 3rd Gen"
+            },
+            {
+                "model_id": 116,
+                "model": "Pure Strike 100 Team"
+            },
+            {
+                "model_id": 117,
+                "model": "Pure Strike 103"
+            },
+            {
+                "model_id": 118,
+                "model": "Pure Strike 16x19"
+            },
+            {
+                "model_id": 119,
+                "model": "Pure Strike 16x19 (2016)"
+            },
+            {
+                "model_id": 120,
+                "model": "Pure Strike 16x19 3rd Gen"
+            },
+            {
+                "model_id": 121,
+                "model": "Pure Strike 18x20"
+            },
+            {
+                "model_id": 122,
+                "model": "Pure Strike 18x20 3rd Gen"
+            },
+            {
+                "model_id": 123,
+                "model": "Pure Strike 97"
+            },
+            {
+                "model_id": 124,
+                "model": "Pure Strike 98 16x19 2024"
+            },
+            {
+                "model_id": 125,
+                "model": "Pure Strike Team 2024"
+            },
+            {
+                "model_id": 126,
+                "model": "Pure Strike Tour"
+            },
+            {
+                "model_id": 127,
+                "model": "Pure Strike Tour 3rd Gen"
+            },
+            {
+                "model_id": 128,
+                "model": "Pure Strike VS"
+            },
+            {
+                "model_id": 129,
+                "model": "Pure Strike VS"
+            },
+            {
+                "model_id": 130,
+                "model": "Pure Strike VS Tour"
+            },
+            {
+                "model_id": 131,
+                "model": "VS NCT Control"
+            },
+            {
+                "model_id": 132,
+                "model": "XS 102"
+            },
+            {
+                "model_id": 133,
+                "model": "XS 102"
+            },
+            {
+                "model_id": 134,
+                "model": "XS 105"
+            },
+            {
+                "model_id": 135,
+                "model": "XS 109"
+            },
+            {
+                "model_id": 136,
+                "model": "Y 105 Smart Grip"
+            },
+            {
+                "model_id": 137,
+                "model": "Y 109 Smart Grip"
+            },
+            {
+                "model_id": 138,
+                "model": "Y 112"
+            },
+            {
+                "model_id": 139,
+                "model": "Y 112 LTD"
+            },
+            {
+                "model_id": 140,
+                "model": "Y 118"
+            },
+            {
+                "model_id": 1309,
+                "model": "NS Drive OS"
+            },
+            {
+                "model_id": 1348,
+                "model": "Pure Strike 98 18x20 4th Gen"
+            },
+            {
+                "model_id": 1349,
+                "model": "Pure Strike 98 16x19 4th Gen"
+            },
+            {
+                "model_id": 1350,
+                "model": "Pure Strike 97 4th Gen"
+            },
+            {
+                "model_id": 1351,
+                "model": "Pure Strike 100 16x20 4th Gen"
+            },
+            {
+                "model_id": 1352,
+                "model": "Pure Strike 100 4th Gen"
+            },
+            {
+                "model_id": 1353,
+                "model": "Pure Strike Team 4th Gen"
+            },
+            {
+                "model_id": 1354,
+                "model": "Boost Strike 2024"
+            }
+        ]
+    },
+    {
+        "brand_id": 4,
+        "brand": "Boris",
+        "models": [
+            {
+                "model_id": 141,
+                "model": "Becker Becker 11 (heavy)"
+            },
+            {
+                "model_id": 142,
+                "model": "Becker Becker 11 Special Edition 98"
+            },
+            {
+                "model_id": 143,
+                "model": "Becker Boris Becker 11 Light"
+            },
+            {
+                "model_id": 144,
+                "model": "Becker Delta Core 1"
+            },
+            {
+                "model_id": 145,
+                "model": "Becker Delta Core 3"
+            },
+            {
+                "model_id": 146,
+                "model": "Becker Delta Core Legend"
+            },
+            {
+                "model_id": 147,
+                "model": "Becker Delta Core London"
+            },
+            {
+                "model_id": 148,
+                "model": "Becker Delta Core London Tour"
+            },
+            {
+                "model_id": 149,
+                "model": "Becker Delta Core Melbourne"
+            },
+            {
+                "model_id": 150,
+                "model": "Becker Delta Core Pro"
+            }
+        ]
+    },
+    {
+        "brand_id": 5,
+        "brand": "Donnay",
+        "models": [
+            {
+                "model_id": 151,
+                "model": "Formula 100"
+            },
+            {
+                "model_id": 152,
+                "model": "Formula Lite 100"
+            },
+            {
+                "model_id": 153,
+                "model": "Formula OS Ext"
+            },
+            {
+                "model_id": 154,
+                "model": "Pro One"
+            },
+            {
+                "model_id": 155,
+                "model": "Pro One 97 18x20"
+            },
+            {
+                "model_id": 156,
+                "model": "Pro One OS"
+            },
+            {
+                "model_id": 157,
+                "model": "Pro One OS Ext"
+            },
+            {
+                "model_id": 158,
+                "model": "X-Black 94"
+            },
+            {
+                "model_id": 159,
+                "model": "X-Black 99"
+            },
+            {
+                "model_id": 160,
+                "model": "X-Blue 94"
+            },
+            {
+                "model_id": 161,
+                "model": "X-Blue 99"
+            },
+            {
+                "model_id": 162,
+                "model": "X-Dark Red 94"
+            },
+            {
+                "model_id": 163,
+                "model": "X-Dual Core Platinum 94"
+            },
+            {
+                "model_id": 164,
+                "model": "X-Dual Core Silver 99"
+            },
+            {
+                "model_id": 165,
+                "model": "X-Dual Gold 94"
+            },
+            {
+                "model_id": 166,
+                "model": "X-Dual Silver Lite 99"
+            },
+            {
+                "model_id": 167,
+                "model": "X-Orange 99"
+            },
+            {
+                "model_id": 168,
+                "model": "X-P Dual Lite White 102"
+            },
+            {
+                "model_id": 169,
+                "model": "X-Red 94"
+            },
+            {
+                "model_id": 170,
+                "model": "X-Red 99"
+            },
+            {
+                "model_id": 171,
+                "model": "X-White 99"
+            },
+            {
+                "model_id": 172,
+                "model": "X-Yellow 99"
+            }
+        ]
+    },
+    {
+        "brand_id": 6,
+        "brand": "Dunlop",
+        "models": [
+            {
+                "model_id": 173,
+                "model": "Aerogel 100"
+            },
+            {
+                "model_id": 174,
+                "model": "Aerogel 1000"
+            },
+            {
+                "model_id": 175,
+                "model": "Aerogel 2Hundred"
+            },
+            {
+                "model_id": 176,
+                "model": "Aerogel 3Hundred"
+            },
+            {
+                "model_id": 177,
+                "model": "Aerogel 4D 100 (1Hundred)"
+            },
+            {
+                "model_id": 178,
+                "model": "Aerogel 4D 200 (2Hundred)"
+            },
+            {
+                "model_id": 179,
+                "model": "Aerogel 4D 200 Tour (2Hundred)"
+            },
+            {
+                "model_id": 180,
+                "model": "Aerogel 4D 300 (3Hundred)"
+            },
+            {
+                "model_id": 181,
+                "model": "Aerogel 4D 300 (3Hundred) Tour"
+            },
+            {
+                "model_id": 182,
+                "model": "Aerogel 4D 5 Fifty Lite"
+            },
+            {
+                "model_id": 183,
+                "model": "Aerogel 4D 500 (5Hundred)"
+            },
+            {
+                "model_id": 184,
+                "model": "Aerogel 4D 500 (5Hundred) Tour"
+            },
+            {
+                "model_id": 185,
+                "model": "Aerogel 4D 700 (7Hundred)"
+            },
+            {
+                "model_id": 186,
+                "model": "Aerogel 4D Super-Lite"
+            },
+            {
+                "model_id": 187,
+                "model": "Aerogel 5Hundred"
+            },
+            {
+                "model_id": 188,
+                "model": "Aerogel 5Hundred Tour"
+            },
+            {
+                "model_id": 189,
+                "model": "Aerogel 600 MP"
+            },
+            {
+                "model_id": 190,
+                "model": "Aerogel 7Hundred"
+            },
+            {
+                "model_id": 191,
+                "model": "Aerogel 9Hundred OS"
+            },
+            {
+                "model_id": 192,
+                "model": "Aerogel Rush"
+            },
+            {
+                "model_id": 193,
+                "model": "Aerogel Smoke"
+            },
+            {
+                "model_id": 194,
+                "model": "Aerogel Titan"
+            },
+            {
+                "model_id": 195,
+                "model": "BioFibre F3.1 Tour"
+            },
+            {
+                "model_id": 196,
+                "model": "BioFibre M2.1"
+            },
+            {
+                "model_id": 197,
+                "model": "BioFibre M3.1"
+            },
+            {
+                "model_id": 198,
+                "model": "BioFibre S8.1 Lite"
+            },
+            {
+                "model_id": 199,
+                "model": "Biomimetic 100"
+            },
+            {
+                "model_id": 200,
+                "model": "Biomimetic 200"
+            },
+            {
+                "model_id": 201,
+                "model": "Biomimetic 200 Lite"
+            },
+            {
+                "model_id": 202,
+                "model": "Biomimetic 200 Plus"
+            },
+            {
+                "model_id": 203,
+                "model": "Biomimetic 200 Tour"
+            },
+            {
+                "model_id": 204,
+                "model": "Biomimetic 300"
+            },
+            {
+                "model_id": 205,
+                "model": "Biomimetic 300 Tour"
+            },
+            {
+                "model_id": 206,
+                "model": "Biomimetic 400"
+            },
+            {
+                "model_id": 207,
+                "model": "Biomimetic 400 Lite"
+            },
+            {
+                "model_id": 208,
+                "model": "Biomimetic 400 Tour"
+            },
+            {
+                "model_id": 209,
+                "model": "Biomimetic 500"
+            },
+            {
+                "model_id": 210,
+                "model": "Biomimetic 500 Plus"
+            },
+            {
+                "model_id": 211,
+                "model": "Biomimetic 500 Tour"
+            },
+            {
+                "model_id": 212,
+                "model": "Biomimetic 600"
+            },
+            {
+                "model_id": 213,
+                "model": "Biomimetic 600 Lite"
+            },
+            {
+                "model_id": 214,
+                "model": "Biomimetic 600 Tour"
+            },
+            {
+                "model_id": 215,
+                "model": "Biomimetic Black Widow"
+            },
+            {
+                "model_id": 216,
+                "model": "Biomimetic F 3.0 Tour"
+            },
+            {
+                "model_id": 217,
+                "model": "Biomimetic F2.0 Tour"
+            },
+            {
+                "model_id": 218,
+                "model": "Biomimetic F5.0 Tour"
+            },
+            {
+                "model_id": 219,
+                "model": "Biomimetic M 3.0"
+            },
+            {
+                "model_id": 220,
+                "model": "Biomimetic M 6.0"
+            },
+            {
+                "model_id": 221,
+                "model": "Biomimetic M5.0"
+            },
+            {
+                "model_id": 222,
+                "model": "Biomimetic Max 200G"
+            },
+            {
+                "model_id": 223,
+                "model": "Biomimetic S 2.0"
+            },
+            {
+                "model_id": 224,
+                "model": "Biomimetic S 3.0 Lite"
+            },
+            {
+                "model_id": 225,
+                "model": "Biomimetic S 6.0"
+            },
+            {
+                "model_id": 226,
+                "model": "Biomimetic S 6.0 Lite"
+            },
+            {
+                "model_id": 227,
+                "model": "Biomimetic S 7.0"
+            },
+            {
+                "model_id": 228,
+                "model": "Biomimetic S 8.0 Lite"
+            },
+            {
+                "model_id": 229,
+                "model": "Biomimetic S5.0 Lite"
+            },
+            {
+                "model_id": 230,
+                "model": "CX 200"
+            },
+            {
+                "model_id": 231,
+                "model": "CX 200"
+            },
+            {
+                "model_id": 232,
+                "model": "CX 200 OS"
+            },
+            {
+                "model_id": 233,
+                "model": "CX 200 OS"
+            },
+            {
+                "model_id": 234,
+                "model": "CX 200 Tour 16x19"
+            },
+            {
+                "model_id": 235,
+                "model": "CX 200 Tour 18x20"
+            },
+            {
+                "model_id": 236,
+                "model": "CX 400"
+            },
+            {
+                "model_id": 237,
+                "model": "CX 400"
+            },
+            {
+                "model_id": 238,
+                "model": "CX 400 Tour"
+            },
+            {
+                "model_id": 239,
+                "model": "CX 400 Tour"
+            },
+            {
+                "model_id": 240,
+                "model": "F4.0 Tour"
+            },
+            {
+                "model_id": 241,
+                "model": "FX 500"
+            },
+            {
+                "model_id": 242,
+                "model": "FX 500 2023"
+            },
+            {
+                "model_id": 243,
+                "model": "FX 500 LS"
+            },
+            {
+                "model_id": 244,
+                "model": "FX 500 LS 2023"
+            },
+            {
+                "model_id": 245,
+                "model": "FX 500 Lite"
+            },
+            {
+                "model_id": 246,
+                "model": "FX 500 Lite 2023"
+            },
+            {
+                "model_id": 247,
+                "model": "FX 500 Tour"
+            },
+            {
+                "model_id": 248,
+                "model": "FX 500 Tour 2023"
+            },
+            {
+                "model_id": 249,
+                "model": "FX 700"
+            },
+            {
+                "model_id": 250,
+                "model": "FX 700 2023"
+            },
+            {
+                "model_id": 251,
+                "model": "Force 100"
+            },
+            {
+                "model_id": 252,
+                "model": "Force 100 Tour"
+            },
+            {
+                "model_id": 253,
+                "model": "Force 105"
+            },
+            {
+                "model_id": 254,
+                "model": "Force 98"
+            },
+            {
+                "model_id": 255,
+                "model": "Force 98 Tour"
+            },
+            {
+                "model_id": 256,
+                "model": "M-Fil 200"
+            },
+            {
+                "model_id": 257,
+                "model": "M-Fil 300"
+            },
+            {
+                "model_id": 258,
+                "model": "M-Fil 400"
+            },
+            {
+                "model_id": 259,
+                "model": "M-Fil 800"
+            },
+            {
+                "model_id": 260,
+                "model": "M4.0"
+            },
+            {
+                "model_id": 261,
+                "model": "Precision 100"
+            },
+            {
+                "model_id": 262,
+                "model": "Precision 100 Tour"
+            },
+            {
+                "model_id": 263,
+                "model": "Precision 98"
+            },
+            {
+                "model_id": 264,
+                "model": "Precision 98 Tour"
+            },
+            {
+                "model_id": 265,
+                "model": "S4.0 Lite"
+            },
+            {
+                "model_id": 266,
+                "model": "SX 300"
+            },
+            {
+                "model_id": 267,
+                "model": "SX 300 Tour"
+            },
+            {
+                "model_id": 268,
+                "model": "SX300"
+            },
+            {
+                "model_id": 269,
+                "model": "SX300 Tour"
+            },
+            {
+                "model_id": 270,
+                "model": "Srixon CX 200"
+            },
+            {
+                "model_id": 271,
+                "model": "Srixon CX 200 LS"
+            },
+            {
+                "model_id": 272,
+                "model": "Srixon CX 200 Tour (16x19)"
+            },
+            {
+                "model_id": 273,
+                "model": "Srixon CX 200 Tour (18x20)"
+            },
+            {
+                "model_id": 274,
+                "model": "Srixon CX 200+"
+            },
+            {
+                "model_id": 275,
+                "model": "Srixon CX 400"
+            },
+            {
+                "model_id": 276,
+                "model": "Srixon Revo CV 3.0"
+            },
+            {
+                "model_id": 277,
+                "model": "Srixon Revo CV 3.0 F"
+            },
+            {
+                "model_id": 278,
+                "model": "Srixon Revo CV 3.0 F LS"
+            },
+            {
+                "model_id": 279,
+                "model": "Srixon Revo CV 3.0 F Tour"
+            },
+            {
+                "model_id": 280,
+                "model": "Srixon Revo CV 5.0"
+            },
+            {
+                "model_id": 281,
+                "model": "Srixon Revo CV 5.0 OS"
+            },
+            {
+                "model_id": 282,
+                "model": "Srixon Revo CX 2.0"
+            },
+            {
+                "model_id": 283,
+                "model": "Srixon Revo CX 2.0 LS"
+            },
+            {
+                "model_id": 284,
+                "model": "Srixon Revo CX 4.0"
+            },
+            {
+                "model_id": 285,
+                "model": "Srixon Revo CX Tour 18x20"
+            },
+            {
+                "model_id": 286,
+                "model": "Srixon Revo CZ 100S"
+            },
+            {
+                "model_id": 287,
+                "model": "Srixon Revo CZ 98D"
+            },
+            {
+                "model_id": 288,
+                "model": "iDapt Force 100"
+            },
+            {
+                "model_id": 289,
+                "model": "iDapt Force 100S"
+            },
+            {
+                "model_id": 290,
+                "model": "iDapt Force 105"
+            },
+            {
+                "model_id": 291,
+                "model": "iDapt Force 98"
+            }
+        ]
+    },
+    {
+        "brand_id": 7,
+        "brand": "Fischer",
+        "models": [
+            {
+                "model_id": 292,
+                "model": "M Comp 95"
+            },
+            {
+                "model_id": 293,
+                "model": "M Pro Number One 98 Light"
+            },
+            {
+                "model_id": 294,
+                "model": "M Pro Number One 98 SL"
+            },
+            {
+                "model_id": 295,
+                "model": "Magnetic Tour ++ (heavy)"
+            },
+            {
+                "model_id": 296,
+                "model": "Progressor NT"
+            }
+        ]
+    },
+    {
+        "brand_id": 8,
+        "brand": "Gamma",
+        "models": [
+            {
+                "model_id": 297,
+                "model": "Big Bubba"
+            },
+            {
+                "model_id": 298,
+                "model": "C-1"
+            },
+            {
+                "model_id": 299,
+                "model": "C-2"
+            },
+            {
+                "model_id": 300,
+                "model": "C-3"
+            },
+            {
+                "model_id": 301,
+                "model": "C-4"
+            },
+            {
+                "model_id": 302,
+                "model": "CP-1000"
+            },
+            {
+                "model_id": 303,
+                "model": "CP-1200"
+            },
+            {
+                "model_id": 304,
+                "model": "G250"
+            },
+            {
+                "model_id": 305,
+                "model": "G260"
+            },
+            {
+                "model_id": 306,
+                "model": "G310"
+            },
+            {
+                "model_id": 307,
+                "model": "Ipex 2.0 OS"
+            },
+            {
+                "model_id": 308,
+                "model": "RZR 100"
+            },
+            {
+                "model_id": 309,
+                "model": "RZR 100T"
+            },
+            {
+                "model_id": 310,
+                "model": "RZR 105"
+            },
+            {
+                "model_id": 311,
+                "model": "RZR 110"
+            },
+            {
+                "model_id": 312,
+                "model": "RZR 95"
+            },
+            {
+                "model_id": 313,
+                "model": "RZR 98"
+            },
+            {
+                "model_id": 314,
+                "model": "RZR 98 T"
+            },
+            {
+                "model_id": 315,
+                "model": "T-5"
+            },
+            {
+                "model_id": 316,
+                "model": "T-6"
+            },
+            {
+                "model_id": 317,
+                "model": "T-7"
+            },
+            {
+                "model_id": 318,
+                "model": "Tour 300X"
+            },
+            {
+                "model_id": 319,
+                "model": "Tour 320X"
+            },
+            {
+                "model_id": 320,
+                "model": "Tour 330X"
+            },
+            {
+                "model_id": 321,
+                "model": "Tour 340X"
+            },
+            {
+                "model_id": 322,
+                "model": "Tour 340X Team"
+            }
+        ]
+    },
+    {
+        "brand_id": 9,
+        "brand": "Head",
+        "models": [
+            {
+                "model_id": 323,
+                "model": "Airflow 1"
+            },
+            {
+                "model_id": 324,
+                "model": "Airflow 3"
+            },
+            {
+                "model_id": 325,
+                "model": "Airflow 3 Crossbow"
+            },
+            {
+                "model_id": 326,
+                "model": "Airflow 5"
+            },
+            {
+                "model_id": 327,
+                "model": "Airflow 5 Crossbow"
+            },
+            {
+                "model_id": 328,
+                "model": "Airflow 7"
+            },
+            {
+                "model_id": 329,
+                "model": "Airflow 7 Crossbow"
+            },
+            {
+                "model_id": 330,
+                "model": "Boom MP 2022"
+            },
+            {
+                "model_id": 331,
+                "model": "Boom MP 2024"
+            },
+            {
+                "model_id": 332,
+                "model": "Boom Pro 2022"
+            },
+            {
+                "model_id": 333,
+                "model": "Boom Pro 2024"
+            },
+            {
+                "model_id": 334,
+                "model": "Boom Team 2024"
+            },
+            {
+                "model_id": 335,
+                "model": "Crossbow 10"
+            },
+            {
+                "model_id": 336,
+                "model": "Crossbow 2"
+            },
+            {
+                "model_id": 337,
+                "model": "Crossbow 4"
+            },
+            {
+                "model_id": 338,
+                "model": "Crossbow 6"
+            },
+            {
+                "model_id": 339,
+                "model": "Crossbow 8"
+            },
+            {
+                "model_id": 340,
+                "model": "Extreme MP 2022"
+            },
+            {
+                "model_id": 341,
+                "model": "Extreme Tour 2022"
+            },
+            {
+                "model_id": 342,
+                "model": "FXP Instinct Team MP"
+            },
+            {
+                "model_id": 343,
+                "model": "FXP Radical Team"
+            },
+            {
+                "model_id": 344,
+                "model": "Flexpoint 10"
+            },
+            {
+                "model_id": 345,
+                "model": "Flexpoint 6 OS"
+            },
+            {
+                "model_id": 346,
+                "model": "Flexpoint Heat MP"
+            },
+            {
+                "model_id": 347,
+                "model": "Flexpoint Prestige Mid"
+            },
+            {
+                "model_id": 348,
+                "model": "Flexpoint Prestige XL MP"
+            },
+            {
+                "model_id": 349,
+                "model": "Flexpoint Radical MP"
+            },
+            {
+                "model_id": 350,
+                "model": "Flexpoint Radical OS"
+            },
+            {
+                "model_id": 351,
+                "model": "Graphene 360 Extreme Lite"
+            },
+            {
+                "model_id": 352,
+                "model": "Graphene 360 Extreme MP"
+            },
+            {
+                "model_id": 353,
+                "model": "Graphene 360 Extreme Pro"
+            },
+            {
+                "model_id": 354,
+                "model": "Graphene 360 Instinct Lite"
+            },
+            {
+                "model_id": 355,
+                "model": "Graphene 360 Instinct MP"
+            },
+            {
+                "model_id": 356,
+                "model": "Graphene 360 Instinct PWR"
+            },
+            {
+                "model_id": 357,
+                "model": "Graphene 360 Instinct S"
+            },
+            {
+                "model_id": 358,
+                "model": "Graphene 360 Radical MP"
+            },
+            {
+                "model_id": 359,
+                "model": "Graphene 360 Radical Pro"
+            },
+            {
+                "model_id": 360,
+                "model": "Graphene 360 Radical S"
+            },
+            {
+                "model_id": 361,
+                "model": "Graphene 360 Speed Lite"
+            },
+            {
+                "model_id": 362,
+                "model": "Graphene 360 Speed MP"
+            },
+            {
+                "model_id": 363,
+                "model": "Graphene 360 Speed MP Lite"
+            },
+            {
+                "model_id": 364,
+                "model": "Graphene 360 Speed Pro"
+            },
+            {
+                "model_id": 365,
+                "model": "Graphene 360+ Extreme Lite"
+            },
+            {
+                "model_id": 366,
+                "model": "Graphene 360+ Extreme MP"
+            },
+            {
+                "model_id": 367,
+                "model": "Graphene 360+ Extreme Nite MP"
+            },
+            {
+                "model_id": 368,
+                "model": "Graphene 360+ Extreme Nite Tour"
+            },
+            {
+                "model_id": 369,
+                "model": "Graphene 360+ Extreme S"
+            },
+            {
+                "model_id": 370,
+                "model": "Graphene 360+ Extreme Tour"
+            },
+            {
+                "model_id": 371,
+                "model": "Graphene 360+ Gravity Lite"
+            },
+            {
+                "model_id": 372,
+                "model": "Graphene 360+ Gravity Lite 2021"
+            },
+            {
+                "model_id": 373,
+                "model": "Graphene 360+ Gravity MP"
+            },
+            {
+                "model_id": 374,
+                "model": "Graphene 360+ Gravity MP 2021"
+            },
+            {
+                "model_id": 375,
+                "model": "Graphene 360+ Gravity MP Lite"
+            },
+            {
+                "model_id": 376,
+                "model": "Graphene 360+ Gravity Pro"
+            },
+            {
+                "model_id": 377,
+                "model": "Graphene 360+ Gravity Pro 2021"
+            },
+            {
+                "model_id": 378,
+                "model": "Graphene 360+ Gravity S"
+            },
+            {
+                "model_id": 379,
+                "model": "Graphene 360+ Gravity S 2021"
+            },
+            {
+                "model_id": 380,
+                "model": "Graphene 360+ Gravity Tour"
+            },
+            {
+                "model_id": 381,
+                "model": "Graphene 360+ Gravity Tour 2021"
+            },
+            {
+                "model_id": 382,
+                "model": "Graphene 360+ Instinct Lite"
+            },
+            {
+                "model_id": 383,
+                "model": "Graphene 360+ Instinct MP"
+            },
+            {
+                "model_id": 384,
+                "model": "Graphene 360+ Instinct PWR"
+            },
+            {
+                "model_id": 385,
+                "model": "Graphene 360+ Prestige Mid"
+            },
+            {
+                "model_id": 386,
+                "model": "Graphene 360+ Prestige Midplus"
+            },
+            {
+                "model_id": 387,
+                "model": "Graphene 360+ Prestige Pro"
+            },
+            {
+                "model_id": 388,
+                "model": "Graphene 360+ Prestige Tour"
+            },
+            {
+                "model_id": 389,
+                "model": "Graphene 360+ Radical MP"
+            },
+            {
+                "model_id": 390,
+                "model": "Graphene 360+ Radical Pro"
+            },
+            {
+                "model_id": 391,
+                "model": "Graphene 360+ Radical S"
+            },
+            {
+                "model_id": 392,
+                "model": "Graphene 360+ Speed Lite"
+            },
+            {
+                "model_id": 393,
+                "model": "Graphene 360+ Speed MP"
+            },
+            {
+                "model_id": 394,
+                "model": "Graphene 360+ Speed MP (Black)"
+            },
+            {
+                "model_id": 395,
+                "model": "Graphene 360+ Speed MP Lite"
+            },
+            {
+                "model_id": 396,
+                "model": "Graphene 360+ Speed PWR"
+            },
+            {
+                "model_id": 397,
+                "model": "Graphene 360+ Speed Pro"
+            },
+            {
+                "model_id": 398,
+                "model": "Graphene 360+ Speed Pro (Black)"
+            },
+            {
+                "model_id": 399,
+                "model": "Graphene 360+ Speed S"
+            },
+            {
+                "model_id": 400,
+                "model": "Graphene Extreme Lite"
+            },
+            {
+                "model_id": 401,
+                "model": "Graphene Extreme MP"
+            },
+            {
+                "model_id": 402,
+                "model": "Graphene Extreme Pro"
+            },
+            {
+                "model_id": 403,
+                "model": "Graphene Prestige Midplus"
+            },
+            {
+                "model_id": 404,
+                "model": "Graphene Prestige Pro"
+            },
+            {
+                "model_id": 405,
+                "model": "Graphene Prestige Rev Pro"
+            },
+            {
+                "model_id": 406,
+                "model": "Graphene Prestige S"
+            },
+            {
+                "model_id": 407,
+                "model": "Graphene Radical MP"
+            },
+            {
+                "model_id": 408,
+                "model": "Graphene Radical Pro"
+            },
+            {
+                "model_id": 409,
+                "model": "Graphene Radical Rev"
+            },
+            {
+                "model_id": 410,
+                "model": "Graphene Radical S"
+            },
+            {
+                "model_id": 411,
+                "model": "Graphene Touch Extreme Lite"
+            },
+            {
+                "model_id": 412,
+                "model": "Graphene Touch Extreme MP"
+            },
+            {
+                "model_id": 413,
+                "model": "Graphene Touch Instinct Lite"
+            },
+            {
+                "model_id": 414,
+                "model": "Graphene Touch Instinct MP"
+            },
+            {
+                "model_id": 415,
+                "model": "Graphene Touch Instinct PWR"
+            },
+            {
+                "model_id": 416,
+                "model": "Graphene Touch Instinct S"
+            },
+            {
+                "model_id": 417,
+                "model": "Graphene Touch Prestige Mid"
+            },
+            {
+                "model_id": 418,
+                "model": "Graphene Touch Prestige Midplus"
+            },
+            {
+                "model_id": 419,
+                "model": "Graphene Touch Prestige Pro"
+            },
+            {
+                "model_id": 420,
+                "model": "Graphene Touch Prestige Tour"
+            },
+            {
+                "model_id": 421,
+                "model": "Graphene Touch Radical MP"
+            },
+            {
+                "model_id": 422,
+                "model": "Graphene Touch Radical MP Ltd."
+            },
+            {
+                "model_id": 423,
+                "model": "Graphene Touch Radical Pro"
+            },
+            {
+                "model_id": 424,
+                "model": "Graphene Touch Radical S"
+            },
+            {
+                "model_id": 425,
+                "model": "Graphene Touch Speed MP"
+            },
+            {
+                "model_id": 426,
+                "model": "Graphene Touch Speed PWR"
+            },
+            {
+                "model_id": 427,
+                "model": "Graphene Touch Speed Pro"
+            },
+            {
+                "model_id": 428,
+                "model": "Graphene Touch Speed S"
+            },
+            {
+                "model_id": 429,
+                "model": "Graphene XT Extreme Lite"
+            },
+            {
+                "model_id": 430,
+                "model": "Graphene XT Extreme MP A"
+            },
+            {
+                "model_id": 431,
+                "model": "Graphene XT Extreme Pro"
+            },
+            {
+                "model_id": 432,
+                "model": "Graphene XT Instinct MP"
+            },
+            {
+                "model_id": 433,
+                "model": "Graphene XT Instinct Rev Pro"
+            },
+            {
+                "model_id": 434,
+                "model": "Graphene XT Instinct S"
+            },
+            {
+                "model_id": 435,
+                "model": "Graphene XT Prestige Midplus"
+            },
+            {
+                "model_id": 436,
+                "model": "Graphene XT Prestige Pro"
+            },
+            {
+                "model_id": 437,
+                "model": "Graphene XT Prestige Rev Pro"
+            },
+            {
+                "model_id": 438,
+                "model": "Graphene XT Prestige S"
+            },
+            {
+                "model_id": 439,
+                "model": "Graphene XT Radical Lite"
+            },
+            {
+                "model_id": 440,
+                "model": "Graphene XT Radical MP A"
+            },
+            {
+                "model_id": 441,
+                "model": "Graphene XT Radical Pro"
+            },
+            {
+                "model_id": 442,
+                "model": "Graphene XT Radical S"
+            },
+            {
+                "model_id": 443,
+                "model": "Graphene XT Speed MPA"
+            },
+            {
+                "model_id": 444,
+                "model": "Graphene XT Speed Pro"
+            },
+            {
+                "model_id": 445,
+                "model": "Graphene XT Speed Rev Pro"
+            },
+            {
+                "model_id": 446,
+                "model": "Graphene XT Speed S"
+            },
+            {
+                "model_id": 447,
+                "model": "Liquid Metal 4 OS"
+            },
+            {
+                "model_id": 448,
+                "model": "Liquid Metal 8 OS"
+            },
+            {
+                "model_id": 449,
+                "model": "Liquid Metal Instinct MP"
+            },
+            {
+                "model_id": 450,
+                "model": "Liquid Metal Radical MP"
+            },
+            {
+                "model_id": 451,
+                "model": "Liquid Metal Radical OS"
+            },
+            {
+                "model_id": 452,
+                "model": "Liquidmetal Prestige Mid"
+            },
+            {
+                "model_id": 453,
+                "model": "MXG 3"
+            },
+            {
+                "model_id": 454,
+                "model": "MXG 5"
+            },
+            {
+                "model_id": 455,
+                "model": "Metallix 10"
+            },
+            {
+                "model_id": 456,
+                "model": "Metallix 2"
+            },
+            {
+                "model_id": 457,
+                "model": "Metallix 4 OS"
+            },
+            {
+                "model_id": 458,
+                "model": "Metallix 6"
+            },
+            {
+                "model_id": 459,
+                "model": "MicroGEL Extreme Pro 2009"
+            },
+            {
+                "model_id": 460,
+                "model": "MicroGEL Extreme Pro MP"
+            },
+            {
+                "model_id": 461,
+                "model": "MicroGEL Radical MP"
+            },
+            {
+                "model_id": 462,
+                "model": "MicroGEL Radical OS"
+            },
+            {
+                "model_id": 463,
+                "model": "MicroGEL Radical Pro MP"
+            },
+            {
+                "model_id": 464,
+                "model": "MicroGel Extreme Team"
+            },
+            {
+                "model_id": 465,
+                "model": "Microgel Extreme MP 2009"
+            },
+            {
+                "model_id": 466,
+                "model": "Microgel Extreme Team 2009"
+            },
+            {
+                "model_id": 467,
+                "model": "Microgel Instinct MP"
+            },
+            {
+                "model_id": 468,
+                "model": "Microgel Prestige MP"
+            },
+            {
+                "model_id": 469,
+                "model": "Microgel Prestige Mid"
+            },
+            {
+                "model_id": 470,
+                "model": "Microgel Prestige Pro"
+            },
+            {
+                "model_id": 471,
+                "model": "Microgel Radical Team MP"
+            },
+            {
+                "model_id": 472,
+                "model": "MxG1"
+            },
+            {
+                "model_id": 473,
+                "model": "MxG7"
+            },
+            {
+                "model_id": 474,
+                "model": "Prestige Classic 2.0"
+            },
+            {
+                "model_id": 475,
+                "model": "Prestige MP 2021"
+            },
+            {
+                "model_id": 476,
+                "model": "Prestige MP L 2023"
+            },
+            {
+                "model_id": 477,
+                "model": "Prestige Pro 2021"
+            },
+            {
+                "model_id": 478,
+                "model": "Prestige Pro 2023"
+            },
+            {
+                "model_id": 479,
+                "model": "Prestige Tour 2021"
+            },
+            {
+                "model_id": 480,
+                "model": "Prestige Tour 2023"
+            },
+            {
+                "model_id": 481,
+                "model": "Pro Tour 2.0"
+            },
+            {
+                "model_id": 482,
+                "model": "Protector"
+            },
+            {
+                "model_id": 483,
+                "model": "Protector Midplus"
+            },
+            {
+                "model_id": 484,
+                "model": "Radical MP 2023"
+            },
+            {
+                "model_id": 485,
+                "model": "Radical Oversize Ltd."
+            },
+            {
+                "model_id": 486,
+                "model": "Radical Pro 2023"
+            },
+            {
+                "model_id": 487,
+                "model": "Radical Team 2023"
+            },
+            {
+                "model_id": 488,
+                "model": "Speed MP 2022"
+            },
+            {
+                "model_id": 489,
+                "model": "Speed MP 2024"
+            },
+            {
+                "model_id": 490,
+                "model": "Speed MP L 2024"
+            },
+            {
+                "model_id": 491,
+                "model": "Speed Pro 2022"
+            },
+            {
+                "model_id": 492,
+                "model": "Speed Pro 2024"
+            },
+            {
+                "model_id": 493,
+                "model": "Speed Team 2024"
+            },
+            {
+                "model_id": 494,
+                "model": "Titanium Ti.S6"
+            },
+            {
+                "model_id": 495,
+                "model": "YOUTEK Extreme MP"
+            },
+            {
+                "model_id": 496,
+                "model": "YOUTEK Extreme Pro"
+            },
+            {
+                "model_id": 497,
+                "model": "YOUTEK Graphene Instinct MP"
+            },
+            {
+                "model_id": 498,
+                "model": "YOUTEK Graphene Instinct PWR"
+            },
+            {
+                "model_id": 499,
+                "model": "YOUTEK Graphene Instinct REV"
+            },
+            {
+                "model_id": 500,
+                "model": "YOUTEK Graphene Instinct S"
+            },
+            {
+                "model_id": 501,
+                "model": "YOUTEK Graphene Prestige PWR"
+            },
+            {
+                "model_id": 502,
+                "model": "YOUTEK Graphene Speed MP"
+            },
+            {
+                "model_id": 503,
+                "model": "YOUTEK Graphene Speed PRO"
+            },
+            {
+                "model_id": 504,
+                "model": "YOUTEK Graphene Speed PWR"
+            },
+            {
+                "model_id": 505,
+                "model": "YOUTEK Graphene Speed REV"
+            },
+            {
+                "model_id": 506,
+                "model": "YOUTEK Graphene Speed S"
+            },
+            {
+                "model_id": 507,
+                "model": "YOUTEK IG Extreme MP"
+            },
+            {
+                "model_id": 508,
+                "model": "YOUTEK IG Extreme MP 2.0"
+            },
+            {
+                "model_id": 509,
+                "model": "YOUTEK IG Extreme OS"
+            },
+            {
+                "model_id": 510,
+                "model": "YOUTEK IG Extreme Pro"
+            },
+            {
+                "model_id": 511,
+                "model": "YOUTEK IG Extreme Pro 2.0"
+            },
+            {
+                "model_id": 512,
+                "model": "YOUTEK IG Extreme S 2.0"
+            },
+            {
+                "model_id": 513,
+                "model": "YOUTEK IG Instinct"
+            },
+            {
+                "model_id": 514,
+                "model": "YOUTEK IG Instinct S"
+            },
+            {
+                "model_id": 515,
+                "model": "YOUTEK IG Prestige MP"
+            },
+            {
+                "model_id": 516,
+                "model": "YOUTEK IG Prestige Mid"
+            },
+            {
+                "model_id": 517,
+                "model": "YOUTEK IG Prestige Pro"
+            },
+            {
+                "model_id": 518,
+                "model": "YOUTEK IG Prestige S"
+            },
+            {
+                "model_id": 519,
+                "model": "YOUTEK IG Radical MP"
+            },
+            {
+                "model_id": 520,
+                "model": "YOUTEK IG Radical OS"
+            },
+            {
+                "model_id": 521,
+                "model": "YOUTEK IG Radical Pro"
+            },
+            {
+                "model_id": 522,
+                "model": "YOUTEK IG Radical S"
+            },
+            {
+                "model_id": 523,
+                "model": "YOUTEK IG Speed 16x19"
+            },
+            {
+                "model_id": 524,
+                "model": "YOUTEK IG Speed 18x20"
+            },
+            {
+                "model_id": 525,
+                "model": "YOUTEK IG Speed 300"
+            },
+            {
+                "model_id": 526,
+                "model": "YOUTEK IG Speed Elite"
+            },
+            {
+                "model_id": 527,
+                "model": "YOUTEK IG Speed Lite"
+            },
+            {
+                "model_id": 528,
+                "model": "YOUTEK Instinct MP"
+            },
+            {
+                "model_id": 529,
+                "model": "YOUTEK Mojo"
+            },
+            {
+                "model_id": 530,
+                "model": "YOUTEK Prestige MP"
+            },
+            {
+                "model_id": 531,
+                "model": "YOUTEK Prestige Mid"
+            },
+            {
+                "model_id": 532,
+                "model": "YOUTEK Prestige Pro"
+            },
+            {
+                "model_id": 533,
+                "model": "YOUTEK Radical Lite"
+            },
+            {
+                "model_id": 534,
+                "model": "YOUTEK Radical MP"
+            },
+            {
+                "model_id": 535,
+                "model": "YOUTEK Radical OS"
+            },
+            {
+                "model_id": 536,
+                "model": "YOUTEK Radical Pro"
+            },
+            {
+                "model_id": 537,
+                "model": "YOUTEK Speed 16x19"
+            },
+            {
+                "model_id": 538,
+                "model": "YOUTEK Speed Elite"
+            },
+            {
+                "model_id": 539,
+                "model": "YOUTEK Speed Lite"
+            },
+            {
+                "model_id": 540,
+                "model": "YOUTEK Speed MP 18x20"
+            },
+            {
+                "model_id": 541,
+                "model": "YOUTEK Speed Pro"
+            },
+            {
+                "model_id": 542,
+                "model": "YOUTEK Star Five"
+            },
+            {
+                "model_id": 543,
+                "model": "YOUTEK Star Six"
+            },
+            {
+                "model_id": 544,
+                "model": "YOUTEK Star Three"
+            },
+            {
+                "model_id": 1291,
+                "model": "Spark SUPRM"
+            },
+            {
+                "model_id": 1292,
+                "model": "Spark COMP"
+            },
+            {
+                "model_id": 1293,
+                "model": "Spark ELITE"
+            },
+            {
+                "model_id": 1294,
+                "model": "Spark TOUR"
+            },
+            {
+                "model_id": 1300,
+                "model": "IG Challenge MP"
+            },
+            {
+                "model_id": 1302,
+                "model": "Speed XTR"
+            },
+            {
+                "model_id": 1304,
+                "model": "Speed Pro 2023 Night"
+            },
+            {
+                "model_id": 1306,
+                "model": "Graphene Touch Radical XTR"
+            },
+            {
+                "model_id": 1307,
+                "model": "Ti. Radical Elite"
+            },
+            {
+                "model_id": 1337,
+                "model": "Extreme Pro 2024"
+            },
+            {
+                "model_id": 1338,
+                "model": "Extreme MP 2024"
+            },
+            {
+                "model_id": 1339,
+                "model": "Extreme MP L 2024"
+            },
+            {
+                "model_id": 1340,
+                "model": "Speed Pro 2024"
+            },
+            {
+                "model_id": 1341,
+                "model": "Speed MP L 2024"
+            },
+            {
+                "model_id": 1342,
+                "model": "Speed Team 2024"
+            },
+            {
+                "model_id": 1343,
+                "model": "Boom Pro 2024"
+            },
+            {
+                "model_id": 1344,
+                "model": "Boom MP L 2024"
+            },
+            {
+                "model_id": 1345,
+                "model": "Boom MP 2024"
+            },
+            {
+                "model_id": 1346,
+                "model": "Boom MP 2024 Mint"
+            },
+            {
+                "model_id": 1347,
+                "model": "Boom Team L 2024 Mint"
+            }
+        ]
+    },
+    {
+        "brand_id": 10,
+        "brand": "Kneissl",
+        "models": [
+            {
+                "model_id": 545,
+                "model": "Black Star"
+            },
+            {
+                "model_id": 546,
+                "model": "Red Star"
+            },
+            {
+                "model_id": 547,
+                "model": "Tom's Machine"
+            }
+        ]
+    },
+    {
+        "brand_id": 11,
+        "brand": "Lacoste",
+        "models": [
+            {
+                "model_id": 548,
+                "model": "L.20"
+            },
+            {
+                "model_id": 549,
+                "model": "L.20L"
+            }
+        ]
+    },
+    {
+        "brand_id": 12,
+        "brand": "Mantis",
+        "models": [
+            {
+                "model_id": 550,
+                "model": "285"
+            },
+            {
+                "model_id": 551,
+                "model": "300"
+            },
+            {
+                "model_id": 552,
+                "model": "Tour 305"
+            },
+            {
+                "model_id": 553,
+                "model": "Tour 315"
+            }
+        ]
+    },
+    {
+        "brand_id": 13,
+        "brand": "OneStrings",
+        "models": [
+            {
+                "model_id": 554,
+                "model": "Spin Deeper 300g (14x19)"
+            },
+            {
+                "model_id": 555,
+                "model": "Spin Deeper 315g (14x19)"
+            },
+            {
+                "model_id": 556,
+                "model": "Turbine 275g"
+            },
+            {
+                "model_id": 557,
+                "model": "Turbine 300g"
+            }
+        ]
+    },
+    {
+        "brand_id": 14,
+        "brand": "Pacific",
+        "models": [
+            {
+                "model_id": 558,
+                "model": "Finesse"
+            },
+            {
+                "model_id": 559,
+                "model": "Nexus"
+            },
+            {
+                "model_id": 560,
+                "model": "Raptor"
+            },
+            {
+                "model_id": 561,
+                "model": "Speed"
+            },
+            {
+                "model_id": 562,
+                "model": "X Fast Pro 100"
+            },
+            {
+                "model_id": 563,
+                "model": "X Feel Pro 90 Vacuum"
+            },
+            {
+                "model_id": 564,
+                "model": "X Feel Pro 95"
+            },
+            {
+                "model_id": 565,
+                "model": "X Feel Tour"
+            },
+            {
+                "model_id": 566,
+                "model": "X Force"
+            },
+            {
+                "model_id": 567,
+                "model": "X Force Comp"
+            },
+            {
+                "model_id": 568,
+                "model": "X Force Lite"
+            },
+            {
+                "model_id": 569,
+                "model": "X Force Pro"
+            },
+            {
+                "model_id": 570,
+                "model": "X Force Pro No. 1"
+            },
+            {
+                "model_id": 571,
+                "model": "X Tour Pro 97"
+            }
+        ]
+    },
+    {
+        "brand_id": 15,
+        "brand": "PowerAngle",
+        "models": [
+            {
+                "model_id": 572,
+                "model": "Centric"
+            },
+            {
+                "model_id": 573,
+                "model": "GRAND"
+            },
+            {
+                "model_id": 574,
+                "model": "PRO"
+            }
+        ]
+    },
+    {
+        "brand_id": 16,
+        "brand": "Prince",
+        "models": [
+            {
+                "model_id": 575,
+                "model": "ATS Textreme Tour 100 290"
+            },
+            {
+                "model_id": 576,
+                "model": "ATS Textreme Tour 100 310"
+            },
+            {
+                "model_id": 577,
+                "model": "ATS Textreme Tour 100P"
+            },
+            {
+                "model_id": 578,
+                "model": "ATS Textreme Tour 95"
+            },
+            {
+                "model_id": 579,
+                "model": "ATS Textreme Tour 98"
+            },
+            {
+                "model_id": 580,
+                "model": "CTS Synergy DB26"
+            },
+            {
+                "model_id": 581,
+                "model": "Classic Graphite 100 Longbody"
+            },
+            {
+                "model_id": 582,
+                "model": "EXO3 Black"
+            },
+            {
+                "model_id": 583,
+                "model": "EXO3 Black Team"
+            },
+            {
+                "model_id": 584,
+                "model": "EXO3 Blue"
+            },
+            {
+                "model_id": 585,
+                "model": "EXO3 Blue 110"
+            },
+            {
+                "model_id": 586,
+                "model": "EXO3 Graphite 100 MP w/inserts"
+            },
+            {
+                "model_id": 587,
+                "model": "EXO3 Graphite 93 Mid w/inserts"
+            },
+            {
+                "model_id": 588,
+                "model": "EXO3 Hornet Midplus 100"
+            },
+            {
+                "model_id": 589,
+                "model": "EXO3 Hybrid 100"
+            },
+            {
+                "model_id": 590,
+                "model": "EXO3 Hybrid 104"
+            },
+            {
+                "model_id": 591,
+                "model": "EXO3 Hybrid 110"
+            },
+            {
+                "model_id": 592,
+                "model": "EXO3 Hybrid Gold 107"
+            },
+            {
+                "model_id": 593,
+                "model": "EXO3 Hybrid Red 102"
+            },
+            {
+                "model_id": 594,
+                "model": "EXO3 Ignite 95"
+            },
+            {
+                "model_id": 595,
+                "model": "EXO3 Ignite Team 95"
+            },
+            {
+                "model_id": 596,
+                "model": "EXO3 Rebel 95"
+            },
+            {
+                "model_id": 597,
+                "model": "EXO3 Rebel 95 w/o inserts"
+            },
+            {
+                "model_id": 598,
+                "model": "EXO3 Rebel 98"
+            },
+            {
+                "model_id": 599,
+                "model": "EXO3 Rebel Team 95 w/o inserts"
+            },
+            {
+                "model_id": 600,
+                "model": "EXO3 Rebel Team 98"
+            },
+            {
+                "model_id": 601,
+                "model": "EXO3 Red"
+            },
+            {
+                "model_id": 602,
+                "model": "EXO3 Red 105"
+            },
+            {
+                "model_id": 603,
+                "model": "EXO3 Silver"
+            },
+            {
+                "model_id": 604,
+                "model": "EXO3 Silver 115"
+            },
+            {
+                "model_id": 605,
+                "model": "EXO3 Tour 100 (16x18)"
+            },
+            {
+                "model_id": 606,
+                "model": "EXO3 Tour 100 (18x20)"
+            },
+            {
+                "model_id": 607,
+                "model": "EXO3 Tour Lite 100"
+            },
+            {
+                "model_id": 608,
+                "model": "EXO3 Warrior 100"
+            },
+            {
+                "model_id": 609,
+                "model": "EXO3 Warrior DB Team 100"
+            },
+            {
+                "model_id": 610,
+                "model": "EXO3 Warrior Team 100"
+            },
+            {
+                "model_id": 611,
+                "model": "EXO3 White"
+            },
+            {
+                "model_id": 612,
+                "model": "Graphite 100"
+            },
+            {
+                "model_id": 613,
+                "model": "Graphite 107"
+            },
+            {
+                "model_id": 614,
+                "model": "Graphite Classic (original) OS"
+            },
+            {
+                "model_id": 615,
+                "model": "Hydrogen Random 300g"
+            },
+            {
+                "model_id": 616,
+                "model": "Lightning 100"
+            },
+            {
+                "model_id": 617,
+                "model": "Lightning 105"
+            },
+            {
+                "model_id": 618,
+                "model": "Lightning 110"
+            },
+            {
+                "model_id": 619,
+                "model": "O3 Hybrid Comp"
+            },
+            {
+                "model_id": 620,
+                "model": "O3 Hybrid Hornet"
+            },
+            {
+                "model_id": 621,
+                "model": "O3 Hybrid Lite"
+            },
+            {
+                "model_id": 622,
+                "model": "O3 Hybrid Spectrum MP"
+            },
+            {
+                "model_id": 623,
+                "model": "O3 Legacy 105 2024"
+            },
+            {
+                "model_id": 624,
+                "model": "O3 Legacy 120 2024"
+            },
+            {
+                "model_id": 625,
+                "model": "O3 Speedport Black Long Body"
+            },
+            {
+                "model_id": 626,
+                "model": "O3 Speedport Black Team"
+            },
+            {
+                "model_id": 627,
+                "model": "O3 Speedport Black w/Holes"
+            },
+            {
+                "model_id": 628,
+                "model": "O3 Speedport Blue OS"
+            },
+            {
+                "model_id": 629,
+                "model": "O3 Speedport Gold"
+            },
+            {
+                "model_id": 630,
+                "model": "O3 Speedport Ozone Four"
+            },
+            {
+                "model_id": 631,
+                "model": "O3 Speedport Ozone One"
+            },
+            {
+                "model_id": 632,
+                "model": "O3 Speedport Platinum"
+            },
+            {
+                "model_id": 633,
+                "model": "O3 Speedport Pro White MP"
+            },
+            {
+                "model_id": 634,
+                "model": "O3 Speedport Red"
+            },
+            {
+                "model_id": 635,
+                "model": "O3 Speedport Silver"
+            },
+            {
+                "model_id": 636,
+                "model": "O3 Speedport Tour"
+            },
+            {
+                "model_id": 637,
+                "model": "O3 Speedport Tour Demo"
+            },
+            {
+                "model_id": 638,
+                "model": "O3 Tour MP"
+            },
+            {
+                "model_id": 639,
+                "model": "O3 Tour Mid"
+            },
+            {
+                "model_id": 640,
+                "model": "O3 Tour OS"
+            },
+            {
+                "model_id": 641,
+                "model": "O3 White"
+            },
+            {
+                "model_id": 642,
+                "model": "Original Graphite 107"
+            },
+            {
+                "model_id": 643,
+                "model": "Ozone Pro Tour"
+            },
+            {
+                "model_id": 644,
+                "model": "Ozone Tour MP"
+            },
+            {
+                "model_id": 645,
+                "model": "Phantom 100"
+            },
+            {
+                "model_id": 646,
+                "model": "Phantom 100G"
+            },
+            {
+                "model_id": 647,
+                "model": "Phantom 100G LB"
+            },
+            {
+                "model_id": 648,
+                "model": "Phantom 100P"
+            },
+            {
+                "model_id": 649,
+                "model": "Phantom 100P 2024"
+            },
+            {
+                "model_id": 650,
+                "model": "Phantom 100X 18x20"
+            },
+            {
+                "model_id": 651,
+                "model": "Phantom 100X 18x20 2024"
+            },
+            {
+                "model_id": 652,
+                "model": "Phantom 100X 290g"
+            },
+            {
+                "model_id": 653,
+                "model": "Phantom 100X 290g 2024"
+            },
+            {
+                "model_id": 654,
+                "model": "Phantom 100X 305g"
+            },
+            {
+                "model_id": 655,
+                "model": "Phantom 100X 305g 2024"
+            },
+            {
+                "model_id": 656,
+                "model": "Phantom 107G"
+            },
+            {
+                "model_id": 657,
+                "model": "Phantom 107G 2024"
+            },
+            {
+                "model_id": 658,
+                "model": "Phantom 93P (14x18)"
+            },
+            {
+                "model_id": 659,
+                "model": "Phantom 93P (18x20)"
+            },
+            {
+                "model_id": 660,
+                "model": "Phantom 97P"
+            },
+            {
+                "model_id": 661,
+                "model": "Phantom O3 100X"
+            },
+            {
+                "model_id": 662,
+                "model": "Phantom Pro 100"
+            },
+            {
+                "model_id": 663,
+                "model": "Phantom Pro 100 (18x20)"
+            },
+            {
+                "model_id": 664,
+                "model": "Phantom Pro 100P"
+            },
+            {
+                "model_id": 665,
+                "model": "Phantom Pro 93P"
+            },
+            {
+                "model_id": 666,
+                "model": "Phantom Pro 93P (14x18)"
+            },
+            {
+                "model_id": 667,
+                "model": "Premier 105 ESP"
+            },
+            {
+                "model_id": 668,
+                "model": "Premier 105L ESP"
+            },
+            {
+                "model_id": 669,
+                "model": "Premier 115L ESP"
+            },
+            {
+                "model_id": 670,
+                "model": "Response 97"
+            },
+            {
+                "model_id": 671,
+                "model": "RipStick 280"
+            },
+            {
+                "model_id": 672,
+                "model": "Synergy 98"
+            },
+            {
+                "model_id": 673,
+                "model": "Textreme Beast 100"
+            },
+            {
+                "model_id": 674,
+                "model": "Textreme Beast 98"
+            },
+            {
+                "model_id": 675,
+                "model": "Textreme Beast O3 100"
+            },
+            {
+                "model_id": 676,
+                "model": "Textreme Beast O3 104"
+            },
+            {
+                "model_id": 677,
+                "model": "Textreme Beast O3 98"
+            },
+            {
+                "model_id": 678,
+                "model": "Textreme Beast O3 98"
+            },
+            {
+                "model_id": 679,
+                "model": "Textreme Beast Pro 100 LB"
+            },
+            {
+                "model_id": 680,
+                "model": "Textreme Tour 100 (290) (2019)"
+            },
+            {
+                "model_id": 681,
+                "model": "Textreme Tour 100 (310) (2019)"
+            },
+            {
+                "model_id": 682,
+                "model": "Textreme Tour 100 L"
+            },
+            {
+                "model_id": 683,
+                "model": "Textreme Tour 100 P"
+            },
+            {
+                "model_id": 684,
+                "model": "Textreme Tour 100L (260) (2019)"
+            },
+            {
+                "model_id": 685,
+                "model": "Textreme Tour 100P (2019)"
+            },
+            {
+                "model_id": 686,
+                "model": "Textreme Tour 100T"
+            },
+            {
+                "model_id": 687,
+                "model": "Textreme Tour 95"
+            },
+            {
+                "model_id": 688,
+                "model": "Textreme Tour 95 (2019)"
+            },
+            {
+                "model_id": 689,
+                "model": "Textreme Warrior 100"
+            },
+            {
+                "model_id": 690,
+                "model": "Textreme Warrior 100 ESP"
+            },
+            {
+                "model_id": 691,
+                "model": "Textreme Warrior 100L"
+            },
+            {
+                "model_id": 692,
+                "model": "Textreme Warrior 100T"
+            },
+            {
+                "model_id": 693,
+                "model": "Textreme Warrior 107"
+            },
+            {
+                "model_id": 694,
+                "model": "Textreme Warrior 107T"
+            },
+            {
+                "model_id": 695,
+                "model": "Textreme Warror 107 L"
+            },
+            {
+                "model_id": 696,
+                "model": "Tour 100 (16x18)"
+            },
+            {
+                "model_id": 697,
+                "model": "Tour 100 (18x20)"
+            },
+            {
+                "model_id": 698,
+                "model": "Tour 100T"
+            },
+            {
+                "model_id": 699,
+                "model": "Tour 100T ESP"
+            },
+            {
+                "model_id": 700,
+                "model": "Tour 95"
+            },
+            {
+                "model_id": 701,
+                "model": "Tour 98"
+            },
+            {
+                "model_id": 702,
+                "model": "Tour 98 ESP"
+            },
+            {
+                "model_id": 703,
+                "model": "Tour Diablo"
+            },
+            {
+                "model_id": 704,
+                "model": "Tour Diablo MP"
+            },
+            {
+                "model_id": 705,
+                "model": "Tour Diablo MP"
+            },
+            {
+                "model_id": 706,
+                "model": "Tour NXG Graphite MP"
+            },
+            {
+                "model_id": 707,
+                "model": "Tour NXG Graphite Mid"
+            },
+            {
+                "model_id": 708,
+                "model": "Tour NXG Graphite OS"
+            },
+            {
+                "model_id": 709,
+                "model": "Tour Pro 100"
+            },
+            {
+                "model_id": 710,
+                "model": "Tour Pro 100 ESP"
+            },
+            {
+                "model_id": 711,
+                "model": "Tour Pro 98"
+            },
+            {
+                "model_id": 712,
+                "model": "Triple Threat Warrior OS"
+            },
+            {
+                "model_id": 713,
+                "model": "Twistpower X100"
+            },
+            {
+                "model_id": 714,
+                "model": "Twistpower X100 Tour"
+            },
+            {
+                "model_id": 715,
+                "model": "Twistpower X105 (290g)"
+            },
+            {
+                "model_id": 716,
+                "model": "Twistpower X97 Tour"
+            },
+            {
+                "model_id": 717,
+                "model": "Vortex 300g"
+            },
+            {
+                "model_id": 718,
+                "model": "Vortex 310g"
+            },
+            {
+                "model_id": 719,
+                "model": "Warrior 100"
+            },
+            {
+                "model_id": 720,
+                "model": "Warrior 100 ESP"
+            },
+            {
+                "model_id": 721,
+                "model": "Warrior 100 Pro"
+            },
+            {
+                "model_id": 722,
+                "model": "Warrior 100L ESP"
+            },
+            {
+                "model_id": 723,
+                "model": "Warrior Pro 100T ESP"
+            },
+            {
+                "model_id": 1290,
+                "model": "RipStick 300"
+            },
+            {
+                "model_id": 1303,
+                "model": "O3 Hybrid Pink"
+            },
+            {
+                "model_id": 1331,
+                "model": "Phantom 100X 305g"
+            },
+            {
+                "model_id": 1332,
+                "model": "Phantom 100X 18x20"
+            },
+            {
+                "model_id": 1333,
+                "model": "Phantom 100P"
+            },
+            {
+                "model_id": 1334,
+                "model": "Phantom 100X 290g"
+            },
+            {
+                "model_id": 1335,
+                "model": "O3 Leagacy 105"
+            },
+            {
+                "model_id": 1336,
+                "model": "O3 Leagacy 120"
+            }
+        ]
+    },
+    {
+        "brand_id": 17,
+        "brand": "ProKennex",
+        "models": [
+            {
+                "model_id": 724,
+                "model": "Black Ace (300)"
+            },
+            {
+                "model_id": 725,
+                "model": "Black Ace (315)"
+            },
+            {
+                "model_id": 726,
+                "model": "Black Ace 105"
+            },
+            {
+                "model_id": 727,
+                "model": "Ionic Ki 10 MP"
+            },
+            {
+                "model_id": 728,
+                "model": "Ionic Ki 10 PSE MP"
+            },
+            {
+                "model_id": 729,
+                "model": "Ionic Ki 15"
+            },
+            {
+                "model_id": 730,
+                "model": "Ionic Ki 15 260"
+            },
+            {
+                "model_id": 731,
+                "model": "Ionic Ki 15 PSE (New)"
+            },
+            {
+                "model_id": 732,
+                "model": "Ionic Ki 20 (New)"
+            },
+            {
+                "model_id": 733,
+                "model": "Ionic Ki 20 PSE (New)"
+            },
+            {
+                "model_id": 734,
+                "model": "Ionic Ki 30"
+            },
+            {
+                "model_id": 735,
+                "model": "Ionic Ki 30 (New)"
+            },
+            {
+                "model_id": 736,
+                "model": "Ionic Ki 5"
+            },
+            {
+                "model_id": 737,
+                "model": "Ionic Ki 5 315"
+            },
+            {
+                "model_id": 738,
+                "model": "Ionic Ki 5 PSE (New)"
+            },
+            {
+                "model_id": 739,
+                "model": "Ionic Ki 5x (New)"
+            },
+            {
+                "model_id": 740,
+                "model": "Ki 10"
+            },
+            {
+                "model_id": 741,
+                "model": "Ki 10 (305) - 2018"
+            },
+            {
+                "model_id": 742,
+                "model": "Ki 15 (260) - 2018"
+            },
+            {
+                "model_id": 743,
+                "model": "Ki 15 (300) - 2018"
+            },
+            {
+                "model_id": 744,
+                "model": "Ki 15 PSE"
+            },
+            {
+                "model_id": 745,
+                "model": "Ki 5 (300) - 2018"
+            },
+            {
+                "model_id": 746,
+                "model": "Ki 5 (320) - 2018"
+            },
+            {
+                "model_id": 747,
+                "model": "Ki 5 280"
+            },
+            {
+                "model_id": 748,
+                "model": "Ki 5 320"
+            },
+            {
+                "model_id": 749,
+                "model": "Ki Black Ace Pro"
+            },
+            {
+                "model_id": 750,
+                "model": "Ki Q+ 20 (2021)"
+            },
+            {
+                "model_id": 751,
+                "model": "Ki Q+ 5 Pro (2021)"
+            },
+            {
+                "model_id": 752,
+                "model": "Ki Q+ 5 Pro (310)"
+            },
+            {
+                "model_id": 753,
+                "model": "Ki Q+ Tour (315) (2019)"
+            },
+            {
+                "model_id": 754,
+                "model": "Ki Q+ Tour Pro (325)"
+            },
+            {
+                "model_id": 755,
+                "model": "Kinetic Pro 5G"
+            },
+            {
+                "model_id": 756,
+                "model": "Kinetic Pro 7g"
+            },
+            {
+                "model_id": 757,
+                "model": "Q15"
+            },
+            {
+                "model_id": 758,
+                "model": "Q30"
+            },
+            {
+                "model_id": 759,
+                "model": "Q5X Kinetic 100"
+            },
+            {
+                "model_id": 760,
+                "model": "SQ Ltd Edition"
+            }
+        ]
+    },
+    {
+        "brand_id": 18,
+        "brand": "Slazenger",
+        "models": [
+            {
+                "model_id": 761,
+                "model": "Pro Braided"
+            },
+            {
+                "model_id": 762,
+                "model": "V100 Team"
+            },
+            {
+                "model_id": 763,
+                "model": "V100 Tour"
+            },
+            {
+                "model_id": 764,
+                "model": "V98 Team"
+            },
+            {
+                "model_id": 765,
+                "model": "V98 Tour"
+            }
+        ]
+    },
+    {
+        "brand_id": 19,
+        "brand": "Solinco",
+        "models": [
+            {
+                "model_id": 766,
+                "model": "Blackout 300"
+            },
+            {
+                "model_id": 767,
+                "model": "Blackout 300 XTD"
+            },
+            {
+                "model_id": 768,
+                "model": "Pro 10"
+            },
+            {
+                "model_id": 769,
+                "model": "Pro 8"
+            },
+            {
+                "model_id": 770,
+                "model": "Protocol 300"
+            },
+            {
+                "model_id": 771,
+                "model": "Protocol 325"
+            },
+            {
+                "model_id": 772,
+                "model": "Whiteout 305"
+            },
+            {
+                "model_id": 773,
+                "model": "Whiteout 305 18x20"
+            },
+            {
+                "model_id": 774,
+                "model": "Whiteout 305 XTD"
+            },
+            {
+                "model_id": 775,
+                "model": "Whiteout 305 XTD 18x20"
+            }
+        ]
+    },
+    {
+        "brand_id": 20,
+        "brand": "Tecnifibre",
+        "models": [
+            {
+                "model_id": 776,
+                "model": "ATP TFight 280 XTC"
+            },
+            {
+                "model_id": 777,
+                "model": "ATP TFight 295 XTC"
+            },
+            {
+                "model_id": 778,
+                "model": "ATP TFight 300 XTC"
+            },
+            {
+                "model_id": 779,
+                "model": "ATP TFight 305 XTC"
+            },
+            {
+                "model_id": 780,
+                "model": "ATP TFight 315 XTC"
+            },
+            {
+                "model_id": 781,
+                "model": "ATP TFight 320 XTC"
+            },
+            {
+                "model_id": 782,
+                "model": "T-Flash PS 270"
+            },
+            {
+                "model_id": 783,
+                "model": "T-Flash PS 285"
+            },
+            {
+                "model_id": 784,
+                "model": "T-Flash PS 300"
+            },
+            {
+                "model_id": 785,
+                "model": "TF40 18x20"
+            },
+            {
+                "model_id": 786,
+                "model": "TF40 305"
+            },
+            {
+                "model_id": 787,
+                "model": "TF40 305 16x19"
+            },
+            {
+                "model_id": 788,
+                "model": "TF40 315"
+            },
+            {
+                "model_id": 789,
+                "model": "TF40 315 16x19"
+            },
+            {
+                "model_id": 790,
+                "model": "TFX1 300"
+            },
+            {
+                "model_id": 791,
+                "model": "TFeel 305 MP XL"
+            },
+            {
+                "model_id": 792,
+                "model": "TFght 300 RS"
+            },
+            {
+                "model_id": 793,
+                "model": "TFight 255"
+            },
+            {
+                "model_id": 794,
+                "model": "TFight 295 MP"
+            },
+            {
+                "model_id": 795,
+                "model": "TFight 295 RS"
+            },
+            {
+                "model_id": 796,
+                "model": "TFight 295 TP"
+            },
+            {
+                "model_id": 797,
+                "model": "TFight 295 VO2 Max"
+            },
+            {
+                "model_id": 798,
+                "model": "TFight 305 Dynacore"
+            },
+            {
+                "model_id": 799,
+                "model": "TFight 305 RS"
+            },
+            {
+                "model_id": 800,
+                "model": "TFight 305 VO2 Max"
+            },
+            {
+                "model_id": 801,
+                "model": "TFight 315 Ltd. 16 Main"
+            },
+            {
+                "model_id": 802,
+                "model": "TFight 315 Ltd. 18 Main"
+            },
+            {
+                "model_id": 803,
+                "model": "TFight 315 RS"
+            },
+            {
+                "model_id": 804,
+                "model": "TFight 320 (16x20)"
+            },
+            {
+                "model_id": 805,
+                "model": "TFight 320 (18x20)"
+            },
+            {
+                "model_id": 806,
+                "model": "TFight 320 VO2 Max"
+            },
+            {
+                "model_id": 807,
+                "model": "TFight 325 VO2 Max"
+            },
+            {
+                "model_id": 808,
+                "model": "TFight 325 XL VO2 Max"
+            },
+            {
+                "model_id": 809,
+                "model": "TFight 335 MP (16x20)"
+            },
+            {
+                "model_id": 810,
+                "model": "TFight 335 MP (18x20)"
+            },
+            {
+                "model_id": 811,
+                "model": "TFight DC 300"
+            },
+            {
+                "model_id": 812,
+                "model": "TFight DC 305"
+            },
+            {
+                "model_id": 813,
+                "model": "TFight DC 315"
+            },
+            {
+                "model_id": 814,
+                "model": "TFight DC 315 Ltd. (16x19)"
+            },
+            {
+                "model_id": 815,
+                "model": "TFight DC 315 Ltd. (18x20)"
+            },
+            {
+                "model_id": 816,
+                "model": "TFight DC 320"
+            },
+            {
+                "model_id": 817,
+                "model": "TFight ISO 295"
+            },
+            {
+                "model_id": 818,
+                "model": "TFight ISO 300"
+            },
+            {
+                "model_id": 819,
+                "model": "TFight ISO 305"
+            },
+            {
+                "model_id": 820,
+                "model": "TFight ISO 315"
+            },
+            {
+                "model_id": 821,
+                "model": "TFlash 270 CES"
+            },
+            {
+                "model_id": 822,
+                "model": "TFlash 270 OS"
+            },
+            {
+                "model_id": 823,
+                "model": "TFlash 285 CES"
+            },
+            {
+                "model_id": 824,
+                "model": "TFlash 290"
+            },
+            {
+                "model_id": 825,
+                "model": "TFlash 290 VO2 Max"
+            },
+            {
+                "model_id": 826,
+                "model": "TFlash 300 ATP"
+            },
+            {
+                "model_id": 827,
+                "model": "TFlash 300 CES"
+            },
+            {
+                "model_id": 828,
+                "model": "TFlash 300 Dynacore ATP"
+            },
+            {
+                "model_id": 829,
+                "model": "TFlash 300 SpeedFlex"
+            },
+            {
+                "model_id": 830,
+                "model": "TFlash 310 (16x19)"
+            },
+            {
+                "model_id": 831,
+                "model": "TFlash 310 (18x20)"
+            },
+            {
+                "model_id": 832,
+                "model": "TFlash 315 ATP"
+            },
+            {
+                "model_id": 833,
+                "model": "TFlash 315 Dynacore ATP"
+            },
+            {
+                "model_id": 834,
+                "model": "TFlash 315 SpeedFlex"
+            },
+            {
+                "model_id": 835,
+                "model": "TFlash 315 VO2 Max"
+            },
+            {
+                "model_id": 836,
+                "model": "TRebound 265 Pro"
+            },
+            {
+                "model_id": 837,
+                "model": "TRebound 295 Pro"
+            },
+            {
+                "model_id": 838,
+                "model": "TRebound 298 IGA"
+            }
+        ]
+    },
+    {
+        "brand_id": 21,
+        "brand": "Volkl",
+        "models": [
+            {
+                "model_id": 839,
+                "model": "BB1 OS"
+            },
+            {
+                "model_id": 840,
+                "model": "Becker BB 10"
+            },
+            {
+                "model_id": 841,
+                "model": "Becker BB5"
+            },
+            {
+                "model_id": 842,
+                "model": "C10 EVO"
+            },
+            {
+                "model_id": 843,
+                "model": "C10 Pro"
+            },
+            {
+                "model_id": 844,
+                "model": "C10 Pro 2012"
+            },
+            {
+                "model_id": 845,
+                "model": "Catapult 8 V-Engine"
+            },
+            {
+                "model_id": 846,
+                "model": "Classic C10 Pro"
+            },
+            {
+                "model_id": 847,
+                "model": "DNX 1 Power Arm"
+            },
+            {
+                "model_id": 848,
+                "model": "DNX 10 Mid"
+            },
+            {
+                "model_id": 849,
+                "model": "DNX 2 Ativa OS"
+            },
+            {
+                "model_id": 850,
+                "model": "DNX 3"
+            },
+            {
+                "model_id": 851,
+                "model": "DNX 4"
+            },
+            {
+                "model_id": 852,
+                "model": "DNX 6 Ativa"
+            },
+            {
+                "model_id": 853,
+                "model": "DNX 7"
+            },
+            {
+                "model_id": 854,
+                "model": "DNX 8"
+            },
+            {
+                "model_id": 855,
+                "model": "DNX 9"
+            },
+            {
+                "model_id": 856,
+                "model": "Organix 1"
+            },
+            {
+                "model_id": 857,
+                "model": "Organix 10 (295g)"
+            },
+            {
+                "model_id": 858,
+                "model": "Organix 10 (325)"
+            },
+            {
+                "model_id": 859,
+                "model": "Organix 10 Mid"
+            },
+            {
+                "model_id": 860,
+                "model": "Organix 4"
+            },
+            {
+                "model_id": 861,
+                "model": "Organix 4 Super G"
+            },
+            {
+                "model_id": 862,
+                "model": "Organix 5"
+            },
+            {
+                "model_id": 863,
+                "model": "Organix 7 (295)"
+            },
+            {
+                "model_id": 864,
+                "model": "Organix 7 (310)"
+            },
+            {
+                "model_id": 865,
+                "model": "Organix 8 315g"
+            },
+            {
+                "model_id": 866,
+                "model": "Organix 9"
+            },
+            {
+                "model_id": 867,
+                "model": "Organix V1 MP"
+            },
+            {
+                "model_id": 868,
+                "model": "Organix V1 OS"
+            },
+            {
+                "model_id": 869,
+                "model": "Organix V1 Pro Midplus"
+            },
+            {
+                "model_id": 870,
+                "model": "Power Bridge 1"
+            },
+            {
+                "model_id": 871,
+                "model": "Power Bridge 10"
+            },
+            {
+                "model_id": 872,
+                "model": "Power Bridge 10 Mid"
+            },
+            {
+                "model_id": 873,
+                "model": "Power Bridge 2"
+            },
+            {
+                "model_id": 874,
+                "model": "Power Bridge 3"
+            },
+            {
+                "model_id": 875,
+                "model": "Power Bridge 4"
+            },
+            {
+                "model_id": 876,
+                "model": "Power Bridge 5"
+            },
+            {
+                "model_id": 877,
+                "model": "Power Bridge 6 Attiva MP"
+            },
+            {
+                "model_id": 878,
+                "model": "Power Bridge 7"
+            },
+            {
+                "model_id": 879,
+                "model": "Power Bridge 8"
+            },
+            {
+                "model_id": 880,
+                "model": "Power Bridge 8 315"
+            },
+            {
+                "model_id": 881,
+                "model": "Power Bridge 9"
+            },
+            {
+                "model_id": 882,
+                "model": "Power Bridge V1 Midplus"
+            },
+            {
+                "model_id": 883,
+                "model": "Power Bridge V1 Oversize"
+            },
+            {
+                "model_id": 884,
+                "model": "Quantum Scorcher"
+            },
+            {
+                "model_id": 885,
+                "model": "Super G 1"
+            },
+            {
+                "model_id": 886,
+                "model": "Super G 10 295"
+            },
+            {
+                "model_id": 887,
+                "model": "Super G 10 325"
+            },
+            {
+                "model_id": 888,
+                "model": "Super G 10 Mid (320g)"
+            },
+            {
+                "model_id": 889,
+                "model": "Super G 10 Mid (330g)"
+            },
+            {
+                "model_id": 890,
+                "model": "Super G 3"
+            },
+            {
+                "model_id": 891,
+                "model": "Super G 5"
+            },
+            {
+                "model_id": 892,
+                "model": "Super G 6"
+            },
+            {
+                "model_id": 893,
+                "model": "Super G 7"
+            },
+            {
+                "model_id": 894,
+                "model": "Super G 8 (300g)"
+            },
+            {
+                "model_id": 895,
+                "model": "Super G 8 (315g)"
+            },
+            {
+                "model_id": 896,
+                "model": "Super G 9"
+            },
+            {
+                "model_id": 897,
+                "model": "Super G V1 Midplus"
+            },
+            {
+                "model_id": 898,
+                "model": "Super G V1 Oversize"
+            },
+            {
+                "model_id": 899,
+                "model": "Super G V1 Pro"
+            },
+            {
+                "model_id": 900,
+                "model": "Team Tour"
+            },
+            {
+                "model_id": 901,
+                "model": "Tour 10 V-Engine Mid"
+            },
+            {
+                "model_id": 902,
+                "model": "Tour 9 V-Engine (18x20)"
+            },
+            {
+                "model_id": 903,
+                "model": "Tour Scorcher"
+            },
+            {
+                "model_id": 904,
+                "model": "V-Cell 10 300g"
+            },
+            {
+                "model_id": 905,
+                "model": "V-Cell 10 320g"
+            },
+            {
+                "model_id": 906,
+                "model": "V-Cell 4"
+            },
+            {
+                "model_id": 907,
+                "model": "V-Cell 6"
+            },
+            {
+                "model_id": 908,
+                "model": "V-Cell 8 (285g)"
+            },
+            {
+                "model_id": 909,
+                "model": "V-Cell 8 (300g)"
+            },
+            {
+                "model_id": 910,
+                "model": "V-Cell 8 (315g)"
+            },
+            {
+                "model_id": 911,
+                "model": "V-Cell 9"
+            },
+            {
+                "model_id": 912,
+                "model": "V-Cell V1 Pro"
+            },
+            {
+                "model_id": 913,
+                "model": "V-Feel 1"
+            },
+            {
+                "model_id": 914,
+                "model": "V-Feel 10 (300g)"
+            },
+            {
+                "model_id": 915,
+                "model": "V-Feel 10 (320g)"
+            },
+            {
+                "model_id": 916,
+                "model": "V-Feel 4"
+            },
+            {
+                "model_id": 917,
+                "model": "V-Feel 5"
+            },
+            {
+                "model_id": 918,
+                "model": "V-Feel 6"
+            },
+            {
+                "model_id": 919,
+                "model": "V-Feel 8 285g"
+            },
+            {
+                "model_id": 920,
+                "model": "V-Feel 8 300g"
+            },
+            {
+                "model_id": 921,
+                "model": "V-Feel 8 315g"
+            },
+            {
+                "model_id": 922,
+                "model": "V-Feel 9"
+            },
+            {
+                "model_id": 923,
+                "model": "V-Feel V1 MP"
+            },
+            {
+                "model_id": 924,
+                "model": "V-Feel V1 OS"
+            },
+            {
+                "model_id": 925,
+                "model": "V-Feel V1 Pro"
+            },
+            {
+                "model_id": 926,
+                "model": "V-Feel V8 Pro"
+            },
+            {
+                "model_id": 927,
+                "model": "V-Sense 1"
+            },
+            {
+                "model_id": 928,
+                "model": "V-Sense 10 295g"
+            },
+            {
+                "model_id": 929,
+                "model": "V-Sense 10 325g"
+            },
+            {
+                "model_id": 930,
+                "model": "V-Sense 10 Mid"
+            },
+            {
+                "model_id": 931,
+                "model": "V-Sense 10 Tour"
+            },
+            {
+                "model_id": 932,
+                "model": "V-Sense 2"
+            },
+            {
+                "model_id": 933,
+                "model": "V-Sense 4"
+            },
+            {
+                "model_id": 934,
+                "model": "V-Sense 5"
+            },
+            {
+                "model_id": 935,
+                "model": "V-Sense 6"
+            },
+            {
+                "model_id": 936,
+                "model": "V-Sense 8 285g"
+            },
+            {
+                "model_id": 937,
+                "model": "V-Sense 8 300g"
+            },
+            {
+                "model_id": 938,
+                "model": "V-Sense 8 315g"
+            },
+            {
+                "model_id": 939,
+                "model": "V-Sense 9"
+            },
+            {
+                "model_id": 940,
+                "model": "V-Sense V1 MP"
+            },
+            {
+                "model_id": 941,
+                "model": "V-Sense V1 OS"
+            },
+            {
+                "model_id": 942,
+                "model": "V-Sense V1 Pro"
+            },
+            {
+                "model_id": 943,
+                "model": "V1 Classic"
+            },
+            {
+                "model_id": 944,
+                "model": "Vostra V4"
+            },
+            {
+                "model_id": 945,
+                "model": "Vostra V6"
+            },
+            {
+                "model_id": 946,
+                "model": "Vostra V8 285g"
+            },
+            {
+                "model_id": 947,
+                "model": "Vostra V8 300g"
+            },
+            {
+                "model_id": 948,
+                "model": "Vostra V8 315g"
+            }
+        ]
+    },
+    {
+        "brand_id": 22,
+        "brand": "Wilson",
+        "models": [
+            {
+                "model_id": 949,
+                "model": "BLX Blade 98"
+            },
+            {
+                "model_id": 950,
+                "model": "BLX Blade Lite"
+            },
+            {
+                "model_id": 951,
+                "model": "BLX Blade Team"
+            },
+            {
+                "model_id": 952,
+                "model": "BLX Blade Tour"
+            },
+            {
+                "model_id": 953,
+                "model": "BLX Bold"
+            },
+            {
+                "model_id": 954,
+                "model": "BLX Cierzo Two"
+            },
+            {
+                "model_id": 955,
+                "model": "BLX Cirrus One"
+            },
+            {
+                "model_id": 956,
+                "model": "BLX Coral Reef"
+            },
+            {
+                "model_id": 957,
+                "model": "BLX Juice 100"
+            },
+            {
+                "model_id": 958,
+                "model": "BLX Juice 108"
+            },
+            {
+                "model_id": 959,
+                "model": "BLX Juice Pro"
+            },
+            {
+                "model_id": 960,
+                "model": "BLX One"
+            },
+            {
+                "model_id": 961,
+                "model": "BLX Pro Limited 110"
+            },
+            {
+                "model_id": 962,
+                "model": "BLX Pro Lite"
+            },
+            {
+                "model_id": 963,
+                "model": "BLX Pro Open"
+            },
+            {
+                "model_id": 964,
+                "model": "BLX Pro Open (2012)"
+            },
+            {
+                "model_id": 965,
+                "model": "BLX Pro Staff Six.One 100"
+            },
+            {
+                "model_id": 966,
+                "model": "BLX Pro Staff Six.One 90"
+            },
+            {
+                "model_id": 967,
+                "model": "BLX Pro Staff Six.One 95"
+            },
+            {
+                "model_id": 968,
+                "model": "BLX Pro Team FX"
+            },
+            {
+                "model_id": 969,
+                "model": "BLX Pro Tour"
+            },
+            {
+                "model_id": 970,
+                "model": "BLX Six-One 95 16x18"
+            },
+            {
+                "model_id": 971,
+                "model": "BLX Six-One Lite"
+            },
+            {
+                "model_id": 972,
+                "model": "BLX Six-One Tour"
+            },
+            {
+                "model_id": 973,
+                "model": "BLX Six.One 95 16x18"
+            },
+            {
+                "model_id": 974,
+                "model": "BLX Six.One 95 18x20"
+            },
+            {
+                "model_id": 975,
+                "model": "BLX Six.One 95 18x20 (2012)"
+            },
+            {
+                "model_id": 976,
+                "model": "BLX Six.One Team"
+            },
+            {
+                "model_id": 977,
+                "model": "BLX Six.One Team (2012)"
+            },
+            {
+                "model_id": 978,
+                "model": "BLX Steam 100"
+            },
+            {
+                "model_id": 979,
+                "model": "BLX Stratus Three"
+            },
+            {
+                "model_id": 980,
+                "model": "BLX Surge"
+            },
+            {
+                "model_id": 981,
+                "model": "BLX Tempest Four"
+            },
+            {
+                "model_id": 982,
+                "model": "BLX Tidal Force"
+            },
+            {
+                "model_id": 983,
+                "model": "BLX Tidal Wave"
+            },
+            {
+                "model_id": 984,
+                "model": "BLX Tour"
+            },
+            {
+                "model_id": 985,
+                "model": "BLX Tour 2012"
+            },
+            {
+                "model_id": 986,
+                "model": "BLX Tour Limited"
+            },
+            {
+                "model_id": 987,
+                "model": "BLX Tour Lite"
+            },
+            {
+                "model_id": 988,
+                "model": "Blade 100 V7"
+            },
+            {
+                "model_id": 989,
+                "model": "Blade 100 v8"
+            },
+            {
+                "model_id": 990,
+                "model": "Blade 100L"
+            },
+            {
+                "model_id": 991,
+                "model": "Blade 104"
+            },
+            {
+                "model_id": 992,
+                "model": "Blade 104 (2015)"
+            },
+            {
+                "model_id": 993,
+                "model": "Blade 104 / 2013"
+            },
+            {
+                "model_id": 994,
+                "model": "Blade 104 V8"
+            },
+            {
+                "model_id": 995,
+                "model": "Blade 104 v7"
+            },
+            {
+                "model_id": 996,
+                "model": "Blade 18x20 v8"
+            },
+            {
+                "model_id": 997,
+                "model": "Blade 93 / 2013"
+            },
+            {
+                "model_id": 998,
+                "model": "Blade 98 (16x19)"
+            },
+            {
+                "model_id": 999,
+                "model": "Blade 98 (16x19) (2015)"
+            },
+            {
+                "model_id": 1000,
+                "model": "Blade 98 (16x19) / 2013"
+            },
+            {
+                "model_id": 1001,
+                "model": "Blade 98 (16x19) CV"
+            },
+            {
+                "model_id": 1002,
+                "model": "Blade 98 (18x20 ) (2015)"
+            },
+            {
+                "model_id": 1003,
+                "model": "Blade 98 (18x20)"
+            },
+            {
+                "model_id": 1004,
+                "model": "Blade 98 (18x20) / 2013"
+            },
+            {
+                "model_id": 1005,
+                "model": "Blade 98 (18x20) CV"
+            },
+            {
+                "model_id": 1006,
+                "model": "Blade 98 16x19 v6"
+            },
+            {
+                "model_id": 1007,
+                "model": "Blade 98 16x19 v7 Reverse"
+            },
+            {
+                "model_id": 1008,
+                "model": "Blade 98 16x19 v8"
+            },
+            {
+                "model_id": 1009,
+                "model": "Blade 98S"
+            },
+            {
+                "model_id": 1010,
+                "model": "Blade 98S (18x16) CV"
+            },
+            {
+                "model_id": 1011,
+                "model": "Blade 98S (2015)"
+            },
+            {
+                "model_id": 1012,
+                "model": "Blade SW 104"
+            },
+            {
+                "model_id": 1013,
+                "model": "Burn 100"
+            },
+            {
+                "model_id": 1014,
+                "model": "Burn 100 Countervail"
+            },
+            {
+                "model_id": 1015,
+                "model": "Burn 100 LS"
+            },
+            {
+                "model_id": 1016,
+                "model": "Burn 100 LS (2017)"
+            },
+            {
+                "model_id": 1017,
+                "model": "Burn 100 LS CAMO"
+            },
+            {
+                "model_id": 1018,
+                "model": "Burn 100 S"
+            },
+            {
+                "model_id": 1019,
+                "model": "Burn 100 S Countervail"
+            },
+            {
+                "model_id": 1020,
+                "model": "Burn 100 Team"
+            },
+            {
+                "model_id": 1021,
+                "model": "Burn 100 Team (2017)"
+            },
+            {
+                "model_id": 1022,
+                "model": "Burn 100 ULS"
+            },
+            {
+                "model_id": 1023,
+                "model": "Burn 100 ULS (2017)"
+            },
+            {
+                "model_id": 1024,
+                "model": "Burn 95"
+            },
+            {
+                "model_id": 1025,
+                "model": "Burn 95 Countervail"
+            },
+            {
+                "model_id": 1026,
+                "model": "Burn FST 95"
+            },
+            {
+                "model_id": 1027,
+                "model": "Burn FST 99"
+            },
+            {
+                "model_id": 1028,
+                "model": "Burn FST 99S"
+            },
+            {
+                "model_id": 1029,
+                "model": "Clash 100"
+            },
+            {
+                "model_id": 1030,
+                "model": "Clash 100 Pro Silver"
+            },
+            {
+                "model_id": 1031,
+                "model": "Clash 100 Pro v2"
+            },
+            {
+                "model_id": 1032,
+                "model": "Clash 100 Reverse"
+            },
+            {
+                "model_id": 1033,
+                "model": "Clash 100 Silver"
+            },
+            {
+                "model_id": 1034,
+                "model": "Clash 100 Tour"
+            },
+            {
+                "model_id": 1035,
+                "model": "Clash 100 v2"
+            },
+            {
+                "model_id": 1036,
+                "model": "Clash 100L"
+            },
+            {
+                "model_id": 1037,
+                "model": "Clash 100L Silver"
+            },
+            {
+                "model_id": 1038,
+                "model": "Clash 100S"
+            },
+            {
+                "model_id": 1039,
+                "model": "Clash 108"
+            },
+            {
+                "model_id": 1040,
+                "model": "Clash 98"
+            },
+            {
+                "model_id": 1041,
+                "model": "Clash 98 v2"
+            },
+            {
+                "model_id": 1042,
+                "model": "Envy 100 L"
+            },
+            {
+                "model_id": 1043,
+                "model": "Envy 110 UL"
+            },
+            {
+                "model_id": 1044,
+                "model": "Hyper Hammer 5.3 Stretch"
+            },
+            {
+                "model_id": 1045,
+                "model": "Hyper Hammer 6.3 OS"
+            },
+            {
+                "model_id": 1046,
+                "model": "Juice 100"
+            },
+            {
+                "model_id": 1047,
+                "model": "Juice 100L"
+            },
+            {
+                "model_id": 1048,
+                "model": "Juice 100S"
+            },
+            {
+                "model_id": 1049,
+                "model": "Juice 100UL"
+            },
+            {
+                "model_id": 1050,
+                "model": "Juice 108"
+            },
+            {
+                "model_id": 1051,
+                "model": "K Factor Kobra Team FX"
+            },
+            {
+                "model_id": 1052,
+                "model": "K Factor Kobra Tour"
+            },
+            {
+                "model_id": 1053,
+                "model": "KBlade 98"
+            },
+            {
+                "model_id": 1054,
+                "model": "KBlade Team 104"
+            },
+            {
+                "model_id": 1055,
+                "model": "KBlade Tour"
+            },
+            {
+                "model_id": 1056,
+                "model": "KBrave"
+            },
+            {
+                "model_id": 1057,
+                "model": "KFive OS"
+            },
+            {
+                "model_id": 1058,
+                "model": "KFour 105 MP"
+            },
+            {
+                "model_id": 1059,
+                "model": "KFour 112 OS"
+            },
+            {
+                "model_id": 1060,
+                "model": "KFour.FX"
+            },
+            {
+                "model_id": 1061,
+                "model": "KFury"
+            },
+            {
+                "model_id": 1062,
+                "model": "KOne"
+            },
+            {
+                "model_id": 1063,
+                "model": "KOne.FX"
+            },
+            {
+                "model_id": 1064,
+                "model": "KPro Open"
+            },
+            {
+                "model_id": 1065,
+                "model": "KPro Staff 88"
+            },
+            {
+                "model_id": 1066,
+                "model": "KPro Team.FX"
+            },
+            {
+                "model_id": 1067,
+                "model": "KPro Tour"
+            },
+            {
+                "model_id": 1068,
+                "model": "KSix-One 95 (16x18)"
+            },
+            {
+                "model_id": 1069,
+                "model": "KSix-One 95 (18x20)"
+            },
+            {
+                "model_id": 1070,
+                "model": "KSix-One Tour 90"
+            },
+            {
+                "model_id": 1071,
+                "model": "KSix-One X"
+            },
+            {
+                "model_id": 1072,
+                "model": "KSix-Two MP"
+            },
+            {
+                "model_id": 1073,
+                "model": "KSting 105"
+            },
+            {
+                "model_id": 1074,
+                "model": "KSurge"
+            },
+            {
+                "model_id": 1075,
+                "model": "KThree OS"
+            },
+            {
+                "model_id": 1076,
+                "model": "KThree.FX"
+            },
+            {
+                "model_id": 1077,
+                "model": "KTour MP"
+            },
+            {
+                "model_id": 1078,
+                "model": "KTour Team.FX"
+            },
+            {
+                "model_id": 1079,
+                "model": "KZen MP"
+            },
+            {
+                "model_id": 1080,
+                "model": "KZen Team"
+            },
+            {
+                "model_id": 1081,
+                "model": "KZen Team.FX Orange"
+            },
+            {
+                "model_id": 1082,
+                "model": "Labs Project Shift 99 300g"
+            },
+            {
+                "model_id": 1083,
+                "model": "Labs Project Shift 99 315g"
+            },
+            {
+                "model_id": 1084,
+                "model": "N Fury OS"
+            },
+            {
+                "model_id": 1085,
+                "model": "Pro Open 100"
+            },
+            {
+                "model_id": 1086,
+                "model": "Pro Staff 100L"
+            },
+            {
+                "model_id": 1087,
+                "model": "Pro Staff 100LS"
+            },
+            {
+                "model_id": 1088,
+                "model": "Pro Staff 6.0 85"
+            },
+            {
+                "model_id": 1089,
+                "model": "Pro Staff 6.1 100 V13"
+            },
+            {
+                "model_id": 1090,
+                "model": "Pro Staff 90"
+            },
+            {
+                "model_id": 1091,
+                "model": "Pro Staff 95"
+            },
+            {
+                "model_id": 1092,
+                "model": "Pro Staff 95S (2014)"
+            },
+            {
+                "model_id": 1093,
+                "model": "Pro Staff 95S (2015)"
+            },
+            {
+                "model_id": 1094,
+                "model": "Pro Staff 97"
+            },
+            {
+                "model_id": 1095,
+                "model": "Pro Staff 97 (2016)"
+            },
+            {
+                "model_id": 1096,
+                "model": "Pro Staff 97 Countervail"
+            },
+            {
+                "model_id": 1097,
+                "model": "Pro Staff 97 Countervail Black"
+            },
+            {
+                "model_id": 1098,
+                "model": "Pro Staff 97 LS"
+            },
+            {
+                "model_id": 1099,
+                "model": "Pro Staff 97 LS Black (2016)"
+            },
+            {
+                "model_id": 1100,
+                "model": "Pro Staff 97 RF Autograph"
+            },
+            {
+                "model_id": 1101,
+                "model": "Pro Staff 97 v13"
+            },
+            {
+                "model_id": 1102,
+                "model": "Pro Staff 97 v14"
+            },
+            {
+                "model_id": 1103,
+                "model": "Pro Staff 97L"
+            },
+            {
+                "model_id": 1104,
+                "model": "Pro Staff 97L Countervail Black"
+            },
+            {
+                "model_id": 1105,
+                "model": "Pro Staff 97L Countervail CAMO"
+            },
+            {
+                "model_id": 1106,
+                "model": "Pro Staff 97L v13"
+            },
+            {
+                "model_id": 1107,
+                "model": "Pro Staff 97S"
+            },
+            {
+                "model_id": 1108,
+                "model": "Pro Staff 97S (2016)"
+            },
+            {
+                "model_id": 1109,
+                "model": "Pro Staff RF97 Autograph (2016)"
+            },
+            {
+                "model_id": 1110,
+                "model": "Pro Staff RF97 Autograph 2018"
+            },
+            {
+                "model_id": 1111,
+                "model": "Pro Staff RF97 v13"
+            },
+            {
+                "model_id": 1112,
+                "model": "Pro Staff Six.One 100 v14"
+            },
+            {
+                "model_id": 1113,
+                "model": "Pro Staff X v14"
+            },
+            {
+                "model_id": 1114,
+                "model": "Shift 99"
+            },
+            {
+                "model_id": 1115,
+                "model": "Shift 99 Pro"
+            },
+            {
+                "model_id": 1116,
+                "model": "Six-One Team"
+            },
+            {
+                "model_id": 1117,
+                "model": "Six.One 95 (16x18)"
+            },
+            {
+                "model_id": 1118,
+                "model": "Six.One 95 (18x20)"
+            },
+            {
+                "model_id": 1119,
+                "model": "Six.One 95L"
+            },
+            {
+                "model_id": 1120,
+                "model": "Six.One 95S"
+            },
+            {
+                "model_id": 1121,
+                "model": "Steam 105S"
+            },
+            {
+                "model_id": 1122,
+                "model": "Steam 96"
+            },
+            {
+                "model_id": 1123,
+                "model": "Steam 99"
+            },
+            {
+                "model_id": 1124,
+                "model": "Steam 99LS"
+            },
+            {
+                "model_id": 1125,
+                "model": "Steam 99S"
+            },
+            {
+                "model_id": 1126,
+                "model": "Ultra 100"
+            },
+            {
+                "model_id": 1127,
+                "model": "Ultra 100 Countervail"
+            },
+            {
+                "model_id": 1128,
+                "model": "Ultra 100 v2"
+            },
+            {
+                "model_id": 1129,
+                "model": "Ultra 100 v4"
+            },
+            {
+                "model_id": 1130,
+                "model": "Ultra 100L"
+            },
+            {
+                "model_id": 1131,
+                "model": "Ultra 100L CAMO"
+            },
+            {
+                "model_id": 1132,
+                "model": "Ultra 100L v2"
+            },
+            {
+                "model_id": 1133,
+                "model": "Ultra 100L v3"
+            },
+            {
+                "model_id": 1134,
+                "model": "Ultra 100UL"
+            },
+            {
+                "model_id": 1135,
+                "model": "Ultra 103S"
+            },
+            {
+                "model_id": 1136,
+                "model": "Ultra 108"
+            },
+            {
+                "model_id": 1137,
+                "model": "Ultra 95 Countervail"
+            },
+            {
+                "model_id": 1138,
+                "model": "Ultra 97"
+            },
+            {
+                "model_id": 1139,
+                "model": "Ultra Pro 16x19 v4"
+            },
+            {
+                "model_id": 1140,
+                "model": "Ultra Pro 18x20 v4"
+            },
+            {
+                "model_id": 1141,
+                "model": "Ultra Tour"
+            },
+            {
+                "model_id": 1142,
+                "model": "W5 Divine Iris"
+            },
+            {
+                "model_id": 1143,
+                "model": "n2 OS"
+            },
+            {
+                "model_id": 1144,
+                "model": "n5 Force MP"
+            },
+            {
+                "model_id": 1145,
+                "model": "nBlade OS"
+            },
+            {
+                "model_id": 1146,
+                "model": "nPro Open MP"
+            },
+            {
+                "model_id": 1147,
+                "model": "nPro Open X"
+            },
+            {
+                "model_id": 1148,
+                "model": "nSix-Two MP"
+            },
+            {
+                "model_id": 1149,
+                "model": "nSix-Two OS"
+            },
+            {
+                "model_id": 1150,
+                "model": "nTour"
+            },
+            {
+                "model_id": 1151,
+                "model": "nTour Two MP"
+            },
+            {
+                "model_id": 1295,
+                "model": "Energy XL"
+            },
+            {
+                "model_id": 1296,
+                "model": "Blade 98 16x19 v9"
+            },
+            {
+                "model_id": 1297,
+                "model": "Pro Staff Precision 103"
+            },
+            {
+                "model_id": 1298,
+                "model": "Ultra Power RXT "
+            },
+            {
+                "model_id": 1301,
+                "model": "Blade 98 16x19 v8 Noir"
+            },
+            {
+                "model_id": 1305,
+                "model": "Blade 100UL v7"
+            },
+            {
+                "model_id": 1323,
+                "model": "Wilson RF 01 "
+            },
+            {
+                "model_id": 1324,
+                "model": "Wilson RF 01 Pro"
+            },
+            {
+                "model_id": 1325,
+                "model": "Wilson RF 01 Future"
+            },
+            {
+                "model_id": 1326,
+                "model": "Blade 98 18x20 v9"
+            },
+            {
+                "model_id": 1327,
+                "model": "Blade 98 16x19 v9 Roland Garros 2024"
+            },
+            {
+                "model_id": 1328,
+                "model": "Blade 100L v9"
+            },
+            {
+                "model_id": 1329,
+                "model": "Blade 100UL v9"
+            },
+            {
+                "model_id": 1330,
+                "model": "Blade 104 v9"
+            }
+        ]
+    },
+    {
+        "brand_id": 23,
+        "brand": "Yonex",
+        "models": [
+            {
+                "model_id": 1152,
+                "model": "Astrel 100"
+            },
+            {
+                "model_id": 1153,
+                "model": "Astrel 115"
+            },
+            {
+                "model_id": 1154,
+                "model": "E-Zone 100"
+            },
+            {
+                "model_id": 1155,
+                "model": "E-Zone 107"
+            },
+            {
+                "model_id": 1156,
+                "model": "E-Zone Lite"
+            },
+            {
+                "model_id": 1157,
+                "model": "E-Zone Rally"
+            },
+            {
+                "model_id": 1158,
+                "model": "E-Zone Team 102"
+            },
+            {
+                "model_id": 1159,
+                "model": "E-Zone Team Plus 102"
+            },
+            {
+                "model_id": 1160,
+                "model": "E-Zone Xi"
+            },
+            {
+                "model_id": 1161,
+                "model": "E-Zone Xi 107"
+            },
+            {
+                "model_id": 1162,
+                "model": "E-Zone Xi 115"
+            },
+            {
+                "model_id": 1163,
+                "model": "E-Zone Xi 98"
+            },
+            {
+                "model_id": 1164,
+                "model": "E-Zone Xi Lite"
+            },
+            {
+                "model_id": 1165,
+                "model": "EZONE 100 (300g)"
+            },
+            {
+                "model_id": 1166,
+                "model": "EZONE 100 2022"
+            },
+            {
+                "model_id": 1167,
+                "model": "EZONE 100 Naomi Osaka LE"
+            },
+            {
+                "model_id": 1168,
+                "model": "EZONE 100+"
+            },
+            {
+                "model_id": 1169,
+                "model": "EZONE 100+ (300g) Blue"
+            },
+            {
+                "model_id": 1170,
+                "model": "EZONE 100+ 2022"
+            },
+            {
+                "model_id": 1171,
+                "model": "EZONE 100L"
+            },
+            {
+                "model_id": 1172,
+                "model": "EZONE 100L Naomi Osaka LE"
+            },
+            {
+                "model_id": 1173,
+                "model": "EZONE 105"
+            },
+            {
+                "model_id": 1174,
+                "model": "EZONE 108"
+            },
+            {
+                "model_id": 1175,
+                "model": "EZONE 98 (305g)"
+            },
+            {
+                "model_id": 1176,
+                "model": "EZONE 98 2022"
+            },
+            {
+                "model_id": 1177,
+                "model": "EZONE 98 Naomi Osaka LE"
+            },
+            {
+                "model_id": 1178,
+                "model": "EZONE 98 Tour"
+            },
+            {
+                "model_id": 1179,
+                "model": "EZONE 98 Tour 2022"
+            },
+            {
+                "model_id": 1180,
+                "model": "EZONE 98+"
+            },
+            {
+                "model_id": 1181,
+                "model": "EZONE 98+ (305g) Blue"
+            },
+            {
+                "model_id": 1182,
+                "model": "EZONE 98+ 2022"
+            },
+            {
+                "model_id": 1183,
+                "model": "EZONE 98L"
+            },
+            {
+                "model_id": 1184,
+                "model": "EZONE Ace"
+            },
+            {
+                "model_id": 1185,
+                "model": "EZONE Ai 100"
+            },
+            {
+                "model_id": 1186,
+                "model": "EZONE Ai 98"
+            },
+            {
+                "model_id": 1187,
+                "model": "EZONE Ai 98 Lite"
+            },
+            {
+                "model_id": 1188,
+                "model": "EZONE Ai Feel"
+            },
+            {
+                "model_id": 1189,
+                "model": "EZONE Ai Lite (Lime)"
+            },
+            {
+                "model_id": 1190,
+                "model": "EZone DR 100"
+            },
+            {
+                "model_id": 1191,
+                "model": "EZone DR 98"
+            },
+            {
+                "model_id": 1192,
+                "model": "Ezone 100 (285g)"
+            },
+            {
+                "model_id": 1193,
+                "model": "Ezone 100 (300g)"
+            },
+            {
+                "model_id": 1194,
+                "model": "Ezone 98 (285g)"
+            },
+            {
+                "model_id": 1195,
+                "model": "Ezone 98 (305g)"
+            },
+            {
+                "model_id": 1196,
+                "model": "Ezone DR 100+ Blue"
+            },
+            {
+                "model_id": 1197,
+                "model": "Ezone DR 98+ Blue"
+            },
+            {
+                "model_id": 1198,
+                "model": "Ezone Lite"
+            },
+            {
+                "model_id": 1199,
+                "model": "Percept 100"
+            },
+            {
+                "model_id": 1200,
+                "model": "Percept 100D"
+            },
+            {
+                "model_id": 1201,
+                "model": "Percept 97"
+            },
+            {
+                "model_id": 1202,
+                "model": "Percept 97D"
+            },
+            {
+                "model_id": 1203,
+                "model": "Percept 97H"
+            },
+            {
+                "model_id": 1204,
+                "model": "RDS 001 MP"
+            },
+            {
+                "model_id": 1205,
+                "model": "RDS 001 Mid"
+            },
+            {
+                "model_id": 1206,
+                "model": "RDS 002"
+            },
+            {
+                "model_id": 1207,
+                "model": "RDS 002 Tour"
+            },
+            {
+                "model_id": 1208,
+                "model": "RDS 003"
+            },
+            {
+                "model_id": 1209,
+                "model": "RDiS 100 MP"
+            },
+            {
+                "model_id": 1210,
+                "model": "RDiS 100 Mid"
+            },
+            {
+                "model_id": 1211,
+                "model": "RDiS 200"
+            },
+            {
+                "model_id": 1212,
+                "model": "RDiS 300 MP"
+            },
+            {
+                "model_id": 1213,
+                "model": "RQ 7 OS"
+            },
+            {
+                "model_id": 1214,
+                "model": "RQ IS 2 Tour"
+            },
+            {
+                "model_id": 1215,
+                "model": "RQ Speed 30 MP"
+            },
+            {
+                "model_id": 1216,
+                "model": "RQ iS 1 Tour"
+            },
+            {
+                "model_id": 1217,
+                "model": "RQ iS 1 Tour XL 100"
+            },
+            {
+                "model_id": 1218,
+                "model": "RQ iS 1 Tour XL 95"
+            },
+            {
+                "model_id": 1219,
+                "model": "RQ iS 1 Tour XL 95 Lite"
+            },
+            {
+                "model_id": 1220,
+                "model": "RQS 11 MP"
+            },
+            {
+                "model_id": 1221,
+                "model": "RQS 22"
+            },
+            {
+                "model_id": 1222,
+                "model": "RQS 33"
+            },
+            {
+                "model_id": 1223,
+                "model": "RQS 55"
+            },
+            {
+                "model_id": 1224,
+                "model": "Regna 100"
+            },
+            {
+                "model_id": 1225,
+                "model": "Regna 98"
+            },
+            {
+                "model_id": 1226,
+                "model": "S-Fit 1"
+            },
+            {
+                "model_id": 1227,
+                "model": "S-Fit 1 Lite"
+            },
+            {
+                "model_id": 1228,
+                "model": "S-Fit 3"
+            },
+            {
+                "model_id": 1229,
+                "model": "S-Fit 5"
+            },
+            {
+                "model_id": 1230,
+                "model": "V CORE SV 100"
+            },
+            {
+                "model_id": 1231,
+                "model": "V CORE SV 100 Lite"
+            },
+            {
+                "model_id": 1232,
+                "model": "V CORE SV 95"
+            },
+            {
+                "model_id": 1233,
+                "model": "V CORE SV 98"
+            },
+            {
+                "model_id": 1234,
+                "model": "V CORE SV 98 Lite"
+            },
+            {
+                "model_id": 1235,
+                "model": "V Core 100 S"
+            },
+            {
+                "model_id": 1236,
+                "model": "V Core 95 D"
+            },
+            {
+                "model_id": 1237,
+                "model": "V Core 98 D"
+            },
+            {
+                "model_id": 1238,
+                "model": "V Core 98 Team"
+            },
+            {
+                "model_id": 1239,
+                "model": "VCORE 100"
+            },
+            {
+                "model_id": 1240,
+                "model": "VCORE 100 (300)"
+            },
+            {
+                "model_id": 1241,
+                "model": "VCORE 100 (300) Galaxy Black"
+            },
+            {
+                "model_id": 1242,
+                "model": "VCORE 100 2023"
+            },
+            {
+                "model_id": 1243,
+                "model": "VCORE 100+"
+            },
+            {
+                "model_id": 1244,
+                "model": "VCORE 100+ (2021)"
+            },
+            {
+                "model_id": 1245,
+                "model": "VCORE 100+ 2023"
+            },
+            {
+                "model_id": 1246,
+                "model": "VCORE 100L"
+            },
+            {
+                "model_id": 1247,
+                "model": "VCORE 95"
+            },
+            {
+                "model_id": 1248,
+                "model": "VCORE 95 (2018)"
+            },
+            {
+                "model_id": 1249,
+                "model": "VCORE 95 2023"
+            },
+            {
+                "model_id": 1250,
+                "model": "VCORE 98"
+            },
+            {
+                "model_id": 1251,
+                "model": "VCORE 98 (305)"
+            },
+            {
+                "model_id": 1252,
+                "model": "VCORE 98 (305) Galaxy Black"
+            },
+            {
+                "model_id": 1253,
+                "model": "VCORE 98 2023"
+            },
+            {
+                "model_id": 1254,
+                "model": "VCORE 98 Limited"
+            },
+            {
+                "model_id": 1255,
+                "model": "VCORE 98 Tour 2023"
+            },
+            {
+                "model_id": 1256,
+                "model": "VCORE 98+"
+            },
+            {
+                "model_id": 1257,
+                "model": "VCORE 98+ (2021)"
+            },
+            {
+                "model_id": 1258,
+                "model": "VCORE 98+ 2023"
+            },
+            {
+                "model_id": 1259,
+                "model": "VCORE 98L"
+            },
+            {
+                "model_id": 1260,
+                "model": "VCORE Pro 100"
+            },
+            {
+                "model_id": 1261,
+                "model": "VCORE Pro 100 (300)"
+            },
+            {
+                "model_id": 1262,
+                "model": "VCORE Pro 100 (300)"
+            },
+            {
+                "model_id": 1263,
+                "model": "VCORE Pro 97"
+            },
+            {
+                "model_id": 1264,
+                "model": "VCORE Pro 97 (310)"
+            },
+            {
+                "model_id": 1265,
+                "model": "VCORE Pro 97 (310) (2018)"
+            },
+            {
+                "model_id": 1266,
+                "model": "VCORE Pro 97 (330)"
+            },
+            {
+                "model_id": 1267,
+                "model": "VCORE Pro 97 (330)"
+            },
+            {
+                "model_id": 1268,
+                "model": "VCORE Pro 97D"
+            },
+            {
+                "model_id": 1269,
+                "model": "VCORE Pro 97H"
+            },
+            {
+                "model_id": 1270,
+                "model": "VCORE Pro 97HD ((18x20))"
+            },
+            {
+                "model_id": 1271,
+                "model": "VCORE Tour 89"
+            },
+            {
+                "model_id": 1272,
+                "model": "VCORE Tour 97"
+            },
+            {
+                "model_id": 1273,
+                "model": "VCORE Tour 97 (310g)"
+            },
+            {
+                "model_id": 1274,
+                "model": "VCORE Tour G (310)"
+            },
+            {
+                "model_id": 1275,
+                "model": "VCORE Tour G 330 (Wawrinka)"
+            },
+            {
+                "model_id": 1276,
+                "model": "VCORE Xi 100"
+            },
+            {
+                "model_id": 1277,
+                "model": "VCORE Xi 98"
+            },
+            {
+                "model_id": 1278,
+                "model": "VCore SV 100+"
+            },
+            {
+                "model_id": 1279,
+                "model": "VCore SV 98+"
+            },
+            {
+                "model_id": 1280,
+                "model": "Vcore Duel G 100"
+            },
+            {
+                "model_id": 1281,
+                "model": "Vcore Duel G 97 (310g)"
+            },
+            {
+                "model_id": 1282,
+                "model": "Vcore Duel G 97 (330g)"
+            },
+            {
+                "model_id": 1283,
+                "model": "Vcore Si 100"
+            },
+            {
+                "model_id": 1284,
+                "model": "Vcore Si 98"
+            },
+            {
+                "model_id": 1285,
+                "model": "Vcore Tour F 93"
+            },
+            {
+                "model_id": 1286,
+                "model": "Vcore Tour F 97 (290)"
+            },
+            {
+                "model_id": 1287,
+                "model": "Vcore Tour F 97 (310)"
+            },
+            {
+                "model_id": 1288,
+                "model": "Vcore Tour F 97 (310)"
+            },
+            {
+                "model_id": 1299,
+                "model": "Ezone Feel"
+            },
+            {
+                "model_id": 1308,
+                "model": "V Core PRO 100L"
+            },
+            {
+                "model_id": 1310,
+                "model": "VCORE Ace"
+            },
+            {
+                "model_id": 1311,
+                "model": "VCORE SV Team 100"
+            },
+            {
+                "model_id": 1312,
+                "model": "VCORE 98 Sand Beige"
+            },
+            {
+                "model_id": 1313,
+                "model": "VCORE 95 Sand Beige"
+            },
+            {
+                "model_id": 1314,
+                "model": "VCORE 100 Sand Beige"
+            },
+            {
+                "model_id": 1315,
+                "model": "VCORE Feel Sand Beige"
+            },
+            {
+                "model_id": 1316,
+                "model": "VCORE Game Sand Beige"
+            },
+            {
+                "model_id": 1317,
+                "model": "Ezone 100 Aqua Night Black"
+            },
+            {
+                "model_id": 1318,
+                "model": "Ezone 98 Aqua Night Black"
+            },
+            {
+                "model_id": 1319,
+                "model": "Ezone 98+ Aqua Night Black"
+            },
+            {
+                "model_id": 1320,
+                "model": "Ezone 98L Aqua Night Black"
+            },
+            {
+                "model_id": 1321,
+                "model": "Ezone 100+ Aqua Night Black"
+            },
+            {
+                "model_id": 1322,
+                "model": "Ezone 100SL Aqua Night Black"
+            }
+        ]
+    },
+    {
+        "brand_id": 24,
+        "brand": "None",
+        "models": [
+            {
+                "model_id": 1289,
+                "model": "None"
+            }
+        ]
+    }
+]

@@ -1,0 +1,14 @@
+fragment TennisRacketFields on TennisRacket {
+  id
+  ownerId
+  name
+  type
+  createdAt
+  updatedAt
+  currentStringId
+  brand
+  brandId
+  model
+  modelId
+  weight
+}

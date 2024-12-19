@@ -61,11 +61,6 @@ final class HomeBaseVM: HomeBaseViewModelProvider {
     private let router: AppRouter
 
     func onAppear() {
-        Task {
-            let token = try await authService.getIDToken()
-            print(token)
-        }
-        print("Hello")
     }
     
     func onDisappear() {

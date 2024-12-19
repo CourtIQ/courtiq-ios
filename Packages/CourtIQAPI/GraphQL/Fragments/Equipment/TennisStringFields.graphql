@@ -1,0 +1,19 @@
+fragment TennisStringFields on TennisString {
+  id
+  ownerId
+  name
+  type
+  createdAt
+  updatedAt
+  racket
+  brand
+  brandId
+  model
+  modelId
+  tension {
+    mains
+    crosses
+  }
+  stringingDate
+  burstDate
+}
