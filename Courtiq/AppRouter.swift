@@ -28,9 +28,7 @@ enum RouterAction {
 
 @MainActor
 @available(iOS 16.0, *)
-class AppRouter: ObservableObject {
-    static let shared = AppRouter()
-    
+final class AppRouter: ObservableObject {
     @Published var navigationPath: [ViewWrapper] = []
     @Published var currentSheet: ViewWrapper? = nil
     @Published var currentScreenCover: ViewWrapper? = nil
@@ -43,41 +41,41 @@ class AppRouter: ObservableObject {
     func handle(action: RouterAction) {
         switch action {
         case .showScreen(let view):
-            self.currentScreenCover = ViewWrapper(view: view)
+            currentScreenCover = ViewWrapper(view: view)
         case .showSheet(let view):
-            self.currentSheet = ViewWrapper(view: view)
+            currentSheet = ViewWrapper(view: view)
         case .showHalfSheet(let view, let detents):
-            self.currentHalfSheet = ViewWrapper(view: view)
-            self.halfSheetDetents = detents.map { $0.value }
+            currentHalfSheet = ViewWrapper(view: view)
+            halfSheetDetents = detents.map { $0.value }
         case .showAlert(let alert):
-            self.currentAlert = alert
+            currentAlert = alert
         case .showToast(let type):
-            self.currentToast = ViewWrapper(view: AnyView(ToastView(type: type)))
+            currentToast = ViewWrapper(view: AnyView(ToastView(type: type)))
         case .push(let view):
-            self.navigationPath.append(ViewWrapper(view: view))
+            navigationPath.append(ViewWrapper(view: view))
         case .pop:
-            if !self.navigationPath.isEmpty {
-                self.navigationPath.removeLast()
+            if !navigationPath.isEmpty {
+                navigationPath.removeLast()
             }
         case .popToRoot:
-            self.navigationPath.removeAll()
+            navigationPath.removeAll()
         case .setRootView(let view):
-            self.navigationPath = [ViewWrapper(view: view)]
+            navigationPath = [ViewWrapper(view: view)]
         case .dismiss:
-            self.dismiss()
+            dismiss()
         case .isLoading:
-            self.isLoading = true
+            isLoading = true
         case .stopLoading:
-            self.isLoading = false
+            isLoading = false
         }
     }
 
     private func dismiss() {
-        self.currentSheet = nil
-        self.currentHalfSheet = nil
-        self.currentAlert = nil
-        self.currentToast = nil
-        self.currentScreenCover = nil
+        currentSheet = nil
+        currentHalfSheet = nil
+        currentAlert = nil
+        currentToast = nil
+        currentScreenCover = nil
     }
 }
 
@@ -104,13 +102,13 @@ enum CustomDetent {
 
 struct ViewWrapper: Identifiable, Hashable {
     static func == (lhs: ViewWrapper, rhs: ViewWrapper) -> Bool {
-        return lhs.id == rhs.id
+        lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
+
     let id = UUID()
     let view: AnyView
 }
@@ -132,13 +130,25 @@ struct ToastView: View {
     var body: some View {
         switch type {
         case .normal(let message):
-            Text(message).padding().background(Color.gray).cornerRadius(8)
+            Text(message)
+                .padding()
+                .background(Color.gray)
+                .cornerRadius(8)
         case .error(let message):
-            Text(message).padding().background(Color.red).cornerRadius(8)
+            Text(message)
+                .padding()
+                .background(Color.red)
+                .cornerRadius(8)
         case .warning(let message):
-            Text(message).padding().background(Color.yellow).cornerRadius(8)
+            Text(message)
+                .padding()
+                .background(Color.yellow)
+                .cornerRadius(8)
         case .success(let message):
-            Text(message).padding().background(Color.green).cornerRadius(8)
+            Text(message)
+                .padding()
+                .background(Color.green)
+                .cornerRadius(8)
         }
     }
 }
@@ -152,8 +162,8 @@ struct ScreenCoverView: View {
     var body: some View {
         NavigationStack(path: $appRouter.navigationPath) {
             viewWrapper.view
-                .navigationDestination(for: ViewWrapper.self) { viewWrapper in
-                    viewWrapper.view
+                .navigationDestination(for: ViewWrapper.self) { newWrapper in
+                    newWrapper.view
                 }
         }
     }

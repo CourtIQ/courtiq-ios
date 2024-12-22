@@ -17,7 +17,8 @@ public extension API {
       brandId: GraphQLNullable<Int> = nil,
       model: GraphQLNullable<String> = nil,
       modelId: GraphQLNullable<Int> = nil,
-      weight: GraphQLNullable<Double> = nil
+      weight: GraphQLNullable<Double> = nil,
+      visibility: GraphQLNullable<GraphQLEnum<Visibility>> = nil
     ) {
       __data = InputDict([
         "name": name,
@@ -25,7 +26,8 @@ public extension API {
         "brandId": brandId,
         "model": model,
         "modelId": modelId,
-        "weight": weight
+        "weight": weight,
+        "visibility": visibility
       ])
     }
 
@@ -57,6 +59,11 @@ public extension API {
     public var weight: GraphQLNullable<Double> {
       get { __data["weight"] }
       set { __data["weight"] = newValue }
+    }
+
+    public var visibility: GraphQLNullable<GraphQLEnum<Visibility>> {
+      get { __data["visibility"] }
+      set { __data["visibility"] = newValue }
     }
   }
 

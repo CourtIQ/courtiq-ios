@@ -2,7 +2,7 @@ import Apollo
 import ApolloAPI
 import Foundation
 
-public protocol GraphQLClient {
+public protocol GraphQLClient: Sendable {
     func fetch<Query: GraphQLQuery>(_ query: Query) async throws -> Query.Data
     func perform<Mutation: GraphQLMutation>(_ mutation: Mutation) async throws -> Mutation.Data
 }

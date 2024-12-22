@@ -6,15 +6,19 @@
 //
 
 import Foundation
+import Models
 
-public protocol EquipmentServiceProtocol: ObservableObject {
+public protocol EquipmentServiceProtocol {
+    
+    var store: any EquipmentStoreProtocol { get }
+
     // MARK: - Racket Operations
     
     /// Creates a new tennis racket.
     ///
     /// - Parameter input: The details needed to create a new tennis racket.
     /// - Returns: The newly created tennis racket.
-    func createTennisRacket(input: CreateTennisRacketInput) async throws -> TennisRacket
+    func createTennisRacket(input: CreateTennisRacketInput) async throws
     
     /// Updates an existing tennis racket.
     ///
@@ -22,7 +26,7 @@ public protocol EquipmentServiceProtocol: ObservableObject {
     ///   - id: The unique identifier of the tennis racket to update.
     ///   - input: The updated fields for the tennis racket.
     /// - Returns: The updated tennis racket.
-    func updateMyTennisRacket(id: String, input: UpdateTennisRacketInput) async throws -> TennisRacket
+    func updateMyTennisRacket(id: String, input: UpdateTennisRacketInput) async throws
     
     /// Deletes a tennis racket by its unique identifier.
     ///
@@ -103,9 +107,4 @@ public protocol EquipmentServiceProtocol: ObservableObject {
     ///   - stringId: The unique identifier of the string.
     /// - Returns: The updated tennis string entry after assignment.
     func assignRacketToString(racketId: String, stringId: String) async throws -> TennisString
-    
-    func getAllRacketBrands() -> [TennisRacketBrand]
-    func getAllStringBrands() -> [TennisStringBrand]
-    func getRacketBrand(for brandName: String) -> TennisRacketBrand
-    func getRacketModels(for brandName: String) -> [TennisRacketModel]
 }

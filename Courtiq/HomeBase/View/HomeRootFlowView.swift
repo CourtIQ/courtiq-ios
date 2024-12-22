@@ -10,16 +10,15 @@ import SwiftUI
 import RDDesignSystem
 import UserService
 
+
 // MARK: - HomeBaseRootView
 
 struct HomeRootFlowView: View {
     
     // MARK: - Lifecycle
 
-    init(authService: any AuthServiceProtocol,
-         router: AppRouter)
-    {
-        _vm = StateObject(wrappedValue: HomeBaseVM(authService: authService, router: router))
+    init(vm: HomeBaseVM) {
+        _vm = StateObject(wrappedValue: vm)
     }
 
     // MARK: - Internal
@@ -38,10 +37,9 @@ struct HomeRootFlowView: View {
                             }
                         })
                 )
-            SideMenuView(showSideMenu: $vm.sideMenuShowing,
-                         selectedIndex: $selectingIndex,
-                         authService: authService,
-                         userService: userService)
+            SideMenuView(vm: SideMenuVM(),
+                         showSideMenu: $vm.sideMenuShowing,
+                         selectedIndex: $vm.selectedTab)
         }
         .onAppear {
             vm.onAppear()
@@ -50,19 +48,15 @@ struct HomeRootFlowView: View {
     }
     
     // MARK: - Private
-
     @StateObject private var vm: HomeBaseVM
     @GestureState private var gestureOffset: CGSize = .zero
     @State private var selectingIndex: Int = 0
-    @EnvironmentObject private var authService: AuthService
-    @EnvironmentObject private var userService: UserService
-
 }
 
-struct HomeRootView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeRootFlowView(authService: AuthService(provider: FirebaseAuthProvider()), router: AppRouter())
-            .environmentObject(AuthService(provider: FirebaseAuthProvider()))
-            .environmentObject(AppRouter())
-    }
-}
+//struct HomeRootView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeRootFlowView(authService: AuthService(provider: FirebaseAuthProvider()), router: AppRouter())
+//            .environmentObject(AuthService(provider: FirebaseAuthProvider()))
+//            .environmentObject(AppRouter())
+//    }
+//}

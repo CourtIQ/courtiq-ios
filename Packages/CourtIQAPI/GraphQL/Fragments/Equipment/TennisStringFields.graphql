@@ -16,4 +16,5 @@ fragment TennisStringFields on TennisString {
   }
   stringingDate
   burstDate
+  visibility
 }

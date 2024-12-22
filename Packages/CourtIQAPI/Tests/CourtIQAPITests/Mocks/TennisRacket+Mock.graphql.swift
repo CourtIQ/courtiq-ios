@@ -21,6 +21,7 @@ class TennisRacket: MockObject {
     @Field<API.ObjectID>("ownerId") public var ownerId
     @Field<GraphQLEnum<API.EquipmentType>>("type") public var type
     @Field<API.DateTime>("updatedAt") public var updatedAt
+    @Field<GraphQLEnum<API.Visibility>>("visibility") public var visibility
     @Field<Double>("weight") public var weight
   }
 }
@@ -38,6 +39,7 @@ extension Mock where O == TennisRacket {
     ownerId: API.ObjectID? = nil,
     type: GraphQLEnum<API.EquipmentType>? = nil,
     updatedAt: API.DateTime? = nil,
+    visibility: GraphQLEnum<API.Visibility>? = nil,
     weight: Double? = nil
   ) {
     self.init()
@@ -52,6 +54,7 @@ extension Mock where O == TennisRacket {
     _setScalar(ownerId, for: \.ownerId)
     _setScalar(type, for: \.type)
     _setScalar(updatedAt, for: \.updatedAt)
+    _setScalar(visibility, for: \.visibility)
     _setScalar(weight, for: \.weight)
   }
 }

@@ -22,6 +22,8 @@ class User: MockObject {
     @Field<String>("lastName") public var lastName
     @Field<API.Time>("lastUpdated") public var lastUpdated
     @Field<Location>("location") public var location
+    @Field<[TennisRacket]>("myTennisRackets") public var myTennisRackets
+    @Field<[TennisString]>("myTennisStrings") public var myTennisStrings
     @Field<String>("profilePicture") public var profilePicture
     @Field<Int>("rating") public var rating
     @Field<String>("username") public var username
@@ -42,6 +44,8 @@ extension Mock where O == User {
     lastName: String? = nil,
     lastUpdated: API.Time? = nil,
     location: Mock<Location>? = nil,
+    myTennisRackets: [Mock<TennisRacket>]? = nil,
+    myTennisStrings: [Mock<TennisString>]? = nil,
     profilePicture: String? = nil,
     rating: Int? = nil,
     username: String? = nil
@@ -59,6 +63,8 @@ extension Mock where O == User {
     _setScalar(lastName, for: \.lastName)
     _setScalar(lastUpdated, for: \.lastUpdated)
     _setEntity(location, for: \.location)
+    _setList(myTennisRackets, for: \.myTennisRackets)
+    _setList(myTennisStrings, for: \.myTennisStrings)
     _setScalar(profilePicture, for: \.profilePicture)
     _setScalar(rating, for: \.rating)
     _setScalar(username, for: \.username)

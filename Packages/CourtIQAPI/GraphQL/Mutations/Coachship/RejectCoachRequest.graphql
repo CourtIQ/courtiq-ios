@@ -1,0 +1,5 @@
+mutation RejectCoachRequest($coachshipId: ObjectID!) {
+  rejectCoachRequest(coachshipId: $coachshipId) {
+    ...CoachshipFields
+  }
+}

@@ -6,6 +6,7 @@
 //
 
 import FirebaseAuth
+import FirebaseCore
 import SwiftUI
 
 @available(iOS 14.0, *)
@@ -127,9 +128,7 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
             isUserLoggedInStorage = false
             throw NSError(domain: "No user signed in", code: 0, userInfo: nil)
         }
-        
-        print(user.email)
-        
+                
         return try await withCheckedThrowingContinuation { continuation in
             user.getIDTokenForcingRefresh(true) { token, error in
                 if let error = error {
@@ -144,5 +143,9 @@ public class FirebaseAuthProvider: AuthProviderProtocol {
                 }
             }
         }
+    }
+    
+    public func configureFirebase() {
+        FirebaseApp.configure()
     }
 }

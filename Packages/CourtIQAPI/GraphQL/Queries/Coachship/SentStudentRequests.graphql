@@ -1,0 +1,8 @@
+# SentStudentRequests.graphql
+# Fetch student requests sent by the current user
+
+query SentStudentRequests {
+  sentStudentRequests {
+    ...CoachshipFields
+  }
+}

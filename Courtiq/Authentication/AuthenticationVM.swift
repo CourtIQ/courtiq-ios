@@ -5,84 +5,83 @@
 //  Created by Pranav Suri on 2024-06-24.
 //
 
-import Models
 import AuthenticationService
-import UserService
 import Foundation
-import SwiftUI
+import Models
 import PhotosUI
-import StorageService
 import RDDesignSystem
+import StorageService
+import SwiftUI
+import UserService
 
 // MARK: - AuthenticationVM
 
+@MainActor
 final class AuthenticationVM: ViewModel {
-    
-    // MARK: Lifecycle
-    
-    init(authService: any AuthServiceProtocol,
-         userService: any UserServiceProtocol,
-         router: AppRouter,
-         storageService: any StorageServiceProtocol)
-    {
-        self.authService = authService
-        self.userService = userService
-        self.router = router
-        self.storageService = storageService
-        self.countriesMenuList = CountryManager.shared.getAllCountries().compactMap { country in
-            if let image = CountryManager.shared.getCountryFlagImage(fromCode: country.code) {
-                return DropdownItem(image: image, title: country.name)
-            } else {
-                return nil
-            }
-        }
-    }
-    
-    // MARK: - Internal
-    
+
+    // MARK: - Dependencies
+
+    @Dependency(\.authService) private var authService
+    @Dependency(\.userService) private var userService
+
+    // MARK: - Properties
+
+    private let storageService: any StorageServiceProtocol
+    let router: AppRouter
+
+    // MARK: - Published Properties
+
     @Published var email: String = ""
     @Published var password: String = ""
     @Published var confirmPassword: String = ""
     @Published var selectedProfileImage: PhotosPickerItem? = nil {
         didSet {
-            if let selectedItem = selectedProfileImage {
-                Task {
-                    await loadTransferable(from: selectedItem)
-                }
+            guard let selectedItem = selectedProfileImage else { return }
+            Task {
+                await loadTransferable(from: selectedItem)
             }
         }
     }
     @Published var selectedImage: Image? = nil
     @Published var isUsernameAvailable: Bool = false
     @Published var isUsernameAvailableText: String? = nil
-    @Published var updateUser = CompleteRegistrationUser()
-    
+    @Published var completeRegistrationInput = CompleteUserRegistrationFormModel()
+
+    // MARK: - Computed Properties
+
     var countriesMenuList: [DropdownItem] = []
 
-    var router: AppRouter
-    
-    func onAppear() {
-    }
-    
-    func onDisappear() {
+    // MARK: - Lifecycle
+
+    init(
+        router: AppRouter,
+        storageService: any StorageServiceProtocol
+    ) {
+        self.router = router
+        self.storageService = storageService
+        self.countriesMenuList = CountryManager.shared
+            .getAllCountries()
+            .compactMap { country in
+                guard let image = CountryManager.shared.getCountryFlagImage(fromCode: country.code) else {
+                    return nil
+                }
+                return DropdownItem(image: image, title: country.name)
+            }
     }
 
-    func loadTransferable(from imageSelection: PhotosPickerItem?) async {
-        do {
-            if let data = try await imageSelection?.loadTransferable(type: Data.self),
-               let uiImage = UIImage(data: data) {
-                await MainActor.run {
-                    self.selectedImage = Image(uiImage: uiImage)
-                }
-            }
-        } catch {
-            print("Error loading image: \(error.localizedDescription)")
-        }
+    // MARK: - View Events
+
+    func onAppear() {
+        // Implement any onAppear logic here
     }
-    
-    // MARK: Action Handler
-    
-    @MainActor func handle(action: AuthenticationVM.Actions) {
+
+    func onDisappear() {
+        // Implement any onDisappear logic here
+    }
+
+    // MARK: - Action Handler
+
+    func handle(action: Actions) {
         switch action {
         case .goToSignIn:
             let view = SignInView(vm: self)
@@ -124,36 +123,44 @@ final class AuthenticationVM: ViewModel {
             handleUsernameChanged(username)
         }
     }
-    
-    // MARK: - Private
-    
-    private var authService: any AuthServiceProtocol
-    private var userService: any UserServiceProtocol
-    private var storageService: any StorageServiceProtocol
-    
+
+    // MARK: - Public Methods
+
+    func loadTransferable(from imageSelection: PhotosPickerItem?) async {
+        do {
+            guard
+                let data = try await imageSelection?.loadTransferable(type: Data.self),
+                let uiImage = UIImage(data: data)
+            else {
+                return
+            }
+            self.selectedImage = Image(uiImage: uiImage)
+        } catch {
+            print("Error loading image: \(error.localizedDescription)")
+        }
+    }
+
     func printIDToken() async {
         do {
             let token = try await authService.getIDToken()
+            // Do something with the token if needed
         } catch {
-            await MainActor.run {
-                router.handle(action: .stopLoading)
-                print(error.localizedDescription)
-            }
+            router.handle(action: .stopLoading)
+            print(error.localizedDescription)
         }
     }
+
+    // MARK: - Private Methods
+
     private func signIn(email: String, password: String) async {
-        await router.handle(action: .isLoading)
+        router.handle(action: .isLoading)
         do {
             try await authService.signIn(email: email, password: password)
-            await MainActor.run {
-                router.handle(action: .stopLoading)
-                router.handle(action: .popToRoot)
-            }
+            router.handle(action: .stopLoading)
+            router.handle(action: .popToRoot)
         } catch {
-            await MainActor.run {
-                router.handle(action: .stopLoading)
-                print(error.localizedDescription)
-            }
+            router.handle(action: .stopLoading)
+            print(error.localizedDescription)
         }
     }
 
@@ -175,42 +182,36 @@ final class AuthenticationVM: ViewModel {
     }
 
     private func fetchCurrentUserAndUpdate(userID: String) async {
+        // Implement logic to fetch and update current user by userID
         print("fetchCurrentUserAndUpdate")
     }
 
     private func updateAdditionalInfo() async {
-        Task {
-            await router.handle(action: .isLoading)
-            do {
-                print(self.updateUser)
-                try await userService.completeRegistration(self.updateUser)
-                await authService.setAdditionalInfoProvided()
-                await MainActor.run {
-                    router.handle(action: .popToRoot)
-                    router.handle(action: .stopLoading)
-                }
-            } catch {
-                print("Error updating document: \(error.localizedDescription)")
-            }
-            
+        router.handle(action: .isLoading)
+        do {
+            let user = completeRegistrationInput.toUpdateUserInput()
+            print(user)
+            try await userService.completeRegistration(user)
+            await authService.setAdditionalInfoProvided()
+            router.handle(action: .popToRoot)
+            router.handle(action: .stopLoading)
+        } catch {
+            print("Error updating document: \(error.localizedDescription)")
         }
-
     }
 
     private func handleUsernameChanged(_ username: String) {
         Task {
             do {
                 let isAvailable = try await userService.isUsernameAvailable(username)
-                await MainActor.run {
-                    if isAvailable {
-                        self.isUsernameAvailableText = "Username is available"
-                        self.isUsernameAvailable = true
-                        print("Username is available")
-                    } else {
-                        print("Username not available")
-                        self.isUsernameAvailableText = "Username is not available. Choose a different one."
-                        self.isUsernameAvailable = false
-                    }
+                if isAvailable {
+                    isUsernameAvailableText = "Username is available"
+                    isUsernameAvailable = true
+                    print("Username is available")
+                } else {
+                    print("Username not available")
+                    isUsernameAvailableText = "Username is not available. Choose a different one."
+                    isUsernameAvailable = false
                 }
             } catch {
                 print("Error checking username availability: \(error.localizedDescription)")
@@ -219,20 +220,21 @@ final class AuthenticationVM: ViewModel {
     }
 
     private func resetPassword(email: String) {
+        // Implement reset password logic
     }
-    
+
     private func showForgotPassword() {
+        // Implement show forgot password logic
     }
-    
+
     private func showAddInfo() {
+        // Implement show add info logic
     }
 }
 
-// MARK: AuthenticationVM Actions
+// MARK: - AuthenticationVM.Actions
 
 extension AuthenticationVM {
-
-    // MARK: Actions
     enum Actions {
         case goToSignIn
         case goToSignUp

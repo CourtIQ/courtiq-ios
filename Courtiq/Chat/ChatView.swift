@@ -7,7 +7,6 @@
 
 import SwiftUI
 import RDDesignSystem
-import RelationshipService
 import UserService
 
 struct ChatView: View {

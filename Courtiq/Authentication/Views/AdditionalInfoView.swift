@@ -9,6 +9,7 @@ import RDDesignSystem
 import SwiftUI
 import PhotosUI
 import CoreLocation
+import GraphQLModels
 import Models
 
 struct AdditionalInfoView: View {
@@ -66,9 +67,9 @@ struct AdditionalInfoView: View {
                             placeholder: "Username",
                             helperText: vm.isUsernameAvailableText,
                             leadingIcon: Image.Token.Icons.person,
-                            value: $vm.updateUser.username)
+                            value: $vm.completeRegistrationInput.username)
                 .autocapitalization(.none)
-                .onChange(of: vm.updateUser.username, perform: { value in
+                .onChange(of: vm.completeRegistrationInput.username, perform: { value in
                     vm.handle(action: .usernameValueChanged(value))
                 })
                 
@@ -76,11 +77,11 @@ struct AdditionalInfoView: View {
                     RDTextField(textFieldType: .primary,
                                 placeholder: "First name",
                                 leadingIcon: Image.Token.Icons.person,
-                                value: $vm.updateUser.firstName)
+                                value: $vm.completeRegistrationInput.firstName)
                     RDTextField(textFieldType: .primary,
                                 placeholder: "Last name",
                                 leadingIcon: Image.Token.Icons.person,
-                                value: $vm.updateUser.lastName)
+                                value: $vm.completeRegistrationInput.lastName)
                 }
                 
 
@@ -88,14 +89,14 @@ struct AdditionalInfoView: View {
                 RDTextField(textFieldType: .primary,
                             placeholder: "Bio",
                             leadingIcon: Image.Token.Icons.person,
-                            value: $vm.updateUser.bio)
+                            value: $vm.completeRegistrationInput.bio)
                 
                 HStack(alignment: .top) {
                     RDTextField(
                         textFieldType: .date,
                         placeholder: "Date of birth",
                         value: $dateString,
-                        dateValue: $vm.updateUser.dateOfBirth,
+                        dateValue: $vm.completeRegistrationInput.dateOfBirth,
                         state: .constant(.normal)
                     )
 
@@ -104,25 +105,18 @@ struct AdditionalInfoView: View {
                         placeholder: "Gender",
                         value: Binding(
                             get: {
-                                if let gender = vm.updateUser.gender {
-                                    genderString = gender.displayName
-                                    return genderString
-                                } else {
-                                    return genderString
+                                if let gender = vm.completeRegistrationInput.gender {
+                                    return gender.displayName
                                 }
+                                return ""
                             },
                             set: { newValue in
-                                if let newGender = API.Gender.from(displayString: newValue) {
-                                    genderString = newValue
-                                    vm.updateUser.gender = newGender
-                                } else {
-                                    genderString = newValue
-
-                                    vm.updateUser.gender = nil
+                                if let gender = Gender.allCases.first(where: { $0.displayName == newValue }) {
+                                    vm.completeRegistrationInput.gender = gender
                                 }
                             }
                         ),
-                        dropdownItems: API.Gender.allCases.map { gender in
+                        dropdownItems: Gender.allCases.map { gender in
                             DropdownItem(image: Image.Token.Icons.person, title: gender.displayName)
                         }
                     )

@@ -7,7 +7,6 @@
 
 import MatchUpService
 import RDDesignSystem
-import RelationshipService
 import SwiftUI
 
 // MARK: - MatchUpFormInfoView
@@ -23,7 +22,6 @@ struct MatchUpFormInfoView: View {
     
     // MARK: - Internal
 
-    @EnvironmentObject private var relationsService: RelationshipService
     var body: some View {
         MarqueeView {
             RDNavigationBar(.primary, title: "Track a new match", leading: {}, trailing: {

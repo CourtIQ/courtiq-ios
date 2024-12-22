@@ -8,9 +8,10 @@
 import Foundation
 import Apollo
 import CourtIQAPI
+import GraphQLModels
 import Models
 
-public class TennisStringRepository: TennisStringRepositoryProtocol {
+public final class TennisStringRepository: TennisStringRepositoryProtocol {
     private let client: GraphQLClient
 
     public init(client: GraphQLClient) {
@@ -24,8 +25,7 @@ public class TennisStringRepository: TennisStringRepositoryProtocol {
 
         let stringData = result.createTennisString
 
-        // Assuming stringData.fragments.tennisStringFields.toDomain() returns a TennisStringEntry
-        return stringData.fragments.tennisStringFields.toDomain()
+        return TennisString(graphql: stringData.fragments.tennisStringFields)
     }
 
     // MARK: - Update
@@ -38,7 +38,7 @@ public class TennisStringRepository: TennisStringRepositoryProtocol {
 
         let stringData = result.updateMyTennisString
 
-        return stringData.fragments.tennisStringFields.toDomain()
+        return TennisString(graphql: stringData.fragments.tennisStringFields)
     }
 
     // MARK: - Delete
@@ -54,10 +54,15 @@ public class TennisStringRepository: TennisStringRepositoryProtocol {
     public func fetchAll(limit: Int, offset: Int) async throws -> [TennisString] {
         let query = API.MyTennisStringsQuery(limit: .some(limit), offset: .some(offset))
         let result = try await client.fetch(query)
-
-        let stringDataList = result.myTennisStrings
-
-        return stringDataList.map { $0.fragments.tennisStringFields.toDomain() }
+        
+        let strings = result.me?.myTennisStrings.compactMap {
+            TennisString(graphql: $0.fragments.tennisStringFields)
+        }
+        if let strings {
+            return strings
+        } else {
+            return []
+        }
     }
 
     // MARK: - Fetch by ID
@@ -68,7 +73,7 @@ public class TennisStringRepository: TennisStringRepositoryProtocol {
         guard let stringData = result.myTennisString else {
             throw RepositoryError.missingData(id)
         }
-        return stringData.fragments.tennisStringFields.toDomain()
+        return TennisString(graphql: stringData.fragments.tennisStringFields)
     }
 
     // MARK: - Assign Racket to String
@@ -78,7 +83,7 @@ public class TennisStringRepository: TennisStringRepositoryProtocol {
 
         let updatedString = result.assignRacketToString
 
-        return updatedString.fragments.tennisStringFields.toDomain()
+        return TennisString(graphql: updatedString.fragments.tennisStringFields)
     }
 }
 

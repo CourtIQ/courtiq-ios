@@ -6,7 +6,7 @@
 public extension API {
   struct TennisRacketFields: API.SelectionSet, Fragment {
     public static var fragmentDefinition: StaticString {
-      #"fragment TennisRacketFields on TennisRacket { __typename id ownerId name type createdAt updatedAt currentStringId brand brandId model modelId weight }"#
+      #"fragment TennisRacketFields on TennisRacket { __typename id ownerId name type createdAt updatedAt currentStringId brand brandId model modelId weight visibility }"#
     }
 
     public let __data: DataDict
@@ -27,6 +27,7 @@ public extension API {
       .field("model", String?.self),
       .field("modelId", Int?.self),
       .field("weight", Double?.self),
+      .field("visibility", GraphQLEnum<API.Visibility>?.self),
     ] }
 
     public var id: API.ObjectID { __data["id"] }
@@ -41,6 +42,7 @@ public extension API {
     public var model: String? { __data["model"] }
     public var modelId: Int? { __data["modelId"] }
     public var weight: Double? { __data["weight"] }
+    public var visibility: GraphQLEnum<API.Visibility>? { __data["visibility"] }
   }
 
 }

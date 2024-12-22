@@ -24,16 +24,10 @@ final class SideMenuVM: ViewModel {
     var mediumImageUrl: URL? = URL(string: "https://picsum.photos/200/200")
     
     // MARK: - Private Properties
-    
-    private let authService: any AuthServiceProtocol
-    private let userService: any UserServiceProtocol
-
+    @Dependency(\.authService) private var authService
     // MARK: - Lifecycle
-    init(authService: any AuthServiceProtocol,
-         userService: any UserServiceProtocol)
+    init()
     {
-        self.authService = authService
-        self.userService = userService
     }
     
     // MARK: - Internal Methods

@@ -6,9 +6,10 @@
 //
 
 import AuthenticationService
+import EquipmentService
 import Foundation
+import EquipmentService
 import RDDesignSystem
-import RelationshipService
 import SwiftUI
 import UserService
 
@@ -26,10 +27,8 @@ final class HomeBaseVM: HomeBaseViewModelProvider {
 
     // MARK: - Lifecycle
     
-    init(authService: any AuthServiceProtocol,
-         router: AppRouter)
+    init(router: AppRouter)
     {
-        self.authService = authService
         self.router = router
     }
     
@@ -37,7 +36,7 @@ final class HomeBaseVM: HomeBaseViewModelProvider {
 
     @Published var selectedTab: Int = 0
     @Published var sideMenuShowing = false
-
+    
     let tabBarItems = [
         RDTabBarItem(title: "Home", icon: Image.Token.Icons.home),
         RDTabBarItem(title: "Search", icon: Image.Token.Icons.search),
@@ -57,8 +56,10 @@ final class HomeBaseVM: HomeBaseViewModelProvider {
 
     // MARK: - Private
     
-    private let authService: any AuthServiceProtocol
-    private let router: AppRouter
+    @Dependency(\.authService) private var authService
+    @Dependency(\.userService) private var userService
+    @Dependency(\.equipmentService) private var equipmentService
+    public var router: AppRouter
 
     func onAppear() {
     }

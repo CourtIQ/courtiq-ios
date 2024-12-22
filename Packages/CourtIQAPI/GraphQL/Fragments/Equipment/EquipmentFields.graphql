@@ -5,4 +5,5 @@ fragment EquipmentFields on Equipment {
   type
   createdAt
   updatedAt
+  visibility
 }

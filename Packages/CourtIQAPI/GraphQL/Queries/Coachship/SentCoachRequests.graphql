@@ -1,0 +1,8 @@
+# SentCoachRequests.graphql
+# Fetch coach requests sent by the current user
+
+query SentCoachRequests {
+  sentCoachRequests {
+    ...CoachshipFields
+  }
+}

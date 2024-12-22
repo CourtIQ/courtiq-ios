@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Models
 
 // MARK: - TennisStringRepositoryProtocol
-public protocol TennisStringRepositoryProtocol {
+public protocol TennisStringRepositoryProtocol: Sendable {
     /// Creates a new tennis string entry and returns the newly created domain model.
     func create(input: CreateTennisStringInput) async throws -> TennisString
     

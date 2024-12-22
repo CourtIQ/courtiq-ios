@@ -1,0 +1,8 @@
+# GetCoachship.graphql
+# Fetch a specific coachship by its ID
+
+query GetCoachship($id: ObjectID!) {
+  coachship(id: $id) {
+    ...CoachshipFields
+  }
+}

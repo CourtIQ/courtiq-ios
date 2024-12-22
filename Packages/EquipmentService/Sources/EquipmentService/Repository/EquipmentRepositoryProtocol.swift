@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Models
 
 // MARK: - TennisStringRepositoryProtocol
 public protocol EquipmentRepositoryProtocol {

@@ -89,4 +89,8 @@ final class MockAuthProvider: AuthProviderProtocol {
         // Return a mock token.
         return "mock_id_token"
     }
+    
+    func configureFirebase() {
+        print(#function)
+    }
 }

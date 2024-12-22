@@ -7,7 +7,6 @@
 
 import SwiftUI
 import RDDesignSystem
-import InstantSearchSwiftUI
 import UserService
 
 struct SearchView: View {

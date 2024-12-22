@@ -1,0 +1,5 @@
+query FriendsOfUser($ofUserID: ObjectID!, $limit: Int = 10, $offset: Int = 0) {
+  friends(ofUserID: $ofUserID, limit: $limit, offset: $offset) {
+    ...FriendshipFields
+  }
+}

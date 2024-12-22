@@ -6,7 +6,7 @@
 public extension API {
   struct EquipmentFields: API.SelectionSet, Fragment {
     public static var fragmentDefinition: StaticString {
-      #"fragment EquipmentFields on Equipment { __typename id ownerId name type createdAt updatedAt }"#
+      #"fragment EquipmentFields on Equipment { __typename id ownerId name type createdAt updatedAt visibility }"#
     }
 
     public let __data: DataDict
@@ -21,6 +21,7 @@ public extension API {
       .field("type", GraphQLEnum<API.EquipmentType>.self),
       .field("createdAt", API.DateTime.self),
       .field("updatedAt", API.DateTime.self),
+      .field("visibility", GraphQLEnum<API.Visibility>?.self),
     ] }
 
     public var id: API.ObjectID { __data["id"] }
@@ -29,6 +30,7 @@ public extension API {
     public var type: GraphQLEnum<API.EquipmentType> { __data["type"] }
     public var createdAt: API.DateTime { __data["createdAt"] }
     public var updatedAt: API.DateTime { __data["updatedAt"] }
+    public var visibility: GraphQLEnum<API.Visibility>? { __data["visibility"] }
   }
 
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 import EquipmentService
+import Models
 
 struct AddTennisStringFormModel {
     var name: String = ""

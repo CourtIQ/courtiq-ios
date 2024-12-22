@@ -19,7 +19,11 @@ let package = Package(
     targets: [
         .target(
             name: "UserService",
-            dependencies: ["CourtIQAPI"]),
+            dependencies: [
+                .product(name: "CourtIQAPI", package: "CourtIQAPI"), // CourtIQAPI
+                .product(name: "Models", package: "CourtIQAPI")      // Models from CourtIQAPI
+            ]
+        ),
         .testTarget(
             name: "UserServiceTests",
             dependencies: ["UserService"]),

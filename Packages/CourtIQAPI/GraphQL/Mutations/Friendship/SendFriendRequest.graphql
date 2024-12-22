@@ -1,6 +1,7 @@
+# SendFriendRequest.graphql
+
 mutation SendFriendRequest($receiverId: ObjectID!) {
   sendFriendRequest(receiverId: $receiverId) {
-    receiverId
-    senderId
+    ...FriendshipFields
   }
 }

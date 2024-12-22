@@ -24,6 +24,7 @@ class TennisString: MockObject {
     @Field<StringTension>("tension") public var tension
     @Field<GraphQLEnum<API.EquipmentType>>("type") public var type
     @Field<API.DateTime>("updatedAt") public var updatedAt
+    @Field<GraphQLEnum<API.Visibility>>("visibility") public var visibility
   }
 }
 
@@ -42,7 +43,8 @@ extension Mock where O == TennisString {
     stringingDate: API.DateTime? = nil,
     tension: Mock<StringTension>? = nil,
     type: GraphQLEnum<API.EquipmentType>? = nil,
-    updatedAt: API.DateTime? = nil
+    updatedAt: API.DateTime? = nil,
+    visibility: GraphQLEnum<API.Visibility>? = nil
   ) {
     self.init()
     _setScalar(brand, for: \.brand)
@@ -59,5 +61,6 @@ extension Mock where O == TennisString {
     _setEntity(tension, for: \.tension)
     _setScalar(type, for: \.type)
     _setScalar(updatedAt, for: \.updatedAt)
+    _setScalar(visibility, for: \.visibility)
   }
 }

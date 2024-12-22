@@ -1,0 +1,6 @@
+# IsStudent.graphql
+# Check if a given user (studentId) is a student of the current user
+
+query IsStudent($studentId: ObjectID!) {
+  isStudent(studentId: $studentId)
+}

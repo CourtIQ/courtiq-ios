@@ -7,7 +7,6 @@
 
 import AuthenticationService
 import RDDesignSystem
-import RelationshipService
 import SwiftUI
 import UserService
 
@@ -46,16 +45,7 @@ struct SearchProfileDetailView: View {
     
     // MARK: - Private
     @EnvironmentObject private var router: AppRouter
-    @EnvironmentObject private var relationshipService: RelationshipService
 
     @AppStorage("currentUserUID") private var currentUserID: String?
 
-//    private var user: User
 }
-//
-//#Preview {
-//    SearchProfileDetailView(user: User(uid: ""))
-//        .environmentObject(AppRouter())
-//        .environmentObject(RelationshipService())
-//        .previewLayout(.sizeThatFits)
-//}

@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  HomeBaseTabsView.swift
 //  Courtiq
 //
 //  Created by Pranav Suri on 2024-06-24.
@@ -14,8 +14,7 @@ import UserService
 struct HomeBaseTabsView: View {
     @EnvironmentObject var authService: AuthService
     @EnvironmentObject var appRouter: AppRouter
-    @EnvironmentObject var userService: UserService
-    @EnvironmentObject var equipmentService: EquipmentService
+
     @ObservedObject var vm: HomeBaseVM
     var body: some View {
         VStack(spacing: 0) {
@@ -28,15 +27,12 @@ struct HomeBaseTabsView: View {
                                showSideMenu: $vm.sideMenuShowing)
                 case 2:
                     TennisView(showSideMenu: $vm.sideMenuShowing,
-                               vm: TennisVM(router: appRouter,
-                                            equipmentService: equipmentService))
+                               vm: TennisVM(router: appRouter))
                 case 3:
                     ChatView(showSideMenu: $vm.sideMenuShowing)
                 case 4:
-                    ProfileView(showSideMenu: $vm.sideMenuShowing,
-                                userService: userService,
-                                authService: authService,
-                                router: appRouter)
+                    Text("hello worls")
+
                 default:
                     EmptyView()
                 }

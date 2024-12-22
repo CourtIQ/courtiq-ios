@@ -26,6 +26,7 @@ public extension API {
     public var type: GraphQLEnum<API.EquipmentType> { __data["type"] }
     public var createdAt: API.DateTime { __data["createdAt"] }
     public var updatedAt: API.DateTime { __data["updatedAt"] }
+    public var visibility: GraphQLEnum<API.Visibility>? { __data["visibility"] }
 
     public var asTennisRacket: AsTennisRacket? { _asInlineFragment() }
     public var asTennisString: AsTennisString? { _asInlineFragment() }
@@ -56,6 +57,7 @@ public extension API {
       public var type: GraphQLEnum<API.EquipmentType> { __data["type"] }
       public var createdAt: API.DateTime { __data["createdAt"] }
       public var updatedAt: API.DateTime { __data["updatedAt"] }
+      public var visibility: GraphQLEnum<API.Visibility>? { __data["visibility"] }
       public var currentStringId: API.ObjectID? { __data["currentStringId"] }
       public var brand: String? { __data["brand"] }
       public var brandId: Int? { __data["brandId"] }
@@ -91,6 +93,7 @@ public extension API {
       public var type: GraphQLEnum<API.EquipmentType> { __data["type"] }
       public var createdAt: API.DateTime { __data["createdAt"] }
       public var updatedAt: API.DateTime { __data["updatedAt"] }
+      public var visibility: GraphQLEnum<API.Visibility>? { __data["visibility"] }
       public var racket: API.ObjectID? { __data["racket"] }
       public var brand: String? { __data["brand"] }
       public var brandId: Int? { __data["brandId"] }

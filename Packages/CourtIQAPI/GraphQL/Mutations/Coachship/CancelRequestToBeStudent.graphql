@@ -1,0 +1,5 @@
+mutation CancelRequestToBeStudent($coachshipId: ObjectID!) {
+  cancelRequestToBeStudent(coachshipId: $coachshipId) {
+    ...CoachshipFields
+  }
+}

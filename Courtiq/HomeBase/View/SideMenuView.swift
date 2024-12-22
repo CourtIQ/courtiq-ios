@@ -16,15 +16,13 @@ struct SideMenuView: View {
     // MARK: - Lifecycle
     
     public init(
+        vm: SideMenuVM,
         showSideMenu: Binding<Bool>,
-        selectedIndex: Binding<Int>,
-        authService: any AuthServiceProtocol,
-        userService: any UserServiceProtocol)
+        selectedIndex: Binding<Int>)
     {
         self._showSideMenu = showSideMenu
         self._selectedIndex = selectedIndex
-        self._vm = StateObject(wrappedValue: SideMenuVM(authService: authService,
-                                                        userService: userService))
+        self._vm = StateObject(wrappedValue: vm)
     }
     
     // MARK: - Internal
@@ -46,7 +44,7 @@ struct SideMenuView: View {
                     AvatarImage(size: .small,
                                 url: vm.mediumImageUrl?.absoluteString)
                 } content: {
-                    Text("Content")
+                    Text("\(userStore.currentUser?.id ?? "no id")")
                 } footer: {
                     RDButtonView(.large, .primary, "Logout") {
                         vm.handle(action: .logout)
@@ -82,7 +80,7 @@ struct SideMenuView: View {
     }
     
     // MARK: - Private
-    
+    @EnvironmentObject private var userStore: UserStore
     @StateObject private var vm: SideMenuVM
 
     private let sideMenuWidth: CGFloat = UIScreen.main.bounds.width * 0.75

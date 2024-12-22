@@ -8,9 +8,11 @@
 import Foundation
 import Apollo
 import CourtIQAPI
+import GraphQLModels
 import Models
 
-public class TennisRacketRepository: TennisRacketRepositoryProtocol {
+public final class TennisRacketRepository: TennisRacketRepositoryProtocol {
+    
     private let client: GraphQLClient
 
     public init(client: GraphQLClient) {
@@ -22,11 +24,9 @@ public class TennisRacketRepository: TennisRacketRepositoryProtocol {
         let mutation = API.AddNewTennisRacketMutation(input: API.CreateTennisRacketInput(domainInput: input))
         let result = try await client.perform(mutation)
         
-        
         let racketData = result.createTennisRacket
         
-        let racket = racketData.fragments.tennisRacketFields.toDomain()
-        return racket
+        return TennisRacket(graphql: racketData.fragments.tennisRacketFields)
     }
 
     // MARK: - Update
@@ -39,8 +39,7 @@ public class TennisRacketRepository: TennisRacketRepositoryProtocol {
         
         let racketData = result.updateMyTennisRacket
         
-        let racket = racketData.fragments.tennisRacketFields.toDomain()
-        return racket
+        return TennisRacket(graphql: racketData.fragments.tennisRacketFields)
     }
 
     // MARK: - Delete
@@ -58,11 +57,14 @@ public class TennisRacketRepository: TennisRacketRepositoryProtocol {
         let query = API.MyTennisRacketsQuery(limit: .some(limit), offset: .some(offset))
         let result = try await client.fetch(query)
         
-        let racketDataList = result.myTennisRackets
-        
-        // Map each returned racket to domain model
-        let rackets = racketDataList.compactMap { $0.fragments.tennisRacketFields.toDomain() }
-        return rackets
+        let rackets = result.me?.myTennisRackets.compactMap {
+            TennisRacket(graphql: $0.fragments.tennisRacketFields)
+        }
+        if let rackets {
+            return rackets
+        } else {
+            return []
+        }
     }
 
     // MARK: - Fetch by ID
@@ -74,8 +76,7 @@ public class TennisRacketRepository: TennisRacketRepositoryProtocol {
             return nil
         }
 
-        let racket = racketData.fragments.tennisRacketFields.toDomain()
-        return racket
+        return TennisRacket(graphql: racketData.fragments.tennisRacketFields)
     }
 
     // MARK: - String History
@@ -85,7 +86,7 @@ public class TennisRacketRepository: TennisRacketRepositoryProtocol {
         
         let stringDataList = result.myStringHistory
         
-        let strings = stringDataList.map { $0.fragments.tennisStringFields.toDomain() }
+        let strings = stringDataList.map { TennisString(graphql: $0.fragments.tennisStringFields) }
         return strings
     }
 }

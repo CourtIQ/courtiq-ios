@@ -33,13 +33,13 @@ struct AddTennisRacketFormView: View {
                         value: $vm.newTennisRacket.name)
             HStack {
                 
-                RDTextField(
-                    textFieldType: .dropdown,
-                    placeholder: "Brand",
-                    onSubmit: { },
-                    value: brandBinding,
-                    dropdownItems: vm.brandDropdownItems
-                )
+//                RDTextField(
+//                    textFieldType: .dropdown,
+//                    placeholder: "Brand",
+//                    onSubmit: { },
+//                    value: brandBinding,
+//                    dropdownItems: vm.brandDropdownItems
+//                )
                 RDTextField(
                     textFieldType: .dropdown,
                     placeholder: "Model",
@@ -78,9 +78,6 @@ struct AddTennisRacketFormView: View {
                 vm.newTennisRacket.modelId = nil
                 withAnimation {
                     vm.newTennisRacket.brand = newBrandName
-                    let selectedBrand = vm.equipmentService.getRacketBrand(for: newBrandName)
-                    vm.newTennisRacket.brandId = selectedBrand.brand_id
-                    vm.objectWillChange.send()
                 }
 
             }
@@ -92,12 +89,6 @@ struct AddTennisRacketFormView: View {
             get: { vm.newTennisRacket.model ?? "" },
             set: { newModelName in
                 vm.newTennisRacket.model = newModelName
-                if let brand = vm.newTennisRacket.brand {
-                    let models = vm.equipmentService.getRacketModels(for: brand)
-                    if let selectedModel = models.first(where: { $0.model == newModelName }) {
-                        vm.newTennisRacket.modelId = selectedModel.model_id
-                    }
-                }
             }
         )
     }

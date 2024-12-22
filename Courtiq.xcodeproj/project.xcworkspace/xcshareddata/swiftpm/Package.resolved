@@ -11,15 +11,6 @@
         }
       },
       {
-        "package": "AlgoliaSearchClient",
-        "repositoryURL": "https://github.com/algolia/algoliasearch-client-swift",
-        "state": {
-          "branch": null,
-          "revision": "996d9e171fdf4692ba279ea2f8a29acfe077ab37",
-          "version": "8.20.1"
-        }
-      },
-      {
         "package": "Apollo",
         "repositoryURL": "https://github.com/apollographql/apollo-ios.git",
         "state": {
@@ -92,24 +83,6 @@
         }
       },
       {
-        "package": "InstantSearch",
-        "repositoryURL": "https://github.com/algolia/instantsearch-ios",
-        "state": {
-          "branch": null,
-          "revision": "a413df32897a841601f42e875fc6abe08b7ea293",
-          "version": "7.26.3"
-        }
-      },
-      {
-        "package": "InstantSearchTelemetry",
-        "repositoryURL": "https://github.com/algolia/instantsearch-telemetry-native",
-        "state": {
-          "branch": null,
-          "revision": "d9861ceb2fe25899a31672fb7c648ae8036d3221",
-          "version": "0.1.3"
-        }
-      },
-      {
         "package": "InteropForGoogle",
         "repositoryURL": "https://github.com/google/interop-ios-for-google-sdks.git",
         "state": {
@@ -152,15 +125,6 @@
           "branch": null,
           "revision": "a95fc6df17d108bd99210db5e8a9bac90fe984b8",
           "version": "0.15.3"
-        }
-      },
-      {
-        "package": "swift-log",
-        "repositoryURL": "https://github.com/apple/swift-log",
-        "state": {
-          "branch": null,
-          "revision": "9cb486020ebf03bfa5b5df985387a14a98744537",
-          "version": "1.6.1"
         }
       },
       {

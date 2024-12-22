@@ -52,4 +52,6 @@ public protocol AuthProviderProtocol: AnyObject {
     /// - Returns: A `String` representing the user's ID token.
     /// - Throws: An error if the token cannot be retrieved.
     func getIDToken() async throws -> String
+    
+    func configureFirebase()
 }

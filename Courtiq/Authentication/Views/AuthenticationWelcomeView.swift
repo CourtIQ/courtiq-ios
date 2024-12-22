@@ -1,5 +1,5 @@
 //
-//  AuthenticationCoordinatorView.swift
+//  AuthenticationWelcomeView.swift
 //  Courtiq
 //
 //  Created by Pranav Suri on 2024-06-23.
@@ -17,7 +17,7 @@ struct AuthenticationWelcomeView: View {
     // MARK: Internal
     
     init(vm: AuthenticationVM) {
-        self._vm = StateObject(wrappedValue: vm)
+        self.vm = vm
     }
 
     var body: some View {
@@ -49,7 +49,7 @@ struct AuthenticationWelcomeView: View {
     
     @AppStorage("additionalInfoRequired") private var additionalInfoRequired: Bool = false
     @AppStorage("isUserLoggedIn") private var isUserLoggedIn: Bool = false
-    @StateObject private var vm: AuthenticationVM
+    @ObservedObject private var vm: AuthenticationVM
 }
 
 // MARK: - Preview

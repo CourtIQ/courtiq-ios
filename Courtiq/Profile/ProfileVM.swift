@@ -8,7 +8,6 @@
 import AuthenticationService
 import Foundation
 import UserService
-import RelationshipService
 import SwiftUI
 
 @MainActor

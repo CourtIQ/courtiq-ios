@@ -5,10 +5,10 @@
 //  Created by Pranav Suri on 2024-12-16.
 //
 
-// MARK: - Repository Protocols
+import Models
 
 // MARK: - TennisRacketRepositoryProtocol
-public protocol TennisRacketRepositoryProtocol {
+public protocol TennisRacketRepositoryProtocol: Sendable {
     
     /// Creates a new tennis racket and returns the newly created domain model.
     func create(input: CreateTennisRacketInput) async throws -> TennisRacket

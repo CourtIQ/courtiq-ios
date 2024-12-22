@@ -19,7 +19,8 @@ public extension API {
       modelId: GraphQLNullable<Int> = nil,
       tension: GraphQLNullable<StringTensionInput> = nil,
       stringingDate: GraphQLNullable<DateTime> = nil,
-      burstDate: GraphQLNullable<DateTime> = nil
+      burstDate: GraphQLNullable<DateTime> = nil,
+      visibility: GraphQLNullable<GraphQLEnum<Visibility>> = nil
     ) {
       __data = InputDict([
         "name": name,
@@ -29,7 +30,8 @@ public extension API {
         "modelId": modelId,
         "tension": tension,
         "stringingDate": stringingDate,
-        "burstDate": burstDate
+        "burstDate": burstDate,
+        "visibility": visibility
       ])
     }
 
@@ -71,6 +73,11 @@ public extension API {
     public var burstDate: GraphQLNullable<DateTime> {
       get { __data["burstDate"] }
       set { __data["burstDate"] = newValue }
+    }
+
+    public var visibility: GraphQLNullable<GraphQLEnum<Visibility>> {
+      get { __data["visibility"] }
+      set { __data["visibility"] = newValue }
     }
   }
 

@@ -7,13 +7,10 @@
 
 import SwiftUI
 import RDDesignSystem
-import RelationshipService
 import UserService
 
 struct HomeView: View {
     @Binding var showSideMenu: Bool
-    @EnvironmentObject var userService: UserService
-    @EnvironmentObject var relationshipService: RelationshipService
     var body: some View {
         BaseTabPageView {
             RDNavigationBar(.primary, title: "CourtIQ", leading: {
@@ -29,11 +26,6 @@ struct HomeView: View {
             })
         } content: {
             RDScoreCardView()
-        }
-        .onAppear {
-            Task {
-                try await userService.fetchCurrentUser()
-            }
         }
     }
 }

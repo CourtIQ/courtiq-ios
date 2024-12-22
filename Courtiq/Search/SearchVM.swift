@@ -8,10 +8,9 @@
 
 import AuthenticationService
 import Foundation
-import InstantSearchSwiftUI
 import UserService
 import SwiftUI
-
+import Models
 
 final class SearchVM: ViewModel {
     
@@ -61,8 +60,7 @@ final class SearchVM: ViewModel {
     }
     
     @MainActor private func searchItemTapped(user: User) {
-//        let view = SearchProfileDetailView(user: user)
-//        router.handle(action: .push(AnyView(view)))
+
         print(searchItemTapped)
     }
 }

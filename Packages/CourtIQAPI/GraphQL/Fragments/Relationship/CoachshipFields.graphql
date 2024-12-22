@@ -1,0 +1,11 @@
+# -- CoachshipFields fragment
+fragment CoachshipFields on Coachship {
+  id
+  participants
+  type
+  status
+  createdAt
+  updatedAt
+  coachId
+  studentId
+}

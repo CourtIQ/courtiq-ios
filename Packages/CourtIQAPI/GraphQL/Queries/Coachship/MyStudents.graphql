@@ -1,0 +1,8 @@
+# MyStudents.graphql
+# Fetch all students of the current user, with optional pagination
+
+query MyStudents($limit: Int = 10, $offset: Int = 0) {
+  myStudents(limit: $limit, offset: $offset) {
+    ...CoachshipFields
+  }
+}

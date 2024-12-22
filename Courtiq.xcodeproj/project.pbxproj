@@ -10,6 +10,8 @@
 		B503B3AF2D05D3180047310A /* CourtIQAPI in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3AE2D05D3180047310A /* CourtIQAPI */; };
 		B503B3B12D05D3180047310A /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3B02D05D3180047310A /* Models */; };
 		B503B3B32D08F95B0047310A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B503B3B22D08F95B0047310A /* GoogleService-Info.plist */; };
+		B51ECD5E2D170C1400B0CDED /* UserService in Frameworks */ = {isa = PBXBuildFile; productRef = B51ECD5D2D170C1400B0CDED /* UserService */; };
+		B525A05F2D16ABBD00BC8BAD /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525A05E2D16ABB700BC8BAD /* Dependency.swift */; };
 		B543F38F2D12CBE800EFDB90 /* EquipmentService in Frameworks */ = {isa = PBXBuildFile; productRef = B543F38E2D12CBE800EFDB90 /* EquipmentService */; };
 		B543F3912D12E20000EFDB90 /* EquipmentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F3902D12E1FA00EFDB90 /* EquipmentVM.swift */; };
 		B543F3932D12E3A700EFDB90 /* EquipmentListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */; };
@@ -28,13 +30,13 @@
 		B59FA2E72D10AD5900C67BB3 /* CreateClubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2E62D10AD5900C67BB3 /* CreateClubView.swift */; };
 		B59FA2E92D12350600C67BB3 /* EquipmentService in Frameworks */ = {isa = PBXBuildFile; productRef = B59FA2E82D12350600C67BB3 /* EquipmentService */; };
 		B59FA2EC2D12377700C67BB3 /* AddTennisStringFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2EB2D12377000C67BB3 /* AddTennisStringFormModel.swift */; };
+		B5B81EB02D156457000BEAA6 /* CompleteUserRegistrationFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B81EAF2D156457000BEAA6 /* CompleteUserRegistrationFormModel.swift */; };
 		C01BFBF72C68293300184E1B /* ProfileClubsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */; };
 		C01BFBF92C698C5000184E1B /* CountryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBF82C698C5000184E1B /* CountryManager.swift */; };
 		C01BFBFB2C69BEEF00184E1B /* MatchUpFormFormatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFBFA2C69BEEF00184E1B /* MatchUpFormFormatView.swift */; };
 		C01BFC072C6A028800184E1B /* MatchUpFormFormatSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFC062C6A028800184E1B /* MatchUpFormFormatSetView.swift */; };
 		C01BFC092C6A039800184E1B /* MatchUpFormFormatTiebreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFC082C6A039800184E1B /* MatchUpFormFormatTiebreakView.swift */; };
 		C01BFC0B2C6A0BDC00184E1B /* SearchProfileDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01BFC0A2C6A0BDC00184E1B /* SearchProfileDetailView.swift */; };
-		C02692392C62CFBE00B34F42 /* RelationshipService in Frameworks */ = {isa = PBXBuildFile; productRef = C02692382C62CFBE00B34F42 /* RelationshipService */; };
 		C02E71F62C2CA95300830E2B /* HomeRootFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02E71F52C2CA95300830E2B /* HomeRootFlowView.swift */; };
 		C0495D8C2C1E546800E6D023 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D8B2C1E546800E6D023 /* SignInView.swift */; };
 		C0495D912C1E54C700E6D023 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0495D902C1E54C700E6D023 /* SignUpView.swift */; };
@@ -85,7 +87,6 @@
 		C0BA4ECE2C5B116D00C6F3F6 /* StorageService in Frameworks */ = {isa = PBXBuildFile; productRef = C0BA4ECD2C5B116D00C6F3F6 /* StorageService */; };
 		C0BA4ED42C5C146C00C6F3F6 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0BA4ED32C5C146B00C6F3F6 /* SideMenuView.swift */; };
 		C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */ = {isa = PBXBuildFile; productRef = C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */; };
-		C0C9FBAF2C65676200E913DD /* InstantSearchSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = C0C9FBAE2C65676200E913DD /* InstantSearchSwiftUI */; };
 		C0C9FBB32C65793100E913DD /* SearchListProfileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB22C65793100E913DD /* SearchListProfileItem.swift */; };
 		C0C9FBB52C65B6FE00E913DD /* SideMenuVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB42C65B6FE00E913DD /* SideMenuVM.swift */; };
 		C0C9FBB72C65BBEE00E913DD /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */; };
@@ -117,6 +118,7 @@
 
 /* Begin PBXFileReference section */
 		B503B3B22D08F95B0047310A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B525A05E2D16ABB700BC8BAD /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		B543F3902D12E1FA00EFDB90 /* EquipmentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentVM.swift; sourceTree = "<group>"; };
 		B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentListCellView.swift; sourceTree = "<group>"; };
 		B543F3962D13F69C00EFDB90 /* AddTennisRacketFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTennisRacketFormModel.swift; sourceTree = "<group>"; };
@@ -135,13 +137,14 @@
 		B59FA2E62D10AD5900C67BB3 /* CreateClubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateClubView.swift; sourceTree = "<group>"; };
 		B59FA2EB2D12377000C67BB3 /* AddTennisStringFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTennisStringFormModel.swift; sourceTree = "<group>"; };
 		B5B116F02D05D0C10080D123 /* CourtIQAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CourtIQAPI; sourceTree = "<group>"; };
+		B5B41E922D170BA900A9B424 /* RelationshipService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RelationshipService; sourceTree = "<group>"; };
+		B5B81EAF2D156457000BEAA6 /* CompleteUserRegistrationFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteUserRegistrationFormModel.swift; sourceTree = "<group>"; };
 		C01BFBF62C68293300184E1B /* ProfileClubsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileClubsListView.swift; sourceTree = "<group>"; };
 		C01BFBF82C698C5000184E1B /* CountryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryManager.swift; sourceTree = "<group>"; };
 		C01BFBFA2C69BEEF00184E1B /* MatchUpFormFormatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUpFormFormatView.swift; sourceTree = "<group>"; };
 		C01BFC062C6A028800184E1B /* MatchUpFormFormatSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUpFormFormatSetView.swift; sourceTree = "<group>"; };
 		C01BFC082C6A039800184E1B /* MatchUpFormFormatTiebreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUpFormFormatTiebreakView.swift; sourceTree = "<group>"; };
 		C01BFC0A2C6A0BDC00184E1B /* SearchProfileDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProfileDetailView.swift; sourceTree = "<group>"; };
-		C026923B2C62D01300B34F42 /* RelationshipService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RelationshipService; sourceTree = "<group>"; };
 		C02E71F52C2CA95300830E2B /* HomeRootFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRootFlowView.swift; sourceTree = "<group>"; };
 		C0495D7D2C1E430400E6D023 /* AuthenticationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AuthenticationService; sourceTree = "<group>"; };
 		C0495D8B2C1E546800E6D023 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
@@ -222,9 +225,8 @@
 				B503B3B12D05D3180047310A /* Models in Frameworks */,
 				B503B3AF2D05D3180047310A /* CourtIQAPI in Frameworks */,
 				C0D8AEFE2C6DF48F0027BA35 /* StorageService in Frameworks */,
+				B51ECD5E2D170C1400B0CDED /* UserService in Frameworks */,
 				C067FEC12C5B10B80089C7E9 /* UserService in Frameworks */,
-				C0C9FBAF2C65676200E913DD /* InstantSearchSwiftUI in Frameworks */,
-				C02692392C62CFBE00B34F42 /* RelationshipService in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +313,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B5B81EB12D1567C9000BEAA6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B5B81EAF2D156457000BEAA6 /* CompleteUserRegistrationFormModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C04935EB2C41C217002E68B5 /* MatchUp */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +339,7 @@
 				C0F58BC02C29022200930364 /* ReusableViews */,
 				C0495D982C1E551A00E6D023 /* Views */,
 				C0F58BD32C29525200930364 /* AuthenticationVM.swift */,
+				B5B81EB12D1567C9000BEAA6 /* Models */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -380,6 +391,7 @@
 		C060AF2F2C1974D100D160A5 /* Courtiq */ = {
 			isa = PBXGroup;
 			children = (
+				B525A05E2D16ABB700BC8BAD /* Dependency.swift */,
 				C0889DDC2C2BA5700081BF59 /* AppRouter.swift */,
 				C060AF302C1974D100D160A5 /* CourtiqApp.swift */,
 				C060AF322C1974D100D160A5 /* ContentView.swift */,
@@ -432,15 +444,15 @@
 		C060AF5D2C19752F00D160A5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				B5B116F02D05D0C10080D123 /* CourtIQAPI */,
-				C0AD6C412C373D990088E2B0 /* UserService */,
-				B59FA2C92D0CC75E00C67BB3 /* EquipmentService */,
 				C0495D7D2C1E430400E6D023 /* AuthenticationService */,
+				B5B116F02D05D0C10080D123 /* CourtIQAPI */,
 				C0B0C6FF2C61A07D00D56577 /* DataService */,
+				B59FA2C92D0CC75E00C67BB3 /* EquipmentService */,
 				C0CECA542C3F8625000F2032 /* MatchUpService */,
 				C0495DA12C1E606700E6D023 /* RDDesignSystem */,
-				C026923B2C62D01300B34F42 /* RelationshipService */,
+				B5B41E922D170BA900A9B424 /* RelationshipService */,
 				C0FB31CF2C3CE64C0004D153 /* StorageService */,
+				C0AD6C412C373D990088E2B0 /* UserService */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
@@ -595,13 +607,12 @@
 				C067FEC22C5B11210089C7E9 /* AuthenticationService */,
 				C0BA4ECD2C5B116D00C6F3F6 /* StorageService */,
 				C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */,
-				C02692382C62CFBE00B34F42 /* RelationshipService */,
-				C0C9FBAE2C65676200E913DD /* InstantSearchSwiftUI */,
 				C0D8AEFD2C6DF48F0027BA35 /* StorageService */,
 				B503B3AE2D05D3180047310A /* CourtIQAPI */,
 				B503B3B02D05D3180047310A /* Models */,
 				B59FA2E82D12350600C67BB3 /* EquipmentService */,
 				B543F38E2D12CBE800EFDB90 /* EquipmentService */,
+				B51ECD5D2D170C1400B0CDED /* UserService */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -680,9 +691,8 @@
 				C0495D9B2C1E5F7F00E6D023 /* XCLocalSwiftPackageReference "Packages/RDDesignSystem" */,
 				C0BA4ECC2C5B116D00C6F3F6 /* XCLocalSwiftPackageReference "Packages/StorageService" */,
 				C0B0C6FC2C61A03300D56577 /* XCLocalSwiftPackageReference "Packages/DataService" */,
-				C02692372C62CFBE00B34F42 /* XCLocalSwiftPackageReference "Packages/RelationshipService" */,
-				C0C9FBA72C6565CD00E913DD /* XCRemoteSwiftPackageReference "instantsearch-ios" */,
 				B543F38D2D12CBE800EFDB90 /* XCLocalSwiftPackageReference "Packages/EquipmentService" */,
+				B51ECD5C2D170C1400B0CDED /* XCLocalSwiftPackageReference "Packages/UserService" */,
 			);
 			productRefGroup = C060AF2E2C1974D100D160A5 /* Products */;
 			projectDirPath = "";
@@ -745,6 +755,7 @@
 				C0B0C6FA2C61933C00D56577 /* LoadingView.swift in Sources */,
 				C062D2C82C3BEEEC00ABF5A8 /* HomeView.swift in Sources */,
 				C0C9FBB52C65B6FE00E913DD /* SideMenuVM.swift in Sources */,
+				B525A05F2D16ABBD00BC8BAD /* Dependency.swift in Sources */,
 				C01BFC072C6A028800184E1B /* MatchUpFormFormatSetView.swift in Sources */,
 				C0B0C6F32C6062F800D56577 /* MatchUpVM.swift in Sources */,
 				C09138222C64AB0F00598535 /* XelaChartLineShape.swift in Sources */,
@@ -754,6 +765,7 @@
 				B59FA2D02D1019D400C67BB3 /* TennisMatchesListView.swift in Sources */,
 				C01BFBF92C698C5000184E1B /* CountryManager.swift in Sources */,
 				C01BFBF72C68293300184E1B /* ProfileClubsListView.swift in Sources */,
+				B5B81EB02D156457000BEAA6 /* CompleteUserRegistrationFormModel.swift in Sources */,
 				B59FA2D42D1019DD00C67BB3 /* TennisClubsListView.swift in Sources */,
 				B59FA2DD2D10396300C67BB3 /* MatchesFilterView.swift in Sources */,
 				C060AF332C1974D100D160A5 /* ContentView.swift in Sources */,
@@ -893,6 +905,8 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -947,6 +961,8 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -954,6 +970,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Courtiq/Courtiq.entitlements;
@@ -984,7 +1001,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.court-iq.Courtiq";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.court-iq.CourtIQ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -1000,6 +1017,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Courtiq/Courtiq.entitlements;
@@ -1030,7 +1048,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.court-iq.Courtiq";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.court-iq.CourtIQ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
@@ -1178,13 +1196,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		B51ECD5C2D170C1400B0CDED /* XCLocalSwiftPackageReference "Packages/UserService" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/UserService;
+		};
 		B543F38D2D12CBE800EFDB90 /* XCLocalSwiftPackageReference "Packages/EquipmentService" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/EquipmentService;
-		};
-		C02692372C62CFBE00B34F42 /* XCLocalSwiftPackageReference "Packages/RelationshipService" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/RelationshipService;
 		};
 		C0495D7E2C1E45A100E6D023 /* XCLocalSwiftPackageReference "Packages/AuthenticationService" */ = {
 			isa = XCLocalSwiftPackageReference;
@@ -1204,17 +1222,6 @@
 		};
 /* End XCLocalSwiftPackageReference section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		C0C9FBA72C6565CD00E913DD /* XCRemoteSwiftPackageReference "instantsearch-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/algolia/instantsearch-ios";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.26.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
 		B503B3AE2D05D3180047310A /* CourtIQAPI */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1224,6 +1231,10 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Models;
 		};
+		B51ECD5D2D170C1400B0CDED /* UserService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = UserService;
+		};
 		B543F38E2D12CBE800EFDB90 /* EquipmentService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = EquipmentService;
@@ -1231,10 +1242,6 @@
 		B59FA2E82D12350600C67BB3 /* EquipmentService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = EquipmentService;
-		};
-		C02692382C62CFBE00B34F42 /* RelationshipService */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RelationshipService;
 		};
 		C067FEBC2C5B10B80089C7E9 /* RDDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1255,11 +1262,6 @@
 		C0BA4EDA2C5C39D100C6F3F6 /* MatchUpService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MatchUpService;
-		};
-		C0C9FBAE2C65676200E913DD /* InstantSearchSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C0C9FBA72C6565CD00E913DD /* XCRemoteSwiftPackageReference "instantsearch-ios" */;
-			productName = InstantSearchSwiftUI;
 		};
 		C0D8AEFD2C6DF48F0027BA35 /* StorageService */ = {
 			isa = XCSwiftPackageProductDependency;

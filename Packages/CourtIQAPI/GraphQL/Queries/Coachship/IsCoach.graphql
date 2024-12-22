@@ -1,0 +1,6 @@
+# IsCoach.graphql
+# Check if a given user (coachId) is a coach of the current user
+
+query IsCoach($coachId: ObjectID!) {
+  isCoach(coachId: $coachId)
+}

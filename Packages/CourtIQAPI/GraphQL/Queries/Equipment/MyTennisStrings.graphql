@@ -1,5 +1,7 @@
 query MyTennisStrings($limit: Int = 10, $offset: Int = 0) {
-  myTennisStrings(limit: $limit, offset: $offset) {
-    ...TennisStringFields
+  me {
+    myTennisStrings(limit: $limit, offset: $offset) {
+      ...TennisStringFields
+    }
   }
 }

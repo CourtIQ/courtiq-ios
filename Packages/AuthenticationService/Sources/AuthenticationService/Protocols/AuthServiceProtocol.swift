@@ -15,4 +15,5 @@ public protocol AuthServiceProtocol: ObservableObject {
     func deleteAccount() async throws
     func getIDToken() async throws -> String
     func setAdditionalInfoProvided()
+    func configureAuthProvider()
 }

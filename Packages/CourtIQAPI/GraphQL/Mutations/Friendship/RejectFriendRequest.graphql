@@ -1,0 +1,7 @@
+# RejectFriendRequest.graphql
+
+mutation RejectFriendRequest($friendshipId: ObjectID!) {
+  rejectFriendRequest(friendshipId: $friendshipId) {
+    ...FriendshipFields
+  }
+}

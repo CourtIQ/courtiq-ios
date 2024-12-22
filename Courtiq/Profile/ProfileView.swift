@@ -7,7 +7,6 @@
 
 import AuthenticationService
 import RDDesignSystem
-import RelationshipService
 import SwiftUI
 import UserService
 import StorageService
@@ -19,7 +18,7 @@ struct ProfileView: View {
     
     @Binding var showSideMenu: Bool
     @StateObject private var vm: ProfileVM
-    @EnvironmentObject private var relationsService: RelationshipService
+    @EnvironmentObject private var userStore: UserStore
     
     init(showSideMenu: Binding<Bool>,
          userService: UserService,
@@ -44,28 +43,17 @@ struct ProfileView: View {
                 }
             })
         } content: {
-//            ScrollView
-//            {
-//                // Profile Card View
-//                ProfileCardView(vm: vm)
-//                
-//                // Add a groups list
-//                ProfileClubsListView()
-//                
-//                if relationsService.friendRequests.isEmpty {
-//                    // Empty Friends View
-//                    Text("no friends")
-//                } else {
-//
-//                    Text("no friends")
-//
-//                }
-//            }
-            Text("\($vm.userService)")
+            if let user = userStore.currentUser {
+                ProfileCardView(name: user.displayName,
+                                username: user.username,
+                                city: user.location?.city,
+                                gender: user.gender?.displayName,
+                                age: "23")
+                .padding(.horizontal, 16)
+
+            }
         }
-        .onAppear {
-            print(relationsService.friendRequests)
-        }
+
     }
 }
 

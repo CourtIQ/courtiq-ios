@@ -67,6 +67,7 @@ public extension API {
         public var model: String? { __data["model"] }
         public var modelId: Int? { __data["modelId"] }
         public var weight: Double? { __data["weight"] }
+        public var visibility: GraphQLEnum<API.Visibility>? { __data["visibility"] }
 
         public struct Fragments: FragmentContainer {
           public let __data: DataDict

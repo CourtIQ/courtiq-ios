@@ -12,6 +12,7 @@ import RDDesignSystem
 
 // MARK: - TennisVM
 
+@MainActor
 final class TennisVM: ViewModel {
     
     // MARK: - Internal Properties
@@ -19,19 +20,16 @@ final class TennisVM: ViewModel {
     @Published var selectedTab: Int = 0
     @Published var newStringEntry = AddTennisStringFormModel()
     @Published var newRacketEntry = AddTennisRacketFormModel()
-    @Published var equipmentVM: EquipmentVM
 
 
     
-    var router: AppRouter
+    private let router: AppRouter
 
     // MARK: - Initializer
     
-    init(router: AppRouter,
-         equipmentService: any EquipmentServiceProtocol) {
+    init(router: AppRouter) {
         self.router = router
         self.equipmentService = equipmentService
-        self.equipmentVM = EquipmentVM(equipmentService: equipmentService, router: router)
     }
     
     // MARK: - Internal Methods
@@ -58,16 +56,14 @@ final class TennisVM: ViewModel {
 
     @MainActor
     private func showAddStringForm() {
-        let vm = EquipmentVM(equipmentService: equipmentService,
-                             router: router)
+        let vm = EquipmentVM(router: router)
         let view = AnyView(AddTennisStringFormView(vm: vm))
         router.handle(action: .showHalfSheet(view, detents: [.large]))
     }
     
     @MainActor
     private func showAddRacket() {
-        let vm = EquipmentVM(equipmentService: equipmentService,
-                             router: router)
+        let vm = EquipmentVM(router: router)
         let view = AnyView(AddTennisRacketFormView(vm: vm))
         router.handle(action: .showHalfSheet(view, detents: [.medium]))
     }
@@ -114,7 +110,7 @@ final class TennisVM: ViewModel {
     }
     // MARK: - Private Properties
     
-    public var equipmentService: any EquipmentServiceProtocol
+    @Dependency(\.equipmentService) private var equipmentService
 }
 
 // MARK: - TennisVM Actions

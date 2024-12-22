@@ -1,0 +1,5 @@
+mutation RequestToBeCoach($ofUserId: ObjectID!) {
+  requestToBeCoach(ofUserId: $ofUserId) {
+    ...CoachshipFields
+  }
+}

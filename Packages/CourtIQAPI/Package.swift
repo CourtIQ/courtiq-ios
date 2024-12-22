@@ -9,6 +9,7 @@ let package = Package(
     ],
     products: [
         .library(name: "CourtIQAPI", targets: ["CourtIQAPI"]),
+        .library(name: "GraphQLModels", targets: ["GraphQLModels"]),
         .library(name: "Models", targets: ["Models"])
     ],
     dependencies: [
@@ -17,16 +18,24 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Models",
+            name: "GraphQLModels",
             dependencies: [
               .product(name: "ApolloAPI", package: "apollo-ios")
             ],
             path: "Sources/Generated"
         ),
         .target(
+            name: "Models",
+            dependencies: [
+              "GraphQLModels"
+            ],
+            path: "Sources/Models"
+        ),
+
+        .target(
             name: "CourtIQAPI",
             dependencies: [
-              "Models",
+              "GraphQLModels",
               .product(name: "Apollo", package: "apollo-ios"),
               "AuthenticationService",
             ],

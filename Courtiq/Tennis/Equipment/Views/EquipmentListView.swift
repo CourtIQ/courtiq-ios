@@ -8,26 +8,23 @@
 import SwiftUI
 import RDDesignSystem
 import EquipmentService
+import Models
 
 public struct EquipmentListView: View {
-    
-    init(vm: EquipmentVM) {
-        self.vm = vm
-    }
 
     public var body: some View {
         VStack {
-            if vm.myEquipment.isEmpty {
+            if equipmentStore.myTennisRackets.isEmpty {
                 Text("Empty")
             } else {
                 ScrollView {
                     LazyVStack {
-                        ForEach(vm.myEquipment, id: \.id) { equipment in
+                        ForEach(equipmentStore.myTennisRackets, id: \.id) { racket in
                             EquipmentListCellView(
-                                name: equipment.name,
-                                equipmentType: "\(equipment.type.rawValue)", // Assuming `type` is an enum
-                                brand: equipment is TennisRacket ? (equipment as? TennisRacket)?.brand ?? "Unknown" : "N/A",
-                                model: equipment is TennisRacket ? (equipment as? TennisRacket)?.model ?? "Unknown" : "N/A"
+                                name: racket.name,
+                                equipmentType: racket.type.displayName,
+                                brand: racket.brand,
+                                model: racket.model
                             )
                         }
                     }
@@ -35,7 +32,28 @@ public struct EquipmentListView: View {
             }
         }
     }
+    @EnvironmentObject private var equipmentStore: EquipmentStore
+}
 
-    
-    @ObservedObject private var vm: EquipmentVM
+// MARK: - Mock Data Structure
+
+struct EquipmentListCellData {
+    let name: String
+    let type: String
+    let brand: String?
+    let model: String?
+
+    static func random() -> EquipmentListCellData {
+        let names = ["Pro Staff", "Pure Aero", "Clash", "Ezone", "Vcore"]
+        let types = ["Tennis Racket", "Tennis String"]
+        let brands = ["Wilson", "Babolat", "Yonex", "Head", "Prince"]
+        let models = ["98", "100", "Tour", "Lite", nil]
+
+        return EquipmentListCellData(
+            name: names.randomElement() ?? "Unknown",
+            type: types.randomElement() ?? "Unknown",
+            brand: brands.randomElement(),
+            model: models.randomElement() ?? nil
+        )
+    }
 }

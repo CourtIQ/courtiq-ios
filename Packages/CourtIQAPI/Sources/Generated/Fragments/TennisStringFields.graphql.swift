@@ -6,7 +6,7 @@
 public extension API {
   struct TennisStringFields: API.SelectionSet, Fragment {
     public static var fragmentDefinition: StaticString {
-      #"fragment TennisStringFields on TennisString { __typename id ownerId name type createdAt updatedAt racket brand brandId model modelId tension { __typename mains crosses } stringingDate burstDate }"#
+      #"fragment TennisStringFields on TennisString { __typename id ownerId name type createdAt updatedAt racket brand brandId model modelId tension { __typename mains crosses } stringingDate burstDate visibility }"#
     }
 
     public let __data: DataDict
@@ -29,6 +29,7 @@ public extension API {
       .field("tension", Tension?.self),
       .field("stringingDate", API.DateTime?.self),
       .field("burstDate", API.DateTime?.self),
+      .field("visibility", GraphQLEnum<API.Visibility>?.self),
     ] }
 
     public var id: API.ObjectID { __data["id"] }
@@ -45,6 +46,7 @@ public extension API {
     public var tension: Tension? { __data["tension"] }
     public var stringingDate: API.DateTime? { __data["stringingDate"] }
     public var burstDate: API.DateTime? { __data["burstDate"] }
+    public var visibility: GraphQLEnum<API.Visibility>? { __data["visibility"] }
 
     /// Tension
     ///

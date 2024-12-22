@@ -1,0 +1,7 @@
+# EndFriendship.graphql
+
+mutation EndFriendship($friendshipId: ObjectID!) {
+  endFriendship(friendshipId: $friendshipId) {
+  ...FriendshipFields
+  }
+}

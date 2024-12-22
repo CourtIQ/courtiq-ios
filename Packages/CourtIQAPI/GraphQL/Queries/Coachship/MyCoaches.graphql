@@ -1,0 +1,8 @@
+# MyCoaches.graphql
+# Fetch all coaches of the current user, with optional pagination
+
+query MyCoaches($limit: Int = 10, $offset: Int = 0) {
+  myCoaches(limit: $limit, offset: $offset) {
+    ...CoachshipFields
+  }
+}

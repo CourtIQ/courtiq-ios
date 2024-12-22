@@ -1,0 +1,5 @@
+query MyFriends($limit: Int = 10, $offset: Int = 0) {
+  myFriends(limit: $limit, offset: $offset) {
+    ...FriendshipFields
+  }
+}

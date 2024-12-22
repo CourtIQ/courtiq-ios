@@ -1,0 +1,3 @@
+query FriendshipStatus($otherUserId: ObjectID!) {
+  friendshipStatus(otherUserId: $otherUserId)
+}

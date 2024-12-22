@@ -119,10 +119,8 @@ type Point {
   playedAt: DateTime
 }
 type Query {
-  myTennisRackets(limit: Int = 10, offset: Int = 0): [TennisRacket!]!
   myTennisRacket(id: ObjectID!): TennisRacket
   myStringHistory(racket: ObjectID!): [TennisString!]!
-  myTennisStrings(limit: Int = 10, offset: Int = 0): [TennisString!]!
   myTennisString(id: ObjectID!): TennisString
   myEquipment(limit: Int = 10, offset: Int = 0): [Equipment!]!
   getMatchUp(id: ObjectID!): MatchUp!
@@ -131,7 +129,7 @@ type Query {
   friends(ofUserID: ObjectID!, limit: Int = 10, offset: Int = 0): [Friendship!]!
   myFriendRequests: [Friendship!]!
   sentFriendRequests: [Friendship!]!
-  friendshipStatus(otherUserId: ObjectID!): RelationshipStatus
+  friendshipStatus(otherUserId: ObjectID!): RelationshipStatus!
   coachship(id: ObjectID!): Coachship
   myCoaches(limit: Int = 10, offset: Int = 0): [Coachship!]!
   myStudents(limit: Int = 10, offset: Int = 0): [Coachship!]!
@@ -139,8 +137,8 @@ type Query {
   myCoachRequests: [Coachship!]!
   sentCoachRequests: [Coachship!]!
   sentStudentRequests: [Coachship!]!
-  isStudent(studentId: ObjectID!): RelationshipStatus
-  isCoach(coachId: ObjectID!): RelationshipStatus
+  isStudent(studentId: ObjectID!): RelationshipStatus!
+  isCoach(coachId: ObjectID!): RelationshipStatus!
   me: User
   getUser(id: ObjectID!): User
   isUsernameAvailable(username: String!): Boolean!
@@ -182,6 +180,7 @@ type TennisRacket implements Equipment {
   type: EquipmentType!
   createdAt: DateTime!
   updatedAt: DateTime!
+  visibility: Visibility
   currentStringId: ObjectID
   brand: String
   brandId: Int
@@ -196,6 +195,7 @@ type TennisString implements Equipment {
   type: EquipmentType!
   createdAt: DateTime!
   updatedAt: DateTime!
+  visibility: Visibility
   racket: ObjectID
   brand: String
   brandId: Int
@@ -239,6 +239,7 @@ interface Equipment {
   type: EquipmentType!
   createdAt: DateTime!
   updatedAt: DateTime!
+  visibility: Visibility
 }
 interface Relationship {
   id: ObjectID!
@@ -332,6 +333,7 @@ enum RelationshipStatus {
   PENDING
   "The relationship is active, meaning the request has been accepted and the relationship is established."
   ACTIVE
+  NONE
 }
 "Represents the different types of relationships that can exist between users."
 enum RelationshipType {
@@ -368,6 +370,12 @@ enum TiebreakPoints {
   NINE
   TEN
 }
+enum Visibility {
+  PUBLIC
+  PRIVATE
+  FRIENDS
+  COACHES
+}
 input CreateTennisRacketInput {
   name: String!
   brand: String
@@ -375,6 +383,7 @@ input CreateTennisRacketInput {
   model: String
   modelId: Int
   weight: Float
+  visibility: Visibility
 }
 input CreateTennisStringInput {
   name: String!
@@ -385,6 +394,7 @@ input CreateTennisStringInput {
   tension: StringTensionInput
   stringingDate: DateTime
   burstDate: DateTime
+  visibility: Visibility
 }
 input LocationInput {
   city: String
@@ -421,6 +431,7 @@ input UpdateTennisRacketInput {
   model: String
   modelId: Int
   weight: Float
+  visibility: Visibility
 }
 input UpdateTennisStringInput {
   name: String
@@ -431,6 +442,7 @@ input UpdateTennisStringInput {
   tension: StringTensionInput
   stringingDate: DateTime
   burstDate: DateTime
+  visibility: Visibility
 }
 input UpdateUserInput {
   username: String

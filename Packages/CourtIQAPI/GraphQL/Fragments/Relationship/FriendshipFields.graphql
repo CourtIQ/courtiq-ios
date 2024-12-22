@@ -1,0 +1,11 @@
+# -- FriendshipFields fragment
+fragment FriendshipFields on Friendship {
+  id
+  participants
+  type
+  status
+  createdAt
+  updatedAt
+  senderId
+  receiverId
+}

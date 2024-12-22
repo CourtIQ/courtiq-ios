@@ -15,9 +15,10 @@ struct TennisView: View {
     
     // MARK: - Lifecycle
     
-    public init(showSideMenu: Binding<Bool>, vm: TennisVM) {
+    public init(showSideMenu: Binding<Bool>,
+                vm: TennisVM) {
         self._showSideMenu = showSideMenu
-        self._vm = StateObject(wrappedValue: vm)
+        _vm = StateObject(wrappedValue: vm)
     }
     
     // MARK: - Internal
@@ -28,7 +29,20 @@ struct TennisView: View {
             searchField
             tabControl
         } content: {
-            selectedView
+            switch vm.selectedTab {
+            case 0:
+                TennisAllView()
+            case 1:
+                TennisMatchesListView()
+            case 2:
+                TennisClubsListView()
+            case 3:
+                TennisCoachesListView()
+            case 4:
+                EquipmentListView()
+            default:
+                TennisAllView()
+            }
         }
     }
     
@@ -39,7 +53,6 @@ struct TennisView: View {
     @Binding private var showSideMenu: Bool
     @StateObject private var vm: TennisVM
     @EnvironmentObject private var router: AppRouter
-    @EnvironmentObject private var equipmentService: EquipmentService
 }
 
 // MARK: - Subviews
@@ -120,7 +133,7 @@ private extension TennisView {
     
     var tabControl: some View {
         RDTabControl(
-            selectedTab: $selectedTab,
+            selectedTab: $vm.selectedTab,
             tabControlItems: [
                 TabControlItem(tag: 0, label: "All", icon: Image.Token.Icons.world),
                 TabControlItem(tag: 1, label: "Matches", icon: Image.Token.Icons.world),
@@ -131,21 +144,21 @@ private extension TennisView {
         )
     }
     
-    @ViewBuilder
-    var selectedView: some View {
-        switch vm.selectedTab {
-        case 0:
-            TennisAllView()
-        case 1:
-            TennisMatchesListView()
-        case 2:
-            TennisClubsListView()
-        case 3:
-            TennisCoachesListView()
-        case 4:
-            EquipmentListView(vm: vm.equipmentVM)
-        default:
-            TennisAllView()
-        }
-    }
+//    @ViewBuilder
+//    var selectedView: some View {
+//        switch vm.selectedTab {
+//        case 0:
+//            TennisAllView()
+//        case 1:
+//            TennisMatchesListView()
+//        case 2:
+//            TennisClubsListView()
+//        case 3:
+//            TennisCoachesListView()
+//        case 4:
+//            EquipmentListView(vm: vm.equipmentVM)
+//        default:
+//            TennisAllView()
+//        }
+//    }
 }

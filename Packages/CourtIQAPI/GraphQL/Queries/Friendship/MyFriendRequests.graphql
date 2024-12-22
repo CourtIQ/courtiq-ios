@@ -1,0 +1,5 @@
+query MyFriendRequests {
+  myFriendRequests {
+    ...FriendshipFields
+  }
+}

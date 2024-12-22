@@ -1,0 +1,5 @@
+mutation RemoveCoach($coachshipId: ObjectID!) {
+  removeCoach(coachshipId: $coachshipId) {
+    ...CoachshipFields
+  }
+}

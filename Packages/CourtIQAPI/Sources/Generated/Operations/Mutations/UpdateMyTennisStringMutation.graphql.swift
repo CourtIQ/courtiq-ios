@@ -69,6 +69,7 @@ public extension API {
         public var tension: TennisStringFields.Tension? { __data["tension"] }
         public var stringingDate: API.DateTime? { __data["stringingDate"] }
         public var burstDate: API.DateTime? { __data["burstDate"] }
+        public var visibility: GraphQLEnum<API.Visibility>? { __data["visibility"] }
 
         public struct Fragments: FragmentContainer {
           public let __data: DataDict

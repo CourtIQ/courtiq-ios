@@ -34,11 +34,11 @@ public extension API {
       case "Mutation": return API.Objects.Mutation
       case "User": return API.Objects.User
       case "Location": return API.Objects.Location
+      case "Coachship": return API.Objects.Coachship
+      case "Friendship": return API.Objects.Friendship
       case "TennisString": return API.Objects.TennisString
       case "TennisRacket": return API.Objects.TennisRacket
       case "StringTension": return API.Objects.StringTension
-      case "Friendship": return API.Objects.Friendship
-      case "Coachship": return API.Objects.Coachship
       case "Query": return API.Objects.Query
       default: return nil
       }

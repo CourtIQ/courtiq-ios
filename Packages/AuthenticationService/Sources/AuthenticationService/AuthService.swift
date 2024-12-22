@@ -99,4 +99,8 @@ public class AuthService: AuthServiceProtocol {
     public func setAdditionalInfoProvided() {
         additionalInfoRequired = false
     }
+    
+    public func configureAuthProvider() {
+        authProvider.configureFirebase()
+    }
 }

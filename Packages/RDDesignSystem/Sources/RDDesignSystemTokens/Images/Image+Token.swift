@@ -110,6 +110,9 @@ public extension Image {
             public static var courtIq: Image {
                 Image("court-iq", bundle: .module)
             }
+            public static var write: Image {
+                Image("write", bundle: .module)
+            }
         }
     }
 }
