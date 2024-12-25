@@ -14,19 +14,7 @@ import UserService
 
 struct SignUpView: View {
     
-    // MARK: - Properties
-    
-    @State private var emailStatus: RDTextField.RDTextFieldState = .normal
-    @State private var passwordStatus: RDTextField.RDTextFieldState = .normal
-    @State private var confirmPasswordStatus: RDTextField.RDTextFieldState = .normal
-    @ObservedObject private var vm: AuthenticationVM
-    
-    private var isFormValid: Bool {
-        return true
-        // TODO: Fix the validator for the text field
-    }
-
-    // MARK: - Initializer
+    // MARK: - Internal
     
     init(vm: AuthenticationVM) {
         self.vm = vm
@@ -50,20 +38,17 @@ struct SignUpView: View {
                 RDTextField(textFieldType: .primary,
                             placeholder: "Enter email",
                             leadingIcon: Image.Token.Icons.envelope,
-                            value: $vm.email,
-                            state: $emailStatus)
+                            value: $vm.email)
                 
                 RDTextField(textFieldType: .password,
                             placeholder: "Enter password",
                             leadingIcon: Image.Token.Icons.locked,
-                            value: $vm.password,
-                            state: $passwordStatus)
+                            value: $vm.password)
                 
                 RDTextField(textFieldType: .password,
                             placeholder: "Repeat password",
                             leadingIcon: Image.Token.Icons.locked,
-                            value: $vm.confirmPassword,
-                            state: $confirmPasswordStatus)
+                            value: $vm.confirmPassword)
             }
         } footer: {
             RDButtonView(.small, .ghost, "Login to existing account.") {
@@ -78,4 +63,18 @@ struct SignUpView: View {
         }
         .navigationBarBackButtonHidden()
     }
+    
+    // MARK: - Private
+    
+    private var isFormValid: Bool {
+        return vm.email.isEmpty == false
+        && vm.password.isEmpty == false
+        && vm.confirmPassword.isEmpty == false
+        && vm.password == vm.confirmPassword
+    }
+    
+    @State private var emailStatus: RDTextField.RDTextFieldState = .normal
+    @State private var passwordStatus: RDTextField.RDTextFieldState = .normal
+    @State private var confirmPasswordStatus: RDTextField.RDTextFieldState = .normal
+    @ObservedObject private var vm: AuthenticationVM
 }

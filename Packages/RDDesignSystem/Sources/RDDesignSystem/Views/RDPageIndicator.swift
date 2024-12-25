@@ -13,13 +13,15 @@ import SwiftUI
 public struct RDPageIndicator: View {
     
     var pageCount: Int
+    private let type: RDPageIndicatorType
     @Binding var selectedIndex: Int
-    var bgColor: Color = .black
     
-    public init(pageCount: Int, selectedIndex: Binding<Int>, bgColor: Color = .black) {
+    public init(type: RDPageIndicatorType = .circle,
+                pageCount: Int,
+                selectedIndex: Binding<Int>) {
+        self.type = type
         self.pageCount = pageCount
         self._selectedIndex = selectedIndex
-        self.bgColor = bgColor
     }
     
     public var body: some View {
@@ -30,12 +32,44 @@ public struct RDPageIndicator: View {
                         selectedIndex = index
                     }
                 } label: {
-                    Circle()
-                        .fill(bgColor)
-                        .frame(width: 8, height: 8)
-                        .opacity(selectedIndex == index ? 1 : 0.4)
+                    switch type {
+                    case .circle:
+                        Circle()
+                            .fill(selectedIndex == index
+                                  ? type.selectedIndicatorColor
+                                  : type.indicatorColor)
+                            .frame(width: 8, height: 8)
+                            .opacity(selectedIndex == index ? 1 : 0.4)
+                    case .capsule:
+                        Capsule()
+                            .fill(selectedIndex == index
+                                  ? type.selectedIndicatorColor
+                                  : type.indicatorColor)
+                            .frame(width: 30, height: 8)
+                            .opacity(selectedIndex == index ? 1 : 0.4)
+                    }
+
                 }
             }
+        }
+    }
+}
+
+public enum RDPageIndicatorType {
+    case circle
+    case capsule
+    
+    var indicatorColor: Color {
+        switch self {
+        case .capsule, .circle:
+            Color.TokenColor.Semantic.Icon.secondary
+        }
+    }
+    
+    var selectedIndicatorColor: Color {
+        switch self {
+        case .capsule, .circle:
+            Color.TokenColor.Semantic.Icon.primary
         }
     }
 }

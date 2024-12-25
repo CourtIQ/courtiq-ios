@@ -11,13 +11,14 @@ import PhotosUI
 import CoreLocation
 import GraphQLModels
 import Models
+import LocationService
 
 struct AdditionalInfoView: View {
     
     // MARK: - Lifecycle
     
     public init(vm: AuthenticationVM) {
-        self.vm = vm
+        _vm = StateObject(wrappedValue: vm)
     }
     
     // MARK: - Internal
@@ -122,26 +123,52 @@ struct AdditionalInfoView: View {
                     )
                 }
                 
+                RDTextField(textFieldType: .dropdown,
+                            placeholder: "City",
+                            helperText: "We use this to find tennis courts around you",
+                            leadingIcon: Image.Token.Icons.map,
+                            value: $vm.completeRegistrationInput.city,
+                            dropdownItems: vm.citiesMenuList)
+                .onChange(of: vm.completeRegistrationInput.city) { newValue in
+                    vm.handle(action: .searchForCities(vm.completeRegistrationInput.city))
+                }
+
                 // TODO: Implement city
                 
             }
-            .onAppear() {
-                Task {
-                    await vm.printIDToken()
-                }
-            }
+
 
         } footer: {
-            RDButtonView(.large, .primary, "Create account") {
+            RDButtonView(.large, .primary, "Create account", disable: !isFormValid) {
                 vm.handle(action: .updateAddInfoBtn)
             }
-            
         }
+        .onAppear() {
+            Task {
+                await vm.printIDToken()
+                do {
+                    try await locationManager.requestWhenInUseAuthorization()
+                    let (lat, lng) = try await locationManager.fetchCurrentCoordinate()
+                    let location = try await locationManager.getLocationDetails(latitude: lat, longitude: lng)
+                    vm.completeRegistrationInput.city = (location.city ?? "") + ", " + (location.country ?? "")
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }        }
+    }
+    
+    private var isFormValid: Bool {
+        !vm.completeRegistrationInput.firstName.isEmpty
+        && !vm.completeRegistrationInput.lastName.isEmpty
+        && vm.completeRegistrationInput.gender != nil
+        && !dateString.isEmpty
+        && vm.isUsernameAvailable
+        && !vm.completeRegistrationInput.city.isEmpty
     }
     
     // MARK: - Private
-    
+    @StateObject private var locationManager: CourtIQLocationManager = CourtIQLocationManager()
     @State private var dateString: String = ""
     @State private var genderString: String = ""
-    @ObservedObject private var vm: AuthenticationVM
+    @StateObject private var vm: AuthenticationVM
 }

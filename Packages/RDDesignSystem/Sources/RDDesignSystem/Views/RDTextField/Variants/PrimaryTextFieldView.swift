@@ -27,6 +27,7 @@ struct PrimaryTextFieldView: View {
                 RDIconView(icon: leadingIcon, color: currentState.iconColor)
                 
                 ZStack(alignment: .leading) {
+                    
                     RDPlaceholderView(placeholder: placeholder, isActive: isActive, isDateType: false, state: currentState)
                     
                     TextField("", text: $value, onCommit: onSubmit)
@@ -36,6 +37,7 @@ struct PrimaryTextFieldView: View {
                         .padding(.leading, 4)
                         .offset(y: 7)
                         .focused($focused)
+                        
                 }
                 
                 RDIconView(icon: trailingIcon, color: currentState.iconColor, action: trailingAction)

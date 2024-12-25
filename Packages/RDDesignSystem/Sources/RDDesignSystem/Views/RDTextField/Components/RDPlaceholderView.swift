@@ -22,6 +22,6 @@ struct RDPlaceholderView: View {
             .padding(.leading, 4)
             .offset(y: isActive || isDateType ? -12 : 0)
             .offset(y: isDateType ? -4 : 0)
-            .animation(.default, value: isActive)
+//            .animation(.default, value: isActive)
     }
 }

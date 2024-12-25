@@ -61,13 +61,14 @@ public class AuthService: AuthServiceProtocol {
     public func signIn(email: String, password: String) async throws {
         try await authProvider.signIn(email: email, password: password)
         isUserLoggedIn = true
+        let token = try await getIDToken()
+        print("Token: \(token)")
         // `additionalInfoRequired` remains as is; it can be updated as needed based on backend logic
     }
 
     public func signInWithGoogle() async throws {
         try await authProvider.signInWithGoogle()
         isUserLoggedIn = true
-        // `additionalInfoRequired` can be updated as needed based on backend logic
     }
 
     public func signOut() async throws {

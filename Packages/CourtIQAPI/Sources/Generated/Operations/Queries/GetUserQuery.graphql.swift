@@ -53,12 +53,12 @@ public extension API {
         public var username: String? { __data["username"] }
         public var gender: GraphQLEnum<API.Gender>? { __data["gender"] }
         public var profilePicture: String? { __data["profilePicture"] }
-        public var dateOfBirth: API.Time? { __data["dateOfBirth"] }
+        public var dateOfBirth: API.DateTime? { __data["dateOfBirth"] }
         public var bio: String? { __data["bio"] }
         public var location: UserFields.Location? { __data["location"] }
         public var rating: Int? { __data["rating"] }
-        public var createdAt: API.Time? { __data["createdAt"] }
-        public var lastUpdated: API.Time? { __data["lastUpdated"] }
+        public var createdAt: API.DateTime? { __data["createdAt"] }
+        public var lastUpdated: API.DateTime? { __data["lastUpdated"] }
 
         public struct Fragments: FragmentContainer {
           public let __data: DataDict

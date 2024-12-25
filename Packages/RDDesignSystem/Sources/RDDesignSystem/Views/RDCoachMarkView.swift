@@ -96,7 +96,7 @@ public struct RDCoachMarkView: View {
                     .padding(.bottom, 8)
                 
                 HStack(spacing: 0) {
-                    RDPageIndicator(pageCount: items.count, selectedIndex: $selectedIndex, bgColor: .white)
+//                    RDPageIndicator(pageCount: items.count, selectedIndex: $selectedIndex, bgColor: .white)
                     Spacer()
                     
                     RDButtonView(

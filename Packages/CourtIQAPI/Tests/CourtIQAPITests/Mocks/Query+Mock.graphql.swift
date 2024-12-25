@@ -10,7 +10,6 @@ class Query: MockObject {
   typealias MockValueCollectionType = Array<Mock<Query>>
 
   struct MockFields {
-    @Field<Coachship>("coachship") public var coachship
     @Field<[Friendship]>("friends") public var friends
     @Field<Friendship>("friendship") public var friendship
     @Field<GraphQLEnum<API.RelationshipStatus>>("friendshipStatus") public var friendshipStatus
@@ -37,7 +36,6 @@ class Query: MockObject {
 
 extension Mock where O == Query {
   convenience init(
-    coachship: Mock<Coachship>? = nil,
     friends: [Mock<Friendship>]? = nil,
     friendship: Mock<Friendship>? = nil,
     friendshipStatus: GraphQLEnum<API.RelationshipStatus>? = nil,
@@ -61,7 +59,6 @@ extension Mock where O == Query {
     sentStudentRequests: [Mock<Coachship>]? = nil
   ) {
     self.init()
-    _setEntity(coachship, for: \.coachship)
     _setList(friends, for: \.friends)
     _setEntity(friendship, for: \.friendship)
     _setScalar(friendshipStatus, for: \.friendshipStatus)

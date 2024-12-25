@@ -4,7 +4,6 @@ schema {
 }
 scalar DateTime
 scalar ObjectID
-scalar Time
 type Coachship implements Relationship {
   id: ObjectID!
   participants: [ObjectID!]!
@@ -76,21 +75,21 @@ type Mutation {
   undoShotFromMatchUp(matchUpId: ObjectID!): MatchUp!
   undoPointFromMatchUp(matchUpId: ObjectID!): MatchUp!
   deleteMatchUp(matchUpId: ObjectID!): MatchUp!
-  sendFriendRequest(receiverId: ObjectID!): Friendship!
-  acceptFriendRequest(friendshipId: ObjectID!): Friendship!
-  rejectFriendRequest(friendshipId: ObjectID!): Friendship!
-  cancelFriendRequest(friendshipId: ObjectID!): Friendship!
-  endFriendship(friendshipId: ObjectID!): Friendship!
-  requestToBeStudent(ofUserId: ObjectID!): Coachship!
-  acceptStudentRequest(coachshipId: ObjectID!): Coachship!
-  rejectStudentRequest(coachshipId: ObjectID!): Coachship!
-  cancelRequestToBeStudent(coachshipId: ObjectID!): Coachship!
-  removeStudent(coachshipId: ObjectID!): Coachship!
-  requestToBeCoach(ofUserId: ObjectID!): Coachship!
-  acceptCoachRequest(coachshipId: ObjectID!): Coachship!
-  rejectCoachRequest(coachshipId: ObjectID!): Coachship!
-  cancelCoachRequest(coachshipId: ObjectID!): Coachship!
-  removeCoach(coachshipId: ObjectID!): Coachship!
+  sendFriendRequest(receiverId: ObjectID!): Friendship
+  acceptFriendRequest(friendshipId: ObjectID!): Friendship
+  rejectFriendRequest(friendshipId: ObjectID!): Friendship
+  cancelFriendRequest(friendshipId: ObjectID!): Friendship
+  endFriendship(friendshipId: ObjectID!): Friendship
+  requestToBeStudent(ofUserId: ObjectID!): Coachship
+  acceptStudentRequest(coachshipId: ObjectID!): Coachship
+  rejectStudentRequest(coachshipId: ObjectID!): Coachship
+  cancelRequestToBeStudent(coachshipId: ObjectID!): Coachship
+  removeStudent(coachshipId: ObjectID!): Coachship
+  requestToBeCoach(ofUserId: ObjectID!): Coachship
+  acceptCoachRequest(coachshipId: ObjectID!): Coachship
+  rejectCoachRequest(coachshipId: ObjectID!): Coachship
+  cancelCoachRequest(coachshipId: ObjectID!): Coachship
+  removeCoach(coachshipId: ObjectID!): Coachship
   updateUser(input: UpdateUserInput!): User
 }
 type ParticipantsMap {
@@ -127,18 +126,20 @@ type Query {
   friendship(id: ObjectID!): Friendship
   myFriends(limit: Int = 10, offset: Int = 0): [Friendship!]!
   friends(ofUserID: ObjectID!, limit: Int = 10, offset: Int = 0): [Friendship!]!
-  myFriendRequests: [Friendship!]!
-  sentFriendRequests: [Friendship!]!
+  myFriendRequests(limit: Int = 10, offset: Int = 0): [Friendship!]!
+  sentFriendRequests(limit: Int = 10, offset: Int = 0): [Friendship!]!
   friendshipStatus(otherUserId: ObjectID!): RelationshipStatus!
-  coachship(id: ObjectID!): Coachship
+  coach(id: ObjectID!): Coachship
+  student(id: ObjectID!): Coachship
   myCoaches(limit: Int = 10, offset: Int = 0): [Coachship!]!
   myStudents(limit: Int = 10, offset: Int = 0): [Coachship!]!
-  myStudentRequests: [Coachship!]!
-  myCoachRequests: [Coachship!]!
-  sentCoachRequests: [Coachship!]!
-  sentStudentRequests: [Coachship!]!
+  myStudentRequests(limit: Int = 10, offset: Int = 0): [Coachship!]!
+  myCoachRequests(limit: Int = 10, offset: Int = 0): [Coachship!]!
+  sentCoachRequests(limit: Int = 10, offset: Int = 0): [Coachship!]!
+  sentStudentRequests(limit: Int = 10, offset: Int = 0): [Coachship!]!
   isStudent(studentId: ObjectID!): RelationshipStatus!
   isCoach(coachId: ObjectID!): RelationshipStatus!
+  search(query: String!, resourceTypes: [ResourceType!] = [USER], limit: Int = 10, offset: Int = 0): [SearchResult!]!
   me: User
   getUser(id: ObjectID!): User
   isUsernameAvailable(username: String!): Boolean!
@@ -225,12 +226,18 @@ type User {
   username: String
   gender: Gender
   profilePicture: String
-  dateOfBirth: Time
+  dateOfBirth: DateTime
   bio: String
   location: Location
   rating: Int
-  createdAt: Time
-  lastUpdated: Time
+  createdAt: DateTime
+  lastUpdated: DateTime
+}
+type UserSearchResult {
+  id: ObjectID!
+  username: String!
+  displayName: String
+  profilePicture: String
 }
 interface Equipment {
   id: ObjectID!
@@ -249,6 +256,7 @@ interface Relationship {
   createdAt: DateTime!
   updatedAt: DateTime!
 }
+union SearchResult = UserSearchResult
 enum CourtSide {
   LEFT
   RIGHT
@@ -341,6 +349,9 @@ enum RelationshipType {
   FRIENDSHIP
   "A coaching relationship between a coach and a coachee."
   COACHSHIP
+}
+enum ResourceType {
+  USER
 }
 enum ServeStyle {
   FLAT
@@ -449,7 +460,7 @@ input UpdateUserInput {
   firstName: String
   lastName: String
   gender: Gender
-  dateOfBirth: Time
+  dateOfBirth: DateTime
   bio: String
   location: LocationInput
 }

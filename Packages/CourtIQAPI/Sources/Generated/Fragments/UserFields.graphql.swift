@@ -24,12 +24,12 @@ public extension API {
       .field("username", String?.self),
       .field("gender", GraphQLEnum<API.Gender>?.self),
       .field("profilePicture", String?.self),
-      .field("dateOfBirth", API.Time?.self),
+      .field("dateOfBirth", API.DateTime?.self),
       .field("bio", String?.self),
       .field("location", Location?.self),
       .field("rating", Int?.self),
-      .field("createdAt", API.Time?.self),
-      .field("lastUpdated", API.Time?.self),
+      .field("createdAt", API.DateTime?.self),
+      .field("lastUpdated", API.DateTime?.self),
     ] }
 
     public var id: API.ObjectID { __data["id"] }
@@ -41,12 +41,12 @@ public extension API {
     public var username: String? { __data["username"] }
     public var gender: GraphQLEnum<API.Gender>? { __data["gender"] }
     public var profilePicture: String? { __data["profilePicture"] }
-    public var dateOfBirth: API.Time? { __data["dateOfBirth"] }
+    public var dateOfBirth: API.DateTime? { __data["dateOfBirth"] }
     public var bio: String? { __data["bio"] }
     public var location: Location? { __data["location"] }
     public var rating: Int? { __data["rating"] }
-    public var createdAt: API.Time? { __data["createdAt"] }
-    public var lastUpdated: API.Time? { __data["lastUpdated"] }
+    public var createdAt: API.DateTime? { __data["createdAt"] }
+    public var lastUpdated: API.DateTime? { __data["lastUpdated"] }
 
     /// Location
     ///

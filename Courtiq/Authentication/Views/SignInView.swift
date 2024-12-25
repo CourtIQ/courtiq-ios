@@ -19,12 +19,6 @@ struct SignInView: View {
     init(vm: AuthenticationVM) {
         self.vm = vm
     }
-
-    @ObservedObject private var vm: AuthenticationVM
-    @EnvironmentObject private var router: AppRouter
-    @State private var emailState = RDTextField.RDTextFieldState.normal
-    @State private var passwordState = RDTextField.RDTextFieldState.normal
-    @State private var repeatPasswordState = RDTextField.RDTextFieldState.normal
     
     // MARK: - Body
     
@@ -44,15 +38,16 @@ struct SignInView: View {
                 Image("loginImage")
                     .scaledToFit()
                     .padding(.vertical, 20)
+                // TODO: Update Image
                 
                 RDTextField(textFieldType: .primary,
-                            placeholder: "Enter email",
+                            placeholder: "Email",
                             leadingIcon: Image.Token.Icons.envelope,
                             value: $vm.email,
                             state: $emailState)
                 
                 RDTextField(textFieldType: .password,
-                            placeholder: "Enter password",
+                            placeholder: "Password",
                             leadingIcon: Image.Token.Icons.locked,
                             value: $vm.password,
                             state: $passwordState)
@@ -69,10 +64,20 @@ struct SignInView: View {
             }
             
             RDButtonView(.extraLarge, .primary, "Sign in",
-                         disable: vm.email.isEmpty || vm.password.isEmpty) {
+                         disable: disableSignInBtn) {
                 vm.handle(action: .signInBtn)
             }
         }
         .navigationBarHidden(true)
     }
+    
+    private var disableSignInBtn: Bool {
+        vm.email.isEmpty || vm.password.isEmpty
+    }
+    
+    @ObservedObject private var vm: AuthenticationVM
+    @EnvironmentObject private var router: AppRouter
+    @State private var emailState = RDTextField.RDTextFieldState.normal
+    @State private var passwordState = RDTextField.RDTextFieldState.normal
+    @State private var repeatPasswordState = RDTextField.RDTextFieldState.normal
 }

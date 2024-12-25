@@ -113,6 +113,18 @@ public extension Image {
             public static var write: Image {
                 Image("write", bundle: .module)
             }
+            public static var google: Image {
+                Image("google", bundle: .module)
+            }
+            public static var map: Image {
+                Image("map", bundle: .module)
+            }
+        }
+        
+        public struct Graphics {
+            public static var emptySearchListIcon: Image {
+                Image("search-list-empty", bundle: .module)
+            }
         }
     }
 }

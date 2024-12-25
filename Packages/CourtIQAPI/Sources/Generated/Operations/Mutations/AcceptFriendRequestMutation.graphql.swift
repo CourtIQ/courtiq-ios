@@ -26,10 +26,10 @@ public extension API {
 
       public static var __parentType: ApolloAPI.ParentType { API.Objects.Mutation }
       public static var __selections: [ApolloAPI.Selection] { [
-        .field("acceptFriendRequest", AcceptFriendRequest.self, arguments: ["friendshipId": .variable("friendshipId")]),
+        .field("acceptFriendRequest", AcceptFriendRequest?.self, arguments: ["friendshipId": .variable("friendshipId")]),
       ] }
 
-      public var acceptFriendRequest: AcceptFriendRequest { __data["acceptFriendRequest"] }
+      public var acceptFriendRequest: AcceptFriendRequest? { __data["acceptFriendRequest"] }
 
       /// AcceptFriendRequest
       ///

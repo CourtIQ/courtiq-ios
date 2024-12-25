@@ -11,8 +11,8 @@ class User: MockObject {
 
   struct MockFields {
     @Field<String>("bio") public var bio
-    @Field<API.Time>("createdAt") public var createdAt
-    @Field<API.Time>("dateOfBirth") public var dateOfBirth
+    @Field<API.DateTime>("createdAt") public var createdAt
+    @Field<API.DateTime>("dateOfBirth") public var dateOfBirth
     @Field<String>("displayName") public var displayName
     @Field<String>("email") public var email
     @Field<String>("firebaseId") public var firebaseId
@@ -20,7 +20,7 @@ class User: MockObject {
     @Field<GraphQLEnum<API.Gender>>("gender") public var gender
     @Field<API.ObjectID>("id") public var id
     @Field<String>("lastName") public var lastName
-    @Field<API.Time>("lastUpdated") public var lastUpdated
+    @Field<API.DateTime>("lastUpdated") public var lastUpdated
     @Field<Location>("location") public var location
     @Field<[TennisRacket]>("myTennisRackets") public var myTennisRackets
     @Field<[TennisString]>("myTennisStrings") public var myTennisStrings
@@ -33,8 +33,8 @@ class User: MockObject {
 extension Mock where O == User {
   convenience init(
     bio: String? = nil,
-    createdAt: API.Time? = nil,
-    dateOfBirth: API.Time? = nil,
+    createdAt: API.DateTime? = nil,
+    dateOfBirth: API.DateTime? = nil,
     displayName: String? = nil,
     email: String? = nil,
     firebaseId: String? = nil,
@@ -42,7 +42,7 @@ extension Mock where O == User {
     gender: GraphQLEnum<API.Gender>? = nil,
     id: API.ObjectID? = nil,
     lastName: String? = nil,
-    lastUpdated: API.Time? = nil,
+    lastUpdated: API.DateTime? = nil,
     location: Mock<Location>? = nil,
     myTennisRackets: [Mock<TennisRacket>]? = nil,
     myTennisStrings: [Mock<TennisString>]? = nil,

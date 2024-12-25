@@ -31,7 +31,7 @@ public struct RDScoreCardView: View {
                     Group {
                         VStack(spacing: 8) {
                             HStack {
-                                AvatarImage(size: .extraSmall, url: "https://picsum.photos/200/200")
+                                AvatarImage(size: .extraSmall, url: "")
                                 Text("Pranav Suri")
                                     .rdBody()
                                     .foregroundStyle(Color.TokenColor.Semantic.Text.default)

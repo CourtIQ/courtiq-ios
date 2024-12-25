@@ -16,7 +16,7 @@ public extension API {
       firstName: GraphQLNullable<String> = nil,
       lastName: GraphQLNullable<String> = nil,
       gender: GraphQLNullable<GraphQLEnum<Gender>> = nil,
-      dateOfBirth: GraphQLNullable<Time> = nil,
+      dateOfBirth: GraphQLNullable<DateTime> = nil,
       bio: GraphQLNullable<String> = nil,
       location: GraphQLNullable<LocationInput> = nil
     ) {
@@ -51,7 +51,7 @@ public extension API {
       set { __data["gender"] = newValue }
     }
 
-    public var dateOfBirth: GraphQLNullable<Time> {
+    public var dateOfBirth: GraphQLNullable<DateTime> {
       get { __data["dateOfBirth"] }
       set { __data["dateOfBirth"] = newValue }
     }

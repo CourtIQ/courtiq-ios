@@ -26,10 +26,10 @@ public extension API {
 
       public static var __parentType: ApolloAPI.ParentType { API.Objects.Mutation }
       public static var __selections: [ApolloAPI.Selection] { [
-        .field("rejectStudentRequest", RejectStudentRequest.self, arguments: ["coachshipId": .variable("coachshipId")]),
+        .field("rejectStudentRequest", RejectStudentRequest?.self, arguments: ["coachshipId": .variable("coachshipId")]),
       ] }
 
-      public var rejectStudentRequest: RejectStudentRequest { __data["rejectStudentRequest"] }
+      public var rejectStudentRequest: RejectStudentRequest? { __data["rejectStudentRequest"] }
 
       /// RejectStudentRequest
       ///

@@ -13,6 +13,7 @@ import CourtIQAPI
 import RDDesignSystem
 import SwiftUI
 import SwiftData
+import GoogleSignIn
 
 // MARK: - AppDelegate
 
@@ -22,10 +23,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         FirebaseApp.configure()
-        
+
         UILabel.appearance().textColor = UIColor(Color.TokenColor.Semantic.Text.default)
         
         return true
+    }
+    func application(_ app: UIApplication,
+                     open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance.handle(url)
     }
 }
 
@@ -40,8 +46,8 @@ struct CourtiqApp: App {
     @StateObject var router = AppRouter()
     @StateObject private var userStore = UserStore()
     @StateObject private var equipmentStore: EquipmentStore = EquipmentStore()
-
-
+    
+    
     // MARK: - Initialization
     
     init() {

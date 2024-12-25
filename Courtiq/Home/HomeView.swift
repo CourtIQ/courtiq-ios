@@ -25,7 +25,9 @@ struct HomeView: View {
                 }
             })
         } content: {
-            RDScoreCardView()
+            RDEmptyPlaceholderView(title: "Match in progress.",
+                                   subtitle: "Come back later for more information.",
+                                   image: Image.Token.Graphics.emptySearchListIcon)
         }
     }
 }

@@ -47,23 +47,37 @@ struct SearchView: View {
             .padding(.bottom, 4)
             
         } content: {
-//            VStack {
-//                HitsList(vm.hitsController) { hit, _ in
-//                    SearchListProfileItem(imageUrl: hit?.imageUrls?[.small]?.url,
-//                                   name: hit?.displayName ?? "--", 
-//                                   gender: hit?.gender ?? "--",
-//                                   country: hit?.nationality ?? "--",
-//                                   age: self.calculateAge(from: hit?.dob))
-//                    {
-//                        // TODO: Fix the age that is not being displayed
-//                        vm.handle(action: .userSearchItemTapped(user: hit!))
-//                    }
-//                } noResults: {
-//                    Text("No Results")
-//                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-//                }
-//            }
-            EmptyView()
+            if searchText == "" {
+                RDEmptyPlaceholderView(title: "Ready to serve?",
+                                       subtitle: "Search for tennis buddies or courts \nand start playing!",
+                                       image: Image.Token.Graphics.emptySearchListIcon)
+            } else {
+                List {
+                    ForEach(0...10, id: \.self) { value in
+                        HStack {
+                            AvatarImage(size: .small, url: "https://picsum.photos/200/")
+                            VStack(alignment: .leading) {
+                                Text("Pranav Suri")
+                                    .rdBodyBold()
+                                    .foregroundStyle(Color.TokenColor.Semantic.Text.default)
+                                Text("@pranavsuri4393")
+                                    .rdSmallBody()
+                                    .foregroundStyle(Color.TokenColor.Semantic.Text.primary)
+                            }
+                            Spacer()
+                            RDActionIcon(type: .ghost, size: .large, image: Image.Token.Icons.chevronRight) {
+                                print("User selected")
+                            }
+                        }
+                        .listRowBackground(Color.TokenColor.Semantic.Background.default)
+                        .listRowSpacing(0)
+
+                    }
+                }
+                .listStyle(PlainListStyle())
+                .scrollContentBackground(.hidden)            // iOS 16+
+                .background(Color.TokenColor.Semantic.Background.default)
+            }
         }
     }
     

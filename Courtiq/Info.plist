@@ -4,6 +4,23 @@
 <dict>
 	<key>CFBundleGetInfoString</key>
 	<string></string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.1080781728713-bcfnpeq04kicdbgo2vosppbctlhp4eq7</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+		</dict>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>NunitoSans.ttf</string>
@@ -15,5 +32,7 @@
 		<key>UIImageName</key>
 		<string>court-iq</string>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to help find tennis courts near you.</string>
 </dict>
 </plist>

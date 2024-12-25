@@ -128,6 +128,8 @@ public struct RDButtonView: View {
     var title: String
     var width: CGFloat
     var icon: (leadingIcon: Image, trailingIcon: Image)?
+    private var leadingIcon: Image?
+    private var trailingIcon: Image?
     var disable: Bool
     var action: (() -> ())?
     
@@ -148,6 +150,8 @@ public struct RDButtonView: View {
         _ title: String,
         width: CGFloat = .infinity,
         icon: (leadingIcon: Image, trailingIcon: Image)? = nil,
+        leadingIcon: Image? = nil,
+        trailingIcon: Image? = nil,
         disable: Bool = false,
         action: (() -> Void)? = nil
     ) {
@@ -156,6 +160,8 @@ public struct RDButtonView: View {
         self.title = title
         self.width = width
         self.icon = icon
+        self.leadingIcon = leadingIcon
+        self.trailingIcon = trailingIcon
         self.disable = disable
         self.action = action
     }
@@ -166,7 +172,7 @@ public struct RDButtonView: View {
             action?()
         } label: {
             HStack {
-                if let leadingIcon = icon?.leadingIcon {
+                if let leadingIcon = leadingIcon {
                     leadingIcon
                         .resizable()
                         .foregroundColor(buttonType.iconColor)
@@ -178,7 +184,7 @@ public struct RDButtonView: View {
                     .foregroundColor(buttonType.textColor)
                     .underline(buttonType.underline)
                 
-                if let trailingIcon = icon?.trailingIcon {
+                if let trailingIcon = trailingIcon {
                     trailingIcon
                         .resizable()
                         .foregroundColor(buttonType.iconColor)

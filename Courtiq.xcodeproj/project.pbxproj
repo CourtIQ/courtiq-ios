@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		B503B3AF2D05D3180047310A /* CourtIQAPI in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3AE2D05D3180047310A /* CourtIQAPI */; };
 		B503B3B12D05D3180047310A /* Models in Frameworks */ = {isa = PBXBuildFile; productRef = B503B3B02D05D3180047310A /* Models */; };
-		B503B3B32D08F95B0047310A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B503B3B22D08F95B0047310A /* GoogleService-Info.plist */; };
 		B51ECD5E2D170C1400B0CDED /* UserService in Frameworks */ = {isa = PBXBuildFile; productRef = B51ECD5D2D170C1400B0CDED /* UserService */; };
 		B525A05F2D16ABBD00BC8BAD /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = B525A05E2D16ABB700BC8BAD /* Dependency.swift */; };
 		B543F38F2D12CBE800EFDB90 /* EquipmentService in Frameworks */ = {isa = PBXBuildFile; productRef = B543F38E2D12CBE800EFDB90 /* EquipmentService */; };
@@ -17,6 +16,9 @@
 		B543F3932D12E3A700EFDB90 /* EquipmentListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */; };
 		B543F3972D13F69C00EFDB90 /* AddTennisRacketFormModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F3962D13F69C00EFDB90 /* AddTennisRacketFormModel.swift */; };
 		B543F39F2D143F0F00EFDB90 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B543F39E2D143F0F00EFDB90 /* Launch Screen.storyboard */; };
+		B54A1AC52D1A9D810010F210 /* SearchListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54A1AC42D1A9D810010F210 /* SearchListCellView.swift */; };
+		B54A1AC72D1AFED70010F210 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B54A1AC62D1AFED70010F210 /* GoogleService-Info.plist */; };
+		B54A1ACB2D1B130B0010F210 /* LocationService in Frameworks */ = {isa = PBXBuildFile; productRef = B54A1ACA2D1B130B0010F210 /* LocationService */; };
 		B59FA2CD2D0F20F900C67BB3 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */; };
 		B59FA2D02D1019D400C67BB3 /* TennisMatchesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2CF2D1019D100C67BB3 /* TennisMatchesListView.swift */; };
 		B59FA2D22D1019DD00C67BB3 /* TennisAllView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59FA2D12D1019DD00C67BB3 /* TennisAllView.swift */; };
@@ -117,12 +119,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B503B3B22D08F95B0047310A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B525A05E2D16ABB700BC8BAD /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		B543F3902D12E1FA00EFDB90 /* EquipmentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentVM.swift; sourceTree = "<group>"; };
 		B543F3922D12E3A700EFDB90 /* EquipmentListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentListCellView.swift; sourceTree = "<group>"; };
 		B543F3962D13F69C00EFDB90 /* AddTennisRacketFormModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTennisRacketFormModel.swift; sourceTree = "<group>"; };
 		B543F39E2D143F0F00EFDB90 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		B54A1AC42D1A9D810010F210 /* SearchListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListCellView.swift; sourceTree = "<group>"; };
+		B54A1AC62D1AFED70010F210 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B54A1AC82D1B06520010F210 /* LocationService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = LocationService; sourceTree = "<group>"; };
+		B54A1ACC2D1C5E160010F210 /* SearchService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = SearchService; sourceTree = "<group>"; };
 		B59FA2C92D0CC75E00C67BB3 /* EquipmentService */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = EquipmentService; sourceTree = "<group>"; };
 		B59FA2CB2D0F20F500C67BB3 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		B59FA2CF2D1019D100C67BB3 /* TennisMatchesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisMatchesListView.swift; sourceTree = "<group>"; };
@@ -221,6 +226,7 @@
 				C067FEC32C5B11210089C7E9 /* AuthenticationService in Frameworks */,
 				C067FEBD2C5B10B80089C7E9 /* RDDesignSystem in Frameworks */,
 				C0BA4EDB2C5C39D100C6F3F6 /* MatchUpService in Frameworks */,
+				B54A1ACB2D1B130B0010F210 /* LocationService in Frameworks */,
 				B543F38F2D12CBE800EFDB90 /* EquipmentService in Frameworks */,
 				B503B3B12D05D3180047310A /* Models in Frameworks */,
 				B503B3AF2D05D3180047310A /* CourtIQAPI in Frameworks */,
@@ -407,7 +413,7 @@
 				C062D2C22C3BEB4200ABF5A8 /* Tennis */,
 				C0F4A4FC2C1E80F0006B204C /* Info.plist */,
 				C060AF362C1974D200D160A5 /* Assets.xcassets */,
-				B503B3B22D08F95B0047310A /* GoogleService-Info.plist */,
+				B54A1AC62D1AFED70010F210 /* GoogleService-Info.plist */,
 				C067FEB02C5AF37A0089C7E9 /* NunitoSans.ttf */,
 				C060AF382C1974D200D160A5 /* Courtiq.entitlements */,
 				C060AF392C1974D200D160A5 /* Preview Content */,
@@ -444,6 +450,8 @@
 		C060AF5D2C19752F00D160A5 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				B54A1ACC2D1C5E160010F210 /* SearchService */,
+				B54A1AC82D1B06520010F210 /* LocationService */,
 				C0495D7D2C1E430400E6D023 /* AuthenticationService */,
 				B5B116F02D05D0C10080D123 /* CourtIQAPI */,
 				C0B0C6FF2C61A07D00D56577 /* DataService */,
@@ -472,6 +480,7 @@
 				C0C9FBB22C65793100E913DD /* SearchListProfileItem.swift */,
 				C0C9FBB62C65BBEE00E913DD /* SearchVM.swift */,
 				C01BFC0A2C6A0BDC00184E1B /* SearchProfileDetailView.swift */,
+				B54A1AC42D1A9D810010F210 /* SearchListCellView.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -613,6 +622,7 @@
 				B59FA2E82D12350600C67BB3 /* EquipmentService */,
 				B543F38E2D12CBE800EFDB90 /* EquipmentService */,
 				B51ECD5D2D170C1400B0CDED /* UserService */,
+				B54A1ACA2D1B130B0010F210 /* LocationService */,
 			);
 			productName = Courtiq;
 			productReference = C060AF2D2C1974D100D160A5 /* Courtiq.app */;
@@ -693,6 +703,7 @@
 				C0B0C6FC2C61A03300D56577 /* XCLocalSwiftPackageReference "Packages/DataService" */,
 				B543F38D2D12CBE800EFDB90 /* XCLocalSwiftPackageReference "Packages/EquipmentService" */,
 				B51ECD5C2D170C1400B0CDED /* XCLocalSwiftPackageReference "Packages/UserService" */,
+				B54A1AC92D1B130B0010F210 /* XCLocalSwiftPackageReference "Packages/LocationService" */,
 			);
 			productRefGroup = C060AF2E2C1974D100D160A5 /* Products */;
 			projectDirPath = "";
@@ -712,9 +723,9 @@
 			files = (
 				B543F39F2D143F0F00EFDB90 /* Launch Screen.storyboard in Resources */,
 				C05FC2A72C662CFF00818A49 /* RDDesignSystem in Resources */,
+				B54A1AC72D1AFED70010F210 /* GoogleService-Info.plist in Resources */,
 				C067FEB12C5AF45A0089C7E9 /* NunitoSans.ttf in Resources */,
 				C060AF3B2C1974D200D160A5 /* Preview Assets.xcassets in Resources */,
-				B503B3B32D08F95B0047310A /* GoogleService-Info.plist in Resources */,
 				C060AF372C1974D200D160A5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -807,6 +818,7 @@
 				B543F3932D12E3A700EFDB90 /* EquipmentListCellView.swift in Sources */,
 				C060AF312C1974D100D160A5 /* CourtiqApp.swift in Sources */,
 				C0DA7F202C640CE5005966C1 /* SettingsView.swift in Sources */,
+				B54A1AC52D1A9D810010F210 /* SearchListCellView.swift in Sources */,
 				C0495D9A2C1E5C3A00E6D023 /* MarqueeView.swift in Sources */,
 				C0C9FBBC2C65EB9700E913DD /* ActionItemRowView.swift in Sources */,
 				C09138272C64AB0F00598535 /* XelaLineChartBody.swift in Sources */,
@@ -1204,6 +1216,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/EquipmentService;
 		};
+		B54A1AC92D1B130B0010F210 /* XCLocalSwiftPackageReference "Packages/LocationService" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/LocationService;
+		};
 		C0495D7E2C1E45A100E6D023 /* XCLocalSwiftPackageReference "Packages/AuthenticationService" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/AuthenticationService;
@@ -1238,6 +1254,10 @@
 		B543F38E2D12CBE800EFDB90 /* EquipmentService */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = EquipmentService;
+		};
+		B54A1ACA2D1B130B0010F210 /* LocationService */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = LocationService;
 		};
 		B59FA2E82D12350600C67BB3 /* EquipmentService */ = {
 			isa = XCSwiftPackageProductDependency;

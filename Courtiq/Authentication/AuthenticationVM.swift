@@ -13,6 +13,7 @@ import RDDesignSystem
 import StorageService
 import SwiftUI
 import UserService
+import LocationService
 
 // MARK: - AuthenticationVM
 
@@ -27,6 +28,9 @@ final class AuthenticationVM: ViewModel {
     // MARK: - Properties
 
     private let storageService: any StorageServiceProtocol
+    private let locationManager = CourtIQLocationManager()
+    private let googlePlaces = GooglePlacesService()
+    
     let router: AppRouter
 
     // MARK: - Published Properties
@@ -46,6 +50,8 @@ final class AuthenticationVM: ViewModel {
     @Published var isUsernameAvailable: Bool = false
     @Published var isUsernameAvailableText: String? = nil
     @Published var completeRegistrationInput = CompleteUserRegistrationFormModel()
+    
+    @Published var citiesMenuList: [DropdownItem] = []
 
     // MARK: - Computed Properties
 
@@ -72,7 +78,7 @@ final class AuthenticationVM: ViewModel {
     // MARK: - View Events
 
     func onAppear() {
-        // Implement any onAppear logic here
+
     }
 
     func onDisappear() {
@@ -96,6 +102,10 @@ final class AuthenticationVM: ViewModel {
             if authService.isUserLoggedIn && authService.additionalInfoRequired {
                 let view = AnyView(AdditionalInfoView(vm: self))
                 router.handle(action: .push(view))
+            }
+        case .continueWithGoogleBtn:
+            Task {
+                await signInWithGoogle()
             }
         case .signInBtn:
             Task {
@@ -121,6 +131,8 @@ final class AuthenticationVM: ViewModel {
             router.handle(action: .push(view))
         case .usernameValueChanged(let username):
             handleUsernameChanged(username)
+        case .searchForCities(let city):
+            searchForCities(city)
         }
     }
 
@@ -185,6 +197,21 @@ final class AuthenticationVM: ViewModel {
         // Implement logic to fetch and update current user by userID
         print("fetchCurrentUserAndUpdate")
     }
+    
+    private func signInWithGoogle() async {
+        router.handle(action: .isLoading)
+        do {
+            let user = try await authService.signInWithGoogle()
+            await MainActor.run {
+                router.handle(action: .stopLoading)
+                self.handle(action: .goToAddInfo)
+            }
+        } catch {
+            print("\(error.localizedDescription)")
+            router.handle(action: .stopLoading)
+
+        }
+    }
 
     private func updateAdditionalInfo() async {
         router.handle(action: .isLoading)
@@ -199,6 +226,7 @@ final class AuthenticationVM: ViewModel {
             print("Error updating document: \(error.localizedDescription)")
         }
     }
+    
 
     private func handleUsernameChanged(_ username: String) {
         Task {
@@ -230,6 +258,36 @@ final class AuthenticationVM: ViewModel {
     private func showAddInfo() {
         // Implement show add info logic
     }
+    
+    private func searchForCities(_ query: String) {
+        guard query.count >= 1 else {
+            citiesMenuList = []
+            return
+        }
+        Task {
+            do {
+                let (lat, lng) = try await locationManager.fetchCurrentCoordinate()
+                let radius = 50000
+                
+                let autocompleteResults = try await googlePlaces.autocompleteCities(
+                    query: query,
+                    coordinate: (lat, lng),
+                    radius: radius
+                )
+                let dropdownItems = autocompleteResults.map { result in
+                    DropdownItem(
+                        image: Image.Token.Icons.map,
+                        title: "\(result.primaryText), \(result.secondaryText)"
+                    )
+                }
+                self.citiesMenuList = dropdownItems
+            } catch {
+                print("Error searching for cities: \(error)")
+
+            }
+        }
+        
+    }
 }
 
 // MARK: - AuthenticationVM.Actions
@@ -240,6 +298,7 @@ extension AuthenticationVM {
         case goToSignUp
         case goToFrgtPswd
         case goToAddInfo
+        case continueWithGoogleBtn
         case signInBtn
         case signUpBtn
         case updateAddInfoBtn
@@ -247,5 +306,6 @@ extension AuthenticationVM {
         case signInFromSignUp
         case signUpFromSignIn
         case usernameValueChanged(String)
+        case searchForCities(String)
     }
 }
